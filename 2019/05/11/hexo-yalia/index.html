@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+  <meta name="description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cnp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="epochong">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/hexo-yalia/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cnp">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-06T12:47:39.821Z">
+<meta property="og:updated_time" content="2019-05-11T15:22:54.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="epochong">
+<meta name="twitter:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cnp">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -151,27 +154,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hexo-yalia" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      first blog
-    </h1>
-  
-
-        
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><h6 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h6><p> 由于使用国外镜像会很慢</p>
+<blockquote>
+<p>可用 get 命令查看 registry</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm congfig get registry</span><br></pre></td></tr></table></figure>
+<p>原版结果为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://registry.npmjs.org</span><br></pre></td></tr></table></figure>
+<p>用 set 命令换成阿里的镜像就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>然后使用(以后的直接将npm换成cnpm下载就会很快)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>我的15.29s就安装完成了，如果使用国外镜像，反正我等了很长时间还是没有下载完</p>
+<h6 id="当然你想使用国外镜像也行"><a href="#当然你想使用国外镜像也行" class="headerlink" title="当然你想使用国外镜像也行"></a>当然你想使用国外镜像也行</h6><p>直接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h5 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h5><h6 id="先建一个blog文件夹"><a href="#先建一个blog文件夹" class="headerlink" title="先建一个blog文件夹"></a>先建一个blog文件夹</h6><p>所有hexo操作都在这里面进行</p>
+<h6 id="然后命令行进入blog文件夹下"><a href="#然后命令行进入blog文件夹下" class="headerlink" title="然后命令行进入blog文件夹下"></a>然后命令行进入blog文件夹下</h6><h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h6 id="启动命令-预览"><a href="#启动命令-预览" class="headerlink" title="启动命令(预览)"></a>启动命令(预览)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">hexo start</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>这一步下来就可以看到自己博客地址了，输入到浏览器就可以查看预生成的博客</p>
+<h6 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;first bolg&quot;</span><br></pre></td></tr></table></figure>
+<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clear</span><br></pre></td></tr></table></figure>
+<h6 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">g(general)</span><br></pre></td></tr></table></figure>
+<p>然后新建的博客就被归档</p>
+<h5 id="将博客部署到远端-GitHub"><a href="#将博客部署到远端-GitHub" class="headerlink" title="将博客部署到远端(GitHub)"></a>将博客部署到远端(GitHub)</h5><h6 id="打开GitHub新建一个仓库"><a href="#打开GitHub新建一个仓库" class="headerlink" title="打开GitHub新建一个仓库"></a>打开GitHub新建一个仓库</h6><p>仓库命名必须是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的github用户名.github.io</span><br></pre></td></tr></table></figure>
+<p>==如果不是这个命名，在最后执行hexo d将博客部署到github上输入网址时会出现404==</p>
+<p>后期直接在浏览器输入地址就可以访问</p>
+<h6 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo -deployer-git</span><br></pre></td></tr></table></figure>
+<p>不用理会WARNING</p>
+<h6 id="设置-config-yml相关内容"><a href="#设置-config-yml相关内容" class="headerlink" title="设置_config.yml相关内容"></a>设置_config.yml相关内容</h6><p>使用windows命令行命令打开该文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start _confing.yml</span><br></pre></td></tr></table></figure>
+<p>然后在文件末尾添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Valentineone/epochong.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h6 id="部署到仓库"><a href="#部署到仓库" class="headerlink" title="部署到仓库"></a>部署到仓库</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>这个时候cmd窗口底部会出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:epochong/epochong.github.io.git&apos;.</span><br></pre></td></tr></table></figure>
+<p>说明已经部署成功</p>
+<h6 id="访问自己的博客"><a href="#访问自己的博客" class="headerlink" title="访问自己的博客"></a>访问自己的博客</h6><p>在网站中输入你刚才建的仓库的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourusername.github.io</span><br></pre></td></tr></table></figure>
+<p>即可访问你的博客<br>==如果此时出现网页访问404问题==<br>是因为你新建的仓库名不是你的github账号的用户名</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><ul>
+<li>一种是修改github的username名称和你新建的存储库.github前的名称相同</li>
+<li>一种是重新建立一个 你的github账号username.github.io</li>
+</ul>
+<p>两种方法完成后重新执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>刷新网页就能看到你建的博客了</p>
+<h5 id="设置喜欢的主题"><a href="#设置喜欢的主题" class="headerlink" title="设置喜欢的主题"></a>设置喜欢的主题</h5><p>在下面的网站上clone到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/litten/hexo-theme-yilia</span><br></pre></td></tr></table></figure></p>
+<h6 id="命令行clone"><a href="#命令行clone" class="headerlink" title="命令行clone"></a>命令行clone</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+<p>克隆到本地themes文件夹下</p>
+<h6 id="修改-config-yml中theme参数"><a href="#修改-config-yml中theme参数" class="headerlink" title="修改_config.yml中theme参数"></a>修改_config.yml中theme参数</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+<h6 id="清理生成加打开服务"><a href="#清理生成加打开服务" class="headerlink" title="清理生成加打开服务"></a>清理生成加打开服务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>这个时候4000的地址的博客已经换了主题</p>
+<h6 id="推到远端"><a href="#推到远端" class="headerlink" title="推到远端"></a>推到远端</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h6 id="刷新你的博客"><a href="#刷新你的博客" class="headerlink" title="刷新你的博客"></a>刷新你的博客</h6><p>主题设置完成</p>
+
       
 
       
@@ -250,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/11/hexo-yalia/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/05/06/first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">first blog</div>
       <i class="icon-circle-right"></i>
     </a>
   
