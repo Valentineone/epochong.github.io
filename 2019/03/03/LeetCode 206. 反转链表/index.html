@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>LeetCode 206. 反转链表 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="杂记">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090434  题目描述 1234反转一个单链表。示例:输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL   思路 12345设置一个之前节点pre用来指向每次反转的">
+<meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+<meta property="og:title" content="LeetCode 206. 反转链表">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode 206. 反转链表/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090434  题目描述 1234反转一个单链表。示例:输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL   思路 12345设置一个之前节点pre用来指向每次反转的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:32:14.379Z">
+<meta property="og:updated_time" content="2019-05-14T04:17:53.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="LeetCode 206. 反转链表">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090434  题目描述 1234反转一个单链表。示例:输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL输出: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL   思路 12345设置一个之前节点pre用来指向每次反转的">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -152,27 +155,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LeetCode 206. 反转链表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      first blog
+      LeetCode 206. 反转链表
     </h1>
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+        <a href="/2019/03/03/LeetCode 206. 反转链表/" class="archive-article-date">
+  	<time datetime="2019-03-03T09:03:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88090434" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88090434</a><br>  <strong>题目描述</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">反转一个单链表。</span><br><span class="line">示例:</span><br><span class="line">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</span><br></pre></td></tr></table></figure>
+<hr>
+<p> <strong>思路</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">设置一个之前节点pre用来指向每次反转的头结点</span><br><span class="line">设置一个下一个节点next 用来保存下一个节点保证可以找到之后的节点</span><br><span class="line">head节点每走一步反转一次</span><br><span class="line">当走到尾部的时候，反转结束</span><br><span class="line">返回pre即可</span><br></pre></td></tr></table></figure>
+<p> <strong>实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre = null;</span><br><span class="line">		ListNode next = null;</span><br><span class="line">		while (head != null) &#123;</span><br><span class="line">			next = head.next;</span><br><span class="line">			head.next = pre;</span><br><span class="line">			pre = head;</span><br><span class="line">			head = next;</span><br><span class="line">		&#125;</span><br><span class="line">		return pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>小结</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">能用几行代码实现这个功能无疑是强大的</span><br></pre></td></tr></table></figure>
+<p> 欢迎加我QQ：1939765238一起讨论算法</p>
+
       
 
       
@@ -216,7 +229,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSDN迁移</a>
         		</li>
       		
 		</ul>
@@ -272,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/03/LeetCode 206. 反转链表/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +299,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/09/给定两个正整数，求它们的最大公约数。/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建个人博客
+          给定两个正整数，求它们的最大公约数。
         
       </div>
     </a>
   
   
-    <a href="/2019/05/03/计蒜客 队列 敲7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计蒜客 队列 敲7</div>
+    <a href="/2019/03/03/LeetCode 876. 链表的中间结点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LeetCode 876. 链表的中间结点</div>
       <i class="icon-circle-right"></i>
     </a>
   

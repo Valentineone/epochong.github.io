@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>Study：忽略大小写比较字符串 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="杂记">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 201">
+<meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+<meta property="og:title" content="Study：忽略大小写比较字符串">
+<meta property="og:url" content="http://yoursite.com/2019/05/03/Study：忽略大小写比较字符串/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 201">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:32:14.379Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019050310184537.png">
+<meta property="og:updated_time" content="2019-05-14T04:17:47.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="Study：忽略大小写比较字符串">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 201">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019050310184537.png">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -152,27 +157,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Study：忽略大小写比较字符串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      first blog
+      Study：忽略大小写比较字符串
     </h1>
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+        <a href="/2019/05/03/Study：忽略大小写比较字符串/" class="archive-article-date">
+  	<time datetime="2019-05-03T02:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785334" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785334</a><br>  有时候我们需要忽略大小写比较两个字符串是否相等<br> 使用String类中的函数<br> <strong>样例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package www.wangchong.study;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 10:15</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class IgnoreUpperLowerCase &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String a = &quot;ABC&quot;;</span><br><span class="line">        String b = &quot;abc&quot;;</span><br><span class="line">        System.out.println(a.equalsIgnoreCase(b));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>输出</strong><br> <img src="https://img-blog.csdnimg.cn/2019050310184537.png" alt="在这里插入图片描述"></p>
+
       
 
       
@@ -216,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSDN迁移</a>
         		</li>
       		
 		</ul>
@@ -272,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/03/Study：忽略大小写比较字符串/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +294,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/03/计蒜客 集合 蒜头学英语/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建个人博客
+          计蒜客 集合 蒜头学英语
         
       </div>
     </a>
   
   
-    <a href="/2019/05/03/计蒜客 队列 敲7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计蒜客 队列 敲7</div>
+    <a href="/2019/05/03/计蒜客 集合 计算集合的并/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计蒜客 集合 计算集合的并</div>
       <i class="icon-circle-right"></i>
     </a>
   

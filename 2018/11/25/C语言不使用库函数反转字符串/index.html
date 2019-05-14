@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>C语言不使用库函数反转字符串 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="杂记">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/84485725  给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt">
+<meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+<meta property="og:title" content="C语言不使用库函数反转字符串">
+<meta property="og:url" content="http://yoursite.com/2018/11/25/C语言不使用库函数反转字符串/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/84485725  给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:32:14.379Z">
+<meta property="og:updated_time" content="2019-05-14T04:17:56.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="C语言不使用库函数反转字符串">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/84485725  给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -152,27 +155,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C语言不使用库函数反转字符串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      first blog
+      C语言不使用库函数反转字符串
     </h1>
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+        <a href="/2018/11/25/C语言不使用库函数反转字符串/" class="archive-article-date">
+  	<time datetime="2018-11-25T05:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/84485725" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/84485725</a><br>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	int count = 0;</span><br><span class="line">	char stu[] = &#123; &quot;student a am i&quot; &#125;;</span><br><span class="line">	char* star = stu;</span><br><span class="line">	while (*star++)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	star = stu;</span><br><span class="line">	char* end = stu + count - 1;</span><br><span class="line">	for (i = 0; star &lt; end; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		char temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%s&quot;, stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -216,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSDN迁移</a>
         		</li>
       		
 		</ul>
@@ -272,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/25/C语言不使用库函数反转字符串/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +291,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/25/C语言实现（小米面试题）给定一个句子（只包含字母,空格，逗号和句号）， 将句子中的单词位置反转，符号不变。（使用指针）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建个人博客
+          C语言实现（小米面试题）给定一个句子（只包含字母,空格，逗号和句号）， 将句子中的单词位置反转，符号不变。（使用指针）
         
       </div>
     </a>
   
   
-    <a href="/2019/05/03/计蒜客 队列 敲7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计蒜客 队列 敲7</div>
+    <a href="/2018/11/01/我的第一篇博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客</div>
       <i class="icon-circle-right"></i>
     </a>
   

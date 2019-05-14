@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>LeetCode 203. 移除链表元素 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="杂记">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88087417  题目一描述 1234删除链表中等于给定值 val 的所有节点。示例:输入: 1-&amp;gt;2-&amp;gt;6-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6, val = 6输出: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5  Java实现 12345">
+<meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+<meta property="og:title" content="LeetCode 203. 移除链表元素">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode 203. 移除链表元素/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88087417  题目一描述 1234删除链表中等于给定值 val 的所有节点。示例:输入: 1-&amp;gt;2-&amp;gt;6-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6, val = 6输出: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5  Java实现 12345">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:32:14.379Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190303133727642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-05-14T04:17:55.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="LeetCode 203. 移除链表元素">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88087417  题目一描述 1234删除链表中等于给定值 val 的所有节点。示例:输入: 1-&amp;gt;2-&amp;gt;6-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6, val = 6输出: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5  Java实现 12345">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190303133727642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -152,27 +157,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LeetCode 203. 移除链表元素" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      first blog
+      LeetCode 203. 移除链表元素
     </h1>
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+        <a href="/2019/03/03/LeetCode 203. 移除链表元素/" class="archive-article-date">
+  	<time datetime="2019-03-03T05:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88087417" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88087417</a><br>  <strong>题目一描述</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">删除链表中等于给定值 val 的所有节点。</span><br><span class="line">示例:</span><br><span class="line">输入: 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6</span><br><span class="line">输出: 1-&gt;2-&gt;3-&gt;4-&gt;5</span><br></pre></td></tr></table></figure>
+<p> Java实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">   public ListNode removeElements(ListNode head, int val) &#123;</span><br><span class="line">        ListNode pre = head;</span><br><span class="line">        ListNode deNode;</span><br><span class="line">        for (ListNode cur = head; cur != null;) &#123;</span><br><span class="line">            if (cur.val == val &amp;&amp; cur == head) &#123;</span><br><span class="line">                head = head.next;</span><br><span class="line">                if (head == null) &#123;</span><br><span class="line">                    deNode = cur;</span><br><span class="line">                    cur = head;</span><br><span class="line">                    deNode = null;</span><br><span class="line">                   </span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    deNode = cur;</span><br><span class="line">                    cur = head;</span><br><span class="line">                    deNode = null;</span><br><span class="line">                    pre = head;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (cur.val == val) &#123;</span><br><span class="line">                pre.next = cur.next;</span><br><span class="line">                cur = pre.next;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                pre = cur;</span><br><span class="line">                cur = pre.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>运行结果</strong><br> <img src="https://img-blog.csdnimg.cn/20190303133727642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <strong>总结</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">消耗内存好像有点多，才击败了0.88%的用户，代码还有需要改进的地方，请各位大佬指正啊</span><br><span class="line">后面可能会有更新这个题目，优化一下算法</span><br><span class="line">可能原因：使用太多的变量</span><br></pre></td></tr></table></figure>
+<p> 本人QQ：1939765238 欢迎一起学习的同学来讨论</p>
+
       
 
       
@@ -216,7 +228,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSDN迁移</a>
         		</li>
       		
 		</ul>
@@ -272,7 +284,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/03/LeetCode 203. 移除链表元素/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +298,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/牛客刷题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建个人博客
+          牛客刷题
         
       </div>
     </a>
   
   
-    <a href="/2019/05/03/计蒜客 队列 敲7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计蒜客 队列 敲7</div>
+    <a href="/2019/03/02/三天打鱼两天晒网/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三天打鱼两天晒网</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first blog | epochong</title>
+  <title>计蒜客 栈 左右括号匹配并输出对应位置 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="杂记">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89788711  1时间限制1000ms   空间限制131072K  蒜头君在纸上写了一个串，只包含’(’ 和’)’。一个’(’ 能唯一匹配一个’)’，但是一个匹配的’(’ 必须出现在’)’ 之前。请判断蒜头君写的字符串能否括号完全匹配，如果能，输出配对的括号的位置（匹">
+<meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2019/05/06/first-blog/index.html">
+<meta property="og:title" content="计蒜客 栈 左右括号匹配并输出对应位置">
+<meta property="og:url" content="http://yoursite.com/2019/05/03/计蒜客 栈 左右括号匹配并输出对应位置/index.html">
 <meta property="og:site_name" content="epochong">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89788711  1时间限制1000ms   空间限制131072K  蒜头君在纸上写了一个串，只包含’(’ 和’)’。一个’(’ 能唯一匹配一个’)’，但是一个匹配的’(’ 必须出现在’)’ 之前。请判断蒜头君写的字符串能否括号完全匹配，如果能，输出配对的括号的位置（匹">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:32:14.379Z">
+<meta property="og:updated_time" content="2019-05-14T04:17:45.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
+<meta name="twitter:title" content="计蒜客 栈 左右括号匹配并输出对应位置">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89788711  1时间限制1000ms   空间限制131072K  蒜头君在纸上写了一个串，只包含’(’ 和’)’。一个’(’ 能唯一匹配一个’)’，但是一个匹配的’(’ 必须出现在’)’ 之前。请判断蒜头君写的字符串能否括号完全匹配，如果能，输出配对的括号的位置（匹">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -152,27 +155,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计蒜客 栈 左右括号匹配并输出对应位置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      first blog
+      计蒜客 栈 左右括号匹配并输出对应位置
     </h1>
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
-  	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+        <a href="/2019/05/03/计蒜客 栈 左右括号匹配并输出对应位置/" class="archive-article-date">
+  	<time datetime="2019-05-03T08:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788711" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788711</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+<p> 蒜头君在纸上写了一个串，只包含’(’ 和’)’。一个’(’ 能唯一匹配一个’)’，但是一个匹配的’(’ 必须出现在’)’ 之前。请判断蒜头君写的字符串能否括号完全匹配，如果能，输出配对的括号的位置（匹配的括号不可以交叉，只能嵌套）。</p>
+<p> <strong>输入格式</strong><br> 一行输入一个字符串只含有’(’ 和’)’，输入的字符串长度不大于 5000050000。</p>
+<p> <strong>输出格式</strong><br> 如果输入括号不能匹配，输出一行 “No”，否则输出一行 “Yes”，接下来若干行每行输出 22 个整数，用空格隔开，表示所有匹配对的括号的位置（下标从 11 开始）。你可以按照任意顺序输出。</p>
+<p> 本题答案不唯一，符合要求的答案均正确</p>
+<p> <strong>样例输入 1</strong><br> (())<br> <strong>样例输出 1</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br></pre></td></tr></table></figure>
+<p> <strong>样例输入 2</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">()()</span><br></pre></td></tr></table></figure>
+<p> <strong>样例输出 2</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure>
+<p> <strong>实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 15:53</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_07_KouHao &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String str = input.nextLine();</span><br><span class="line">        Stack&lt;Character&gt; stackLeft = new Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;Integer&gt; stackIndex = new Stack&lt;&gt;();</span><br><span class="line">        HashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        int i = 0;</span><br><span class="line">        for (i = 0; i &lt; str.length(); i++) &#123;</span><br><span class="line">            if (str.charAt(i) == &apos;)&apos;) &#123;</span><br><span class="line">                if (!stackLeft.isEmpty()) &#123;</span><br><span class="line">                    stackLeft.pop();</span><br><span class="line">                    map.put(stackIndex.pop(),i + 1);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                stackLeft.push(str.charAt(i));</span><br><span class="line">                stackIndex.push(i + 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (stackLeft.isEmpty() &amp;&amp; i == str.length() ) &#123;</span><br><span class="line">            System.out.println(&quot;Yes&quot;);</span><br><span class="line">            for (HashMap.Entry entry : map.entrySet()</span><br><span class="line">                 ) &#123;</span><br><span class="line">                System.out.println(entry.getKey() + &quot; &quot; +  entry.getValue());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;No&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -216,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSDN迁移</a>
         		</li>
       		
 		</ul>
@@ -272,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/first-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/03/计蒜客 栈 左右括号匹配并输出对应位置/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +302,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/11/hexo-yalia/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/03/计蒜客 栈 网页跳转/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建个人博客
+          计蒜客 栈 网页跳转
         
       </div>
     </a>
   
   
-    <a href="/2019/05/03/计蒜客 队列 敲7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计蒜客 队列 敲7</div>
+    <a href="/2019/05/03/计蒜客 集合之TreeMap 水果店/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计蒜客 集合之TreeMap 水果店</div>
       <i class="icon-circle-right"></i>
     </a>
   
