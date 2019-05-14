@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>模拟图灵机 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R1">
+  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R">
 <meta name="keywords" content="CSDN迁移">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟图灵机">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/模拟图灵机/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R1">
+<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T04:17:51.237Z">
+<meta property="og:updated_time" content="2019-05-14T06:56:32.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟图灵机">
-<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R1">
+<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -175,7 +175,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88626808" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88626808</a><br>  <strong>题目分析</strong></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88626808" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88626808</a><br>  <strong>题目分析</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作</span><br><span class="line">0  0   →  0   0R</span><br><span class="line">0  1   →  1   0R</span><br><span class="line">1  0   →  0   1R</span><br><span class="line">1  1   →  10  0R</span><br><span class="line">10  0  →  11  1R</span><br><span class="line">11  0  →  0  1 STOP</span><br></pre></td></tr></table></figure>
 <p> <strong>算法构造</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户输入数字，将数字转换为二进制码，将二进制转换为二进制扩展码，通过图灵机（XN*2）实现乘2操作得到结果的二进制扩展码，再将二进制扩展码转换为对应的二进制码，由二进制得十进制结果</span><br><span class="line">1.toBinaryString()将整数转换为二进制码</span><br><span class="line">2.toBinaryExtend()将二进制码转换为二进制扩展码</span><br><span class="line">3.processXNMulitTwo()图灵机（XN*2）实现乘2操作整个过程</span><br><span class="line">4.extendToBinary()将二进制扩展码转换为二进制</span><br><span class="line">5.binaryToInt()二进制转换为十进制</span><br><span class="line">6.printArray()将图灵机的步骤打印</span><br><span class="line">STOP</span><br></pre></td></tr></table></figure>
@@ -328,6 +329,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -357,16 +371,28 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+
+    <div calss="count-span">
+      <span id="busuanzi_container_site_pv">
+        总访问量: <span id="busuanzi_value_site_pv"></span>|
+      </span>
+      <span id="busuanzi_container_site_uv">
+        总访客: <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </div>
+ 
   </div>
 </footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  #这个就是显示的文字，注意加的位置，要显示出来
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
 <script>
     var now = new Date(); 
     function createtime() { 
-        var grt= new Date("12/03/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        var grt= new Date("05/06/2019 22:00:00");//此处修改你的建站时间或者网站上线时间 
         now.setTime(now.getTime()+250); 
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -393,7 +419,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -464,11 +490,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>

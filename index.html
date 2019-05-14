@@ -172,14 +172,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><h6 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h6><p> 由于使用国外镜像会很慢</p>
+        <a id="more"></a>
+<h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><h6 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h6><p> 由于使用国外镜像会很慢</p>
 <blockquote>
 <p>可用 get 命令查看 registry</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm congfig get registry</span><br></pre></td></tr></table></figure>
 <p>原版结果为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://registry.npmjs.org</span><br></pre></td></tr></table></figure>
-        
+<p>用 set 命令换成阿里的镜像就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>然后使用(以后的直接将npm换成cnpm下载就会很快)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>我的15.29s就安装完成了，如果使用国外镜像，反正我等了很长时间还是没有下载完</p>
+<h6 id="当然你想使用国外镜像也行"><a href="#当然你想使用国外镜像也行" class="headerlink" title="当然你想使用国外镜像也行"></a>当然你想使用国外镜像也行</h6><p>直接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h5 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h5><h6 id="先建一个blog文件夹"><a href="#先建一个blog文件夹" class="headerlink" title="先建一个blog文件夹"></a>先建一个blog文件夹</h6><p>所有hexo操作都在这里面进行</p>
+<h6 id="然后命令行进入blog文件夹下"><a href="#然后命令行进入blog文件夹下" class="headerlink" title="然后命令行进入blog文件夹下"></a>然后命令行进入blog文件夹下</h6><h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h6 id="启动命令-预览"><a href="#启动命令-预览" class="headerlink" title="启动命令(预览)"></a>启动命令(预览)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">hexo start</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>这一步下来就可以看到自己博客地址了，输入到浏览器就可以查看预生成的博客</p>
+<h6 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;first bolg&quot;</span><br></pre></td></tr></table></figure>
+<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clear</span><br></pre></td></tr></table></figure>
+<h6 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">g(general)</span><br></pre></td></tr></table></figure>
+<p>然后新建的博客就被归档</p>
+<h5 id="将博客部署到远端-GitHub"><a href="#将博客部署到远端-GitHub" class="headerlink" title="将博客部署到远端(GitHub)"></a>将博客部署到远端(GitHub)</h5><h6 id="打开GitHub新建一个仓库"><a href="#打开GitHub新建一个仓库" class="headerlink" title="打开GitHub新建一个仓库"></a>打开GitHub新建一个仓库</h6><p>仓库命名必须是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的github用户名.github.io</span><br></pre></td></tr></table></figure>
+<p>==如果不是这个命名，在最后执行hexo d将博客部署到github上输入网址时会出现404==</p>
+<p>后期直接在浏览器输入地址就可以访问</p>
+<h6 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo -deployer-git</span><br></pre></td></tr></table></figure>
+<p>不用理会WARNING</p>
+<h6 id="设置-config-yml相关内容"><a href="#设置-config-yml相关内容" class="headerlink" title="设置_config.yml相关内容"></a>设置_config.yml相关内容</h6><p>使用windows命令行命令打开该文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start _confing.yml</span><br></pre></td></tr></table></figure>
+<p>然后在文件末尾添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/Valentineone/epochong.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h6 id="部署到仓库"><a href="#部署到仓库" class="headerlink" title="部署到仓库"></a>部署到仓库</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>这个时候cmd窗口底部会出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;git@github.com:epochong/epochong.github.io.git&apos;.</span><br></pre></td></tr></table></figure>
+<p>说明已经部署成功</p>
+<h6 id="访问自己的博客"><a href="#访问自己的博客" class="headerlink" title="访问自己的博客"></a>访问自己的博客</h6><p>在网站中输入你刚才建的仓库的名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourusername.github.io</span><br></pre></td></tr></table></figure>
+<p>即可访问你的博客<br>==如果此时出现网页访问404问题==<br>是因为你新建的仓库名不是你的github账号的用户名</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><ul>
+<li>一种是修改github的username名称和你新建的存储库.github前的名称相同</li>
+<li>一种是重新建立一个 你的github账号username.github.io</li>
+</ul>
+<p>两种方法完成后重新执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>刷新网页就能看到你建的博客了</p>
+<h5 id="设置喜欢的主题"><a href="#设置喜欢的主题" class="headerlink" title="设置喜欢的主题"></a>设置喜欢的主题</h5><p>在下面的网站上clone到本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/litten/hexo-theme-yilia</span><br></pre></td></tr></table></figure></p>
+<h6 id="命令行clone"><a href="#命令行clone" class="headerlink" title="命令行clone"></a>命令行clone</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+<p>克隆到本地themes文件夹下</p>
+<h6 id="修改-config-yml中theme参数"><a href="#修改-config-yml中theme参数" class="headerlink" title="修改_config.yml中theme参数"></a>修改_config.yml中theme参数</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+<h6 id="清理生成加打开服务"><a href="#清理生成加打开服务" class="headerlink" title="清理生成加打开服务"></a>清理生成加打开服务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>这个时候4000的地址的博客已经换了主题</p>
+<h6 id="推到远端"><a href="#推到远端" class="headerlink" title="推到远端"></a>推到远端</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h6 id="刷新你的博客"><a href="#刷新你的博客" class="headerlink" title="刷新你的博客"></a>刷新你的博客</h6><p>主题设置完成</p>
+
       
 
       
@@ -252,7 +299,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址)</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<h6 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址)</span><br></pre></td></tr></table></figure>
 <h6 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[baidu](网址)</span><br></pre></td></tr></table></figure>
 <h6 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br></pre></td></tr></table></figure>
 <h6 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**粗体**</span><br></pre></td></tr></table></figure>
@@ -331,7 +379,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
       
 
       
@@ -404,7 +452,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790238" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790238</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms  空间限制：131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790238" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790238</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms  空间限制：131072K</span><br></pre></td></tr></table></figure></p>
 <p> 有一种酒桌游戏叫做 “敲 7”，规则是从一个人开始，说出任意数字，其他人会顺序往后报，如果一个数字包含 77，或者是 77 的倍数，那么需要敲打杯子或盘子，不能说出。</p>
 <p> 现在 nn 个人围坐在一个圆桌周围，他们编号从 11 到 nn 顺时针排列。从某一人开始报出一个数字，其他人会按照顺时针方向顺序往后报 (加一)，如果某个人的数字包含 77，或者是 77 的倍数，那么他将退出游戏，下一个人继续接着报，直到剩一个人为止。</p>
 <p> <strong>输入格式</strong><br> 第一行输入三个整数，nn，mm，tt。nn 代表总人数，mm 代表从第 mm 个人开始报数，他报出的数字是 tt。（1 \leq m \leq n \leq 10001≤m≤n≤1000，1 \leq t \leq 1001≤t≤100）接下来的 nn 行，每一行输入一个字符串，代表这 nn 个人的名字，字符串的长度不超过 2020。</p>
@@ -488,7 +537,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790073" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790073</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms   空间限制：131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790073" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790073</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms   空间限制：131072K</span><br></pre></td></tr></table></figure></p>
 <p> 有 n 个小朋友做游戏，他们的编号分别是 1,2,3…n1,2,3…n。他们按照编号从小到大依次顺时针围成一个圆圈，从第一个小朋友开始从 1 报数，依次按照顺时针方向报数 (加一)，报 mm 的人会离开队伍，然后下一个小朋友会继续从 1 开始报数，直到只剩一个小朋友为止。</p>
 <p> <strong>输入格式</strong><br> 第一行输入两个整数，nn，mm。（1 \leq n,m \leq 10001≤n,m≤1000）</p>
 <p> <strong>输出格式</strong><br> 输出最后一个小朋友的编号，占一行。</p>
@@ -571,7 +621,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
 <p> 蒜头君每天都在用一款名为 “蒜厂浏览器” 的软件。在这个浏览器中，一共三种操作：打开页面、回退和前进。它们的功能如下：</p>
 <p> 打开页面：在地址栏中输入网址，并跳转到网址对应的页面；<br> 回退：返回到上一次访问的页面；<br> 前进：返回到上次回退前的页面，如果上一次操作是打开页面，那么将无法前进。<br> 现在，蒜头君打开浏览器，进行了一系列操作，你需要输出他每次操作后所在页面的网址。</p>
 <p> <strong>输入格式</strong><br> 第一行输入一个整数 n(0 &lt; n \le 100000)n(0&lt;n≤100000)，表示蒜头君的操作次数。</p>
@@ -656,7 +707,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788711" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788711</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788711" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788711</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
 <p> 蒜头君在纸上写了一个串，只包含’(’ 和’)’。一个’(’ 能唯一匹配一个’)’，但是一个匹配的’(’ 必须出现在’)’ 之前。请判断蒜头君写的字符串能否括号完全匹配，如果能，输出配对的括号的位置（匹配的括号不可以交叉，只能嵌套）。</p>
 <p> <strong>输入格式</strong><br> 一行输入一个字符串只含有’(’ 和’)’，输入的字符串长度不大于 5000050000。</p>
 <p> <strong>输出格式</strong><br> 如果输入括号不能匹配，输出一行 “No”，否则输出一行 “Yes”，接下来若干行每行输出 22 个整数，用空格隔开，表示所有匹配对的括号的位置（下标从 11 开始）。你可以按照任意顺序输出。</p>
@@ -742,7 +794,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788070" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788070</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788070" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788070</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
 <p> 蒜头君经营着一个不大的水果店。他认为生存之道就是经营最受顾客欢迎的水果。现在他想要一份水果销售情况的明细表，这样就可以很容易掌握所有水果的销售情况了。蒜头君告诉你每一笔销售记录的水果名称，产地和销售的数量，请你帮他生成明细表。</p>
 <p> <strong>输入格式</strong><br> 第一行是一个整数 N(0 &lt; N \le 1000)N(0&lt;N≤1000)，表示工有 NN 次成功的交易。其后有 NN 行数据，每行表示一次交易，由水果名称 (小写字母组成，长度不超过 100100)，水果产地 (小写字母组成，长度不超过 100100) 和交易的水果数目 (正整数，不超过 10001000) 组成.</p>
 <p> <strong>输出格式</strong><br> 请你输出一份排版格式正确 (请分析样本输出) 的水果销售情况明细表。这份明细表包括所有水果的产地、名称和销售数目的信息。水果先按产地分类，产地按字母顺序排列；同一产地的水果按照名称排序，名称按字母顺序排序。</p>
@@ -826,7 +879,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785870" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785870</a><br>  <strong>通过entuySet()结合迭代器遍历HashMap映射表</strong></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785870" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785870</a><br>  <strong>通过entuySet()结合迭代器遍历HashMap映射表</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">public class HashMapTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HashMap&lt;String, Integer&gt; dict = new HashMap&lt;String, Integer&gt;(); // &#123;&#125;</span><br><span class="line">        dict.put(&quot;王崇&quot;, 1); </span><br><span class="line">        dict.put(&quot;西安科技大学&quot;, 2); </span><br><span class="line">        dict.put(&quot;软件工程&quot;, 1); </span><br><span class="line">        for (HashMap.Entry&lt;String, Integer&gt; entry : dict.entrySet()) &#123;</span><br><span class="line">            System.out.println(entry.getKey() + &quot; is in class &quot; + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -901,7 +955,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785694" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785694</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785694" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785694</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
 <p> 蒜头君快要考托福了，这几天，蒜头君每天早上都起来记英语单词。花椰妹时不时地来考一考蒜头君：花椰妹会询问蒜头君一个单词，如果蒜头君背过这个单词，蒜头君会告诉花椰妹这个单词的意思，不然蒜头君会跟花椰妹说还没有背过。单词是由连续的大写或者小写字母组成。注意单词中字母大小写是等价的。比如 You 和 you 是一个单词。</p>
 <p> <strong>输入格式</strong><br> 首先输入一个 n(1 \le n \le 100000)n(1≤n≤100000) 表示事件数。接下来 nn 行，每行表示一个事件。每个事件输入为一个整数 dd 和一个单词 wordword（单词长度不大于 2020），用空格隔开。如果 d=0d=0，表示蒜头君记住了 wordword 这个单词，如果 d=1d=1，表示这是一个 测试，测试蒜头君是否认识单词 wordword（花椰妹永远不会告诉蒜头君这个单词的意思）。事件的输入是按照时间先后顺序输入的。</p>
 <p> <strong>输出格式</strong><br> 对于花椰妹的每次 测试，如果蒜头君认识这个单词，输出一行 Yes, 否则输出一行 No。</p>
@@ -988,16 +1043,28 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+
+    <div calss="count-span">
+      <span id="busuanzi_container_site_pv">
+        总访问量: <span id="busuanzi_value_site_pv"></span>|
+      </span>
+      <span id="busuanzi_container_site_uv">
+        总访客: <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </div>
+ 
   </div>
 </footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  #这个就是显示的文字，注意加的位置，要显示出来
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
 <script>
     var now = new Date(); 
     function createtime() { 
-        var grt= new Date("12/03/2018 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        var grt= new Date("05/06/2019 22:00:00");//此处修改你的建站时间或者网站上线时间 
         now.setTime(now.getTime()+250); 
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -1024,7 +1091,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -1095,11 +1162,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
