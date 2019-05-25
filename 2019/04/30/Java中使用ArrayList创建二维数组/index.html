@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java中使用ArrayList创建二维数组 | epochong</title>
+  <title>泛型:使用ArrayList创建二维数组 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89712213  计蒜客data structure：Code_01 1234567891011121314151617181920212223242526272829303132333435363738package www.jisuanke.ds;import ja">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中使用ArrayList创建二维数组">
+<meta property="og:title" content="泛型:使用ArrayList创建二维数组">
 <meta property="og:url" content="http://yoursite.com/2019/04/30/Java中使用ArrayList创建二维数组/index.html">
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89712213  计蒜客data structure：Code_01 1234567891011121314151617181920212223242526272829303132333435363738package www.jisuanke.ds;import ja">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T08:35:41.302Z">
+<meta property="og:updated_time" content="2019-05-24T11:33:34.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中使用ArrayList创建二维数组">
+<meta name="twitter:title" content="泛型:使用ArrayList创建二维数组">
 <meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89712213  计蒜客data structure：Code_01 1234567891011121314151617181920212223242526272829303132333435363738package www.jisuanke.ds;import ja">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
@@ -158,7 +158,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java中使用ArrayList创建二维数组
+      泛型:使用ArrayList创建二维数组
     </h1>
   
 
@@ -173,7 +173,10 @@
       
         <a id="more"></a>
 <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712213" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712213</a><br>  <strong>计蒜客data structure：Code_01</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/4/30 16:09</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_01_SpecialMatrix &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        int m = input.nextInt();</span><br><span class="line">        ArrayList[] arrayList = new ArrayList[n];</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList[i] = new ArrayList&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">            int x = input.nextInt();</span><br><span class="line">            int y = input.nextInt();</span><br><span class="line">            arrayList[x - 1].add(y);</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; arrayList[i].size(); j++) &#123;</span><br><span class="line">                if (j &lt; arrayList[i].size() - 1) &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j) + &quot; &quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/4/30 16:09</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_01_SpecialMatrix</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> m = input.nextInt();</span><br><span class="line">        ArrayList[] arrayList = <span class="keyword">new</span> ArrayList[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList[i] = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = input.nextInt();</span><br><span class="line">            <span class="keyword">int</span> y = input.nextInt();</span><br><span class="line">            arrayList[x - <span class="number">1</span>].add(y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrayList[i].size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &lt; arrayList[i].size() - <span class="number">1</span>) &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j) + <span class="string">" "</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="为什么要在声明后初始化呢"><a href="#为什么要在声明后初始化呢" class="headerlink" title="为什么要在声明后初始化呢?"></a>为什么要在声明后初始化呢?</h5><ul>
+<li>泛型数组初始化时不能声明泛型类型<h6 id="如下代码编译时通不过："><a href="#如下代码编译时通不过：" class="headerlink" title="如下代码编译时通不过："></a>如下代码编译时通不过：</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;[] list = <span class="keyword">new</span> List&lt;String&gt;[];</span><br><span class="line">        在这里可以声明一个带有泛型参数的数组，但是不能初始化该数组，因为执行了类型擦除操作后，List&lt;Object&gt;[] 与 List&lt;String&gt;[] 就是同一回事了，编译器拒绝如此声明。</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -298,8 +301,8 @@
     </a>
   
   
-    <a href="/2019/04/18/24点游戏/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">24点游戏</div>
+    <a href="/2019/04/23/Java JDBC实现学生管理系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">泛型:使用ArrayList创建二维数组</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -326,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要在声明后初始化呢"><span class="toc-number">1.</span> <span class="toc-text">为什么要在声明后初始化呢?</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#如下代码编译时通不过："><span class="toc-number">1.1.</span> <span class="toc-text">如下代码编译时通不过：</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -477,6 +480,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
