@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>epochong</title>
+  <title>Tag: java | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="epochong">
-<meta property="og:url" content="http://yoursite.com/2019/05/20/239. 滑动窗口最大值/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/java/page/2/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T15:14:57.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="epochong">
-<meta name="twitter:description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -150,206 +146,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-239. 滑动窗口最大值" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
-<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
-</blockquote>
-<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3</span><br><span class="line">输出: [3,3,5,5,6,7]</span><br></pre></td></tr></table></figure>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[1  3  -1] -3  5  3  6  7       3</span><br><span class="line"> 1 [3  -1  -3] 5  3  6  7       3</span><br><span class="line"> 1  3 [-1  -3  5] 3  6  7       5</span><br><span class="line"> 1  3  -1 [-3  5  3] 6  7       5</span><br><span class="line"> 1  3  -1  -3 [5  3  6] 7       6</span><br><span class="line"> 1  3  -1  -3  5 [3  6  7]      7</span><br></pre></td></tr></table></figure>
-<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<p><strong>进阶</strong>(==本题解法正式如此==)</p>
-<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
-<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
-</blockquote>
-<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
-<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
-<p><strong>答案：</strong> 没错</p>
-<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
-<p>==<strong>时间复杂度：</strong>== O(N)</p>
-<blockquote>
-<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
-<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
-<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[] zeroArray = new int[0];</span><br><span class="line">int[] nullArray = null;</span><br></pre></td></tr></table></figure>
-<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
-<ul>
-<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
-<li>nullArray 是一个数组类型的空引用。 <blockquote>
-<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
-</blockquote>
-</li>
-</ul>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>thank you for reading<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/09/给定两个正整数，求它们的最大公约数。/" class="archive-article-date">
+  	<time datetime="2019-03-09T15:26:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/09/给定两个正整数，求它们的最大公约数。/">给定两个正整数，求它们的最大公约数</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/20/239. 滑动窗口最大值/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/05/18/JDBC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/03/Lock体系相关/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#示例"><span class="toc-number">1.1.</span> <span class="toc-text">示例:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解释"><span class="toc-number">1.2.</span> <span class="toc-text">解释:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注意："><span class="toc-number">1.3.</span> <span class="toc-text">注意：</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#你能在线性时间复杂度内解决此题吗？"><span class="toc-number"></span> <span class="toc-text">你能在线性时间复杂度内解决此题吗？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#检查队列中的下标是否过期"><span class="toc-number">0.1.</span> <span class="toc-text">检查队列中的下标是否过期</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#想一想"><span class="toc-number">0.2.</span> <span class="toc-text">想一想</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#坑"><span class="toc-number"></span> <span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#虽然题目说"><span class="toc-number">1.</span> <span class="toc-text">虽然题目说</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：-1"><span class="toc-number">1.1.</span> <span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#但是"><span class="toc-number">2.</span> <span class="toc-text">但是</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#输入"><span class="toc-number">2.1.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#预期值"><span class="toc-number">2.2.</span> <span class="toc-text">预期值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#返回值为-操作"><span class="toc-number">2.3.</span> <span class="toc-text">返回值为[]操作</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对于空数组的理解"><span class="toc-number">3.</span> <span class="toc-text">对于空数组的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#上面这两种定义有什么区别呢？"><span class="toc-number">3.1.</span> <span class="toc-text">上面这两种定义有什么区别呢？</span></a></li></ol></li></ol>
-                    </li></div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/03/Lock体系相关/">Lock体系想关</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/02/三天打鱼两天晒网/" class="archive-article-date">
+  	<time datetime="2019-03-02T13:52:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/02/三天打鱼两天晒网/">三天打鱼两天晒网</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/11/javase知识要点/" class="archive-article-date">
+  	<time datetime="2018-11-11T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/11/javase知识要点/">javase基础</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/java/">&laquo; Prev</a><a class="page-number" href="/tags/java/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -406,9 +395,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -489,6 +478,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -498,6 +503,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,12 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>epochong</title>
+  <title>Java 简单工厂模式 抽象工厂模式 抽象工厂方法模式 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、题目分析1、题目要求1.1、简单工厂模式使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果传入参数M，则返回一个Man对象，如果传入参数W，则返回一个Woman对象，请实现该场景。现需要增加一个新的Robot类，如果传入参数R，则返回一个Robot对象，对代码进行修改并注意女娲的变化。1.2、工厂方法模式海尔工厂(Haier)生产海尔空调(HaierAirCondition)，美的">
+<meta name="keywords" content="java,设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="epochong">
-<meta property="og:url" content="http://yoursite.com/2019/05/17/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/index.html">
+<meta property="og:title" content="Java 简单工厂模式 抽象工厂模式 抽象工厂方法模式">
+<meta property="og:url" content="http://yoursite.com/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/index.html">
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="一、题目分析1、题目要求1.1、简单工厂模式使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果传入参数M，则返回一个Man对象，如果传入参数W，则返回一个Woman对象，请实现该场景。现需要增加一个新的Robot类，如果传入参数R，则返回一个Robot对象，对代码进行修改并注意女娲的变化。1.2、工厂方法模式海尔工厂(Haier)生产海尔空调(HaierAirCondition)，美的">
 <meta property="og:locale" content="default">
@@ -30,9 +31,9 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190517203332132.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190517203337459.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190517203341974.png">
-<meta property="og:updated_time" content="2019-05-17T13:00:59.375Z">
+<meta property="og:updated_time" content="2019-05-25T01:13:13.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="epochong">
+<meta name="twitter:title" content="Java 简单工厂模式 抽象工厂模式 抽象工厂方法模式">
 <meta name="twitter:description" content="一、题目分析1、题目要求1.1、简单工厂模式使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果传入参数M，则返回一个Man对象，如果传入参数W，则返回一个Woman对象，请实现该场景。现需要增加一个新的Robot类，如果传入参数R，则返回一个Robot对象，对代码进行修改并注意女娲的变化。1.2、工厂方法模式海尔工厂(Haier)生产海尔空调(HaierAirCondition)，美的">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190517203000613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70">
   
@@ -169,6 +170,21 @@
             <article id="post-Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 简单工厂模式 抽象工厂模式 抽象工厂方法模式
+    </h1>
+  
+
+        
+        <a href="/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/" class="archive-article-date">
+  	<time datetime="2019-04-22T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>一、题目分析</strong><br><strong>1、题目要求</strong><br><strong>1.1、简单工厂模式</strong><br>使用简单工厂模式模拟女娲（Nvwa）造人（Person），如果传入参数M，则返回一个Man对象，如果传入参数W，则返回一个Woman对象，请实现该场景。现需要增加一个新的Robot类，如果传入参数R，则返回一个Robot对象，对代码进行修改并注意女娲的变化。<br><strong>1.2、工厂方法模式</strong><br>海尔工厂(Haier)生产海尔空调(HaierAirCondition)，美的工厂(Midea)生产美的空调(MideaAirCondition) 。使用工厂方法模式描述该场景，绘制类图并编程实现。<br><strong>1.3、抽象工厂模式</strong><br>电脑配件生产工厂生产内存、CPU等硬件设备，这些内存、CPU的品牌、型号并不一定相同，根据下面的“产品等级结构-产品族”示意图，使用抽象工厂模式实现电脑配件生产过程并绘制相应的类图，绘制类图并编程实现。<br><img src="https://img-blog.csdnimg.cn/20190517203000613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>2、下面简单总结一下三种工厂方法</strong><br><strong>2.1、简单工厂</strong><br>   简单工厂模式：专门定义一个类用来创建其它类的实例，被创建的实例通常都具有共同的父类。<br><strong>概要：</strong></p>
@@ -240,6 +256,21 @@ client.buyAirCondition(mideaFactory.createAriCondition());
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -290,7 +321,7 @@ client.buyAirCondition(mideaFactory.createAriCondition());
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/17/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +335,18 @@ client.buyAirCondition(mideaFactory.createAriCondition());
   
 <nav id="article-nav">
   
-    <a href="/2019/05/18/JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/23/Java JDBC实现学生管理系统/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          Java JDBC实现学生管理系统
         
       </div>
     </a>
   
   
-    <a href="/2019/05/16/Java泛型/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2019/04/18/24点游戏/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">24点游戏</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -500,6 +531,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -509,6 +556,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LeetCode 876. 链表的中间结点 | epochong</title>
+  <title>876. 链表的中间结点 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090162  题目描述 12给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。  示例 1： 12345输入：[1,2,3,4,5]输出：此列表中的结点 3 (序列化形式：[3,4,5])返回的结点值为 3 。">
-<meta name="keywords" content="algorithms">
+<meta name="keywords" content="algorithms,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 876. 链表的中间结点">
+<meta property="og:title" content="876. 链表的中间结点">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode 876. 链表的中间结点/index.html">
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090162  题目描述 12给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。  示例 1： 12345输入：[1,2,3,4,5]输出：此列表中的结点 3 (序列化形式：[3,4,5])返回的结点值为 3 。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T08:35:25.859Z">
+<meta property="og:updated_time" content="2019-05-25T01:19:56.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 876. 链表的中间结点">
+<meta name="twitter:title" content="876. 链表的中间结点">
 <meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88090162  题目描述 12给定一个带有头结点 head 的非空单链表，返回链表的中间结点。如果有两个中间结点，则返回第二个中间结点。  示例 1： 12345输入：[1,2,3,4,5]输出：此列表中的结点 3 (序列化形式：[3,4,5])返回的结点值为 3 。">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
@@ -158,7 +158,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LeetCode 876. 链表的中间结点
+      876. 链表的中间结点
     </h1>
   
 
@@ -181,7 +181,7 @@
 <p> <strong>思路</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">设置两个指针，一个指针一次走一步，一个指针一次走2步</span><br><span class="line">当链表大小为奇数</span><br><span class="line">-走两步的节点到尾部的时候，走一步的到中间位置</span><br><span class="line">当链表大小为偶数</span><br><span class="line">-走两步的节点到尾部走一步的到第二个中间节点</span><br><span class="line">当链表只有一个节点时</span><br><span class="line">-直接返回该节点</span><br><span class="line">当链表有两个节点时</span><br><span class="line">-返回第一个节点的下一个节点</span><br></pre></td></tr></table></figure>
 <p> <strong>解法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        if (head == null || head.next == null) &#123;</span><br><span class="line">			return head;</span><br><span class="line">		&#125;</span><br><span class="line">		ListNode n1 = head;</span><br><span class="line">		ListNode n2 = head;</span><br><span class="line">		//奇数的时候来到中点，偶数的时候来到中点前面的一个的位置</span><br><span class="line">		while (n2.next != null &amp;&amp; n2.next.next != null) &#123; </span><br><span class="line">			n1 = n1.next; // n1 -&gt; mid</span><br><span class="line">			n2 = n2.next.next; // n2 -&gt; end</span><br><span class="line">		&#125;</span><br><span class="line">        if (n2.next != null) &#123;</span><br><span class="line">            return n1.next;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return n1; </span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125;</span><br><span class="line">		ListNode n1 = head;</span><br><span class="line">		ListNode n2 = head;</span><br><span class="line">		<span class="comment">//奇数的时候来到中点，偶数的时候来到中点前面的一个的位置</span></span><br><span class="line">		<span class="keyword">while</span> (n2.next != <span class="keyword">null</span> &amp;&amp; n2.next.next != <span class="keyword">null</span>) &#123; </span><br><span class="line">			n1 = n1.next; <span class="comment">// n1 -&gt; mid</span></span><br><span class="line">			n2 = n2.next.next; <span class="comment">// n2 -&gt; end</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">if</span> (n2.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> n1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> n1; </span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> <strong>小结</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结不易，切勿抄袭，帮助你理解是最终目的</span><br></pre></td></tr></table></figure>
 <p> 欢迎加我QQ：1939765238 一起学习算法</p>
@@ -230,6 +230,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
 		</ul>
@@ -303,14 +307,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          LeetCode 206. 反转链表
+          206. 反转链表
         
       </div>
     </a>
   
   
-    <a href="/2019/03/03/牛客刷题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">牛客刷题</div>
+    <a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">239. 滑动窗口最大值</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -495,6 +499,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
@@ -504,6 +524,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
