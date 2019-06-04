@@ -199,7 +199,7 @@
 </ul>
 <p>int为4个字节，byte为1个字节，int转byte只能取低八位补码：1000  0000</p>
 <p><strong>实际上，int型的负数，在一个字节的基础上前面补1即可，计算过程同普通的负数，没有发生溢出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">    <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
 <p>普通负数-1：</p>
 <ul>
 <li>原码：1000  0001</li>
@@ -859,7 +859,8 @@
 <p><strong>完全二叉树:</strong><br>除了最后一层节点个数可以不满外，所有层的节点个数都达到最大值。<br>最后一层节点靠左排列</p>
 <p><strong>树的存储:</strong></p>
 <p><strong>数组:</strong>顺序存储,适合存储完全二叉树，否则会有空间浪费<br>堆</p>
-<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong><br>class Node {<br>    Object data;<br>    Node left;<br>    Node right;<br>}</p>
+<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>二叉树具有天然的递归特性</strong></p>
 <p><strong>树的应用:</strong></p>
 <ol>
@@ -942,19 +943,19 @@
 
 
   
-    <article id="post-继承关系下的getter-setter调用关系-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-继承关系下的getter-setter调用关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/28/继承关系下的getter-setter调用关系-md/">继承关系下的getter,setter调用关系.md</a>
+      <a class="article-title" href="/2019/05/28/继承关系下的getter-setter调用关系/">继承关系下的getter,setter调用关系.md</a>
     </h1>
   
 
         
-        <a href="/2019/05/28/继承关系下的getter-setter调用关系-md/" class="archive-article-date">
+        <a href="/2019/05/28/继承关系下的getter-setter调用关系/" class="archive-article-date">
   	<time datetime="2019-05-28T08:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
 </a>
         
@@ -997,7 +998,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/28/继承关系下的getter-setter调用关系-md/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/28/继承关系下的getter-setter调用关系/">展开全文 >></a>
         </p>
       
 
@@ -1190,14 +1191,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
@@ -1227,6 +1220,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
