@@ -148,6 +148,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-20-有效的括号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/20-有效的括号/">20. 有效的括号</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/28/20-有效的括号/" class="archive-article-date">
+  	<time datetime="2019-05-28T10:29:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p>
+<p><strong>示例 1:</strong></p>
+<blockquote>
+<p>输入: “()”<br>输出: true</p>
+</blockquote>
+<p><strong>示例 2:</strong></p>
+<blockquote>
+<p>输入: “()[]{}”<br>输出: true</p>
+</blockquote>
+<p><strong>示例 3:</strong></p>
+<blockquote>
+<p>输入: “(]”<br>输出: false</p>
+</blockquote>
+<p><strong>示例 4:</strong></p>
+<blockquote>
+<p>输入: “([)]”<br>输出: false</p>
+</blockquote>
+<p><strong>示例 5:</strong></p>
+<blockquote>
+<p>输入: “{[]}”<br>输出: true</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'('</span>) &#123;</span><br><span class="line">                stack.push(<span class="string">'('</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">')'</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (stack.pop() != <span class="string">'('</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">'['</span>) &#123;</span><br><span class="line">                stack.push(<span class="string">'['</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">']'</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (stack.pop() != <span class="string">'['</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s.charAt(i) == <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                stack.push(<span class="string">'&#123;'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (stack.pop() != <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// str -&gt; char[]</span></span><br><span class="line">        <span class="keyword">char</span>[] data = s.toCharArray();</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : data) &#123;</span><br><span class="line">            <span class="comment">// 碰到左括号入栈</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'&#123;'</span> || c == <span class="string">'['</span> || c == <span class="string">'('</span>) &#123;</span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'&#125;'</span>) &#123;</span><br><span class="line">                    <span class="keyword">char</span> temp = stack.peek();</span><br><span class="line">                    <span class="keyword">if</span> (temp == <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                        stack.pop();</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">']'</span>) &#123;</span><br><span class="line">                    <span class="keyword">char</span> temp = stack.peek();</span><br><span class="line">                    <span class="keyword">if</span> (temp == <span class="string">'['</span>) &#123;</span><br><span class="line">                        stack.pop();</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">')'</span>) &#123;</span><br><span class="line">                    <span class="keyword">char</span> temp = stack.peek();</span><br><span class="line">                    <span class="keyword">if</span> (temp == <span class="string">'('</span>) &#123;</span><br><span class="line">                        stack.pop();</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/28/20-有效的括号/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二叉树基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -377,13 +475,106 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>栈和堆的具体存储总结(0524) 类变量在堆区，方法变量在栈区<br>this总结<br>main函数中的变量必须先赋值,类变量可以不赋值有默认值,总结一下变量初始化以及变量默认值<br>ConcurrentHashMap 如何保证线程安全，使用CAS保证，不是 synchronized <a href="https://www.cnblogs.com/junjiang3/p/8686290.html" target="_blank" rel="noopener">https://www.cnblogs.com/junjiang3/p/8686290.html</a><br>java复制数组哪种效率更高<a href="https://www.nowcoder.com/questionTerminal/915a9a1f5a3a4a6bbe5011c090bdf137" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/915a9a1f5a3a4a6bbe5011c090bdf137</a><br>SimpleDateFormat 的线程安全问题，并发环境下使用 SimpleDateFormat 的 parse 方法有线程安全问题 <a href="https://blog.csdn.net/weixin_38810239/article/details/79941964" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38810239/article/details/79941964</a><br>泛型擦除<a href="https://blog.csdn.net/hui_lang/article/details/7552564" target="_blank" rel="noopener">https://blog.csdn.net/hui_lang/article/details/7552564</a><br>join(),sleep()复习<br>在异常处理中,try块不可省略,可以使用多重catch块,finally块可以省略,catch块和finally块不可以同时省略.</p>
-<h4 id="0524"><a href="#0524" class="headerlink" title="0524"></a>0524</h4><p>动态规划问题,神奇的口袋,总量为40,求解有多少中方式的问题<br>构造块执行顺序详解,继承关系代码块执行总结,静态块,构造块 <a href="https://blog.csdn.net/lahand/article/details/80310313" target="_blank" rel="noopener">https://blog.csdn.net/lahand/article/details/80310313</a><br>true ? false : true == true ? false : false —&gt; false<br>Math.round(x); x 为正小数时,四舍五入.x为负小数,数字部分五舍六入<br>快排思想找到数组中的第k个大的元素</p>
-<h4 id="0528"><a href="#0528" class="headerlink" title="0528"></a>0528</h4><p>如果父类只有有参数的构造方法，则子类必须显示调用此带参构造方法<br>JUnit主要用来完成单元测试<br>大数阶乘，不用BigDecimal是否可行<br>String 类函数toUpperCase()不改变调用者本身<br>java.lang<br>Java 中多个异常的捕获顺序 (多个 catch)<br>结构型模式中最体现扩展性的模式是 装饰模式<br>public final static native int w() 声明是错误的<br>byte 类型进行加操作得到的是int类型，若想将连个byte类型变量相加赋值给第三个byte类型，必须强转成byte类型</p>
-<h4 id="0531"><a href="#0531" class="headerlink" title="0531"></a>0531</h4><p>构建乘积数组<br>总结一下StringBuffer的引用传递问题</p>
-<h4 id="0601"><a href="#0601" class="headerlink" title="0601"></a>0601</h4><p>腾讯笔试题格雷码(递归)</p>
-<h4 id="0603"><a href="#0603" class="headerlink" title="0603"></a>0603</h4><p>程序计数器，线程隔离，静态变量存储区，方法区<br>流媒体技术是一种可以使音频，视频和其他多媒体信息在Internet及Intranet上以实时的，无需下载等待的方式进行播放的技术</p>
-<h4 id="0605"><a href="#0605" class="headerlink" title="0605"></a>0605</h4><p>另类加法，不使用相关数学运算符号<br>饥饿的小易<br>0607<br>java运算符的结合性<br>jdk 1.6 垃圾回收器 <a href="https://blog.csdn.net/sunshineboy_oo/article/details/49206781" target="_blank" rel="noopener">https://blog.csdn.net/sunshineboy_oo/article/details/49206781</a></p>
+        <ul>
+<li>栈和堆的具体存储总结(0524) 类变量在堆区，方法变量在栈区</li>
+<li>this总结</li>
+<li>main函数中的变量必须先赋值,类变量可以不赋值有默认值,总结一下变量初始化以及变量默认值</li>
+<li>ConcurrentHashMap 如何保证线程安全，使用CAS保证，不是 synchronized <a href="https://www.cnblogs.com/junjiang3/p/8686290.html" target="_blank" rel="noopener">https://www.cnblogs.com/junjiang3/p/8686290.html</a></li>
+<li>java复制数组哪种效率更高<a href="https://www.nowcoder.com/questionTerminal/915a9a1f5a3a4a6bbe5011c090bdf137" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/915a9a1f5a3a4a6bbe5011c090bdf137</a></li>
+<li>SimpleDateFormat 的线程安全问题，并发环境下使用 SimpleDateFormat 的 parse 方法有线程安全问题 <a href="https://blog.csdn.net/weixin_38810239/article/details/79941964" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38810239/article/details/79941964</a></li>
+<li>泛型擦除<a href="https://blog.csdn.net/hui_lang/article/details/7552564" target="_blank" rel="noopener">https://blog.csdn.net/hui_lang/article/details/7552564</a></li>
+<li>join(),sleep()复习</li>
+<li>在异常处理中,try块不可省略,可以使用多重catch块,finally块可以省略,catch块和finally块不可以同时省略.</li>
+</ul>
+<h4 id="0524"><a href="#0524" class="headerlink" title="0524"></a>0524</h4><ul>
+<li>动态规划问题,神奇的口袋,总量为40,求解有多少中方式的问题</li>
+<li>构造块执行顺序详解,继承关系代码块执行总结,静态块,构造块 <a href="https://blog.csdn.net/lahand/article/details/80310313" target="_blank" rel="noopener">https://blog.csdn.net/lahand/article/details/80310313</a></li>
+<li>true ? false : true == true ? false : false —&gt; false</li>
+<li>Math.round(x); x 为正小数时,四舍五入.x为负小数,数字部分五舍六入</li>
+<li>快排思想找到数组中的第k个大的元素</li>
+</ul>
+<h4 id="0528"><a href="#0528" class="headerlink" title="0528"></a>0528</h4><ul>
+<li>如果父类只有有参数的构造方法，则子类必须显示调用此带参构造方法</li>
+<li>JUnit主要用来完成单元测试</li>
+<li>大数阶乘，不用BigDecimal试一下</li>
+<li>String 类函数toUpperCase()不改变调用者本身</li>
+<li>java.lang</li>
+<li>Java 中多个异常的捕获顺序 (多个 catch)</li>
+<li>结构型模式中最体现扩展性的模式是 装饰模式</li>
+<li>public final static native int w() 声明是错误的</li>
+<li>byte 类型进行加操作得到的是int类型，若想将连个byte类型变量相加赋值给第三个byte类型，必须强转</li>
+<li>byte类型</li>
+</ul>
+<h4 id="0531"><a href="#0531" class="headerlink" title="0531"></a>0531</h4><ul>
+<li>构建乘积数组</li>
+<li>总结一下StringBuffer的引用传递问题</li>
+</ul>
+<h4 id="0601"><a href="#0601" class="headerlink" title="0601"></a>0601</h4><ul>
+<li>腾讯笔试题格雷码(递归)</li>
+</ul>
+<h4 id="0604"><a href="#0604" class="headerlink" title="0604"></a>0604</h4><ul>
+<li>local variable:临时变量</li>
+</ul>
+<h4 id="0603"><a href="#0603" class="headerlink" title="0603"></a>0603</h4><ul>
+<li>程序计数器，线程隔离，静态变量存储区，方法区流媒体技术是一种可以使音频，视频和其他多媒体信息在Internet及Intranet上以实时的，无需下载等待的方式进行播放的技术</li>
+<li>java在运行时才进行翻译指令，java编译出来的目标文件不可以运行在任意jvm上</li>
+<li>大数加法</li>
+</ul>
+<h4 id="0605"><a href="#0605" class="headerlink" title="0605"></a>0605</h4><ul>
+<li>另类加法，不使用相关数学运算符号</li>
+<li>饥饿的小易</li>
+<li>类方法中可以调用实例方法，类方法中可以直接调用本类的的类方法</li>
+<li>类加载的时候加载了什么。int类型对象成员变量赋予默认值不属于类加载</li>
+</ul>
+<h4 id="0606"><a href="#0606" class="headerlink" title="0606"></a>0606</h4><ul>
+<li>如果希望监听TCP端口9000，服务器端创建socket。new ServerSocket(9000)</li>
+<li>jre判断程序是否执行结束的标准是，所有前台线程执行完毕</li>
+<li>java运算符的结合性和优先级，i= 5，s = (i++) + (++i) + (i–) +(–i) = 24</li>
+<li>instanceof运算符可以用来判断一个对象是否为一个类的实例，一个实现指定接口的类的实例，一个子类的实例<br>)</li>
+</ul>
+<h4 id="0607"><a href="#0607" class="headerlink" title="0607"></a>0607</h4><ul>
+<li>jdk 1.6 垃圾回收器 <a href="https://blog.csdn.net/sunshineboy_oo/article/details/49206781" target="_blank" rel="noopener">https://blog.csdn.net/sunshineboy_oo/article/details/49206781</a></li>
+</ul>
+<h4 id="0608"><a href="#0608" class="headerlink" title="0608"></a>0608</h4><ul>
+<li><a href="https://blog.csdn.net/hanxueyu666/article/details/71502143" target="_blank" rel="noopener">java 反射中 getDeclaredMethods 和 getMethods 的区别</a></li>
+<li><a href="https://www.cnblogs.com/zedosu/p/6518124.html" target="_blank" rel="noopener">java.lang包</a></li>
+</ul>
+<h4 id="0610"><a href="#0610" class="headerlink" title="0610"></a>0610</h4><ul>
+<li>中缀表达式运算。中缀表达式转后缀表达式。后缀表达式计算。当操作数不止一位的时候的运算</li>
+<li>手撸kmp</li>
+<li>假设你有100Mb的内存，需要对1Gb的数据进行排序，最合适的算法是：归并排序</li>
+</ul>
+<h4 id="0611"><a href="#0611" class="headerlink" title="0611"></a>0611</h4><ul>
+<li>数据有序的情况下，各排序快慢</li>
+<li>总结一下TreeSet存储自定义类按任意排序方式存储信息(已实现)</li>
+<li>若栈采用顺序存储方式存储，现两栈共享空间V[1..m]，top[i]代表第i个栈( i =1,2)栈顶，栈1的底在v[1]，栈2的底在V[m]，则栈满的条件是（top[1] + top[2] = m）。<strong>top[1]、top[2]应该代表栈中的元素个数</strong><br>以下哪种排序算法对(1,3,2,4,5,6,7,8,9)进行的排序最快？–&gt;冒泡排序 （快排，归并，堆排）。近似有序的数据，排序复杂度分析一下</li>
+</ul>
+<h4 id="0612"><a href="#0612" class="headerlink" title="0612"></a>0612</h4><blockquote>
+<p>坑啊</p>
+</blockquote>
+<ul>
+<li>有权值的叶子节点生成的哈夫曼树，求带权长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">给定下列程序，那么执行printf(<span class="string">"%d\n"</span>, foo(<span class="number">20</span>, <span class="number">13</span>));的输出结果是________。</span><br><span class="line">A <span class="number">3</span></span><br><span class="line">B <span class="number">9</span></span><br><span class="line">C <span class="number">27</span></span><br><span class="line">D <span class="number">81</span></span><br><span class="line">他的回答： C (错误)</span><br><span class="line">正确答案： D</span><br><span class="line">参考答案：</span><br><span class="line">解析：foo(<span class="number">20</span>, <span class="number">13</span>) = <span class="number">3</span> * foo(<span class="number">14</span>, <span class="number">6</span>) = <span class="number">3</span> * <span class="number">3</span> * foo(<span class="number">8</span>, <span class="number">3</span>) = <span class="number">3</span> * <span class="number">3</span> * <span class="number">3</span> * foo(<span class="number">2</span>, <span class="number">1</span>) = <span class="number">3</span> * <span class="number">3</span> * <span class="number">3</span> * <span class="number">3</span> * foo(-<span class="number">4</span>, <span class="number">0</span>) =<span class="number">3</span> * <span class="number">3</span> * <span class="number">3</span> * <span class="number">3</span> * <span class="number">1</span> = <span class="number">81</span></span><br><span class="line">答案：D</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要连通具有 <strong>n</strong> 个顶点的有向图，最少需要（n）条边。</li>
+</ul>
+<blockquote>
+<p>13/14/15没做</p>
+</blockquote>
+<h4 id="0702"><a href="#0702" class="headerlink" title="0702"></a>0702</h4><ul>
+<li><p>处于运行状态的操作系统应放在主存中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下列选项中，会导致进程从执行态变为就绪态的事件是（）。</span><br><span class="line"></span><br><span class="line">执行 P(wait)操作</span><br><span class="line">申请内存失败</span><br><span class="line">启动 I/O 设备</span><br><span class="line">被高优先级进程抢占</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>现代操作系统中利用缓冲技术的主要目的是:提高CPU和设备之间的并行程度</li>
+<li>进程和程序的一个本质区别是:前者为动态的,后者为静态的</li>
+<li>一个进程的读磁区操作完成后，操作系统针对该进程必做的是:修改进程状态为就绪态</li>
+<li>选择在最近的过去很久未访问的页面予以淘汰的算法称为:LRU</li>
+<li>并发进程之间:可能需要同步或互斥</li>
+<li>一次 I/O 操作的结束，有可能导致:一个进程由睡眠变为就绪</li>
+</ul>
 
       
 
@@ -748,18 +939,19 @@
 <p>原版结果为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://registry.npmjs.org</span><br></pre></td></tr></table></figure>
 <p>用 set 命令换成阿里的镜像就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry-https://registry.npm.taobao.org</span><br><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>然后使用(以后的直接将npm换成cnpm下载就会很快)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>我的15.29s就安装完成了，如果使用国外镜像，反正我等了很长时间还是没有下载完</p>
 <h6 id="当然你想使用国外镜像也行"><a href="#当然你想使用国外镜像也行" class="headerlink" title="当然你想使用国外镜像也行"></a>当然你想使用国外镜像也行</h6><p>直接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h5 id="hexo-v"><a href="#hexo-v" class="headerlink" title="hexo -v"></a><code>hexo -v</code></h5><p>查看hexo版本</p>
 <h5 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h5><h6 id="先建一个blog文件夹"><a href="#先建一个blog文件夹" class="headerlink" title="先建一个blog文件夹"></a>先建一个blog文件夹</h6><p>所有hexo操作都在这里面进行</p>
 <h6 id="然后命令行进入blog文件夹下"><a href="#然后命令行进入blog文件夹下" class="headerlink" title="然后命令行进入blog文件夹下"></a>然后命令行进入blog文件夹下</h6><h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <h6 id="启动命令-预览"><a href="#启动命令-预览" class="headerlink" title="启动命令(预览)"></a>启动命令(预览)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">hexo start</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>这一步下来就可以看到自己博客地址了，输入到浏览器就可以查看预生成的博客</p>
 <h6 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;first bolg&quot;</span><br></pre></td></tr></table></figure>
-<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clear</span><br></pre></td></tr></table></figure>
+<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 <h6 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">g(general)</span><br></pre></td></tr></table></figure>
 <p>然后新建的博客就被归档</p>
 <h5 id="将博客部署到远端-GitHub"><a href="#将博客部署到远端-GitHub" class="headerlink" title="将博客部署到远端(GitHub)"></a>将博客部署到远端(GitHub)</h5><h6 id="打开GitHub新建一个仓库"><a href="#打开GitHub新建一个仓库" class="headerlink" title="打开GitHub新建一个仓库"></a>打开GitHub新建一个仓库</h6><p>仓库命名必须是</p>
@@ -1005,99 +1197,6 @@
 
 
   
-    <article id="post-计蒜客 队列 敲7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/计蒜客 队列 敲7/">敲7</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/03/计蒜客 队列 敲7/" class="archive-article-date">
-  	<time datetime="2019-05-03T10:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790238" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790238</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms  空间限制：131072K</span><br></pre></td></tr></table></figure></p>
-<p> 有一种酒桌游戏叫做 “敲 7”，规则是从一个人开始，说出任意数字，其他人会顺序往后报，如果一个数字包含 77，或者是 77 的倍数，那么需要敲打杯子或盘子，不能说出。</p>
-<p> 现在 nn 个人围坐在一个圆桌周围，他们编号从 11 到 nn 顺时针排列。从某一人开始报出一个数字，其他人会按照顺时针方向顺序往后报 (加一)，如果某个人的数字包含 77，或者是 77 的倍数，那么他将退出游戏，下一个人继续接着报，直到剩一个人为止。</p>
-<p> <strong>输入格式</strong><br> 第一行输入三个整数，nn，mm，tt。nn 代表总人数，mm 代表从第 mm 个人开始报数，他报出的数字是 tt。（1 \leq m \leq n \leq 10001≤m≤n≤1000，1 \leq t \leq 1001≤t≤100）接下来的 nn 行，每一行输入一个字符串，代表这 nn 个人的名字，字符串的长度不超过 2020。</p>
-<p> <strong>输出格式</strong><br> 输出剩下的那个人的名字，占一行。</p>
-<p> <strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 3 20</span><br><span class="line">donglali</span><br><span class="line">nanlali</span><br><span class="line">xilali</span><br><span class="line">beilali</span><br><span class="line">chuanpu</span><br></pre></td></tr></table></figure>
-<p> <strong>样例输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chuanpu</span><br></pre></td></tr></table></figure>
-<p> <strong>实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 18:32</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_10_Say7 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        int m = input.nextInt();</span><br><span class="line">        int t = input.nextInt();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList.add(input.next());</span><br><span class="line">        &#125;</span><br><span class="line">        int index = t - 1;</span><br><span class="line">        int num7 = 0;</span><br><span class="line">        int i = m - 1;</span><br><span class="line">        for (; i &lt; n; i++) &#123;</span><br><span class="line">            while (arrayList.get(i).equals(&quot;wangchong&quot;)) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                if (i == n) &#123;</span><br><span class="line">                    i = 0;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            if (index % 7 == 0 || String.valueOf(index).contains(&quot;7&quot;)) &#123;</span><br><span class="line">                arrayList.set(i,&quot;wangchong&quot;);</span><br><span class="line">                num7++;</span><br><span class="line">                if (num7 == n - 1) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (i == n - 1) &#123;</span><br><span class="line">                i = -1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (String str : arrayList</span><br><span class="line">                ) &#123;</span><br><span class="line">            if (!str.equals(&quot;wangchong&quot;)) &#123;</span><br><span class="line">                System.out.println(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/计蒜客 队列 敲7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1241,7 +1340,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,7 +1348,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1289,15 +1388,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,5 +1541,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
 </html>

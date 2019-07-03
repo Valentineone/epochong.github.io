@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>使用hexo搭建个人博客 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cn">
+  <meta name="description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 12npm install -g cnpm --registry-https://registry.npm.taobao.orgnpm config">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/05/11/hexo-yalia/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cn">
+<meta property="og:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 12npm install -g cnpm --registry-https://registry.npm.taobao.orgnpm config">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T07:06:46.487Z">
+<meta property="og:updated_time" content="2019-06-21T07:40:48.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo搭建个人博客">
-<meta name="twitter:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 1npm config set registry http://registry.npm.taobao.org 然后使用(以后的直接将npm换成cn">
+<meta name="twitter:description" content="准备工作安装hexo 由于使用国外镜像会很慢  可用 get 命令查看 registry  1npm congfig get registry 原版结果为 1http://registry.npmjs.org 用 set 命令换成阿里的镜像就可以了 12npm install -g cnpm --registry-https://registry.npm.taobao.orgnpm config">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -180,18 +180,19 @@
 <p>原版结果为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://registry.npmjs.org</span><br></pre></td></tr></table></figure>
 <p>用 set 命令换成阿里的镜像就可以了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry-https://registry.npm.taobao.org</span><br><span class="line">npm config set registry http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>然后使用(以后的直接将npm换成cnpm下载就会很快)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>我的15.29s就安装完成了，如果使用国外镜像，反正我等了很长时间还是没有下载完</p>
 <h6 id="当然你想使用国外镜像也行"><a href="#当然你想使用国外镜像也行" class="headerlink" title="当然你想使用国外镜像也行"></a>当然你想使用国外镜像也行</h6><p>直接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h5 id="hexo-v"><a href="#hexo-v" class="headerlink" title="hexo -v"></a><code>hexo -v</code></h5><p>查看hexo版本</p>
 <h5 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h5><h6 id="先建一个blog文件夹"><a href="#先建一个blog文件夹" class="headerlink" title="先建一个blog文件夹"></a>先建一个blog文件夹</h6><p>所有hexo操作都在这里面进行</p>
 <h6 id="然后命令行进入blog文件夹下"><a href="#然后命令行进入blog文件夹下" class="headerlink" title="然后命令行进入blog文件夹下"></a>然后命令行进入blog文件夹下</h6><h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <h6 id="启动命令-预览"><a href="#启动命令-预览" class="headerlink" title="启动命令(预览)"></a>启动命令(预览)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">hexo start</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>这一步下来就可以看到自己博客地址了，输入到浏览器就可以查看预生成的博客</p>
 <h6 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;first bolg&quot;</span><br></pre></td></tr></table></figure>
-<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clear</span><br></pre></td></tr></table></figure>
+<h6 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 <h6 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">g(general)</span><br></pre></td></tr></table></figure>
 <p>然后新建的博客就被归档</p>
 <h5 id="将博客部署到远端-GitHub"><a href="#将博客部署到远端-GitHub" class="headerlink" title="将博客部署到远端(GitHub)"></a>将博客部署到远端(GitHub)</h5><h6 id="打开GitHub新建一个仓库"><a href="#打开GitHub新建一个仓库" class="headerlink" title="打开GitHub新建一个仓库"></a>打开GitHub新建一个仓库</h6><p>仓库命名必须是</p>
@@ -377,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.1.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#当然你想使用国外镜像也行"><span class="toc-number">1.2.</span> <span class="toc-text">当然你想使用国外镜像也行</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#正式开始"><span class="toc-number">2.</span> <span class="toc-text">正式开始</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#先建一个blog文件夹"><span class="toc-number">2.1.</span> <span class="toc-text">先建一个blog文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#然后命令行进入blog文件夹下"><span class="toc-number">2.2.</span> <span class="toc-text">然后命令行进入blog文件夹下</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#初始化"><span class="toc-number">2.3.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#启动命令-预览"><span class="toc-number">2.4.</span> <span class="toc-text">启动命令(预览)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#新建一篇文章"><span class="toc-number">2.5.</span> <span class="toc-text">新建一篇文章</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#清理"><span class="toc-number">2.6.</span> <span class="toc-text">清理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成"><span class="toc-number">2.7.</span> <span class="toc-text">生成</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将博客部署到远端-GitHub"><span class="toc-number">3.</span> <span class="toc-text">将博客部署到远端(GitHub)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#打开GitHub新建一个仓库"><span class="toc-number">3.1.</span> <span class="toc-text">打开GitHub新建一个仓库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#安装插件"><span class="toc-number">3.2.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#设置-config-yml相关内容"><span class="toc-number">3.3.</span> <span class="toc-text">设置_config.yml相关内容</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#部署到仓库"><span class="toc-number">3.4.</span> <span class="toc-text">部署到仓库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问自己的博客"><span class="toc-number">3.5.</span> <span class="toc-text">访问自己的博客</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置喜欢的主题"><span class="toc-number">5.</span> <span class="toc-text">设置喜欢的主题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#命令行clone"><span class="toc-number">5.1.</span> <span class="toc-text">命令行clone</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#修改-config-yml中theme参数"><span class="toc-number">5.2.</span> <span class="toc-text">修改_config.yml中theme参数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#清理生成加打开服务"><span class="toc-number">5.3.</span> <span class="toc-text">清理生成加打开服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#推到远端"><span class="toc-number">5.4.</span> <span class="toc-text">推到远端</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#刷新你的博客"><span class="toc-number">5.5.</span> <span class="toc-text">刷新你的博客</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#安装hexo"><span class="toc-number">1.1.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#当然你想使用国外镜像也行"><span class="toc-number">1.2.</span> <span class="toc-text">当然你想使用国外镜像也行</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hexo-v"><span class="toc-number">2.</span> <span class="toc-text">hexo -v</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#正式开始"><span class="toc-number">3.</span> <span class="toc-text">正式开始</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#先建一个blog文件夹"><span class="toc-number">3.1.</span> <span class="toc-text">先建一个blog文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#然后命令行进入blog文件夹下"><span class="toc-number">3.2.</span> <span class="toc-text">然后命令行进入blog文件夹下</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#初始化"><span class="toc-number">3.3.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#启动命令-预览"><span class="toc-number">3.4.</span> <span class="toc-text">启动命令(预览)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#新建一篇文章"><span class="toc-number">3.5.</span> <span class="toc-text">新建一篇文章</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#清理"><span class="toc-number">3.6.</span> <span class="toc-text">清理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成"><span class="toc-number">3.7.</span> <span class="toc-text">生成</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将博客部署到远端-GitHub"><span class="toc-number">4.</span> <span class="toc-text">将博客部署到远端(GitHub)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#打开GitHub新建一个仓库"><span class="toc-number">4.1.</span> <span class="toc-text">打开GitHub新建一个仓库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#安装插件"><span class="toc-number">4.2.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#设置-config-yml相关内容"><span class="toc-number">4.3.</span> <span class="toc-text">设置_config.yml相关内容</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#部署到仓库"><span class="toc-number">4.4.</span> <span class="toc-text">部署到仓库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#访问自己的博客"><span class="toc-number">4.5.</span> <span class="toc-text">访问自己的博客</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-number">5.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置喜欢的主题"><span class="toc-number">6.</span> <span class="toc-text">设置喜欢的主题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#命令行clone"><span class="toc-number">6.1.</span> <span class="toc-text">命令行clone</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#修改-config-yml中theme参数"><span class="toc-number">6.2.</span> <span class="toc-text">修改_config.yml中theme参数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#清理生成加打开服务"><span class="toc-number">6.3.</span> <span class="toc-text">清理生成加打开服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#推到远端"><span class="toc-number">6.4.</span> <span class="toc-text">推到远端</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#刷新你的博客"><span class="toc-number">6.5.</span> <span class="toc-text">刷新你的博客</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,7 +536,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,7 +544,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,15 +584,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,5 +737,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
 </html>
