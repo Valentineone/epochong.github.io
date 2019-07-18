@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>java中小数点后保留指定小数位数方法 | epochong</title>
+  <title>最近公共祖先 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
-<meta name="keywords" content="java">
+  <meta name="description" content="本文主要讲述二叉树的公共祖先的求法  题目描述 有一颗无穷大的满二叉树，其节点按根一层一层地从左往右一次编号，根结点的编号为1.求任意两个节点a,b的最近公共祖先的编号  二叉树的公共祖先12345678910111213141516171819import java.util.*;public class LCA &amp;#123;    public int getLCA(int a, int b">
+<meta name="keywords" content="algorithms,二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java中小数点后保留指定小数位数方法">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/java中小数点后保留两位小数方法/index.html">
+<meta property="og:title" content="最近公共祖先">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/最近公共祖先/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
+<meta property="og:description" content="本文主要讲述二叉树的公共祖先的求法  题目描述 有一颗无穷大的满二叉树，其节点按根一层一层地从左往右一次编号，根结点的编号为1.求任意两个节点a,b的最近公共祖先的编号  二叉树的公共祖先12345678910111213141516171819import java.util.*;public class LCA &amp;#123;    public int getLCA(int a, int b">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-01T09:41:35.307Z">
+<meta property="og:updated_time" content="2019-07-17T10:47:08.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java中小数点后保留指定小数位数方法">
-<meta name="twitter:description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
+<meta name="twitter:title" content="最近公共祖先">
+<meta name="twitter:description" content="本文主要讲述二叉树的公共祖先的求法  题目描述 有一颗无穷大的满二叉树，其节点按根一层一层地从左往右一次编号，根结点的编号为1.求任意两个节点a,b的最近公共祖先的编号  二叉树的公共祖先12345678910111213141516171819import java.util.*;public class LCA &amp;#123;    public int getLCA(int a, int b">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -151,20 +151,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java中小数点后保留两位小数方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-最近公共祖先" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java中小数点后保留指定小数位数方法
+      最近公共祖先
     </h1>
   
 
         
-        <a href="/2019/07/01/java中小数点后保留两位小数方法/" class="archive-article-date">
-  	<time datetime="2019-07-01T06:53:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
+        <a href="/2019/07/17/最近公共祖先/" class="archive-article-date">
+  	<time datetime="2019-07-17T10:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
 </a>
         
       </header>
@@ -172,9 +172,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例</p>
+<p>本文主要讲述二叉树的公共祖先的求法</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法一：最简便的方法，调用DecimalFormat类</span></span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">".00"</span>);</span><br><span class="line">        System.out.println(df.format(d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法二：直接通过String类的format函数实现</span></span><br><span class="line">        System.out.println(String.format(<span class="string">"%.2f"</span>, d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法三：通过BigDecimal类实现</span></span><br><span class="line">        BigDecimal bg = <span class="keyword">new</span> BigDecimal(d);</span><br><span class="line">        <span class="keyword">double</span> d3 = bg.setScale(<span class="number">2</span>, BigDecimal.ROUND_HALF_UP).doubleValue();</span><br><span class="line">        System.out.println(d3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法四：通过NumberFormat类实现</span></span><br><span class="line">        NumberFormat nf = NumberFormat.getNumberInstance();</span><br><span class="line">        nf.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">        System.out.println(nf.format(d));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><ul>
+<li>有一颗无穷大的满二叉树，其节点按根一层一层地从左往右一次编号，根结点的编号为1.求任意两个节点a,b的最近公共祖先的编号</li>
+</ul>
+<h5 id="二叉树的公共祖先"><a href="#二叉树的公共祖先" class="headerlink" title="二叉树的公共祖先"></a>二叉树的公共祖先</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LCA</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">          <span class="keyword">while</span>(a!=b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a&gt;b)<span class="comment">//a先向上走</span></span><br><span class="line">            &#123;</span><br><span class="line">                a=a/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span><span class="comment">//b先上山走</span></span><br><span class="line">            &#123;</span><br><span class="line">                b=b/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -219,7 +222,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
         		</li>
       		
 		</ul>
@@ -275,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/01/java中小数点后保留两位小数方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/17/最近公共祖先/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +296,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/05/Integer进制转换/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Integer进制转换
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/08/Integer类对象池以、Integer-int比较问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Integer类对象池以、Integer-int比较问题</div>
+    <a href="/2019/07/16/集合的remove方法引起的数组越界问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">集合的remove方法引起的数组越界问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +325,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二叉树的公共祖先"><span class="toc-number">2.</span> <span class="toc-text">二叉树的公共祖先</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="本文主要讲述我在做算法题时，运用集合中的remove方法时所引发的数组越界异常的问题   先看原问题    问题解析  创建集合 添加、删除元素 从下到大排序元素 前n-1个元素的和大于最后一个元素即为Yes，否则为No   有坑的解法 12345678910111213141516171819202122232425262728293031323334353637383940414243imp">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/.com//木棒拼图.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/集合的remove方法引起的数组越界问题/原文：https://www.urkeji.com/tuchuang">
 <meta property="og:image" content="http://yoursite.com/.com//数组越界.png">
 <meta property="og:image" content="http://yoursite.com/.com//通过.png">
-<meta property="og:updated_time" content="2019-07-16T06:56:41.862Z">
+<meta property="og:updated_time" content="2019-07-16T07:56:22.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合的remove方法引起的数组越界问题">
 <meta name="twitter:description" content="本文主要讲述我在做算法题时，运用集合中的remove方法时所引发的数组越界异常的问题   先看原问题    问题解析  创建集合 添加、删除元素 从下到大排序元素 前n-1个元素的和大于最后一个元素即为Yes，否则为No   有坑的解法 12345678910111213141516171819202122232425262728293031323334353637383940414243imp">
-<meta name="twitter:image" content="http://yoursite.com/.com//木棒拼图.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/16/集合的remove方法引起的数组越界问题/原文：https://www.urkeji.com/tuchuang">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -71,15 +71,15 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">blogs</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">全部</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">links</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">about</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
     			
             
 		</nav>
@@ -181,7 +181,7 @@
 <ul>
 <li>先看原问题</li>
 </ul>
-<p><img src="/.com//木棒拼图.jpg" alt="木棒拼图"></p>
+<p><img src="原文：https://www.urkeji.com/tuchuang" alt="木棒拼图"></p>
 <ul>
 <li><p>问题解析</p>
 <ol>
@@ -215,8 +215,7 @@
 </ul>
 </li>
 </ul>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
-</code></pre>
+
       
 
       
@@ -333,6 +332,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/17/最近公共祖先/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          最近公共祖先
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/14/网络基础/" id="article-nav-older" class="article-nav-link-wrap">
@@ -480,15 +488,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">blogs</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">全部</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">links</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">about</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
       
         
     </ul>
@@ -537,15 +545,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,11 +565,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
