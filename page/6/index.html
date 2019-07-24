@@ -148,19 +148,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Lock体系相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-LeetCode 876. 链表的中间结点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/Lock体系相关/">Lock体系相关</a>
+      <a class="article-title" href="/2019/03/03/LeetCode 876. 链表的中间结点/">876. 链表的中间结点</a>
     </h1>
   
 
         
-        <a href="/2019/03/03/Lock体系相关/" class="archive-article-date">
+        <a href="/2019/03/03/LeetCode 876. 链表的中间结点/" class="archive-article-date">
   	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
@@ -168,46 +168,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h6><p>取得Callable接口返回值<br>get():V当前线程阻塞直到有返回值</p>
-<h6 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h6><p>在多线程并发下可以保证任务(传入的Callable或Runnable)只执行一次</p>
-<p>[18:50]</p>
-<h6 id="线程中提交方法"><a href="#线程中提交方法" class="headerlink" title="线程中提交方法"></a>线程中提交方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void execute(Runnable r);</span><br><span class="line">V submit(Runnable )</span><br></pre></td></tr></table></figure>
-<h6 id="CompletableFuture接口-自学"><a href="#CompletableFuture接口-自学" class="headerlink" title="CompletableFuture接口(自学)"></a>CompletableFuture接口(自学)</h6><p>jdk1.8新增处理异步任务的接口</p>
-<h6 id="多线程三大核心"><a href="#多线程三大核心" class="headerlink" title="多线程三大核心"></a>多线程三大核心</h6><p><strong>分工:</strong><br>创建多个子线程执行不同的任务<br>jdk1.7Fork/Join 单机版人的Map/Reduce</p>
-<p><strong>互斥</strong><br>任意一个时刻只有一个线程在操作临界区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">synchronized</span><br><span class="line">Lock(为解决死锁而生)</span><br></pre></td></tr></table></figure>
-<p><strong>同步</strong><br>线程间通信</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wait、notify</span><br><span class="line">Comdition</span><br></pre></td></tr></table></figure>
-<h4 id="Lock体系"><a href="#Lock体系" class="headerlink" title="Lock体系"></a>Lock体系</h4><h6 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h6><p>只有当以下四个条件同时满足时,程序才会死锁</p>
-<ol>
-<li><strong>互斥:</strong> 共享资源X与Y只能被一个线程占用</li>
-<li><strong>占有且等待:</strong> 线程T1已经拥有共享资源X,在等待共享资源Y的时候,不释放X</li>
-<li><strong>不可抢占:</strong> 其他线程不能强行T1线程持有的资源X</li>
-<li><strong>循环等待</strong><h6 id="Lock接口常用方法"><a href="#Lock接口常用方法" class="headerlink" title="Lock接口常用方法"></a>Lock接口常用方法</h6></li>
-</ol>
-<ul>
-<li><p><strong>void lock()</strong> 阻塞式获取锁</p>
-</li>
-<li><p><strong>boolean tryLock()</strong> 非阻塞获取锁,获取成功执行任务返回true否则返回false线程直接退出</p>
-</li>
-<li><p><strong>void lockInterruptibly() throws InterruptedException</strong> 获取锁时响应中断</p>
-</li>
-<li><p><strong>boolean tryLock(long time, TimeUnit unit)<br>throws InterruptedException</strong> 获取锁时支持超时,在指定时间内未获取到锁,线程直接退出<br><strong>Condition</strong> newCondition();获取绑定到该lock对象的等待队列,每当调用一次就产生一个新的等待队列</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	lock.lock();</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="sychronized与Lock的关系与区别"><a href="#sychronized与Lock的关系与区别" class="headerlink" title="==sychronized与Lock的关系与区别=="></a>==sychronized与Lock的关系与区别==</h6><ol>
-<li>sychronized是JVM级别的锁，属于Java中的关键字，使用sychronized，加锁与解锁都是隐式的;Lock是Java层面的锁，加锁与解锁都需要显示使用。</li>
-<li>lock可以提供一些synchronized不具备的功能，如响应中断、超时获取、非阻塞式获取、公平锁、共享锁如读写锁</li>
-<li>sychronized的等待队列只有一个，而同一个Lock可以拥有多个等待队列(多个Condition对象)</li>
-</ol>
-<p><strong>AQS:同步包装器</strong></p>
-<p>基于链表的一个队列,此队列包装类线程节点,所有获取锁失败的次三成都被包装为队列节点进入AQS中排队获取锁。</p>
-<h6 id="lock与AQS的关系"><a href="#lock与AQS的关系" class="headerlink" title="lock与AQS的关系"></a>lock与AQS的关系</h6><p>lock提供锁获取成功与否的状态给AQS，AQS根据此状态来确定是否将线程置入AQS中。</p>
-<h6 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁:"></a>公平锁与非公平锁:</h6><p><strong>公平锁:</strong> 等待时间最长的线程优先获取到锁,只有lock有,lock默认采用非公平锁</p>
-<p><strong>读写锁:</strong><br>Lock中的ReentrantReadWriteLock实现读写锁</p>
-<p><strong>线程间通信:</strong> Condition 搭配 Lock<br>await()<br>signal()/signalAll()</p>
-<p>==kafka:分布式消息队列==</p>
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88090162" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88090162</a><br>  <strong>题目描述</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">给定一个带有头结点 head 的非空单链表，返回链表的中间结点。</span><br><span class="line">如果有两个中间结点，则返回第二个中间结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4,5]</span><br><span class="line">输出：此列表中的结点 3 (序列化形式：[3,4,5])</span><br><span class="line">返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。</span><br><span class="line">注意，我们返回了一个 ListNode 类型的对象 ans，这样：</span><br><span class="line">ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.</span><br></pre></td></tr></table></figure>
+<p> <strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4,5,6]</span><br><span class="line">输出：此列表中的结点 4 (序列化形式：[4,5,6])</span><br><span class="line">由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>思路</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">设置两个指针，一个指针一次走一步，一个指针一次走2步</span><br><span class="line">当链表大小为奇数</span><br><span class="line">-走两步的节点到尾部的时候，走一步的到中间位置</span><br><span class="line">当链表大小为偶数</span><br><span class="line">-走两步的节点到尾部走一步的到第二个中间节点</span><br><span class="line">当链表只有一个节点时</span><br><span class="line">-直接返回该节点</span><br><span class="line">当链表有两个节点时</span><br><span class="line">-返回第一个节点的下一个节点</span><br></pre></td></tr></table></figure>
+<p> <strong>解法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125;</span><br><span class="line">		ListNode n1 = head;</span><br><span class="line">		ListNode n2 = head;</span><br><span class="line">		<span class="comment">//奇数的时候来到中点，偶数的时候来到中点前面的一个的位置</span></span><br><span class="line">		<span class="keyword">while</span> (n2.next != <span class="keyword">null</span> &amp;&amp; n2.next.next != <span class="keyword">null</span>) &#123; </span><br><span class="line">			n1 = n1.next; <span class="comment">// n1 -&gt; mid</span></span><br><span class="line">			n2 = n2.next.next; <span class="comment">// n2 -&gt; end</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">if</span> (n2.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> n1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> n1; </span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>小结</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结不易，切勿抄袭，帮助你理解是最终目的</span><br></pre></td></tr></table></figure>
+<p> 欢迎加我QQ：1939765238 一起学习算法</p>
 
       
 
@@ -221,11 +195,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
 		</ul>
@@ -235,7 +209,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/Lock体系相关/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/03/LeetCode 876. 链表的中间结点/">展开全文 >></a>
         </p>
       
 
@@ -348,6 +322,123 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Lock体系相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/Lock体系相关/">Lock体系相关</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/03/Lock体系相关/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h6><p>取得Callable接口返回值<br>get():V当前线程阻塞直到有返回值</p>
+<h6 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h6><p>在多线程并发下可以保证任务(传入的Callable或Runnable)只执行一次</p>
+<p>[18:50]</p>
+<h6 id="线程中提交方法"><a href="#线程中提交方法" class="headerlink" title="线程中提交方法"></a>线程中提交方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void execute(Runnable r);</span><br><span class="line">V submit(Runnable )</span><br></pre></td></tr></table></figure>
+<h6 id="CompletableFuture接口-自学"><a href="#CompletableFuture接口-自学" class="headerlink" title="CompletableFuture接口(自学)"></a>CompletableFuture接口(自学)</h6><p>jdk1.8新增处理异步任务的接口</p>
+<h6 id="多线程三大核心"><a href="#多线程三大核心" class="headerlink" title="多线程三大核心"></a>多线程三大核心</h6><p><strong>分工:</strong><br>创建多个子线程执行不同的任务<br>jdk1.7Fork/Join 单机版人的Map/Reduce</p>
+<p><strong>互斥</strong><br>任意一个时刻只有一个线程在操作临界区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">synchronized</span><br><span class="line">Lock(为解决死锁而生)</span><br></pre></td></tr></table></figure>
+<p><strong>同步</strong><br>线程间通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wait、notify</span><br><span class="line">Comdition</span><br></pre></td></tr></table></figure>
+<h4 id="Lock体系"><a href="#Lock体系" class="headerlink" title="Lock体系"></a>Lock体系</h4><h6 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h6><p>只有当以下四个条件同时满足时,程序才会死锁</p>
+<ol>
+<li><strong>互斥:</strong> 共享资源X与Y只能被一个线程占用</li>
+<li><strong>占有且等待:</strong> 线程T1已经拥有共享资源X,在等待共享资源Y的时候,不释放X</li>
+<li><strong>不可抢占:</strong> 其他线程不能强行T1线程持有的资源X</li>
+<li><strong>循环等待</strong><h6 id="Lock接口常用方法"><a href="#Lock接口常用方法" class="headerlink" title="Lock接口常用方法"></a>Lock接口常用方法</h6></li>
+</ol>
+<ul>
+<li><p><strong>void lock()</strong> 阻塞式获取锁</p>
+</li>
+<li><p><strong>boolean tryLock()</strong> 非阻塞获取锁,获取成功执行任务返回true否则返回false线程直接退出</p>
+</li>
+<li><p><strong>void lockInterruptibly() throws InterruptedException</strong> 获取锁时响应中断</p>
+</li>
+<li><p><strong>boolean tryLock(long time, TimeUnit unit)<br>throws InterruptedException</strong> 获取锁时支持超时,在指定时间内未获取到锁,线程直接退出<br><strong>Condition</strong> newCondition();获取绑定到该lock对象的等待队列,每当调用一次就产生一个新的等待队列</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	lock.lock();</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="sychronized与Lock的关系与区别"><a href="#sychronized与Lock的关系与区别" class="headerlink" title="==sychronized与Lock的关系与区别=="></a>==sychronized与Lock的关系与区别==</h6><ol>
+<li>sychronized是JVM级别的锁，属于Java中的关键字，使用sychronized，加锁与解锁都是隐式的;Lock是Java层面的锁，加锁与解锁都需要显示使用。</li>
+<li>lock可以提供一些synchronized不具备的功能，如响应中断、超时获取、非阻塞式获取、公平锁、共享锁如读写锁</li>
+<li>sychronized的等待队列只有一个，而同一个Lock可以拥有多个等待队列(多个Condition对象)</li>
+</ol>
+<p><strong>AQS:同步包装器</strong></p>
+<p>基于链表的一个队列,此队列包装类线程节点,所有获取锁失败的次三成都被包装为队列节点进入AQS中排队获取锁。</p>
+<h6 id="lock与AQS的关系"><a href="#lock与AQS的关系" class="headerlink" title="lock与AQS的关系"></a>lock与AQS的关系</h6><p>lock提供锁获取成功与否的状态给AQS，AQS根据此状态来确定是否将线程置入AQS中。</p>
+<h6 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁:"></a>公平锁与非公平锁:</h6><p><strong>公平锁:</strong> 等待时间最长的线程优先获取到锁,只有lock有,lock默认采用非公平锁</p>
+<p><strong>读写锁:</strong><br>Lock中的ReentrantReadWriteLock实现读写锁</p>
+<p><strong>线程间通信:</strong> Condition 搭配 Lock<br>await()<br>signal()/signalAll()</p>
+<p>==kafka:分布式消息队列==</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/Lock体系相关/">展开全文 >></a>
         </p>
       
 
@@ -1377,15 +1468,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,19 +1492,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,6 +1516,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -1446,6 +1533,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1520,7 +1611,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;&lt;br&gt;向上的路并不拥挤&lt;br&gt;而大部分人选择了安逸&lt;br&gt;Thanks for reading</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; &lt;br&gt;向上的路并不拥挤 &lt;br /&gt;而大部分人选择了安逸&lt;br /&gt;Thanks for reading</div>
   	  	
     	</section>
     
