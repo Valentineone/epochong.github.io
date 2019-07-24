@@ -148,6 +148,195 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-计蒜客  队列  小朋友报数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/03/计蒜客  队列  小朋友报数/">小朋友报数</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客  队列  小朋友报数/" class="archive-article-date">
+  	<time datetime="2019-05-03T10:27:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790073" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790073</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> 时间限制：1000ms   空间限制：131072K</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"> 有 n 个小朋友做游戏，他们的编号分别是 1,2,3…n1,2,3…n。他们按照编号从小到大依次顺时针围成一个圆圈，从第一个小朋友开始从 1 报数，依次按照顺时针方向报数 (加一)，报 mm 的人会离开队伍，然后下一个小朋友会继续从 1 开始报数，直到只剩一个小朋友为止。</span><br><span class="line"></span><br><span class="line"> **输入格式**  </span><br><span class="line"> 第一行输入两个整数，nn，mm。（1 \leq n,m \leq 10001≤n,m≤1000）</span><br><span class="line"></span><br><span class="line"> **输出格式**  </span><br><span class="line"> 输出最后一个小朋友的编号，占一行。</span><br><span class="line"></span><br><span class="line"> **样例输入**</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">```java</span><br><span class="line">10 5</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p> <strong>实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/3 17:11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_09_QueueKid</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> m = input.nextInt();</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList.add(i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> zeroNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (arrayList.get(i) == <span class="number">0</span>) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">if</span> (i == n) &#123;</span><br><span class="line">                    i = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (index % m == <span class="number">0</span>) &#123;</span><br><span class="line">                arrayList.set(i,<span class="number">0</span>);</span><br><span class="line">                zeroNum++;</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (zeroNum == n - <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == n - <span class="number">1</span>) &#123;</span><br><span class="line">                i = -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : arrayList</span><br><span class="line">             ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/03/计蒜客  队列  小朋友报数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-计蒜客 栈 网页跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/03/计蒜客 栈 网页跳转/">网页跳转</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 栈 网页跳转/" class="archive-article-date">
+  	<time datetime="2019-05-03T09:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
+<p> 蒜头君每天都在用一款名为 “蒜厂浏览器” 的软件。在这个浏览器中，一共三种操作：打开页面、回退和前进。它们的功能如下：</p>
+<p> 打开页面：在地址栏中输入网址，并跳转到网址对应的页面；<br> 回退：返回到上一次访问的页面；<br> 前进：返回到上次回退前的页面，如果上一次操作是打开页面，那么将无法前进。<br> 现在，蒜头君打开浏览器，进行了一系列操作，你需要输出他每次操作后所在页面的网址。</p>
+<p> <strong>输入格式</strong><br> 第一行输入一个整数 n(0 &lt; n \le 100000)n(0&lt;n≤100000)，表示蒜头君的操作次数。</p>
+<p> 接下来一共 nn 行，每行首先输入一个字符串，如果是 VISIT，后面接着输入一个不含有空格和换行的网址（网址长度小于 100100），表示蒜头君在浏览器地址栏中输入的网址；如果是 BACK，表示蒜头君点击了回退按钮；如果是 FORWARD，表示蒜头君点击了前进按钮。</p>
+<p> <strong>输出格式</strong><br> 对于每次操作，如果蒜头君能操作成功，输出蒜头君操作之后的网址，否则输出 Ignore。假设蒜头君输入的所有网址都是合法的。</p>
+<p> <strong>样例输入</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">VISIT https://www.jisuanke.com/course/476</span><br><span class="line">VISIT https://www.taobao.com/</span><br><span class="line">BACK</span><br><span class="line">BACK</span><br><span class="line">FORWARD</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br><span class="line">VISIT https://www.jisuanke.com/course/429</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br></pre></td></tr></table></figure>
+<p> <strong>样例输出</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">Ignore</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.jisuanke.com/course/429</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br></pre></td></tr></table></figure>
+<p> <strong>实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 16:23</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_08_WebStack &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        Stack&lt;String&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;String&gt; back = new Stack&lt;&gt;();</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            String str = input.next();</span><br><span class="line">            if (str.equals(&quot;VISIT&quot;)) &#123;</span><br><span class="line">                String url = input.next();</span><br><span class="line">                stack.push(url);</span><br><span class="line">                arrayList.add(url);</span><br><span class="line">                back.removeAllElements();</span><br><span class="line">            &#125; else if (str.equals(&quot;BACK&quot;)) &#123;</span><br><span class="line">                if (stack.size() &lt;= 1) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    back.push(stack.pop());</span><br><span class="line">                    arrayList.add(stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (str.equals(&quot;FORWARD&quot;)) &#123;</span><br><span class="line">                if (back.isEmpty()) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    String backUrl = back.pop();</span><br><span class="line">                    stack.push(backUrl);</span><br><span class="line">                    arrayList.add(backUrl);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (String s : arrayList</span><br><span class="line">             ) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/03/计蒜客 栈 网页跳转/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-计蒜客 栈 左右括号匹配并输出对应位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,7 +349,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 栈 左右括号匹配并输出对应位置/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 栈 左右括号匹配并输出对应位置/" class="archive-article-date">
   	<time datetime="2019-05-03T08:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -255,7 +448,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 集合之TreeMap 水果店/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 集合之TreeMap 水果店/" class="archive-article-date">
   	<time datetime="2019-05-03T07:30:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -348,7 +545,11 @@
   
 
         
-        <a href="/2019/05/03/HashMap的迭代（HashMap遍历）/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/HashMap的迭代（HashMap遍历）/" class="archive-article-date">
   	<time datetime="2019-05-03T03:11:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -432,7 +633,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 集合 蒜头学英语/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 集合 蒜头学英语/" class="archive-article-date">
   	<time datetime="2019-05-03T02:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -528,7 +733,11 @@
   
 
         
-        <a href="/2019/05/03/忽略大小写比较字符串/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/忽略大小写比较字符串/" class="archive-article-date">
   	<time datetime="2019-05-03T02:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -605,7 +814,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 集合 计算集合的并/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 集合 计算集合的并/" class="archive-article-date">
   	<time datetime="2019-05-03T02:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -694,7 +907,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 集合 打印锯齿矩阵/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 集合 打印锯齿矩阵/" class="archive-article-date">
   	<time datetime="2019-05-03T01:26:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -788,7 +1005,11 @@
   
 
         
-        <a href="/2019/05/01/hello-world/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/01/hello-world/" class="archive-article-date">
   	<time datetime="2019-04-30T17:00:38.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
 </a>
         
@@ -850,205 +1071,9 @@
 
 
   
-    <article id="post-RPG角色生成器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/RPG角色生成器/">RPG角色生成器</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/RPG角色生成器/" class="archive-article-date">
-  	<time datetime="2019-04-30T11:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  <strong>需求</strong><br> <strong>1.功能描述</strong><br> 几乎所有的RPG游戏（一种源自《龙与地下城》的游戏类型）在进入游戏时都会让用户自己来创建自己喜欢的角色。本次上机要求编写一个简化的创建游戏角色的程序。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">practice</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/RPG角色生成器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java泛型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/Java泛型/">泛型小计</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/Java泛型/" class="archive-article-date">
-  	<time datetime="2019-04-30T08:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="jdk5-自动拆装箱"><a href="#jdk5-自动拆装箱" class="headerlink" title="jdk5 自动拆装箱"></a>jdk5 自动拆装箱</h6><h6 id="jdk7-switch对String的支持"><a href="#jdk7-switch对String的支持" class="headerlink" title="jdk7 switch对String的支持"></a>jdk7 switch对String的支持</h6><h5 id="JDK1-5新特性"><a href="#JDK1-5新特性" class="headerlink" title="==JDK1.5新特性=="></a>==JDK1.5新特性==</h5><h5 id="1-方法的可变参数-数组"><a href="#1-方法的可变参数-数组" class="headerlink" title="1.方法的可变参数(数组)"></a>1.方法的可变参数(数组)</h5><blockquote>
-<p>可变参数必须放在方法参数最后一个并且有且只有一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个参数上使用的“...”实际上表示一个数组的结构。</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h5 id="3-静态导入"><a href="#3-静态导入" class="headerlink" title="3.静态导入"></a>3.静态导入</h5><h6 id="用inport-static-导入一个类的所有静态域-方法与属性"><a href="#用inport-static-导入一个类的所有静态域-方法与属性" class="headerlink" title="用inport static 导入一个类的所有静态域(方法与属性)"></a>用inport static 导入一个类的所有静态域(方法与属性)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">从JDK1.5开始，如果类中方法全是static方法，则可以直接把这个类的方法导入进来，这样就好比像在主类中定义</span><br><span class="line">的方法那样，可以被主方法直接调用。</span><br></pre></td></tr></table></figure>
-<h5 id="泛型：语法塘-守门员"><a href="#泛型：语法塘-守门员" class="headerlink" title="==泛型：语法塘 守门员=="></a>==泛型：语法塘 守门员==</h5><h6 id="守门员"><a href="#守门员" class="headerlink" title="守门员"></a>守门员</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">编译的时候就拦截</span><br><span class="line">Object类自动转型运行时异常</span><br></pre></td></tr></table></figure>
-<h5 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h5><p>在定义是类型不确定，只有在具体是用时才能确定类型</p>
-<h6 id="ClassCastException-RuntimeException-：在强转时，两个毫无关系的类产生的异常"><a href="#ClassCastException-RuntimeException-：在强转时，两个毫无关系的类产生的异常" class="headerlink" title="ClassCastException(RuntimeException)：在强转时，两个毫无关系的类产生的异常"></a>ClassCastException(RuntimeException)：在强转时，两个毫无关系的类产生的异常</h6><h6 id="安全隐患：存在于强转"><a href="#安全隐患：存在于强转" class="headerlink" title="安全隐患：存在于强转"></a>安全隐患：存在于强转</h6><h5 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&lt;T&gt; &#123;</span><br><span class="line">T value1;</span><br><span class="line">&#125;</span><br><span class="line">尖括号 &lt;&gt; 中的 T 被称作是类型参数，</span><br><span class="line">用于指代任何类型</span><br></pre></td></tr></table></figure>
-<p>引入泛型后，一个泛型类的类型在使用时已经确定好，因此无需向下转型<br>IDEA变量自动补全：new point&lt;&gt;() 后<br>ctrl + alt + v<br>JDK7后 new后面不需要写&lt;&gt;里面的泛型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;T&gt; 中的 T 被称为</span><br><span class="line">类型参数，而方法中的 T 被称为参数化类型，它不是运行时真正的参数。</span><br></pre></td></tr></table></figure>
-<h6 id="不包括进本数据类型"><a href="#不包括进本数据类型" class="headerlink" title="不包括进本数据类型"></a>不包括进本数据类型</h6><h5 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&#123;</span><br><span class="line">    public &lt;T&gt; void testMethod(T t) &#123;</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="泛型方法始终以自己定义的类型参数为准。"><a href="#泛型方法始终以自己定义的类型参数为准。" class="headerlink" title="泛型方法始终以自己定义的类型参数为准。"></a>泛型方法始终以自己定义的类型参数为准。</h6><h6 id="为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名"><a href="#为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名" class="headerlink" title="为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名"></a>为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名</h6><h5 id="通配符-重点）"><a href="#通配符-重点）" class="headerlink" title="==通配符(重点）=="></a>==通配符(重点）==</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在程序类中追加了泛型的定义后，</span><br><span class="line">避免了ClassCastException 的问题，</span><br><span class="line">但是又会产生新的情况：参数的统一问</span><br><span class="line">题。</span><br></pre></td></tr></table></figure>
-<h5 id="解决：通配符"><a href="#解决：通配符" class="headerlink" title="解决：通配符"></a>解决：通配符</h5><h6 id="用在方法级别-接受任意类型"><a href="#用在方法级别-接受任意类型" class="headerlink" title="用在方法级别 接受任意类型"></a>用在方法级别 接受任意类型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们需要的解决方案：可以接收所有的泛型类型，但是又不能够让用户随意修改。这种情况就需要使用通配符&quot;?&quot;来</span><br><span class="line">处理</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 此时使用通配符”?”描述的是它可以接收任意类型，但是由于不确定类型，所以无法修改</p>
-</blockquote>
-<h6 id="extends-类：设置泛型上限"><a href="#extends-类：设置泛型上限" class="headerlink" title="? extends 类：设置泛型上限"></a>? extends 类：设置泛型上限</h6><blockquote>
-<p> 只能获得值不能设置值<br>现在只能确定是父类，由于子类不确定(子类有很多中种或很多层)。此时发生向下转型存在不确定性因此无法设置具体值</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? extends Number，</span><br><span class="line">表示只能够设置Number或其子类，</span><br><span class="line">例如：Integer、Double等；</span><br></pre></td></tr></table></figure>
-<h6 id="super-String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object"><a href="#super-String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object" class="headerlink" title="? super String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object()"></a>? super String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object()</h6><blockquote>
-<p>此时方法可以设置值，因为发生天然的向上转型</p>
-</blockquote>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
-<p>只有上线通配符可以用在泛型类的声明上，T extend是Number，</p>
-</blockquote>
-<h5 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h5><blockquote>
-<p>JDK8前接口只有全场常量和方法</p>
-</blockquote>
-<h6 id="定义一个泛型接口"><a href="#定义一个泛型接口" class="headerlink" title="定义一个泛型接口"></a>定义一个泛型接口</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="在子类定义时继续使用泛型"><a href="#在子类定义时继续使用泛型" class="headerlink" title="在子类定义时继续使用泛型"></a>在子类定义时继续使用泛型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br><span class="line">class MessageImpl implements IMessage&lt;String&gt; &#123;</span><br><span class="line">@Override</span><br><span class="line">public void print(String t) &#123;</span><br><span class="line">System.out.println(t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="在子类定义时继续使用泛型-1"><a href="#在子类定义时继续使用泛型-1" class="headerlink" title="在子类定义时继续使用泛型"></a>在子类定义时继续使用泛型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br><span class="line">class MessageImpl&lt;T&gt; implements IMessage&lt;T&gt; &#123;</span><br><span class="line">@Override</span><br><span class="line">public void print(T t) &#123;</span><br><span class="line">System.out.println(t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="类型擦除-向下兼容"><a href="#类型擦除-向下兼容" class="headerlink" title="类型擦除(向下兼容)"></a><strong><em>类型擦除(向下兼容)</em></strong></h4><blockquote>
-<p>这是因为，泛型信息只存在于代码编译阶段，在进入 JVM 之前，与泛型相关的信息会被擦除掉，专业术语叫做类型擦除,</p>
-</blockquote>
-<blockquote>
-<p>通俗地讲，泛型类和普通类在 java 虚拟机内是没有什么特别的地方。</p>
-</blockquote>
-<blockquote>
-<p>在泛型类被类型擦除的时候，之前泛型类中的类型参数部分如果没有指定上限，如 <t> 则会被转译成普通的<br>Object 类型，如果指定了上限如 <t extends string> 则类型参数就被替换成类型上限。</t></t></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&lt;T,E extends Number&gt;&#123;</span><br><span class="line">private T message;</span><br><span class="line">private E text;</span><br><span class="line">&#125;</span><br><span class="line">T-&gt; Object</span><br><span class="line">E-&gt; Number</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/Java泛型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1077,6 +1102,21 @@
     </div>
  
   </div>
+
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--不蒜子结束-->
+
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -1100,6 +1140,8 @@
     } 
 setInterval("createtime()",250);
 </script>
+
+
 
     </div>
     <script>
@@ -1181,15 +1223,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,6 +1271,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
@@ -1249,15 +1295,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1324,7 +1366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; &lt;br&gt;向上的路并不拥挤 &lt;br /&gt;而大部分人选择了安逸&lt;br /&gt;Thanks for reading</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; &lt;br&gt;向上的路并不拥挤 &lt;br /&gt;而大部分人选择了安逸</div>
   	  	
     	</section>
     

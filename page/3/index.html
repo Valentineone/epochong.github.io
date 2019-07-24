@@ -148,6 +148,223 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-二叉树基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/二叉树基础/">二叉树基础</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/28/二叉树基础/" class="archive-article-date">
+  	<time datetime="2019-05-28T10:17:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>二叉树:</strong>非线性的数据结构</p>
+<h5 id="树的基础概念"><a href="#树的基础概念" class="headerlink" title="树的基础概念:"></a>树的基础概念:</h5><p><strong>节点的度:</strong>一个节点包含的子树的个数.<br><strong>叶子节点:</strong>度为0的节点</p>
+<p><strong>节点高度:</strong>节点到叶子节点的最长路径<br><strong>节点深度:</strong>根节点到节点的路径<br><strong>树的高度:</strong>根节点的高度<br><strong>节点的层数:</strong>深度+1</p>
+<h5 id="树的特性"><a href="#树的特性" class="headerlink" title="树的特性:"></a>树的特性:</h5><ol>
+<li><p>子树不相交</p>
+</li>
+<li><p>除了根节点外，每个节点有且只有一个父节点</p>
+</li>
+<li><p>节点个数N 边个数 = N - 1</p>
+</li>
+</ol>
+<p><strong>N叉树:</strong>树中度最大的个数即为N</p>
+<p><strong>二叉树:</strong>最多只有两个子树<br><strong>满二叉树:</strong> <em>一种特殊的完全二叉树</em></p>
+<blockquote>
+<p> 一个二叉树每一层的节点数都达到最大值。</p>
+</blockquote>
+<p><strong>每一层的节点个数:</strong>2^(n-1) n为层数<br><strong>总节点个数:</strong>2^n - 1<br>树的高度:已知节点个数为N,求树的高度h = log2 (N+1)</p>
+<p><strong>完全二叉树:</strong><br>除了最后一层节点个数可以不满外，所有层的节点个数都达到最大值。<br>最后一层节点靠左排列</p>
+<p><strong>树的存储:</strong></p>
+<p><strong>数组:</strong>顺序存储,适合存储完全二叉树，否则会有空间浪费<br>堆</p>
+<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>二叉树具有天然的递归特性</strong></p>
+<p><strong>树的应用:</strong></p>
+<ol>
+<li>OS中的文件夹</li>
+<li>公司中的职位分布</li>
+<li>图书馆书的分类</li>
+</ol>
+<p><strong>树结构的优势:</strong>方便查找、删除</p>
+<p><strong>二叉搜索树:</strong>用到最多的二叉树之一<br><strong>特点:</strong></p>
+<ol>
+<li><p>二分搜索树每个节点的值大于左子树所有节点的值，小于其右子树所有节点的值</p>
+</li>
+<li><p>也是二叉树</p>
+</li>
+<li><p>元素具有可比较性<br>Comparable:内部比较 compareTo<br>Comparator:外部比较</p>
+</li>
+</ol>
+<p><strong>堆:</strong>完全二叉树 顺序存储</p>
+<h5 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h5><p><strong>平衡二叉树:</strong>AVL 红黑树</p>
+<p><strong>二叉树遍历:</strong><br>按照相应的规则将二叉树中每个节点访问一次<br>所谓的序指的是每个子树根节点的访问顺序</p>
+<p><strong>前中后序遍历:</strong>树的深度优先遍历</p>
+<p><strong>前序</strong><br>先访问一个节点的根节点<br>再访问左子树<br>最后访问右子树</p>
+<p><strong>中序</strong></p>
+<p>二叉搜索树排序后的结果<br>先访问左子树<br>在访问根节点<br>最后右子树</p>
+<p><strong>后序</strong><br>先左树<br>再右树<br>最后根节点</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/28/二叉树基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-继承关系下的getter-setter调用关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/继承关系下的getter-setter调用关系/">继承关系下的getter,setter调用关系.md</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/28/继承关系下的getter-setter调用关系/" class="archive-article-date">
+  	<time datetime="2019-05-28T08:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>先看一段代码判断输出</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/28 16:22</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="keyword">new</span> B().getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">            setValue(v);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                value++;</span><br><span class="line">                <span class="keyword">return</span> value;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                System.out.println(e.toString());</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.setValue(value);</span><br><span class="line">                System.out.print(value + <span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(<span class="number">5</span>);</span><br><span class="line">            setValue(getValue() - <span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.setValue(value * <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h6><blockquote>
+<p>22 34 17</p>
+</blockquote>
+<h6 id="调用关系"><a href="#调用关系" class="headerlink" title="调用关系"></a>调用关系</h6><p>只要遵循以下条件</p>
+<ol>
+<li>父类调用父类中被子类重写的方法时,首先调用子类重写后的方法,然后调用父类的该方法</li>
+<li>try-catch-finally语句中，try中含有return语句时，执行return语句前（return value保存的是没执行finally之前的值）如果没产生异常，先执行finally，然后直接执行return语句，不执行finally之后的return语句。有异常，先执行catch块，再执行finally，然后执行finally之后的return语句。</li>
+</ol>
+<h5 id="即可得出答案"><a href="#即可得出答案" class="headerlink" title="即可得出答案"></a>即可得出答案</h5>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/28/继承关系下的getter-setter调用关系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-待解决的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -783,6 +1000,87 @@
 
 
   
+    <article id="post-实现最小栈Stack泛型为Integer时元素相等的判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/">双栈结构实现最小栈</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/" class="archive-article-date">
+  	<time datetime="2019-05-22T13:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-双栈结构实现最小栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -795,7 +1093,11 @@
   
 
         
-        <a href="/2019/05/22/双栈结构实现最小栈/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/22/双栈结构实现最小栈/" class="archive-article-date">
   	<time datetime="2019-05-22T13:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
 </a>
         
@@ -868,83 +1170,6 @@
 
 
   
-    <article id="post-实现最小栈Stack泛型为Integer时元素相等的判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/">双栈结构实现最小栈</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/" class="archive-article-date">
-  	<time datetime="2019-05-22T13:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/实现最小栈Stack泛型为Integer时元素相等的判断/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-牛客输入操作判定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -957,7 +1182,11 @@
   
 
         
-        <a href="/2019/05/22/牛客输入操作判定/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/22/牛客输入操作判定/" class="archive-article-date">
   	<time datetime="2019-05-22T13:40:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
 </a>
         
@@ -1077,7 +1306,11 @@
   
 
         
-        <a href="/2019/05/11/hexo-yalia/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/11/hexo-yalia/" class="archive-article-date">
   	<time datetime="2019-05-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
 </a>
         
@@ -1208,7 +1441,11 @@
   
 
         
-        <a href="/2019/05/11/Markdown语法/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/11/Markdown语法/" class="archive-article-date">
   	<time datetime="2019-05-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
 </a>
         
@@ -1294,7 +1531,11 @@
   
 
         
-        <a href="/2019/05/06/first-blog/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/06/first-blog/" class="archive-article-date">
   	<time datetime="2019-05-06T12:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
 </a>
         
@@ -1367,7 +1608,11 @@
   
 
         
-        <a href="/2019/05/03/计蒜客 队列 敲7/" class="archive-article-date">
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/03/计蒜客 队列 敲7/" class="archive-article-date">
   	<time datetime="2019-05-03T10:50:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
 </a>
         
@@ -1448,190 +1693,9 @@
 
 
   
-    <article id="post-计蒜客  队列  小朋友报数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/计蒜客  队列  小朋友报数/">小朋友报数</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/03/计蒜客  队列  小朋友报数/" class="archive-article-date">
-  	<time datetime="2019-05-03T10:27:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790073" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790073</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> 时间限制：1000ms   空间限制：131072K</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"> 有 n 个小朋友做游戏，他们的编号分别是 1,2,3…n1,2,3…n。他们按照编号从小到大依次顺时针围成一个圆圈，从第一个小朋友开始从 1 报数，依次按照顺时针方向报数 (加一)，报 mm 的人会离开队伍，然后下一个小朋友会继续从 1 开始报数，直到只剩一个小朋友为止。</span><br><span class="line"></span><br><span class="line"> **输入格式**  </span><br><span class="line"> 第一行输入两个整数，nn，mm。（1 \leq n,m \leq 10001≤n,m≤1000）</span><br><span class="line"></span><br><span class="line"> **输出格式**  </span><br><span class="line"> 输出最后一个小朋友的编号，占一行。</span><br><span class="line"></span><br><span class="line"> **样例输入**</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">```java</span><br><span class="line">10 5</span><br></pre></td></tr></table></figure></p>
-<p><strong>样例输出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p> <strong>实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/3 17:11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_09_QueueKid</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> m = input.nextInt();</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList.add(i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> zeroNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (arrayList.get(i) == <span class="number">0</span>) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">if</span> (i == n) &#123;</span><br><span class="line">                    i = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (index % m == <span class="number">0</span>) &#123;</span><br><span class="line">                arrayList.set(i,<span class="number">0</span>);</span><br><span class="line">                zeroNum++;</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (zeroNum == n - <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == n - <span class="number">1</span>) &#123;</span><br><span class="line">                i = -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : arrayList</span><br><span class="line">             ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/计蒜客  队列  小朋友报数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计蒜客 栈 网页跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/计蒜客 栈 网页跳转/">网页跳转</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/03/计蒜客 栈 网页跳转/" class="archive-article-date">
-  	<time datetime="2019-05-03T09:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
-<p> 蒜头君每天都在用一款名为 “蒜厂浏览器” 的软件。在这个浏览器中，一共三种操作：打开页面、回退和前进。它们的功能如下：</p>
-<p> 打开页面：在地址栏中输入网址，并跳转到网址对应的页面；<br> 回退：返回到上一次访问的页面；<br> 前进：返回到上次回退前的页面，如果上一次操作是打开页面，那么将无法前进。<br> 现在，蒜头君打开浏览器，进行了一系列操作，你需要输出他每次操作后所在页面的网址。</p>
-<p> <strong>输入格式</strong><br> 第一行输入一个整数 n(0 &lt; n \le 100000)n(0&lt;n≤100000)，表示蒜头君的操作次数。</p>
-<p> 接下来一共 nn 行，每行首先输入一个字符串，如果是 VISIT，后面接着输入一个不含有空格和换行的网址（网址长度小于 100100），表示蒜头君在浏览器地址栏中输入的网址；如果是 BACK，表示蒜头君点击了回退按钮；如果是 FORWARD，表示蒜头君点击了前进按钮。</p>
-<p> <strong>输出格式</strong><br> 对于每次操作，如果蒜头君能操作成功，输出蒜头君操作之后的网址，否则输出 Ignore。假设蒜头君输入的所有网址都是合法的。</p>
-<p> <strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">VISIT https://www.jisuanke.com/course/476</span><br><span class="line">VISIT https://www.taobao.com/</span><br><span class="line">BACK</span><br><span class="line">BACK</span><br><span class="line">FORWARD</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br><span class="line">VISIT https://www.jisuanke.com/course/429</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br></pre></td></tr></table></figure>
-<p> <strong>样例输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">Ignore</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.jisuanke.com/course/429</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br></pre></td></tr></table></figure>
-<p> <strong>实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 16:23</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_08_WebStack &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        Stack&lt;String&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;String&gt; back = new Stack&lt;&gt;();</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            String str = input.next();</span><br><span class="line">            if (str.equals(&quot;VISIT&quot;)) &#123;</span><br><span class="line">                String url = input.next();</span><br><span class="line">                stack.push(url);</span><br><span class="line">                arrayList.add(url);</span><br><span class="line">                back.removeAllElements();</span><br><span class="line">            &#125; else if (str.equals(&quot;BACK&quot;)) &#123;</span><br><span class="line">                if (stack.size() &lt;= 1) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    back.push(stack.pop());</span><br><span class="line">                    arrayList.add(stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (str.equals(&quot;FORWARD&quot;)) &#123;</span><br><span class="line">                if (back.isEmpty()) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    String backUrl = back.pop();</span><br><span class="line">                    stack.push(backUrl);</span><br><span class="line">                    arrayList.add(backUrl);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (String s : arrayList</span><br><span class="line">             ) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/计蒜客 栈 网页跳转/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1660,6 +1724,21 @@
     </div>
  
   </div>
+
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--不蒜子结束-->
+
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -1683,6 +1762,8 @@
     } 
 setInterval("createtime()",250);
 </script>
+
+
 
     </div>
     <script>
@@ -1764,15 +1845,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1812,6 +1893,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
@@ -1832,15 +1917,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1907,7 +1988,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; &lt;br&gt;向上的路并不拥挤 &lt;br /&gt;而大部分人选择了安逸&lt;br /&gt;Thanks for reading</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt; &lt;br&gt;向上的路并不拥挤 &lt;br /&gt;而大部分人选择了安逸</div>
   	  	
     	</section>
     
