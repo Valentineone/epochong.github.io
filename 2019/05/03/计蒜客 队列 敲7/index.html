@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -84,26 +84,21 @@
 				
 					<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
 		        
+					<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 
-	<!--		
+			<!--网易云音乐插件 -->
 			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
+				<div style="position:absolute; bottom:120px left:10; width:70%">
 					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
-		-->
-	<!--网易云音乐插件 -->
-			{% if theme.background_music %}
-           <div>
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
-           </div>
-			{% endif %}   
-	<!--网易云音乐内容末尾-->
+			<!--网易云音乐内容末尾-->
 		</nav>
 	</header>		
 </div>
@@ -138,9 +133,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -242,7 +239,29 @@
           </a>
         </div>
       
+
+       
+
+
     </div>
+          <!--添加自动按行截取开始-->
+          
+            
+            <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89790238" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89790238</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制：1000ms  空间限制：131072K</span><br></pre></td></tr></table></figure></p>
+<p> 有一种酒桌游戏叫做 “敲 7”，规则是从一个人开始，说出任意数字，其他人会顺序往后报，如果一个数字包含 77，或者是 77 的倍数，那么需要敲打杯子或盘子，不能说出。</p>
+<p> 现在 nn 个人围坐在一个圆桌周围，他们编号从 11 到 nn 顺时针排列。从某一人开始报出一个数字，其他人会按照顺时针方向顺序往后报 (加一)，如果某个人的数字包含 77，或者是 77 的倍数，那么他将退出游戏，下一个人继续接着报，直到剩一个人为止。</p>
+<p> <strong>输入格式</strong><br> 第一行输入三个整数，nn，mm，tt。nn 代表总人数，mm 代表从第 mm 个人开始报数，他报出的数字是 tt。（1 \leq m \leq n \leq 10001≤m≤n≤1000，1 \leq t \leq 1001≤t≤100）接下来的 nn 行，每一行输入一个字符串，代表这 nn 个人的名字，字符串的长度不超过 2020。</p>
+<p> <strong>输出格式</strong><br> 输出剩下的那个人的名字，占一行。</p>
+<p> <strong>样例输入</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 3 20</span><br><span class="line">donglali</span><br><span class="line">nanlali</span><br><span class="line">xilali</span><br><span class="line">beilali</span><br><span class="line">chuanpu</span><br></pre></td></tr></table></figure>
+<p> <strong>样例输出</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chuanpu</span><br></pre></td></tr></table></figure>
+<p> <strong>实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 18:32</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_10_Say7 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        int m = input.nextInt();</span><br><span class="line">        int t = input.nextInt();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList.add(input.next());</span><br><span class="line">        &#125;</span><br><span class="line">        int index = t - 1;</span><br><span class="line">        int num7 = 0;</span><br><span class="line">        int i = m - 1;</span><br><span class="line">        for (; i &lt; n; i++) &#123;</span><br><span class="line">            while (arrayList.get(i).equals(&quot;wangchong&quot;)) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                if (i == n) &#123;</span><br><span class="line">                    i = 0;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            index++;</span><br><span class="line">            if (index % 7 == 0 || String.valueOf(index).contains(&quot;7&quot;)) &#123;</span><br><span class="line">                arrayList.set(i,&quot;wangchong&quot;);</span><br><span class="line">                num7++;</span><br><span class="line">                if (num7 == n - 1) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (i == n - 1) &#123;</span><br><span class="line">                i = -1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (String str : arrayList</span><br><span class="line">                ) &#123;</span><br><span class="line">            if (!str.equals(&quot;wangchong&quot;)) &#123;</span><br><span class="line">                System.out.println(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+          <!--添加按行截取结束-->
     <div class="article-info article-info-index">
       
       
@@ -399,7 +418,7 @@
     		&copy; 2019 epochong
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
 
@@ -418,7 +437,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -434,7 +453,7 @@
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  --epochong
 <script>
     var now = new Date(); 
     function createtime() { 
@@ -530,11 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +569,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,15 +605,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,11 +625,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

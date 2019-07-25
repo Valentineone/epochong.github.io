@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -84,26 +84,21 @@
 				
 					<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
 		        
+					<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 
-	<!--		
+			<!--网易云音乐插件 -->
 			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
+				<div style="position:absolute; bottom:120px left:10; width:70%">
 					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
-		-->
-	<!--网易云音乐插件 -->
-			{% if theme.background_music %}
-           <div>
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
-           </div>
-			{% endif %}   
-	<!--网易云音乐内容末尾-->
+			<!--网易云音乐内容末尾-->
 		</nav>
 	</header>		
 </div>
@@ -138,9 +133,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -239,7 +236,26 @@
           </a>
         </div>
       
+
+       
+
+
     </div>
+          <!--添加自动按行截取开始-->
+          
+            
+            <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88089768" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88089768</a><br>  <strong>题目描述</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入一个链表，输出该链表中倒数第k个结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>要求</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">时间限制：<span class="number">1</span>秒 空间限制：<span class="number">32768</span>K 热度指数：<span class="number">552571</span></span><br><span class="line">本题知识点： 链表</span><br></pre></td></tr></table></figure>
+<p> <strong>思路</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将链表遍历一遍，放入栈中，在出栈的时候，k的值减一</span><br><span class="line">当k在减为<span class="number">0</span>的时候，即为要求的第k个节点</span><br><span class="line">但是有一下几种情况</span><br><span class="line"><span class="number">1</span>.k大于链表长度，此时，返回<span class="keyword">null</span></span><br><span class="line"><span class="number">2</span>.头结点head为空，直接返回<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<p> <strong>解法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class ListNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode next = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Stack&lt;ListNode&gt; stack = <span class="keyword">new</span> Stack&lt;ListNode&gt;();</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(cur);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">if</span>(k == <span class="number">1</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> stack.pop();</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">while</span> (k-- &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stack.pop();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+          <!--添加按行截取结束-->
     <div class="article-info article-info-index">
       
       
@@ -326,11 +342,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/Lock体系相关/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          239. 滑动窗口最大值
+          Lock体系相关
         
       </div>
     </a>
@@ -396,7 +412,7 @@
     		&copy; 2019 epochong
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
 
@@ -415,7 +431,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -431,7 +447,7 @@
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  --epochong
 <script>
     var now = new Date(); 
     function createtime() { 
@@ -527,11 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +563,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,15 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

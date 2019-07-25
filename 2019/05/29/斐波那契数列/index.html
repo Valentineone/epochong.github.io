@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -84,26 +84,21 @@
 				
 					<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
 		        
+					<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 
-	<!--		
+			<!--网易云音乐插件 -->
 			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
+				<div style="position:absolute; bottom:120px left:10; width:70%">
 					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
-		-->
-	<!--网易云音乐插件 -->
-			{% if theme.background_music %}
-           <div>
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
-           </div>
-			{% endif %}   
-	<!--网易云音乐内容末尾-->
+			<!--网易云音乐内容末尾-->
 		</nav>
 	</header>		
 </div>
@@ -138,9 +133,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -277,7 +274,64 @@
           </a>
         </div>
       
+
+       
+
+
     </div>
+          <!--添加自动按行截取开始-->
+          
+            
+            <p><strong>比较几种实现方法</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">解法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一般非递归</td>
+<td style="text-align:center">仅能计算到第48个斐波那契数,但耗时比第二种快</td>
+</tr>
+<tr>
+<td style="text-align:center">一般递归</td>
+<td style="text-align:center">仅能计算到第48个斐波那契数,但数量级越大越耗时</td>
+</tr>
+<tr>
+<td style="text-align:center">大数非递归</td>
+<td style="text-align:center">能计算任意一个斐波那契数</td>
+</tr>
+<tr>
+<td style="text-align:center">大数递归</td>
+<td style="text-align:center">能计算任意一个斐波那契数,但数量级越大越耗时</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<blockquote>
+<p>非递归一般解法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        c = a + b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一般递归解法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">recursionFibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> recursionFibonacci(n - <span class="number">1</span>) + recursionFibonacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>大数非递归解法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BigDecimal <span class="title">bigDecimalFibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    BigDecimal a = <span class="keyword">new</span> BigDecimal(<span class="number">1</span>);</span><br><span class="line">    BigDecimal b = <span class="keyword">new</span> BigDecimal(<span class="number">1</span>);</span><br><span class="line">    BigDecimal c = <span class="keyword">new</span> BigDecimal(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        c = a.add(b);</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>大数递归解法</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BigDecimal <span class="title">recursionBigDecimalFibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BigDecimal(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> recursionBigDecimalFibonacci(n - <span class="number">1</span>).add(recursionBigDecimalFibonacci(n - <span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="下面列出前100个斐波那契数"><a href="#下面列出前100个斐波那契数" class="headerlink" title="下面列出前100个斐波那契数"></a>下面列出前100个斐波那契数</h5><blockquote>
+<p>1-&gt;1<br>2-&gt;1<br>3-&gt;2<br>4-&gt;3<br>5-&gt;5<br>6-&gt;8<br>7-&gt;13<br>8-&gt;21<br>9-&gt;34<br>10-&gt;55<br>11-&gt;89<br>12-&gt;144<br>13-&gt;233<br>14-&gt;377<br>15-&gt;610<br>16-&gt;987<br>17-&gt;1597<br>18-&gt;2584<br>19-&gt;4181<br>20-&gt;6765<br>21-&gt;10946<br>22-&gt;17711<br>23-&gt;28657<br>24-&gt;46368<br>25-&gt;75025<br>26-&gt;121393<br>27-&gt;196418<br>28-&gt;317811<br>29-&gt;514229<br>30-&gt;832040<br>31-&gt;1346269<br>32-&gt;2178309<br>33-&gt;3524578<br>34-&gt;5702887<br>35-&gt;9227465<br>36-&gt;14930352<br>37-&gt;24157817<br>38-&gt;39088169<br>39-&gt;63245986<br>40-&gt;102334155<br>41-&gt;165580141<br>42-&gt;267914296<br>43-&gt;433494437<br>44-&gt;701408733<br>45-&gt;1134903170<br>46-&gt;1836311903<br>47-&gt;2971215073<br>48-&gt;4807526976<br>49-&gt;7778742049<br>50-&gt;12586269025<br>51-&gt;20365011074<br>52-&gt;32951280099<br>53-&gt;53316291173<br>54-&gt;86267571272<br>55-&gt;139583862445<br>56-&gt;225851433717<br>57-&gt;365435296162<br>58-&gt;591286729879<br>59-&gt;956722026041<br>60-&gt;1548008755920<br>61-&gt;2504730781961<br>62-&gt;4052739537881<br>63-&gt;6557470319842<br>64-&gt;10610209857723<br>65-&gt;17167680177565<br>66-&gt;27777890035288<br>67-&gt;44945570212853<br>68-&gt;72723460248141<br>69-&gt;117669030460994<br>70-&gt;190392490709135<br>71-&gt;308061521170129<br>72-&gt;498454011879264<br>73-&gt;806515533049393<br>74-&gt;1304969544928657<br>75-&gt;2111485077978050<br>76-&gt;3416454622906707<br>77-&gt;5527939700884757<br>78-&gt;8944394323791464<br>79-&gt;14472334024676221<br>80-&gt;23416728348467685<br>81-&gt;37889062373143906<br>82-&gt;61305790721611591<br>83-&gt;99194853094755497<br>84-&gt;160500643816367088<br>85-&gt;259695496911122585<br>86-&gt;420196140727489673<br>87-&gt;679891637638612258<br>88-&gt;1100087778366101931<br>89-&gt;1779979416004714189<br>90-&gt;2880067194370816120<br>91-&gt;4660046610375530309<br>92-&gt;7540113804746346429<br>93-&gt;12200160415121876738<br>94-&gt;19740274219868223167<br>95-&gt;31940434634990099905<br>96-&gt;51680708854858323072<br>97-&gt;83621143489848422977<br>98-&gt;135301852344706746049<br>99-&gt;218922995834555169026<br>100-&gt;354224848179261915075 </p>
+</blockquote>
+
+        
+          <!--添加按行截取结束-->
     <div class="article-info article-info-index">
       
       
@@ -426,7 +480,7 @@
     		&copy; 2019 epochong
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
 
@@ -445,7 +499,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -461,7 +515,7 @@
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  --epochong
 <script>
     var now = new Date(); 
     function createtime() { 
@@ -557,11 +611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +631,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,11 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,15 +667,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +687,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -84,26 +84,21 @@
 				
 					<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
 		        
+					<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 
-	<!--		
+			<!--网易云音乐插件 -->
 			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
+				<div style="position:absolute; bottom:120px left:10; width:70%">
 					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
-		-->
-	<!--网易云音乐插件 -->
-			{% if theme.background_music %}
-           <div>
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
-           </div>
-			{% endif %}   
-	<!--网易云音乐内容末尾-->
+			<!--网易云音乐内容末尾-->
 		</nav>
 	</header>		
 </div>
@@ -138,9 +133,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -271,7 +268,58 @@
           </a>
         </div>
       
+
+       
+
+
     </div>
+          <!--添加自动按行截取开始-->
+          
+            
+            <h6 id="jdk5-自动拆装箱"><a href="#jdk5-自动拆装箱" class="headerlink" title="jdk5 自动拆装箱"></a>jdk5 自动拆装箱</h6><h6 id="jdk7-switch对String的支持"><a href="#jdk7-switch对String的支持" class="headerlink" title="jdk7 switch对String的支持"></a>jdk7 switch对String的支持</h6><h5 id="JDK1-5新特性"><a href="#JDK1-5新特性" class="headerlink" title="==JDK1.5新特性=="></a>==JDK1.5新特性==</h5><h5 id="1-方法的可变参数-数组"><a href="#1-方法的可变参数-数组" class="headerlink" title="1.方法的可变参数(数组)"></a>1.方法的可变参数(数组)</h5><blockquote>
+<p>可变参数必须放在方法参数最后一个并且有且只有一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个参数上使用的“...”实际上表示一个数组的结构。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="3-静态导入"><a href="#3-静态导入" class="headerlink" title="3.静态导入"></a>3.静态导入</h5><h6 id="用inport-static-导入一个类的所有静态域-方法与属性"><a href="#用inport-static-导入一个类的所有静态域-方法与属性" class="headerlink" title="用inport static 导入一个类的所有静态域(方法与属性)"></a>用inport static 导入一个类的所有静态域(方法与属性)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">从JDK1.5开始，如果类中方法全是static方法，则可以直接把这个类的方法导入进来，这样就好比像在主类中定义</span><br><span class="line">的方法那样，可以被主方法直接调用。</span><br></pre></td></tr></table></figure>
+<h5 id="泛型：语法塘-守门员"><a href="#泛型：语法塘-守门员" class="headerlink" title="==泛型：语法塘 守门员=="></a>==泛型：语法塘 守门员==</h5><h6 id="守门员"><a href="#守门员" class="headerlink" title="守门员"></a>守门员</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">编译的时候就拦截</span><br><span class="line">Object类自动转型运行时异常</span><br></pre></td></tr></table></figure>
+<h5 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h5><p>在定义是类型不确定，只有在具体是用时才能确定类型</p>
+<h6 id="ClassCastException-RuntimeException-：在强转时，两个毫无关系的类产生的异常"><a href="#ClassCastException-RuntimeException-：在强转时，两个毫无关系的类产生的异常" class="headerlink" title="ClassCastException(RuntimeException)：在强转时，两个毫无关系的类产生的异常"></a>ClassCastException(RuntimeException)：在强转时，两个毫无关系的类产生的异常</h6><h6 id="安全隐患：存在于强转"><a href="#安全隐患：存在于强转" class="headerlink" title="安全隐患：存在于强转"></a>安全隐患：存在于强转</h6><h5 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&lt;T&gt; &#123;</span><br><span class="line">T value1;</span><br><span class="line">&#125;</span><br><span class="line">尖括号 &lt;&gt; 中的 T 被称作是类型参数，</span><br><span class="line">用于指代任何类型</span><br></pre></td></tr></table></figure>
+<p>引入泛型后，一个泛型类的类型在使用时已经确定好，因此无需向下转型<br>IDEA变量自动补全：new point&lt;&gt;() 后<br>ctrl + alt + v<br>JDK7后 new后面不需要写&lt;&gt;里面的泛型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;T&gt; 中的 T 被称为</span><br><span class="line">类型参数，而方法中的 T 被称为参数化类型，它不是运行时真正的参数。</span><br></pre></td></tr></table></figure>
+<h6 id="不包括进本数据类型"><a href="#不包括进本数据类型" class="headerlink" title="不包括进本数据类型"></a>不包括进本数据类型</h6><h5 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&#123;</span><br><span class="line">    public &lt;T&gt; void testMethod(T t) &#123;</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="泛型方法始终以自己定义的类型参数为准。"><a href="#泛型方法始终以自己定义的类型参数为准。" class="headerlink" title="泛型方法始终以自己定义的类型参数为准。"></a>泛型方法始终以自己定义的类型参数为准。</h6><h6 id="为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名"><a href="#为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名" class="headerlink" title="为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名"></a>为了避免混淆，如果在一个泛型类中存在泛型方法，那么两者的类型参数最好不要同名</h6><h5 id="通配符-重点）"><a href="#通配符-重点）" class="headerlink" title="==通配符(重点）=="></a>==通配符(重点）==</h5><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在程序类中追加了泛型的定义后，</span><br><span class="line">避免了ClassCastException 的问题，</span><br><span class="line">但是又会产生新的情况：参数的统一问</span><br><span class="line">题。</span><br></pre></td></tr></table></figure>
+<h5 id="解决：通配符"><a href="#解决：通配符" class="headerlink" title="解决：通配符"></a>解决：通配符</h5><h6 id="用在方法级别-接受任意类型"><a href="#用在方法级别-接受任意类型" class="headerlink" title="用在方法级别 接受任意类型"></a>用在方法级别 接受任意类型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们需要的解决方案：可以接收所有的泛型类型，但是又不能够让用户随意修改。这种情况就需要使用通配符&quot;?&quot;来</span><br><span class="line">处理</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 此时使用通配符”?”描述的是它可以接收任意类型，但是由于不确定类型，所以无法修改</p>
+</blockquote>
+<h6 id="extends-类：设置泛型上限"><a href="#extends-类：设置泛型上限" class="headerlink" title="? extends 类：设置泛型上限"></a>? extends 类：设置泛型上限</h6><blockquote>
+<p> 只能获得值不能设置值<br>现在只能确定是父类，由于子类不确定(子类有很多中种或很多层)。此时发生向下转型存在不确定性因此无法设置具体值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? extends Number，</span><br><span class="line">表示只能够设置Number或其子类，</span><br><span class="line">例如：Integer、Double等；</span><br></pre></td></tr></table></figure>
+<h6 id="super-String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object"><a href="#super-String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object" class="headerlink" title="? super String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object()"></a>? super String，表示泛型下限，只用在方法级别，表示只能够设置String及其父类Object()</h6><blockquote>
+<p>此时方法可以设置值，因为发生天然的向上转型</p>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>只有上线通配符可以用在泛型类的声明上，T extend是Number，</p>
+</blockquote>
+<h5 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h5><blockquote>
+<p>JDK8前接口只有全场常量和方法</p>
+</blockquote>
+<h6 id="定义一个泛型接口"><a href="#定义一个泛型接口" class="headerlink" title="定义一个泛型接口"></a>定义一个泛型接口</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="在子类定义时继续使用泛型"><a href="#在子类定义时继续使用泛型" class="headerlink" title="在子类定义时继续使用泛型"></a>在子类定义时继续使用泛型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br><span class="line">class MessageImpl implements IMessage&lt;String&gt; &#123;</span><br><span class="line">@Override</span><br><span class="line">public void print(String t) &#123;</span><br><span class="line">System.out.println(t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="在子类定义时继续使用泛型-1"><a href="#在子类定义时继续使用泛型-1" class="headerlink" title="在子类定义时继续使用泛型"></a>在子类定义时继续使用泛型</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">interface IMessage&lt;T&gt; &#123; // 在接口上定义了泛型</span><br><span class="line">public void print(T t) ;</span><br><span class="line">&#125;</span><br><span class="line">class MessageImpl&lt;T&gt; implements IMessage&lt;T&gt; &#123;</span><br><span class="line">@Override</span><br><span class="line">public void print(T t) &#123;</span><br><span class="line">System.out.println(t);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="类型擦除-向下兼容"><a href="#类型擦除-向下兼容" class="headerlink" title="类型擦除(向下兼容)"></a><strong><em>类型擦除(向下兼容)</em></strong></h4><blockquote>
+<p>这是因为，泛型信息只存在于代码编译阶段，在进入 JVM 之前，与泛型相关的信息会被擦除掉，专业术语叫做类型擦除,</p>
+</blockquote>
+<blockquote>
+<p>通俗地讲，泛型类和普通类在 java 虚拟机内是没有什么特别的地方。</p>
+</blockquote>
+<blockquote>
+<p>在泛型类被类型擦除的时候，之前泛型类中的类型参数部分如果没有指定上限，如 <t> 则会被转译成普通的<br>Object 类型，如果指定了上限如 <t extends string> 则类型参数就被替换成类型上限。</t></t></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class MyClass&lt;T,E extends Number&gt;&#123;</span><br><span class="line">private T message;</span><br><span class="line">private E text;</span><br><span class="line">&#125;</span><br><span class="line">T-&gt; Object</span><br><span class="line">E-&gt; Number</span><br></pre></td></tr></table></figure>
+
+        
+          <!--添加按行截取结束-->
     <div class="article-info article-info-index">
       
       
@@ -424,7 +472,7 @@
     		&copy; 2019 epochong
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
 
@@ -443,7 +491,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -459,7 +507,7 @@
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  --epochong
 <script>
     var now = new Date(); 
     function createtime() { 
@@ -555,11 +603,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,11 +623,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +643,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,15 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,11 +679,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

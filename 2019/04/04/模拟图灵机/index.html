@@ -9,7 +9,7 @@
   <title>模拟图灵机 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/88626808  题目分析 1234567对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作0  0   →  0   0R0  1   →  1   0R1  0   →  0   1R">
-<meta name="keywords" content="java,algorithms">
+<meta name="keywords" content="algorithms,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟图灵机">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/模拟图灵机/index.html">
@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -84,26 +84,21 @@
 				
 					<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
 		        
+					<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
 			</div>
 
-	<!--		
+			<!--网易云音乐插件 -->
 			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
+				<div style="position:absolute; bottom:120px left:10; width:70%">
 					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
-		-->
-	<!--网易云音乐插件 -->
-			{% if theme.background_music %}
-           <div>
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
-           </div>
-			{% endif %}   
-	<!--网易云音乐内容末尾-->
+			<!--网易云音乐内容末尾-->
 		</nav>
 	</header>		
 </div>
@@ -138,9 +133,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/epochong?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/1939765238" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/1939765238@qq.com" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="weixin" target="_blank" href="/15656774084" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="mail" target="_blank" href="/epochong.@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -239,7 +236,26 @@
           </a>
         </div>
       
+
+       
+
+
     </div>
+          <!--添加自动按行截取开始-->
+          
+            
+            <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88626808" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88626808</a><br>  <strong>题目分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">对于扩展二进位的乘2运算比进一位图灵机更为简单。通过如下指令给出图灵机（XN*2） 在扩展的二进位上实现这个运算的指令，实现*2操作</span><br><span class="line">0  0   →  0   0R</span><br><span class="line">0  1   →  1   0R</span><br><span class="line">1  0   →  0   1R</span><br><span class="line">1  1   →  10  0R</span><br><span class="line">10  0  →  11  1R</span><br><span class="line">11  0  →  0  1 STOP</span><br></pre></td></tr></table></figure>
+<p> <strong>算法构造</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户输入数字，将数字转换为二进制码，将二进制转换为二进制扩展码，通过图灵机（XN*2）实现乘2操作得到结果的二进制扩展码，再将二进制扩展码转换为对应的二进制码，由二进制得十进制结果</span><br><span class="line">1.toBinaryString()将整数转换为二进制码</span><br><span class="line">2.toBinaryExtend()将二进制码转换为二进制扩展码</span><br><span class="line">3.processXNMulitTwo()图灵机（XN*2）实现乘2操作整个过程</span><br><span class="line">4.extendToBinary()将二进制扩展码转换为二进制</span><br><span class="line">5.binaryToInt()二进制转换为十进制</span><br><span class="line">6.printArray()将图灵机的步骤打印</span><br><span class="line">STOP</span><br></pre></td></tr></table></figure>
+<p> <strong>算法实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> EmbarkationTwo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Turing</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现将一个字符串转换成对应的二进制扩展码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> str</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 返回str的二进制扩展码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">toBinaryExtend</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] arr = str.toCharArray();</span><br><span class="line">        <span class="keyword">if</span> (arr[<span class="number">0</span>] == <span class="string">'0'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder cur = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        cur = cur.append(<span class="string">"010"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                cur = cur.append(<span class="string">"10"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                cur = cur.append(<span class="string">"0"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cur.append(<span class="string">"110"</span>).toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印数组当前状态的值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr 待打印数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> i 操作到数组中第 i 个字符</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> state 此时图灵机的状态</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">char</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> state)</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"第%2d步:"</span>,i + <span class="number">1</span>);</span><br><span class="line">        System.out.printf(<span class="string">"内部状态:%-2d 当前值:%c 扩展码:"</span>,state,arr[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch: arr</span><br><span class="line">             ) &#123;</span><br><span class="line">            System.out.print(ch);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 图灵机实现乘的过程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> str 二进扩展码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 对应二进制扩展码的完成乘2之后得到的扩展码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">processXNMultiTwo</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> state = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span>[] arr = str.toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (state == <span class="number">0</span> &amp;&amp; arr[i] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                printArray(arr,i,state);</span><br><span class="line">                arr[i] = <span class="string">'0'</span>;</span><br><span class="line">                state = <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">0</span> &amp;&amp; arr[i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                printArray(arr,i,state);</span><br><span class="line">                arr[i] = <span class="string">'0'</span>;</span><br><span class="line">                state = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">1</span> &amp;&amp; arr[i] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                printArray(arr,i,state);</span><br><span class="line">                arr[i] = <span class="string">'1'</span>;</span><br><span class="line">                state = <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">1</span> &amp;&amp; arr[i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                printArray(arr,i,state);</span><br><span class="line">                arr[i] = <span class="string">'0'</span>;</span><br><span class="line">                state = <span class="number">10</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">10</span> &amp;&amp; arr[i] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                printArray(arr,i,state);</span><br><span class="line">                arr[i] = <span class="string">'1'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            sb.append(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        sb.append(<span class="string">"1"</span>);</span><br><span class="line">        printArray(sb.toString().toCharArray(),arr.length,<span class="number">11</span>);</span><br><span class="line">        sb.append(<span class="string">"0"</span>);</span><br><span class="line">        printArray(sb.toString().toCharArray(),arr.length + <span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        System.out.println(<span class="string">"STOP"</span>);</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 求一个字符串对应的二进制</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> str 待求二进制的字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> str的二进制表示</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">extendToBinary</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] arr = str.toCharArray();</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] == <span class="string">'1'</span> &amp;&amp; arr[i + <span class="number">1</span>] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                sb.append(<span class="string">'1'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((i + <span class="number">1</span>) &lt; arr.length &amp;&amp; arr[i] == <span class="string">'0'</span> &amp;&amp; arr[i + <span class="number">1</span>] == <span class="string">'0'</span>) &#123;</span><br><span class="line">                sb.append(<span class="string">'0'</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[i] == <span class="string">'1'</span> &amp;&amp; arr[i + <span class="number">1</span>] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                sb.append(<span class="string">','</span>);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 求一个字符串(二进制)的整数形式</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> str 待求整数的二进制字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> str的对应的十进制整数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binaryToInt</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = str.length() - <span class="number">1</span>;</span><br><span class="line">        String indexStr = str.substring(<span class="number">0</span>,str.length() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">char</span>[] arr = indexStr.toCharArray();</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> judge = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                judge = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (judge) &#123;</span><br><span class="line">                sum += (arr[i] - <span class="number">48</span>) * Math.pow(<span class="number">2</span>,n - i - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">"通过图灵机(XN * 2) 的方式在扩展的二进位上实现 * 2操作"</span>);</span><br><span class="line">        System.out.print(<span class="string">"输入一个整数:"</span>);</span><br><span class="line">        <span class="keyword">int</span> before = input.nextInt();</span><br><span class="line">        String beforeStr = Integer.toBinaryString(before);</span><br><span class="line">        String beforeBinaryExtend = toBinaryExtend(beforeStr);</span><br><span class="line">        String afterBinaryExtend = processXNMultiTwo(beforeBinaryExtend);</span><br><span class="line">        System.out.println(<span class="string">"最终的扩展码:"</span> + afterBinaryExtend);</span><br><span class="line">        String afterBinary = extendToBinary(afterBinaryExtend);</span><br><span class="line">        System.out.println(<span class="string">"最终的二进制码:"</span> + afterBinary);</span><br><span class="line">        <span class="keyword">int</span> afterResult = binaryToInt(afterBinary);</span><br><span class="line">        System.out.println(<span class="string">"最终值:"</span> + afterResult);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>经验归纳</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过对图灵机的模拟我深刻的了解了当时计算机进行运算的整体过程，感受到人也可以和机器交流，深深的感受到代码的魅力，没有当时的图灵机思想计算机不可能实现运算操作。</span><br><span class="line"> 图灵机证明了通用计算理论，肯定了计算机实现的可能性，同时它给出了计算机应有的主要架构；图灵机模型引入了读写与算法与程序语言的概念，极大的突破了过去的计算机器的设计理念；图灵机模型理论是计算学科最核心的理论，因为计算机的极限计算能力就是通用图灵机的计算能力，很多问题可以转化到图灵机这个简单的模型来考虑。</span><br><span class="line">因为我使用Java写的结合方法的封装性实现了toBinaryString()将整数转换为二进制码，toBinaryExtend()将二进制码转换为二进制扩展码，processXNMulitTwo()图灵机（XN*2）实现乘2操作整个过程，extendToBinary()将二进制扩展码转换为二进制，binaryToInt()二进制转换为十进制，printArray()将图灵机的步骤打印使代码的可读性和实用性大大增加。我体会到了结构化封装的重要性和必要性。</span><br></pre></td></tr></table></figure>
+
+        
+          <!--添加按行截取结束-->
     <div class="article-info article-info-index">
       
       
@@ -248,11 +264,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -392,7 +408,7 @@
     		&copy; 2019 epochong
     	</div>
       	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
 
@@ -411,7 +427,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -427,7 +443,7 @@
 <script type="text/javascript" src="/clicklove.js"></script>
 
 <!--add-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  maintained by epochong
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>  --epochong
 <script>
     var now = new Date(); 
     function createtime() { 
@@ -523,11 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,11 +559,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +579,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,15 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +615,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>
