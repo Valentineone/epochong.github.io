@@ -90,7 +90,7 @@
 			<!--网易云音乐插件 -->
 			
 				<div style="height:0;position:absolute; bottom:0 ;left:-40px; width:260px">
-					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
 			<!--网易云音乐内容末尾-->
@@ -225,11 +225,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
         		</li>
       		
 		</ul>
@@ -482,135 +482,6 @@
 
 
   
-    <article id="post-LeetCode239. 滑动窗口最大值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">239. 滑动窗口最大值</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
-<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
-</blockquote>
-<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<p><strong>进阶</strong>(==本题解法正式如此==)</p>
-<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
-<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
-</blockquote>
-<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
-<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
-<p><strong>答案：</strong> 没错</p>
-<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
-<p>==<strong>时间复杂度：</strong>== O(N)</p>
-<blockquote>
-<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
-<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
-<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
-<ul>
-<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
-<li>nullArray 是一个数组类型的空引用。 <blockquote>
-<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-      
-
-       
-
-
-    </div>
-          <!--添加自动按行截取开始-->
-          
-            
-                
-                
-                
-            
-            
-          <!--添加按行截取结束-->
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Lock体系相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -716,6 +587,135 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/03/Lock体系相关/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode239. 滑动窗口最大值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">239. 滑动窗口最大值</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
+<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
+</blockquote>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
+<p><strong>进阶</strong>(==本题解法正式如此==)</p>
+<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
+<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
+</blockquote>
+<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
+<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
+<p><strong>答案：</strong> 没错</p>
+<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
+<p>==<strong>时间复杂度：</strong>== O(N)</p>
+<blockquote>
+<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
+<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
+<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
+<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
+<ul>
+<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
+<li>nullArray 是一个数组类型的空引用。 <blockquote>
+<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
+</blockquote>
+</li>
+</ul>
+
+      
+
+      
+
+       
+
+
+    </div>
+          <!--添加自动按行截取开始-->
+          
+            
+                
+                
+                
+            
+            
+          <!--添加按行截取结束-->
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
         </p>
       
 
@@ -1030,11 +1030,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
         		</li>
       		
 		</ul>
@@ -1416,11 +1416,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1436,19 +1436,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,15 +1480,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
