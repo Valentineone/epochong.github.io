@@ -95,7 +95,7 @@
 			<!--网易云音乐插件 -->
 			
 				<div style="height:0;position:absolute; bottom:0 ;left:-40px; width:260px">
-					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=290 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
 			<!--网易云音乐内容末尾-->
@@ -191,6 +191,15 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
+       <!--添加自动按行截取开始-->
+       
+        
+        <a id="more"></a>
+<p>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> stu[] = &#123; <span class="string">"student a am i"</span> &#125;;</span><br><span class="line">	<span class="keyword">char</span>* star = stu;</span><br><span class="line">	<span class="keyword">while</span> (*star++)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	star = stu;</span><br><span class="line">	<span class="keyword">char</span>* end = stu + count - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; star &lt; end; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    
+      <!--添加按行截取结束-->
       
         <a id="more"></a>
 <p>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
@@ -235,15 +244,7 @@
 
 
     </div>
-          <!--添加自动按行截取开始-->
-          
-            
-            <a id="more"></a>
-<p>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> stu[] = &#123; <span class="string">"student a am i"</span> &#125;;</span><br><span class="line">	<span class="keyword">char</span>* star = stu;</span><br><span class="line">	<span class="keyword">while</span> (*star++)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	star = stu;</span><br><span class="line">	<span class="keyword">char</span>* end = stu + count - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; star &lt; end; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-        
-          <!--添加按行截取结束-->
+         
     <div class="article-info article-info-index">
       
       
@@ -415,11 +416,11 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
+            本站访客数<span id="busuanzi_value_site_uv">3264</span>人
     </span>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -527,11 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,15 +592,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -95,7 +95,7 @@
 			<!--网易云音乐插件 -->
 			
 				<div style="height:0;position:absolute; bottom:0 ;left:-40px; width:260px">
-					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=290 height=86 src="//music.163.com/outchain/player?type=2&id=133998&auto=1&height=66"></iframe>
 				</div>
 			
 			<!--网易云音乐内容末尾-->
@@ -191,6 +191,59 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
+       <!--添加自动按行截取开始-->
+       
+        
+        <p><strong>二叉树:</strong>非线性的数据结构</p>
+<h5 id="树的基础概念"><a href="#树的基础概念" class="headerlink" title="树的基础概念:"></a>树的基础概念:</h5><p><strong>节点的度:</strong>一个节点包含的子树的个数.<br><strong>叶子节点:</strong>度为0的节点</p>
+<p><strong>节点高度:</strong>节点到叶子节点的最长路径<br><strong>节点深度:</strong>根节点到节点的路径<br><strong>树的高度:</strong>根节点的高度<br><strong>节点的层数:</strong>深度+1</p>
+<h5 id="树的特性"><a href="#树的特性" class="headerlink" title="树的特性:"></a>树的特性:</h5><ol>
+<li><p>子树不相交</p>
+</li>
+<li><p>除了根节点外，每个节点有且只有一个父节点</p>
+</li>
+<li><p>节点个数N 边个数 = N - 1</p>
+</li>
+</ol>
+<p><strong>N叉树:</strong>树中度最大的个数即为N</p>
+<p><strong>二叉树:</strong>最多只有两个子树<br><strong>满二叉树:</strong> <em>一种特殊的完全二叉树</em></p>
+<blockquote>
+<p> 一个二叉树每一层的节点数都达到最大值。</p>
+</blockquote>
+<p><strong>每一层的节点个数:</strong>2^(n-1) n为层数<br><strong>总节点个数:</strong>2^n - 1<br>树的高度:已知节点个数为N,求树的高度h = log2 (N+1)</p>
+<p><strong>完全二叉树:</strong><br>除了最后一层节点个数可以不满外，所有层的节点个数都达到最大值。<br>最后一层节点靠左排列</p>
+<p><strong>树的存储:</strong></p>
+<p><strong>数组:</strong>顺序存储,适合存储完全二叉树，否则会有空间浪费<br>堆</p>
+<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>二叉树具有天然的递归特性</strong></p>
+<p><strong>树的应用:</strong></p>
+<ol>
+<li>OS中的文件夹</li>
+<li>公司中的职位分布</li>
+<li>图书馆书的分类</li>
+</ol>
+<p><strong>树结构的优势:</strong>方便查找、删除</p>
+<p><strong>二叉搜索树:</strong>用到最多的二叉树之一<br><strong>特点:</strong></p>
+<ol>
+<li><p>二分搜索树每个节点的值大于左子树所有节点的值，小于其右子树所有节点的值</p>
+</li>
+<li><p>也是二叉树</p>
+</li>
+<li><p>元素具有可比较性<br>Comparable:内部比较 compareTo<br>Comparator:外部比较</p>
+</li>
+</ol>
+<p><strong>堆:</strong>完全二叉树 顺序存储</p>
+<h5 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h5><p><strong>平衡二叉树:</strong>AVL 红黑树</p>
+<p><strong>二叉树遍历:</strong><br>按照相应的规则将二叉树中每个节点访问一次<br>所谓的序指的是每个子树根节点的访问顺序</p>
+<p><strong>前中后序遍历:</strong>树的深度优先遍历</p>
+<p><strong>前序</strong><br>先访问一个节点的根节点<br>再访问左子树<br>最后访问右子树</p>
+<p><strong>中序</strong></p>
+<p>二叉搜索树排序后的结果<br>先访问左子树<br>在访问根节点<br>最后右子树</p>
+<p><strong>后序</strong><br>先左树<br>再右树<br>最后根节点</p>
+
+    
+      <!--添加按行截取结束-->
       
         <p><strong>二叉树:</strong>非线性的数据结构</p>
 <h5 id="树的基础概念"><a href="#树的基础概念" class="headerlink" title="树的基础概念:"></a>树的基础概念:</h5><p><strong>节点的度:</strong>一个节点包含的子树的个数.<br><strong>叶子节点:</strong>度为0的节点</p>
@@ -279,59 +332,7 @@
 
 
     </div>
-          <!--添加自动按行截取开始-->
-          
-            
-            <p><strong>二叉树:</strong>非线性的数据结构</p>
-<h5 id="树的基础概念"><a href="#树的基础概念" class="headerlink" title="树的基础概念:"></a>树的基础概念:</h5><p><strong>节点的度:</strong>一个节点包含的子树的个数.<br><strong>叶子节点:</strong>度为0的节点</p>
-<p><strong>节点高度:</strong>节点到叶子节点的最长路径<br><strong>节点深度:</strong>根节点到节点的路径<br><strong>树的高度:</strong>根节点的高度<br><strong>节点的层数:</strong>深度+1</p>
-<h5 id="树的特性"><a href="#树的特性" class="headerlink" title="树的特性:"></a>树的特性:</h5><ol>
-<li><p>子树不相交</p>
-</li>
-<li><p>除了根节点外，每个节点有且只有一个父节点</p>
-</li>
-<li><p>节点个数N 边个数 = N - 1</p>
-</li>
-</ol>
-<p><strong>N叉树:</strong>树中度最大的个数即为N</p>
-<p><strong>二叉树:</strong>最多只有两个子树<br><strong>满二叉树:</strong> <em>一种特殊的完全二叉树</em></p>
-<blockquote>
-<p> 一个二叉树每一层的节点数都达到最大值。</p>
-</blockquote>
-<p><strong>每一层的节点个数:</strong>2^(n-1) n为层数<br><strong>总节点个数:</strong>2^n - 1<br>树的高度:已知节点个数为N,求树的高度h = log2 (N+1)</p>
-<p><strong>完全二叉树:</strong><br>除了最后一层节点个数可以不满外，所有层的节点个数都达到最大值。<br>最后一层节点靠左排列</p>
-<p><strong>树的存储:</strong></p>
-<p><strong>数组:</strong>顺序存储,适合存储完全二叉树，否则会有空间浪费<br>堆</p>
-<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>二叉树具有天然的递归特性</strong></p>
-<p><strong>树的应用:</strong></p>
-<ol>
-<li>OS中的文件夹</li>
-<li>公司中的职位分布</li>
-<li>图书馆书的分类</li>
-</ol>
-<p><strong>树结构的优势:</strong>方便查找、删除</p>
-<p><strong>二叉搜索树:</strong>用到最多的二叉树之一<br><strong>特点:</strong></p>
-<ol>
-<li><p>二分搜索树每个节点的值大于左子树所有节点的值，小于其右子树所有节点的值</p>
-</li>
-<li><p>也是二叉树</p>
-</li>
-<li><p>元素具有可比较性<br>Comparable:内部比较 compareTo<br>Comparator:外部比较</p>
-</li>
-</ol>
-<p><strong>堆:</strong>完全二叉树 顺序存储</p>
-<h5 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h5><p><strong>平衡二叉树:</strong>AVL 红黑树</p>
-<p><strong>二叉树遍历:</strong><br>按照相应的规则将二叉树中每个节点访问一次<br>所谓的序指的是每个子树根节点的访问顺序</p>
-<p><strong>前中后序遍历:</strong>树的深度优先遍历</p>
-<p><strong>前序</strong><br>先访问一个节点的根节点<br>再访问左子树<br>最后访问右子树</p>
-<p><strong>中序</strong></p>
-<p>二叉搜索树排序后的结果<br>先访问左子树<br>在访问根节点<br>最后右子树</p>
-<p><strong>后序</strong><br>先左树<br>再右树<br>最后根节点</p>
-
-        
-          <!--添加按行截取结束-->
+         
     <div class="article-info article-info-index">
       
       
@@ -503,11 +504,11 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-         <!--   本站总访问量<span id="busuanzi_value_site_pv"></span>次-->
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
+            本站访客数<span id="busuanzi_value_site_uv">3264</span>人
     </span>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -615,11 +616,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,15 +680,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
