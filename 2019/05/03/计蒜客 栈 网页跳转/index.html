@@ -191,25 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
-<p> 蒜头君每天都在用一款名为 “蒜厂浏览器” 的软件。在这个浏览器中，一共三种操作：打开页面、回退和前进。它们的功能如下：</p>
-<p> 打开页面：在地址栏中输入网址，并跳转到网址对应的页面；<br> 回退：返回到上一次访问的页面；<br> 前进：返回到上次回退前的页面，如果上一次操作是打开页面，那么将无法前进。<br> 现在，蒜头君打开浏览器，进行了一系列操作，你需要输出他每次操作后所在页面的网址。</p>
-<p> <strong>输入格式</strong><br> 第一行输入一个整数 n(0 &lt; n \le 100000)n(0&lt;n≤100000)，表示蒜头君的操作次数。</p>
-<p> 接下来一共 nn 行，每行首先输入一个字符串，如果是 VISIT，后面接着输入一个不含有空格和换行的网址（网址长度小于 100100），表示蒜头君在浏览器地址栏中输入的网址；如果是 BACK，表示蒜头君点击了回退按钮；如果是 FORWARD，表示蒜头君点击了前进按钮。</p>
-<p> <strong>输出格式</strong><br> 对于每次操作，如果蒜头君能操作成功，输出蒜头君操作之后的网址，否则输出 Ignore。假设蒜头君输入的所有网址都是合法的。</p>
-<p> <strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">VISIT https://www.jisuanke.com/course/476</span><br><span class="line">VISIT https://www.taobao.com/</span><br><span class="line">BACK</span><br><span class="line">BACK</span><br><span class="line">FORWARD</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br><span class="line">VISIT https://www.jisuanke.com/course/429</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br></pre></td></tr></table></figure>
-<p> <strong>样例输出</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">Ignore</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.jisuanke.com/course/429</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br></pre></td></tr></table></figure>
-<p> <strong>实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 16:23</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_08_WebStack &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        Stack&lt;String&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;String&gt; back = new Stack&lt;&gt;();</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            String str = input.next();</span><br><span class="line">            if (str.equals(&quot;VISIT&quot;)) &#123;</span><br><span class="line">                String url = input.next();</span><br><span class="line">                stack.push(url);</span><br><span class="line">                arrayList.add(url);</span><br><span class="line">                back.removeAllElements();</span><br><span class="line">            &#125; else if (str.equals(&quot;BACK&quot;)) &#123;</span><br><span class="line">                if (stack.size() &lt;= 1) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    back.push(stack.pop());</span><br><span class="line">                    arrayList.add(stack.peek());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (str.equals(&quot;FORWARD&quot;)) &#123;</span><br><span class="line">                if (back.isEmpty()) &#123;</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    String backUrl = back.pop();</span><br><span class="line">                    stack.push(backUrl);</span><br><span class="line">                    arrayList.add(backUrl);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (String s : arrayList</span><br><span class="line">             ) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
-      <!--添加按行截取结束-->
       
         <a id="more"></a>
 <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
@@ -259,12 +241,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -417,38 +394,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -608,6 +572,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -624,15 +592,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

@@ -191,15 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712257" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712257</a><br>  <strong>天梯赛</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.tianti;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">L7_4_Shuai_Hash</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> line = input.nextInt();</span><br><span class="line">        HashMap[] arr = <span class="keyword">new</span>  HashMap[line];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; line; i++) &#123;</span><br><span class="line">            arr[i] = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; line; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> nLine = input.nextInt();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nLine; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> cur = input.nextInt();</span><br><span class="line">                arr[i].put(cur,cur);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> nCe = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] chaZhao = <span class="keyword">new</span> <span class="keyword">int</span>[nCe];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nCe; i++) &#123;</span><br><span class="line">            chaZhao[i] = input.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nCe; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> notIn = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; line; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j].containsKey(chaZhao[i]) &amp;&amp; arr[j].size() &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!arrayList.contains(chaZhao[i]))&#123;</span><br><span class="line">                        arrayList.add(chaZhao[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[j].containsKey(chaZhao[i])) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    notIn++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (notIn == line) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!arrayList.contains(chaZhao[i])) &#123;</span><br><span class="line">                    arrayList.add(chaZhao[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == arrayList.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.print(arrayList.get(i));</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.print(arrayList.get(i) + <span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (arrayList.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"No one is handsome"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    
-      <!--添加按行截取结束-->
       
         <a id="more"></a>
 <p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712257" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712257</a><br>  <strong>天梯赛</strong></p>
@@ -239,12 +231,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -397,38 +384,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -588,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -604,15 +582,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

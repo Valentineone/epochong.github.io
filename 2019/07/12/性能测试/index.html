@@ -191,95 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <h5 id="猜测可能影响性能的因素"><a href="#猜测可能影响性能的因素" class="headerlink" title="猜测可能影响性能的因素"></a>猜测可能影响性能的因素</h5><ol>
-<li>执行时间过短</li>
-<li>执行次数过少（实验的次数）</li>
-<li>优化原因/AOT（编译器）/JIT（编译器）优化处理</li>
-<li>预热</li>
-<li>其他</li>
-</ol>
-<h5 id="JMH"><a href="#JMH" class="headerlink" title="JMH"></a>JMH</h5><ul>
-<li><p>注解</p>
-<ul>
-<li><p>语法：定义注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> 注解名称（每个单词首字母大写）&#123;</span><br><span class="line">	方法声明列表（抽象方法列表）</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Measurement &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span>(iteartions = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span> 等同于 <span class="meta">@Measurement</span>（<span class="meta">@Measurement</span>(iteration = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>存在情况</p>
-<ul>
-<li>Annotation Processor（注解处理器）</li>
-</ul>
-<ol>
-<li>编译期间 （变成了<code>*.class</code>）已经不存在</li>
-<li>编译期间 （变成了<code>*.class</code>）还存在，但是运行时不存在</li>
-</ol>
-<ul>
-<li>反射</li>
-</ul>
-<ol>
-<li>运行期间 时钟存在（保存方法区的类的元信息中），利用发射获取信息</li>
-</ol>
-</li>
-<li><p>注解的使用场景（把代码逻辑转成配置逻辑）</p>
-<ol>
-<li>修改的代码逻辑的成本一定是高于配置的成本</li>
-<li>有些配置和代码是强相关的</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>通过反射获取类的方法</p>
-<ol>
-<li>类名.class</li>
-<li><code>object.getClass()</code></li>
-<li><code>Class.forNmae(&quot;类的权威名称&quot;)</code></li>
-</ol>
-</li>
-</ul>
-<h5 id="基准测试框架-性能测试框架"><a href="#基准测试框架-性能测试框架" class="headerlink" title="基准测试框架/性能测试框架"></a>基准测试框架/性能测试框架</h5><ul>
-<li>功能<ol>
-<li>自动加载测试用例</li>
-<li>通过接口标记待测试类</li>
-<li>通过注解标记待测试方法</li>
-<li>通过注解实现多级配置</li>
-</ol>
-</li>
-<li>TODO：<ol>
-<li>生成报表</li>
-<li>问题修复</li>
-<li>格式配置</li>
-</ol>
-</li>
-</ul>
-<h5 id="JMH使用"><a href="#JMH使用" class="headerlink" title="JMH使用"></a>JMH使用</h5><ul>
-<li><p>PATH环境变量</p>
-<p>java(绝对路径)</p>
-</li>
-</ul>
-<h5 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h5><ol>
-<li><p>系统工具</p>
-</li>
-<li><p>阶段</p>
-<ul>
-<li>清理    clean</li>
-<li>编译    compile</li>
-<li>打包    package</li>
-<li>安装    install</li>
-</ul>
-</li>
-</ol>
 
-    
-      <!--添加按行截取结束-->
       
         <h5 id="猜测可能影响性能的因素"><a href="#猜测可能影响性能的因素" class="headerlink" title="猜测可能影响性能的因素"></a>猜测可能影响性能的因素</h5><ol>
 <li>执行时间过短</li>
@@ -399,12 +311,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -553,38 +460,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -744,6 +638,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -760,15 +658,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

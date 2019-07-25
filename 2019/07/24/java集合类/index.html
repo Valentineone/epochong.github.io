@@ -191,104 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <h4 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h4><ol>
-<li><h5 id="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><a href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）" class="headerlink" title="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"></a>ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</h5><ul>
-<li>ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现</li>
-<li>ArrayList采用懒加载策略，扩容为原先数组的1.5倍<ul>
-<li>在频繁查找、以及尾部的插入与删除场景下使用ArrayList</li>
-</ul>
-</li>
-<li>Vector当产生对象时就初始化内部数组（默认大小为10），扩容为原先数组2倍，采用synchronized同步方法，线程安全，性能很低（读读互斥）</li>
-<li>LinkedList采用异步处理，线程不安全<ul>
-<li>频繁在任意位置进行元素插入与删除使用LinkedList</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h5 id="jcl中fail-fast-、fail-safe"><a href="#jcl中fail-fast-、fail-safe" class="headerlink" title="jcl中fail-fast 、fail - safe"></a>jcl中fail-fast 、fail - safe</h5><ul>
-<li><p><strong>快速失败策略：</strong>优先考虑出现异常的情况，当异常产生时，抛出异常，程序终止</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">div</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"除数不能为0!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a/b;</span><br><span class="line">    &#125;</span><br><span class="line">java.util.ConcurrentModificationException</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何产生</p>
-<ul>
-<li>modCount != expectModCount<ol>
-<li>modCount：记录当前集合修改（结构化修改）次数</li>
-<li>expectModCount：记录获取集合迭代器时当前集合的修改次数</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>ConcurrentModificationException作用：避免多线程场景下数据脏读问题</p>
-</li>
-<li><p>fail-fast如何解决</p>
-<ol>
-<li>遍历不要修改集合内容</li>
-<li>使用迭代器内部的删除方法</li>
-<li>使用fail-safe集合（比较快速失败）<ul>
-<li><strong>fail-fast集合：</strong>java.util除了TreeMap以外的集合</li>
-<li><strong>fail-safe：</strong>所有juc包的集合（ConcurrentHashMap、CopyOnWriteArrayList</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><h5 id="Set与Map的关系"><a href="#Set与Map的关系" class="headerlink" title="Set与Map的关系"></a>Set与Map的关系</h5></li>
-</ol>
-<ol start="4">
-<li><h5 id="hashCode与equals的关系"><a href="#hashCode与equals的关系" class="headerlink" title="hashCode与equals的关系"></a>hashCode与equals的关系</h5><ul>
-<li>hashCode返回相等，equals不一定相等</li>
-<li>equals返回相等，hashCode一定相等</li>
-</ul>
-</li>
-<li><h5 id="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><a href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）" class="headerlink" title="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"></a>Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</h5><ul>
-<li></li>
-</ul>
-</li>
-<li><h5 id="HashMap、TreeMap、Hashtable的关系与区别"><a href="#HashMap、TreeMap、Hashtable的关系与区别" class="headerlink" title="HashMap、TreeMap、Hashtable的关系与区别"></a>HashMap、TreeMap、Hashtable的关系与区别</h5><ul>
-<li>HashMap、TreeMap、Hashtable都是Map的常用子类，HashMap基于哈希表+红黑树（JDK1.8，Hashtable基于哈希表，TreeMap基于红黑树）</li>
-<li>HashMap采用懒加载策略，采用异步处理，线程不安全，性能较高</li>
-<li>Hashtable产生对象时初始化内部哈希表（默认大小为16），采用synchronized同步方法，线程安全，性能很低（读读互斥）</li>
-<li>关于null<ul>
-<li>HashMap：K和V都可以为null</li>
-<li>Hashtable：K和V都不能为null</li>
-<li>TreeMap中：K不为null，V可以为null</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><h5 id="HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"><a href="#HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）" class="headerlink" title="HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"></a>HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）</h5><ul>
-<li><strong>负载因子：</strong>final float loadFactor;<ul>
-<li><strong>&gt;0.75:</strong>增加了哈希表的利用率，哈希冲突概率明显增加</li>
-<li><strong>&lt;0.75:</strong>降低了哈希表的利用率，哈希冲突概率明显减小</li>
-</ul>
-</li>
-<li><strong>树化阈值：</strong>static final int TREEIFY_THRESHOLD = 8;<ul>
-<li><strong>树化逻辑：</strong>当前啊桶中链表的长度&gt;= 8并且哈希表的长度 &gt;=64，否则知识简单的扩容处理</li>
-<li><strong>为何引入红黑树：</strong>优化链表过长导致查找性能急剧降低O(N) -&gt; O(logn)</li>
-</ul>
-</li>
-<li><strong>解树化阈值：</strong>static final int UNTREEIFY_THRESHOLD = 6;<ul>
-<li>当红黑树节点个数在扩容或删除时个数&lt;=6，在下一次resize过程中会将红黑树退化为链表，节省空间</li>
-</ul>
-</li>
-<li><strong>容量：</strong>int threshold = cap(哈希表长度 table.length) * loadFactor;</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">     <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> putVal(hash(key), key, value, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      内部哈希实现：</span></span><br><span class="line"><span class="comment">        保留高16位（保留有效位数），让高低16位都参与异或运算，降低哈希冲突的概略</span></span><br><span class="line"><span class="comment">      为何不直接使用hashCode方法</span></span><br><span class="line"><span class="comment">        返回值普遍较大，需要开辟大量空间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> h;</span><br><span class="line">        <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">为何哈希表长度必须为2^n?</span></span><br><span class="line"><span class="comment">    保证哈希表中所有索引位置都可能被访问到</span></span><br><span class="line"><span class="comment">    16(10000)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">HashMap中元素真正的所以下标计算</span></span><br><span class="line"><span class="comment">    (n - 1) &amp; hash</span></span><br><span class="line"><span class="comment">    (01111) &amp; hash : 值都在16之内</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent,</span></span></span><br><span class="line"><span class="function"><span class="params">                   <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="keyword">int</span> n, i;</span><br><span class="line">         <span class="comment">// 此时哈希表还未初始化，完成初始化操作</span></span><br><span class="line">        <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">            n = (tab = resize()).length;</span><br><span class="line">        <span class="comment">// 此时哈希表对应的索引下标未存储元素</span></span><br><span class="line">        <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)</span><br><span class="line">            tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">        <span class="comment">// 哈希表初始化并且对应的索引下标有元素</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;K,V&gt; e; K k;</span><br><span class="line">            <span class="comment">// 此时冲突位置的key值与要保存的元素key值相等,只需要将value替换</span></span><br><span class="line">            <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">                ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                e = p;</span><br><span class="line">            <span class="comment">// 此时链表已经树化，采用红黑树方式存储新节点</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="keyword">this</span>, tab, hash, key, value);</span><br><span class="line">            <span class="comment">// 采用链表尾插新节点</span></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> binCount = <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((e = p.next) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        p.next = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">                        <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                            treeifyBin(tab, hash);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">                V oldValue = e.value;</span><br><span class="line">                <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="keyword">null</span>)</span><br><span class="line">                    e.value = value;</span><br><span class="line">                afterNodeAccess(e);</span><br><span class="line">                <span class="keyword">return</span> oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ++modCount;</span><br><span class="line">        <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">            resize();</span><br><span class="line">        afterNodeInsertion(evict);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="ConcurrentHashMap如何高效实现线程安全"><a href="#ConcurrentHashMap如何高效实现线程安全" class="headerlink" title="ConcurrentHashMap如何高效实现线程安全"></a>ConcurrentHashMap如何高效实现线程安全</h5></li>
-<li><h5 id="JDK1-7与JDK1-8-ConcurrentHashMap设计区别"><a href="#JDK1-7与JDK1-8-ConcurrentHashMap设计区别" class="headerlink" title="JDK1.7与JDK1.8 ConcurrentHashMap设计区别"></a>JDK1.7与JDK1.8 ConcurrentHashMap设计区别</h5><ul>
-<li><strong>JDK1.7：</strong>Segment是ReentrantLock的子类，将Hashtable的整张表加锁，一把锁优化为16个Segment（16把锁），锁的是当前的Segment不同Segement之间还是异步，Segment初始化为16后不可在扩容（结构：16Segment + 哈希表）</li>
-<li><strong>JDK1.8：</strong>锁进一步细化，结构类似于HashMap(哈希表+红黑树)锁当前同的头节点，锁的个数进一步提升（锁的个数会随着哈希表扩容而增加），支持的并发线程数进一步提升，使用CAS+synchronized来保证线程安全</li>
-</ul>
-</li>
-</ol>
 
-    
-      <!--添加按行截取结束-->
       
         <h4 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h4><ol>
 <li><h5 id="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><a href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）" class="headerlink" title="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"></a>ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</h5><ul>
@@ -417,12 +320,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -567,38 +465,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -758,6 +643,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -774,15 +663,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

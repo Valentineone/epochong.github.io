@@ -191,48 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <h5 id="问题产生"><a href="#问题产生" class="headerlink" title="问题产生"></a>问题产生</h5><ul>
-<li>观察下面程序的输出结果</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);</span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p align="left"><font face="楷体" color="#FF8247" size="5">为何他们的值如上述所示呢？</font></p>
 
-<h5 id="先介绍一下java中Integer的对象池就会恍然大悟"><a href="#先介绍一下java中Integer的对象池就会恍然大悟" class="headerlink" title="先介绍一下java中Integer的对象池就会恍然大悟"></a>先介绍一下java中Integer的对象池就会恍然大悟</h5><ul>
-<li>java 在编译代码的时候会把 <code>integer a = 1</code>、 <code>integer d = new integer (1)</code>翻译成 <code>integer x = integer.valueof (1)</code>所以关键在于 <code>valueof ()</code> 函数</li>
-</ul>
-<ol>
-<li><code>valueof()</code>源码</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><code>IntegerCache</code>(缓存池数组)</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// high value may be configured by property</span></span><br><span class="line">        <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">        String integerCacheHighPropValue =</span><br><span class="line">            sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</span><br><span class="line">        <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">                i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">                <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">                h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</span><br><span class="line">                <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        high = h;</span><br><span class="line"></span><br><span class="line">        cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> j = low;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">            cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>对象池原理</li>
-</ul>
-<p aling="left"><font face="楷体" color="#0000CD" size="4">看到上方cache缓存数组，在static静态块中，而Integer类又在java.lang包（jdk目录中）下，在java编译时就加载了类，所以静态块中的数组在编译的时候就创建了，从命名可以就可以看出这个数组是作为缓存数组，保存着从[-128,127]的Integer对象。</font></p>
-
-<ul>
-<li>创建对象过程</li>
-</ul>
-<p aling="left"><font face="楷体" color="red" size="4">只要 Integer 对象的值在 [-128,127] 范围内，都是从这个对象池中取(同一对象)。所以只要是这个范围内的 Integer 对象，只要值相同，就是同一个对象。那么 == 的结果，就是 true。超过了这个范围，则会 new 新的 Integer 对象，尽管值相同，但是已经是不同的对象了。</font></p>
-
-<ul>
-<li><strong>这下在来看最开始程序的结果就可以很容易理解了</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">1</span>;<span class="comment">//在对象池中获取</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;<span class="comment">//定义基本数据类型</span></span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);<span class="comment">//对象池中获取</span></span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//新建的对象</span></span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><code>a==b</code>，<code>b==d</code>输出结果为<code>true</code>，因为 <code>Integer</code> 和 <code>int</code> 比都会自动拆箱（jdk1.5 以上） </li>
-<li><code>a==c</code>输出结果为 <code>true</code>,因为a,c为对象池中的相同对象，如果a,c不在[-128,127]中，结果则为false，因为从源码可以看到会新<code>new</code>一个对象  </li>
-<li><code>c==d</code> 输出结果为 <code>false</code>，和 <code>String</code> 一样，在内存中的对象不一样，输出结果为 <code>false</code>.</li>
-</ol>
-
-    
-      <!--添加按行截取结束-->
       
         <h5 id="问题产生"><a href="#问题产生" class="headerlink" title="问题产生"></a>问题产生</h5><ul>
 <li>观察下面程序的输出结果</li>
@@ -305,12 +264,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -455,38 +409,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -646,6 +587,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -662,15 +607,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>

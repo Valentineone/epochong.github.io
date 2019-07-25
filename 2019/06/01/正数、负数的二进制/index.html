@@ -191,50 +191,7 @@
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-       <!--添加自动按行截取开始-->
-       
-        
-        <h5 id="先看一下我在网上看到的一个二进制加法-讲解的很容易懂"><a href="#先看一下我在网上看到的一个二进制加法-讲解的很容易懂" class="headerlink" title="先看一下我在网上看到的一个二进制加法(讲解的很容易懂)"></a>先看一下我在网上看到的一个二进制加法(讲解的很容易懂)</h5><ol>
-<li><strong>原码：</strong>在数值前直接加一符号位的表示法。</li>
-<li><strong>反码：</strong><br><strong>正数：</strong>正数的反码与原码相同。<br><strong>负数：</strong>负数的反码，符号位为 “1”，数值部分按位取反。</li>
-<li><strong>补码：</strong><br><strong>正数：</strong>正数的补码和原码相同。</li>
-</ol>
-<p><strong>负数：</strong>负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程</p>
-<ul>
-<li><p>以字长 8bit 为例</p>
-<p>5 - 3 = (0000 0101) 补 + (1000 0011) 补 = 0000 0101 + 1111 1101 (这里就是反码为 1111 1100，+1 得到) =<br>1 0000 0010<br>最后，这里字长为 8bit，所以 8 位以后的都舍弃（从右边开始数）<br>PS: 如果舍弃掉的是有效数字，那么这就是传说中的溢出</p>
-<p><strong>结果：</strong> (0000 0010) 2=(2) 10<br>所以 5-3=2</p>
-</li>
-</ul>
-<h5 id="再看一下我在程序的遇到的问题"><a href="#再看一下我在程序的遇到的问题" class="headerlink" title="再看一下我在程序的遇到的问题"></a>再看一下我在程序的遇到的问题</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"(byte) 127:"</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) 128:"</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -128:"</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -127:"</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -1:"</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h6 id="结果如下"><a href="#结果如下" class="headerlink" title="结果如下"></a>结果如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>可以看到<code>(byte) 128:-128</code>，</p>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><p>这是因为，127 –&gt;原码、反码、补码： 0111  1111</p>
-<p>​                    127 + 1 –&gt;1000  0000</p>
-<p>byte类型一共8个bit位，在计算机中负数的二进制表示为补码。而1000  0000正是-128的补码</p>
-<h6 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h6><p>-128，不能按照数值位前直接加一个符号位，要从128开始，其他的负数可以按照这一规律计算</p>
-<ul>
-<li><p>原码：1000  0000 (-128，进位被舍去)</p>
-</li>
-<li><p>反码：1111  1111</p>
-</li>
-<li><p>补码：1000  0000</p>
-<p>补码计算为： (11111111 (反码) + 1=10000000, 这里实际上真正相加的是 11111111 后面的 7 位，<strong>第 1 位是符号位始终不会变</strong>，所以，<strong>当进到第 8 位的时候，就表示溢出了，会被舍弃</strong>。</p>
-<p><strong>0 只有一个补码 00000000，那么 10000000 就不会表示成 - 0 的补码，即：补码 1000 0000 唯一的表示是 - 128，在补码中用 (-128) 代替了 (-0), 所以补码的表示范围为: (-128~0~127) 共 256 个.</strong></p>
-</li>
-</ul>
-<p>int为4个字节，byte为1个字节，int转byte只能取低八位补码：1000  0000</p>
-<p><strong>实际上，int型的负数，在一个字节的基础上前面补1即可，计算过程同普通的负数，没有发生溢出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
-<p>普通负数-1：</p>
-<ul>
-<li>原码：1000  0001</li>
-<li>反码：1111  1110</li>
-<li>补码：1111  1111</li>
-</ul>
 
-    
-      <!--添加按行截取结束-->
       
         <h5 id="先看一下我在网上看到的一个二进制加法-讲解的很容易懂"><a href="#先看一下我在网上看到的一个二进制加法-讲解的很容易懂" class="headerlink" title="先看一下我在网上看到的一个二进制加法(讲解的很容易懂)"></a>先看一下我在网上看到的一个二进制加法(讲解的很容易懂)</h5><ol>
 <li><strong>原码：</strong>在数值前直接加一符号位的表示法。</li>
@@ -309,12 +266,7 @@
           </a>
         </div>
       
-
-       
-
-
-    </div>
-         
+    </div>      
     <div class="article-info article-info-index">
       
       
@@ -459,38 +411,25 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2019 epochong
-    	</div>
+      	<div class="footer-left">
+    	  	&copy; 2019 epochong
+      	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by epochong
       	</div>
     </div>
-
+    <!--添加不蒜子内容-->
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_container_site_pv">
         总访问量: <span id="busuanzi_value_site_pv"></span>|
-      </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </div>
- 
+        </span>
+        <span id="busuanzi_container_site_uv">
+         总访客: <span id="busuanzi_value_site_uv"></span>
+       </span>
+     </div>
+  <!--不蒜子结束-->
   </div>
-
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--不蒜子结束-->
+ 
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -650,6 +589,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -666,15 +609,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
             
             <div class="clearfix"></div>
