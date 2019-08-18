@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>java集合类 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍 在频繁查找、以及尾部的插入与删除场景下使用ArrayList   Vector">
+  <meta name="description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合类">
 <meta property="og:url" content="http://yoursite.com/2019/07/24/java集合类/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍 在频繁查找、以及尾部的插入与删除场景下使用ArrayList   Vector">
+<meta property="og:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-24T13:47:12.654Z">
+<meta property="og:updated_time" content="2019-08-17T12:50:27.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合类">
-<meta name="twitter:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍 在频繁查找、以及尾部的插入与删除场景下使用ArrayList   Vector">
+<meta name="twitter:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,30 +193,75 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h4 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h4><ol>
-<li><h5 id="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><a href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）" class="headerlink" title="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"></a>ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</h5><ul>
+        <h3 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h3><ol>
+<li><h4 id="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><a href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）" class="headerlink" title="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"></a>ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</h4><ul>
 <li>ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现</li>
-<li>ArrayList采用懒加载策略，扩容为原先数组的1.5倍<ul>
+<li>ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高<ul>
+<li><strong>懒加载策略：</strong>如果初始化不给参数初始化大小，默认不分配大小，当添加新元素的时候才分配大小，默认初始时大小是10</li>
 <li>在频繁查找、以及尾部的插入与删除场景下使用ArrayList</li>
 </ul>
 </li>
-<li>Vector当产生对象时就初始化内部数组（默认大小为10），扩容为原先数组2倍，采用synchronized同步方法，线程安全，性能很低（读读互斥）</li>
+<li>Vector当产生对象时就初始化内部数组（默认大小为10），扩容为原先数组2倍，采用synchronized同步方法，线程安全，性能很低（读读互斥：get方法被synchronized修饰）</li>
 <li>LinkedList采用异步处理，线程不安全<ul>
 <li>频繁在任意位置进行元素插入与删除使用LinkedList</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><h5 id="jcl中fail-fast-、fail-safe"><a href="#jcl中fail-fast-、fail-safe" class="headerlink" title="jcl中fail-fast 、fail - safe"></a>jcl中fail-fast 、fail - safe</h5><ul>
+<li><h4 id="jcl中fail-fast-、fail-safe"><a href="#jcl中fail-fast-、fail-safe" class="headerlink" title="jcl中fail-fast 、fail - safe"></a>jcl中fail-fast 、fail - safe</h4><ul>
 <li><p><strong>快速失败策略：</strong>优先考虑出现异常的情况，当异常产生时，抛出异常，程序终止</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">div</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"除数不能为0!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a/b;</span><br><span class="line">    &#125;</span><br><span class="line">java.util.ConcurrentModificationException</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如何产生</p>
+<blockquote>
+<p>modCount 值是用来记录当前集合被修改的次数，每修改一次就进行加 1，而 exceptedModCount 是在 iterator 初始化是就已经指定的值，值为 exceptedModCount = modCount，对集合进行了三次 add 操作，所以 modCount=3，当代创建了 iterator 对象执行 exceptedModCount = modCount 语句对 exceptedModCount 进行了赋值操作，此时 exceptedModCount=3</p>
+</blockquote>
 <ul>
-<li>modCount != expectModCount<ol>
+<li><p>modCount != expectModCount</p>
+<ol>
 <li>modCount：记录当前集合修改（结构化修改）次数</li>
 <li>expectModCount：记录获取集合迭代器时当前集合的修改次数</li>
 </ol>
+</li>
+<li><p>代码</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        arrayList.add(<span class="string">"wang"</span>);</span><br><span class="line">        arrayList.add(<span class="string">"chong"</span>);</span><br><span class="line">        arrayList.add(<span class="string">"fighting"</span>);</span><br><span class="line">        Iterator&lt;String&gt; iterator = arrayList.iterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">            String s = iterator.next();</span><br><span class="line">            <span class="keyword">if</span> (s.equals(<span class="string">"wang"</span>)) &#123;</span><br><span class="line">                arrayList.remove(<span class="string">"wang"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  <strong>报出异常</strong></p>
+<blockquote>
+<p>Exception in thread “main” java.util.ConcurrentModificationException</p>
+</blockquote>
+<p>  <strong>分析</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">modCount：3</span><br><span class="line">expectModCount：3</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>执行<code>arrayList.remove(“wang”);</code>时</p>
+<p>  modCount加一 modCount = 4；</p>
+</li>
+<li><p>在下一次循环<code>String s = iterator.next();</code></p>
+</li>
+<li><p>观察next()方法源码</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    checkForComodification();</span><br><span class="line">    <span class="keyword">int</span> i = cursor;<span class="comment">//句柄，初始化为0执行一次next函数+1</span></span><br><span class="line">    <span class="keyword">if</span> (i &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">    Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= elementData.length)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    cursor = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (E) elementData[lastRet = i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>观察checkForComodification();方法源码</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">checkForComodification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以看出这个时候if条件成立抛出异常</p>
+</li>
+</ul>
+</li>
+<li><p>因此可以得到下列虽然看上去会报异常但是，并没有报的情况</p>
+<ul>
+<li><p>将上述代码的if条件改为</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (s.equals(<span class="string">"chong"</span>)) &#123;</span><br><span class="line">    arrayList.remove(<span class="string">"chong"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wang</span><br><span class="line">chong</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>观察hasNext()方法源码</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cursor != size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这是因为，执行第二次next的时候之后，符合条件删除元素的值执行remove方法，arrayList.size ()变为2，此时cursor的值因为执行了两次next值刚好为2，当再执行下一次while循环中的hasNext()方法时因为cursor != size值为false没有执行，所以没有执行下一次的next方法，即没有执行checkForComodification()检查，从而无法报出异常</p>
+</blockquote>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -224,28 +269,139 @@
 </li>
 <li><p>fail-fast如何解决</p>
 <ol>
-<li>遍历不要修改集合内容</li>
-<li>使用迭代器内部的删除方法</li>
-<li>使用fail-safe集合（比较快速失败）<ul>
-<li><strong>fail-fast集合：</strong>java.util除了TreeMap以外的集合</li>
-<li><strong>fail-safe：</strong>所有juc包的集合（ConcurrentHashMap、CopyOnWriteArrayList</li>
+<li><p>遍历不要修改集合内容</p>
+</li>
+<li><p>使用迭代器内部的删除方法</p>
+<ul>
+<li><p>iterator.remove()</p>
+<blockquote>
+<p>Iterator 被创建之后会建立一个指向原来对象的单链索引表，当 list 删除元素里不会影响索引，Iterator.remove () 方法会在删除当前迭代对象的同时维护索引的一致性</p>
+</blockquote>
+</li>
 </ul>
+</li>
+<li><p>使用fail-safe集合（比较快速失败）</p>
+<ul>
+<li><strong>fail-fast集合：</strong>java.util除了TreeMap以外的集合</li>
+<li><strong>fail-safe：</strong>所有juc包的集合（ConcurrentHashMap、CopyOnWriteArrayList）</li>
+</ul>
+<p><strong>观察CopyOnWriteArrayList源码</strong></p>
+<blockquote>
+<p>CopyOnWriteArrayList 会先复制一个集合副本，当对集合进行修改时修改的是副本里的值，修改完后再将原来集合的引用指向这个副本，避免抛出 ConcurrentModificationException 异常</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Object[] elements = getArray();</span><br><span class="line">            <span class="keyword">int</span> len = elements.length;</span><br><span class="line">            E oldValue = get(elements, index);</span><br><span class="line">            <span class="keyword">int</span> numMoved = len - index - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (numMoved == <span class="number">0</span>)</span><br><span class="line">                setArray(Arrays.copyOf(elements, len - <span class="number">1</span>));</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                Object[] newElements = <span class="keyword">new</span> Object[len - <span class="number">1</span>];</span><br><span class="line">                System.arraycopy(elements, <span class="number">0</span>, newElements, <span class="number">0</span>, index);</span><br><span class="line">                System.arraycopy(elements, index + <span class="number">1</span>, newElements, index,</span><br><span class="line">                                 numMoved);</span><br><span class="line">                setArray(newElements);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><h5 id="Set与Map的关系"><a href="#Set与Map的关系" class="headerlink" title="Set与Map的关系"></a>Set与Map的关系</h5></li>
+<li><h4 id="Set与Map的关系"><a href="#Set与Map的关系" class="headerlink" title="Set与Map的关系"></a>Set与Map的关系</h4></li>
 </ol>
 <ol start="4">
-<li><h5 id="hashCode与equals的关系"><a href="#hashCode与equals的关系" class="headerlink" title="hashCode与equals的关系"></a>hashCode与equals的关系</h5><ul>
+<li><h4 id="hashCode与equals的关系"><a href="#hashCode与equals的关系" class="headerlink" title="hashCode与equals的关系"></a>hashCode与equals的关系</h4></li>
+</ol>
+<ul>
+<li><p>hashCode () 方法和 equal () 方法的作用其实一样，在 Java里都是用来对比两个对象是否相等一致，那么 equal () 既然已经能实现对比的功能了，为什么还要 hashCode () 呢？</p>
+</li>
+<li><p>因为重写的 equal（）里一般比较的比较全面比较复杂，这样效率就比较低，而利用 hashCode () 进行对比，则只要生成一个 hash 值进行比较就可以了，效率很高，那么 hashCode () 既然效率这么高为什么还要 equal () 呢？</p>
+</li>
+<li><p>因为 hashCode () 并不是完全可靠，有时候不同的对象他们生成的 hashcode 也会一样（生成 hash 值得公式可能存在的问题），所以 hashCode () 只能说是大部分时候可靠，并不是绝对可靠。所以得出以下结论</p>
+<ul>
 <li>hashCode返回相等，equals不一定相等</li>
 <li>equals返回相等，hashCode一定相等</li>
 </ul>
 </li>
-<li><h5 id="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><a href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）" class="headerlink" title="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"></a>Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</h5><ul>
-<li></li>
+<li><p><font color="red">总的来说</font></p>
+
+<p> 所有对于需要大量并且快速的对比的话如果都用 equal () 去做显然效率太低，所以解决方式是，每当需要对比的时候，首先用 hashCode () 去对比，如果 hashCode () 不一样，则表示这两个对象肯定不相等（也就是不必再用 equal () 去再对比了）, 如果 hashCode () 相同，此时再对比他们的 equal ()，如果 equal () 也相同，则表示这两个对象是真的相同了，这样既能大大提高了效率也保证了对比的绝对正确性！</p>
+</li>
+<li><p></p><p><font color="red"> 关于HashSet中检查重复元素的原理</font></p>
+<blockquote>
+<p>hashset 里要求对象不能重复，则他内部必然要对添加进去的每个对象进行对比，而他的对比规则就是像上面说的那样，先 hashCode ()，如果 hashCode () 相同，再用 equal () 验证，如果 hashCode () 都不同，则肯定不同，这样对比的效率就很高了</p>
+</blockquote>
+<ul>
+<li>hashCode () 和 equal () 都是基本类 Object 里的方法，Object 里 hashCode () 里面只是返回当前对象的地址（两个对象的==操作的判断），如果是这样的话，相同的一个类，new 两个对象，由于他们在内存里的地址不同，则他们的 hashCode（）不同，所以这显然不是我们想要的，所以我们必须重写我们类的 hashCode () 方法，根据属性值计算哈希值</li>
 </ul>
+</li>
+<li><p></p><p><font color="red">常用的哈希码的算法</font></p>
+<ol>
+<li><p>Object 类的 hashCode. 返回对象的内存地址经过处理后的结构，由于每个对象的内存地址都不一样，所以哈希码也不一样。</p>
+</li>
+<li><p>String 类的 hashCode. 根据 String 类包含的字符串的内容，根据一种特殊算法返回哈希码，只要字符串所在的堆空间相同，返回的哈希码也相同。</p>
+<p> <strong>String类hashCode()源码：</strong>只要字符串字面值相同hashCode就相同</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h = hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Integer 类，返回的哈希码就是 Integer 对象里所包含的那个整数的数值，例如 Integer i1=new Integer (100),i1.hashCode 的值就是 100 。由此可见，2 个一样值相同的 Integer 对象，返回的哈希码也一样。</p>
+</li>
+</ol>
+</li>
+<li><p><font color="blue">总结一哈<br><br> </font></p>
+
+<pre><code>1. equals 方法用于比较对象的内容是否相等（覆盖以后）
+ 2. hashcode 方法只有在集合中用到
+ 3. 将对象放入到集合中时，首先判断要放入对象的 hashcode 值与集合中的任意一个元素的 hashcode 值是否相等，如果不相等直接将该对象放入集合中。如果 hashcode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。
+</code></pre></li>
+</ul>
+<ol start="5">
+<li><h5 id="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><a href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）" class="headerlink" title="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"></a>Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</h5><ol>
+<li><p></p><p><font color="red">实现Comparable接口（内部排序接口）</font></p>
+<blockquote>
+<p>若一个类实现了Comparable接口，就意味着“<strong>该类支持排序</strong>”。 即然实现Comparable接口的类支持排序，假设现在存在“实现Comparable接口的类的对象的List列表(或数组)”，则该List列表(或数组)可以通过 Collections.sort（或 Arrays.sort）进行排序。  </p>
+</blockquote>
+<blockquote>
+<p>“实现Comparable接口的类的对象”可以用作“有序映射(如TreeMap)”中的键或“有序集合(TreeSet)”中的元素， 而不需要指定比较器。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><strong>Comparable</strong> <strong>定义</strong></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparable</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(T o)</span></span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>说明</p>
+<blockquote>
+<ol>
+<li><p>返回负数:表示当前对象小于比较对象 </p>
+</li>
+<li><p>返回0:表示当前对象等于目标对象 </p>
+</li>
+<li><p>返回正数:表示当前对象大于目标对象</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p><font color="red">Comparator(外部排序接口)<br><br> </font></p>
+
+<blockquote>
+<p>控制某个类的次序，而该类本身不支持排序(即没有实现Comparable接口。言外之意实现Comparable的类只能实现升序或降序，一旦设置就确定了，但是Compartor实现的比较器可以根据比较器的不同实现不同的排序，不用改变源代码)，这个“比较器”只需要实现Comparator接口即可。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>Comparator定义</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util; </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span>; </span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>说明</p>
+<blockquote>
+<p>compare和Comparable的compareTo意义一样</p>
+<p>equals方法在Object中已经存在，</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p></p><p><font color="green">Comparable接口与Compartor接口的关系：</font></p><p></p>
+<ul>
+<li><p>Comparable是排序接口，若一个类实现了Comparable接口，意味着该类支持排序</p>
+<pre><code>是一个内部比较器(自己去和别人比)
+</code></pre></li>
+<li><p>Compartor接口是比较器接口，类本身不支持排序，专门有若干个第三方的比较器(实<br>  现了Compartor接口的类)来进行类的排序，是一个外部比较器(策略模式)</p>
+</li>
+</ul>
+<p></p><p><font colort="blue"></font></p>
 </li>
 <li><h5 id="HashMap、TreeMap、Hashtable的关系与区别"><a href="#HashMap、TreeMap、Hashtable的关系与区别" class="headerlink" title="HashMap、TreeMap、Hashtable的关系与区别"></a>HashMap、TreeMap、Hashtable的关系与区别</h5><ul>
 <li>HashMap、TreeMap、Hashtable都是Map的常用子类，HashMap基于哈希表+红黑树（JDK1.8，Hashtable基于哈希表，TreeMap基于红黑树）</li>
@@ -409,8 +565,8 @@
     </a>
   
   
-    <a href="/2019/07/19/简历制作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">简历制作</div>
+    <a href="/2019/07/17/最近公共祖先/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最近公共祖先</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -437,7 +593,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#类集"><span class="toc-number">1.</span> <span class="toc-text">类集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><span class="toc-number">1.1.</span> <span class="toc-text">ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#jcl中fail-fast-、fail-safe"><span class="toc-number">1.2.</span> <span class="toc-text">jcl中fail-fast 、fail - safe</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Set与Map的关系"><span class="toc-number">1.3.</span> <span class="toc-text">Set与Map的关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hashCode与equals的关系"><span class="toc-number">1.4.</span> <span class="toc-text">hashCode与equals的关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><span class="toc-number">1.5.</span> <span class="toc-text">Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap、TreeMap、Hashtable的关系与区别"><span class="toc-number">1.6.</span> <span class="toc-text">HashMap、TreeMap、Hashtable的关系与区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"><span class="toc-number">1.7.</span> <span class="toc-text">HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap如何高效实现线程安全"><span class="toc-number">1.8.</span> <span class="toc-text">ConcurrentHashMap如何高效实现线程安全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK1-7与JDK1-8-ConcurrentHashMap设计区别"><span class="toc-number">1.9.</span> <span class="toc-text">JDK1.7与JDK1.8 ConcurrentHashMap设计区别</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类集"><span class="toc-number">1.</span> <span class="toc-text">类集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><span class="toc-number">1.1.</span> <span class="toc-text">ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jcl中fail-fast-、fail-safe"><span class="toc-number">1.2.</span> <span class="toc-text">jcl中fail-fast 、fail - safe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set与Map的关系"><span class="toc-number">1.3.</span> <span class="toc-text">Set与Map的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashCode与equals的关系"><span class="toc-number">1.4.</span> <span class="toc-text">hashCode与equals的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><span class="toc-number">1.4.1.</span> <span class="toc-text">Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap、TreeMap、Hashtable的关系与区别"><span class="toc-number">1.4.2.</span> <span class="toc-text">HashMap、TreeMap、Hashtable的关系与区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"><span class="toc-number">1.4.3.</span> <span class="toc-text">HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap如何高效实现线程安全"><span class="toc-number">1.4.4.</span> <span class="toc-text">ConcurrentHashMap如何高效实现线程安全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK1-7与JDK1-8-ConcurrentHashMap设计区别"><span class="toc-number">1.4.5.</span> <span class="toc-text">JDK1.7与JDK1.8 ConcurrentHashMap设计区别</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -628,15 +784,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,10 +813,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,7 +836,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,6 +849,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">practice</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
             
             <div class="clearfix"></div>

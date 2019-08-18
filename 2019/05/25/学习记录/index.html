@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/.com//三次握手.png">
 <meta property="og:image" content="http://yoursite.com/.com//四次挥手.png">
-<meta property="og:updated_time" content="2019-07-24T16:54:09.095Z">
+<meta property="og:updated_time" content="2019-07-28T05:07:16.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习记录">
 <meta name="twitter:description" content="栈和堆的具体存储总结(0524) 类变量在堆区，方法变量在栈区 this总结 main函数中的变量必须先赋值,类变量可以不赋值有默认值,总结一下变量初始化以及变量默认值 ConcurrentHashMap 如何保证线程安全，使用CAS保证，不是 synchronized https://www.cnblogs.com/junjiang3/p/8686290.html java复制数组哪种效率更高h">
@@ -791,6 +791,31 @@
 </ul>
 </li>
 </ul>
+<h5 id="0724（）"><a href="#0724（）" class="headerlink" title="0724（）"></a>0724（）</h5><h5 id="0725"><a href="#0725" class="headerlink" title="0725"></a>0725</h5><ul>
+<li>与 Mysql 服务器相互作用的通讯协议包括 TCP／IP、Socket、共享内存、命名管道；（不含UDP）</li>
+</ul>
+<h5 id="0727"><a href="#0727" class="headerlink" title="0727"></a>0727</h5><ul>
+<li>嵌套查询的子查询列名顺序和 in 之前的返回列名一致</li>
+<li>动态规划（合唱团）</li>
+</ul>
+<h5 id="0728"><a href="#0728" class="headerlink" title="0728"></a>0728</h5><ul>
+<li><p>如下 SQL 语句中，____可能返回 null 值。</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) <span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> t1;</span><br><span class="line">(2) <span class="keyword">select</span> <span class="keyword">max</span>(col1) <span class="keyword">from</span> t1;</span><br><span class="line">(3) <span class="keyword">select</span> <span class="keyword">concat</span>(<span class="string">'max='</span>,<span class="keyword">max</span>(col1)) <span class="keyword">from</span> t1;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1). 若表 t1 中有记录，会返回记录数；若无记录，则返回 0；</span><br><span class="line">(2). 若表 t1 中存在列 col 为 null, 则结果返回 null; </span><br><span class="line">MySQL concat 函数使用方法：CONCAT(str1,str2,…)返回结果为连接参数产生的字符串。如有任何一个参数为 NULL ，则返回值为 NULL。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从表 TABLE_NAME 中提取前 10 条记录</p>
+<ul>
+<li><strong>Sql server:</strong>select TOP N * from table_name. </li>
+<li><strong>MySQL:</strong> select * from table_name limit 0,10; </li>
+<li><strong>Oracle:</strong>select * from table_name where rownum＜=10  </li>
+</ul>
+</li>
+<li><p>SQL 中的通配符不包含 *。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_    与任意单字符匹配</span><br><span class="line">%    与包含一个或多个字符的字符串匹配</span><br><span class="line">[]  与特定范围（例如，[a-f]）或特定集（例如，[abcdef]）中的任意单字符匹配。</span><br><span class="line">[^]  与特定范围（例如，[^a-f]）或特定集（例如，[^abcdef]）之外的任意单字符匹配。</span><br><span class="line">例子:</span><br><span class="line">・WHERE FirstName LIKE &apos;_im&apos; 可以找到所有三个字母的、以 im 结尾的名字（例如，Jim、Tim）。 </span><br><span class="line">・WHERE LastName LIKE &apos;% stein&apos; 可以找到姓以 stein 结尾的所有员工。 </span><br><span class="line">・WHERE LastName LIKE &apos;% stein%&apos; 可以找到姓中任意位置包括 stein 的所有员工。 </span><br><span class="line">・WHERE FirstName LIKE &apos;[JT] im&apos; 可以找到三个字母的、以 im 结尾并以 J 或 T 开始的名字（即仅有 Jim 和 Tim） </span><br><span class="line">・WHERE LastName LIKE &apos;m [^c]%&apos; 可以找到以 m 开始的、后面的（第二个）字母不为 c 的所有姓。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RDBMS 是 SQL 的基础，同样也是所有现代数据库系统的基础，比如 MS   SQL Server, IBM DB2, Oracle, MySQL 以及 Microsoft Access。hadoop 是分布式数据库 ,hadoop 是分布式文件系统，不是关系型数据库管理系统。</p>
+</li>
+</ul>
 
       
 
@@ -943,7 +968,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#栈和堆的具体存储总结-0524-类变量在堆区，方法变量在栈区"><span class="toc-number">1.</span> <span class="toc-text">栈和堆的具体存储总结(0524) 类变量在堆区，方法变量在栈区</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0524"><span class="toc-number"></span> <span class="toc-text">0524</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0528"><span class="toc-number"></span> <span class="toc-text">0528</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0531"><span class="toc-number"></span> <span class="toc-text">0531</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0601"><span class="toc-number"></span> <span class="toc-text">0601</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0604"><span class="toc-number"></span> <span class="toc-text">0604</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0603"><span class="toc-number"></span> <span class="toc-text">0603</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0605"><span class="toc-number"></span> <span class="toc-text">0605</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0606"><span class="toc-number"></span> <span class="toc-text">0606</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0607"><span class="toc-number"></span> <span class="toc-text">0607</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0608"><span class="toc-number"></span> <span class="toc-text">0608</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0610"><span class="toc-number"></span> <span class="toc-text">0610</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0611"><span class="toc-number"></span> <span class="toc-text">0611</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0612"><span class="toc-number"></span> <span class="toc-text">0612</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0702"><span class="toc-number"></span> <span class="toc-text">0702</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0705"><span class="toc-number"></span> <span class="toc-text">0705</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0707"><span class="toc-number"></span> <span class="toc-text">0707</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0708"><span class="toc-number"></span> <span class="toc-text">0708</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0711"><span class="toc-number"></span> <span class="toc-text">0711</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0710"><span class="toc-number"></span> <span class="toc-text">0710</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0716"><span class="toc-number"></span> <span class="toc-text">0716</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0721"><span class="toc-number">1.</span> <span class="toc-text">0721</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0723"><span class="toc-number">2.</span> <span class="toc-text">0723</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#栈和堆的具体存储总结-0524-类变量在堆区，方法变量在栈区"><span class="toc-number">1.</span> <span class="toc-text">栈和堆的具体存储总结(0524) 类变量在堆区，方法变量在栈区</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0524"><span class="toc-number"></span> <span class="toc-text">0524</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0528"><span class="toc-number"></span> <span class="toc-text">0528</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0531"><span class="toc-number"></span> <span class="toc-text">0531</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0601"><span class="toc-number"></span> <span class="toc-text">0601</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0604"><span class="toc-number"></span> <span class="toc-text">0604</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0603"><span class="toc-number"></span> <span class="toc-text">0603</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0605"><span class="toc-number"></span> <span class="toc-text">0605</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0606"><span class="toc-number"></span> <span class="toc-text">0606</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0607"><span class="toc-number"></span> <span class="toc-text">0607</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0608"><span class="toc-number"></span> <span class="toc-text">0608</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0610"><span class="toc-number"></span> <span class="toc-text">0610</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0611"><span class="toc-number"></span> <span class="toc-text">0611</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0612"><span class="toc-number"></span> <span class="toc-text">0612</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0702"><span class="toc-number"></span> <span class="toc-text">0702</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0705"><span class="toc-number"></span> <span class="toc-text">0705</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0707"><span class="toc-number"></span> <span class="toc-text">0707</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0708"><span class="toc-number"></span> <span class="toc-text">0708</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0711"><span class="toc-number"></span> <span class="toc-text">0711</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0710"><span class="toc-number"></span> <span class="toc-text">0710</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0716"><span class="toc-number"></span> <span class="toc-text">0716</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#0721"><span class="toc-number">1.</span> <span class="toc-text">0721</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0723"><span class="toc-number">2.</span> <span class="toc-text">0723</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0724（）"><span class="toc-number">3.</span> <span class="toc-text">0724（）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0725"><span class="toc-number">4.</span> <span class="toc-text">0725</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0727"><span class="toc-number">5.</span> <span class="toc-text">0727</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#0728"><span class="toc-number">6.</span> <span class="toc-text">0728</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1134,15 +1159,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,10 +1188,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,7 +1211,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,6 +1224,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">practice</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
             
             <div class="clearfix"></div>

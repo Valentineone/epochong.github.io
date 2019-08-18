@@ -160,6 +160,682 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LeetCode239. 滑动窗口最大值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">239. 滑动窗口最大值</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
+<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
+</blockquote>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
+<p><strong>进阶</strong>(==本题解法正式如此==)</p>
+<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
+<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
+</blockquote>
+<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
+<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
+<p><strong>答案：</strong> 没错</p>
+<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
+<p>==<strong>时间复杂度：</strong>== O(N)</p>
+<blockquote>
+<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
+<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
+<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
+<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
+<ul>
+<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
+<li>nullArray 是一个数组类型的空引用。 <blockquote>
+<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
+</blockquote>
+</li>
+</ul>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode 876. 链表的中间结点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/LeetCode 876. 链表的中间结点/">876. 链表的中间结点</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/03/LeetCode 876. 链表的中间结点/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88090162" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88090162</a><br>  <strong>题目描述</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">给定一个带有头结点 head 的非空单链表，返回链表的中间结点。</span><br><span class="line">如果有两个中间结点，则返回第二个中间结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4,5]</span><br><span class="line">输出：此列表中的结点 3 (序列化形式：[3,4,5])</span><br><span class="line">返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。</span><br><span class="line">注意，我们返回了一个 ListNode 类型的对象 ans，这样：</span><br><span class="line">ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.</span><br></pre></td></tr></table></figure>
+<p> <strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,2,3,4,5,6]</span><br><span class="line">输出：此列表中的结点 4 (序列化形式：[4,5,6])</span><br><span class="line">由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>思路</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">设置两个指针，一个指针一次走一步，一个指针一次走2步</span><br><span class="line">当链表大小为奇数</span><br><span class="line">-走两步的节点到尾部的时候，走一步的到中间位置</span><br><span class="line">当链表大小为偶数</span><br><span class="line">-走两步的节点到尾部走一步的到第二个中间节点</span><br><span class="line">当链表只有一个节点时</span><br><span class="line">-直接返回该节点</span><br><span class="line">当链表有两个节点时</span><br><span class="line">-返回第一个节点的下一个节点</span><br></pre></td></tr></table></figure>
+<p> <strong>解法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125;</span><br><span class="line">		ListNode n1 = head;</span><br><span class="line">		ListNode n2 = head;</span><br><span class="line">		<span class="comment">//奇数的时候来到中点，偶数的时候来到中点前面的一个的位置</span></span><br><span class="line">		<span class="keyword">while</span> (n2.next != <span class="keyword">null</span> &amp;&amp; n2.next.next != <span class="keyword">null</span>) &#123; </span><br><span class="line">			n1 = n1.next; <span class="comment">// n1 -&gt; mid</span></span><br><span class="line">			n2 = n2.next.next; <span class="comment">// n2 -&gt; end</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">if</span> (n2.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> n1.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> n1; </span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>小结</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结不易，切勿抄袭，帮助你理解是最终目的</span><br></pre></td></tr></table></figure>
+<p> 欢迎加我QQ：1939765238 一起学习算法</p>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/LeetCode 876. 链表的中间结点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-输入一个链表，输出该链表中倒数第k个结点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/">输出该链表中倒数第k个结点</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/" class="archive-article-date">
+  	<time datetime="2019-03-03T08:32:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88089768" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88089768</a><br>  <strong>题目描述</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入一个链表，输出该链表中倒数第k个结点。</span><br></pre></td></tr></table></figure>
+<p> <strong>要求</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">时间限制：<span class="number">1</span>秒 空间限制：<span class="number">32768</span>K 热度指数：<span class="number">552571</span></span><br><span class="line">本题知识点： 链表</span><br></pre></td></tr></table></figure>
+<p> <strong>思路</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将链表遍历一遍，放入栈中，在出栈的时候，k的值减一</span><br><span class="line">当k在减为<span class="number">0</span>的时候，即为要求的第k个节点</span><br><span class="line">但是有一下几种情况</span><br><span class="line"><span class="number">1</span>.k大于链表长度，此时，返回<span class="keyword">null</span></span><br><span class="line"><span class="number">2</span>.头结点head为空，直接返回<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+<p> <strong>解法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class ListNode &#123;</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode next = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Stack&lt;ListNode&gt; stack = <span class="keyword">new</span> Stack&lt;ListNode&gt;();</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(cur);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">if</span>(k == <span class="number">1</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> stack.pop();</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="keyword">while</span> (k-- &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> stack.pop();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">牛客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode 203. 移除链表元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/LeetCode 203. 移除链表元素/">203. 移除链表元素</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/03/LeetCode 203. 移除链表元素/" class="archive-article-date">
+  	<time datetime="2019-03-03T05:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88087417" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88087417</a><br>  <strong>题目一描述</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">删除链表中等于给定值 val 的所有节点。</span><br><span class="line">示例:</span><br><span class="line">输入: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">6</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span>-&gt;<span class="number">6</span>, val = <span class="number">6</span></span><br><span class="line">输出: <span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p> Java实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode pre = head;</span><br><span class="line">        ListNode deNode;</span><br><span class="line">        <span class="keyword">for</span> (ListNode cur = head; cur != <span class="keyword">null</span>;) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur.val == val &amp;&amp; cur == head) &#123;</span><br><span class="line">                head = head.next;</span><br><span class="line">                <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    deNode = cur;</span><br><span class="line">                    cur = head;</span><br><span class="line">                    deNode = <span class="keyword">null</span>;</span><br><span class="line">                   </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    deNode = cur;</span><br><span class="line">                    cur = head;</span><br><span class="line">                    deNode = <span class="keyword">null</span>;</span><br><span class="line">                    pre = head;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur.val == val) &#123;</span><br><span class="line">                pre.next = cur.next;</span><br><span class="line">                cur = pre.next;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                pre = cur;</span><br><span class="line">                cur = pre.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>运行结果</strong><br> <img src="https://img-blog.csdnimg.cn/20190303133727642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <strong>总结</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">消耗内存好像有点多，才击败了0.88%的用户，代码还有需要改进的地方，请各位大佬指正啊</span><br><span class="line">后面可能会有更新这个题目，优化一下算法</span><br><span class="line">可能原因：使用太多的变量</span><br></pre></td></tr></table></figure>
+<p> 本人QQ：1939765238 欢迎一起学习的同学来讨论</p>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/03/LeetCode 203. 移除链表元素/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-三天打鱼两天晒网" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/02/三天打鱼两天晒网/">三天打鱼两天晒网</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/03/02/三天打鱼两天晒网/" class="archive-article-date">
+  	<time datetime="2019-03-02T13:52:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/87992161" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/87992161</a><br>  中国有句俗语叫“三天打鱼两天晒网”。某人从2010年1月1日起开始“三天打鱼两天晒网”，问这个人在以后的某一天中是“打鱼”还是“晒网”。<br> <strong>基本要求：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.程序风格良好(使用自定义注释模板)，提供友好的输入输出。</span><br></pre></td></tr></table></figure>
+<p> <strong>提高要求：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.输入数据的正确性验证。</span><br><span class="line">2.使用文件进行数据测试。如将日期 20100101   20111214  等数据保存在in.txt文件中，</span><br><span class="line">程序读入in.dat文件进行判定，并将结果输出至out.txt文件。</span><br></pre></td></tr></table></figure>
+<p> <strong>分析问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">根据题意可以将解题过程分为三步：</span><br><span class="line">1)计算从2010年1月1日开始至指定日期共有多少天；</span><br><span class="line">2)由于“打鱼”和“晒网”的周期为5天，所以将计算出的天数用5去除；</span><br><span class="line">3)根据余数判断他是在“打鱼”还是在“晒网”；</span><br><span class="line">    若余数为0，1，2，则他是在“打鱼”</span><br><span class="line">    否则是在“晒网”</span><br></pre></td></tr></table></figure>
+<p> <strong>关键问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">起始年到指定日期之间存在闰年和平年天数不一样，我们要一一判断</span><br></pre></td></tr></table></figure>
+<p> <strong>判断平年和闰年</strong><br> 闰年和平年的判断方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不是闰年的年份就是平年。</span><br></pre></td></tr></table></figure>
+<p> 闰年的判断方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">闰年又分为普通闰年和世纪闰年，</span><br><span class="line">普通年判断方法：</span><br><span class="line">能被4整除且不能被100整除的为闰年（如2004年就是闰年，1999年不是闰年）。</span><br><span class="line">世纪年判断方法：能被400整除的是闰年（如2000年是闰年，1900年不是闰年）。</span><br><span class="line">闰年(Leap Year)是为了弥补因人为历法规定造成的年度天数与地球实际公转周期的时间差而设立的。</span><br><span class="line">补上时间差的年份为闰年。</span><br><span class="line">闰年共有366天</span><br><span class="line">（1-12月分别为31天，29天，31天，30天，31天，30天，31天，31天，30天，31天，30天，31天）。</span><br></pre></td></tr></table></figure>
+<p> <strong>代码实现分析</strong><br> 首先建立日期的结构体</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">date</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> year;</span><br><span class="line">        <span class="keyword">int</span> month;</span><br><span class="line">        <span class="keyword">int</span> day;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 根据题意要实现文件的输入与输出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">      File inDatFile = <span class="keyword">new</span> File(<span class="string">"F:\\in.dat"</span>);</span><br><span class="line">      File inTxtFile = <span class="keyword">new</span> File(<span class="string">"F:\\in.txt"</span>);</span><br><span class="line">      <span class="comment">/* 新建两个文件对象</span></span><br><span class="line"><span class="comment">* inDatFile 作为从in.dat中读取数据</span></span><br><span class="line"><span class="comment">* inTxtFile 作为向in.txt中存储数据</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">      Writer inDat = <span class="keyword">new</span> FileWriter(inDatFile);</span><br><span class="line">      Writer inTxt = <span class="keyword">new</span> FileWriter(inTxtFile);</span><br><span class="line">      <span class="comment">//两个Writer对象通过write()函数向对应文件中输入数据</span></span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"Please enter eight digits year, month and day."</span>);</span><br><span class="line">      System.out.println(<span class="string">"Please input the date begin:"</span>);</span><br><span class="line">      String beginDate = input.nextLine();</span><br><span class="line">      inDat.write(beginDate + <span class="string">"\r\n"</span>);</span><br><span class="line">      inTxt.write(beginDate + <span class="string">"\r\n"</span>);</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">	输入流输入的同时向文件中存储</span></span><br><span class="line"><span class="comment">	并加上\r\n使其换行</span></span><br><span class="line"><span class="comment">	是为了在读取是一行读取，操作方便</span></span><br><span class="line"><span class="comment">	下面的操作相同</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">      System.out.println(<span class="string">"Please enter eight digits year, month and day."</span>);</span><br><span class="line">      System.out.println(<span class="string">"Please input the date end:"</span>);</span><br><span class="line">      String endDate = input.nextLine();</span><br><span class="line">      inDat.write(endDate + <span class="string">"\r\n"</span>);</span><br><span class="line">      inTxt.write(endDate + <span class="string">"\r\n"</span>);</span><br><span class="line">      inTxt.close();</span><br><span class="line">      inDat.close();</span><br></pre></td></tr></table></figure>
+<p> 输入数据正确性验证</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"F:\\in.dat"</span>));<span class="comment">//打开文件创建数据流</span></span><br><span class="line">		<span class="comment">//从in.dat中读取开始日期</span></span><br><span class="line">      strInBeginDate = in.readLine();</span><br><span class="line">      inBeginDate = Integer.parseInt(strInBeginDate);</span><br><span class="line">      <span class="keyword">if</span> (strInBeginDate.length() != <span class="number">8</span>) &#123;</span><br><span class="line">          System.out.println(<span class="string">"Date must be 8 digits!"</span>);</span><br><span class="line">          judge = <span class="keyword">false</span>;</span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      s = Arrays.copyOf(s,s.length+<span class="number">1</span>);  <span class="comment">//扩容  如果对内存没有要求可以直接声明一个大容量的数组</span></span><br><span class="line">      s[<span class="number">0</span>] = strInBeginDate.substring(<span class="number">0</span>,<span class="number">8</span>);</span><br><span class="line">      strInEndDate = in.readLine();</span><br><span class="line">      <span class="comment">//判断读入长度是否符合年月日规范</span></span><br><span class="line">      <span class="keyword">if</span> (strInEndDate.length() != <span class="number">8</span>) &#123;</span><br><span class="line">          System.out.println(<span class="string">"Date must be 8 digits!"</span>);</span><br><span class="line">          judge = <span class="keyword">false</span>;</span><br><span class="line">          <span class="keyword">continue</span>;<span class="comment">//这一个模块是在一个循环中，不符合条件的要重新输入数据，下同</span></span><br><span class="line">      &#125;</span><br><span class="line">      in.close();</span><br><span class="line">      inEndDate = Integer.parseInt(strInEndDate);</span><br><span class="line">      s = Arrays.copyOf(s,s.length+<span class="number">1</span>);  <span class="comment">//扩容  如果对内存没有要求可以直接声明一个大容量的数组</span></span><br><span class="line">      s[<span class="number">1</span>] = strInEndDate.substring(<span class="number">0</span>,<span class="number">8</span>);</span><br><span class="line">      <span class="comment">//初始日期大于终止日期，不符合要求重新输入</span></span><br><span class="line">      <span class="keyword">if</span> (inBeginDate &gt; inEndDate) &#123;</span><br><span class="line">          System.out.println(<span class="string">"Begin date must big than end date"</span>);</span><br><span class="line">          judge = <span class="keyword">false</span>;</span><br><span class="line">          <span class="keyword">continue</span>;<span class="comment">//同上</span></span><br><span class="line">      &#125;</span><br><span class="line">     <span class="comment">//判断日期是否为正确的日期时间</span></span><br><span class="line">      <span class="keyword">if</span>(!(isRightDate(inBeginDate / <span class="number">10000</span>,inBeginDate / <span class="number">100</span> % <span class="number">100</span>, inBeginDate % <span class="number">100</span>) &amp;&amp;</span><br><span class="line">              isRightDate(inEndDate / <span class="number">10000</span>,inEndDate / <span class="number">100</span> % <span class="number">100</span>,inEndDate % <span class="number">100</span>))) &#123;</span><br><span class="line">          System.out.println(<span class="string">"The date is wrong"</span>);</span><br><span class="line">          judge = <span class="keyword">false</span>;</span><br><span class="line">          <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p> 下面是isRightDate()函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isRightDate</span><span class="params">(<span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> day_tab[][] =</span><br><span class="line">                &#123;&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;,      <span class="comment">/*平均每月的天数*/</span></span><br><span class="line">                        &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="comment">//2019年之后，2019年3月之后还没到，2019年3月2号之后也不符合要求</span></span><br><span class="line">        <span class="keyword">if</span> (year &gt; <span class="number">2019</span> || (year == <span class="number">2019</span> &amp;&amp; month &gt; <span class="number">3</span>) || (year == <span class="number">2019</span> &amp;&amp; month == <span class="number">3</span> &amp;&amp; day &gt; <span class="number">2</span>) || (month &gt; <span class="number">12</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> lp = year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year % <span class="number">100</span> != <span class="number">0</span> || year % <span class="number">400</span> == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> day_tab[lp][month] &gt;= day;<span class="comment">//判断闰年或者平年，并且对应的月份的天数时候超过最大天数</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 计算从开始日期到指定日期的天数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	date today = <span class="keyword">new</span> date();<span class="comment">//指定日期</span></span><br><span class="line">    date term = <span class="keyword">new</span> date();<span class="comment">//从开始日期到指定日期的变量</span></span><br><span class="line">    <span class="keyword">int</span> sumDays,year,day;</span><br><span class="line">    <span class="comment">//分割字符串，分出年月日</span></span><br><span class="line">    today.year = Integer.parseInt(s[<span class="number">1</span>].substring(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line">    today.month = Integer.parseInt(s[<span class="number">1</span>].substring(<span class="number">4</span>,<span class="number">6</span>));</span><br><span class="line">    today.day = Integer.parseInt(s[<span class="number">1</span>].substring(<span class="number">6</span>,<span class="number">8</span>));</span><br><span class="line">    term.month = <span class="number">12</span>;               <span class="comment">/*设置变量的初始值：月*/</span></span><br><span class="line">    term.day = <span class="number">31</span>;                 <span class="comment">/*设置变量的初始值：日*/</span></span><br><span class="line">        <span class="keyword">for</span>(sumDays = <span class="number">0</span>, year = <span class="number">2010</span>; year &lt; today.year; year++) &#123;</span><br><span class="line">        term.year = year;</span><br><span class="line">        sumDays += days(term);     <span class="comment">/*计算从2010年至指定年的前一年共有多少天*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    sumDays += days(today);       <span class="comment">/*加上指定年中到指定日期的天数*/</span></span><br><span class="line">    day = sumDays % <span class="number">5</span>;               <span class="comment">/*求余数*/</span></span><br><span class="line"><span class="comment">//向out.txt输入结果</span></span><br><span class="line">    File outFile = <span class="keyword">new</span> File(<span class="string">"F:\\out.txt"</span>);</span><br><span class="line">    Writer out = <span class="keyword">new</span> FileWriter(outFile);</span><br><span class="line">        <span class="keyword">if</span>(day &gt;= <span class="number">0</span> &amp;&amp; day &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        System.out.println(<span class="string">"he was fishing at that day.\n"</span>);</span><br><span class="line">        out.write(<span class="string">"he was fishing at that day.\n"</span>);   <span class="comment">/*打印结果*/</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"He was sleeping at that day."</span>);</span><br><span class="line">        out.write(<span class="string">"He was sleeping at that day.\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">        out.close();</span><br></pre></td></tr></table></figure>
+<p> 下面是用到的days()函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">days</span><span class="params">(date day)</span> </span>&#123;</span><br><span class="line"><span class="comment">//两个输入代表平年和闰年的天数</span></span><br><span class="line">        <span class="keyword">int</span> day_tab[][] =</span><br><span class="line">                &#123;&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;,      <span class="comment">/*平均每月的天数*/</span></span><br><span class="line">                        &#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;</span><br><span class="line">                &#125;;</span><br><span class="line">        <span class="keyword">int</span> lp = day.year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; day.year % <span class="number">100</span> != <span class="number">0</span> || day.year % <span class="number">400</span> == <span class="number">0</span> ? <span class="number">1</span> : </span><br><span class="line">        <span class="comment">/*判定year为闰年还是平年，lp=0为平年，	1为闰年*/</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; day.month; i++)            <span class="comment">/*计算本年中自1月1日起的天数*/</span></span><br><span class="line">            day.day += day_tab[lp][i];</span><br><span class="line">        <span class="keyword">return</span> day.day;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 到此为止整个程序完成</p>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/02/三天打鱼两天晒网/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-句子单词反转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/25/C-句子单词反转/">C语言实现（小米面试题）给定一个句子（只包含字母,空格，逗号和句号）， 将句子中的单词位置反转，符号不变。（使用指针）</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2018/11/25/C-句子单词反转/" class="archive-article-date">
+  	<time datetime="2018-11-25T05:35:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/84486447" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/84486447</a><br>  <strong>例子</strong><br> 输入： <em>hello xiao.mi</em><br> 输出： <em>olleh <a href="http://oaix.im" target="_blank" rel="noopener">oaix.im</a></em><br> 思路:输入一个句子（只包含字母,空格，逗号和句号），指针指向该字符串首地址，遍历字符串找到字符串中非字母处，记下该位置记录到整型数组中，调用反转字符串的数组，利用记下的位置分单词反转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//Dev-Cpp下实现</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">char*fan(char*p,int b[10],int j)</span><br><span class="line">&#123;	char t;</span><br><span class="line">	int i;</span><br><span class="line">	for(i=b[j];i&lt;(b[j+1]+b[j])/2;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		t=p[b[j]];p[b[j]]=p[b[j+1]];p[b[j]+1]=t;</span><br><span class="line">	&#125;</span><br><span class="line">	return (p);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;	</span><br><span class="line">	char a[100],*p=a;</span><br><span class="line">	int i,j=1,b[10]=&#123;0&#125;;</span><br><span class="line">	printf(&quot;输入一个句子（只包含字母,空格，逗号和句号）：\n&quot;);</span><br><span class="line">	gets(a);</span><br><span class="line">	for(i=0;i&lt;100;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if((a[i]&lt;=&apos;z&apos;&amp;&amp;a[i]&gt;=&apos;a&apos;)||(a[i]&gt;=&apos;A&apos;&amp;&amp;a[i]&lt;=&apos;Z&apos;))</span><br><span class="line">		continue;</span><br><span class="line">		else b[j++]=i;//记下除字母外的字符的位置 </span><br><span class="line">	&#125; </span><br><span class="line">	for(j=0;j&lt;10;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b[j]==0&amp;&amp;b[j+1]==0)break;//没有记下位置的后边的元素默认为0，以此作为结束标志 </span><br><span class="line">		else fan(a,b,j);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%s&quot;,p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/25/C-句子单词反转/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C语言不使用库函数反转字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/25/C语言不使用库函数反转字符串/">C语言不使用库函数反转字符串</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2018/11/25/C语言不使用库函数反转字符串/" class="archive-article-date">
+  	<time datetime="2018-11-25T05:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> stu[] = &#123; <span class="string">"student a am i"</span> &#125;;</span><br><span class="line">	<span class="keyword">char</span>* star = stu;</span><br><span class="line">	<span class="keyword">while</span> (*star++)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	star = stu;</span><br><span class="line">	<span class="keyword">char</span>* end = stu + count - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; star &lt; end; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/25/C语言不使用库函数反转字符串/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-javase知识要点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -773,15 +1449,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,10 +1478,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,7 +1501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,6 +1514,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">practice</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MyBatis</a>
               </li>
             
             <div class="clearfix"></div>
