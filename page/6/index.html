@@ -1045,14 +1045,14 @@ client.buyAirCondition(mideaFactory.createAriCondition());
 
 
   
-    <article id="post-LeetCode239. 滑动窗口最大值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Lock体系相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">239. 滑动窗口最大值</a>
+      <a class="article-title" href="/2019/03/03/Lock体系相关/">Lock体系相关</a>
     </h1>
   
 
@@ -1061,7 +1061,7 @@ client.buyAirCondition(mideaFactory.createAriCondition());
 
 <!--不蒜子内容结束-->
 
-<a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" class="archive-article-date">
+<a href="/2019/03/03/Lock体系相关/" class="archive-article-date">
   	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
@@ -1070,41 +1070,46 @@ client.buyAirCondition(mideaFactory.createAriCondition());
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
-<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
-</blockquote>
-<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<p><strong>进阶</strong>(==本题解法正式如此==)</p>
-<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
-<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
-</blockquote>
-<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
-<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
-<p><strong>答案：</strong> 没错</p>
-<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
-<p>==<strong>时间复杂度：</strong>== O(N)</p>
-<blockquote>
-<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
-<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
-<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
+        <h6 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h6><p>取得Callable接口返回值<br>get():V当前线程阻塞直到有返回值</p>
+<h6 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h6><p>在多线程并发下可以保证任务(传入的Callable或Runnable)只执行一次</p>
+<p>[18:50]</p>
+<h6 id="线程中提交方法"><a href="#线程中提交方法" class="headerlink" title="线程中提交方法"></a>线程中提交方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void execute(Runnable r);</span><br><span class="line">V submit(Runnable )</span><br></pre></td></tr></table></figure>
+<h6 id="CompletableFuture接口-自学"><a href="#CompletableFuture接口-自学" class="headerlink" title="CompletableFuture接口(自学)"></a>CompletableFuture接口(自学)</h6><p>jdk1.8新增处理异步任务的接口</p>
+<h6 id="多线程三大核心"><a href="#多线程三大核心" class="headerlink" title="多线程三大核心"></a>多线程三大核心</h6><p><strong>分工:</strong><br>创建多个子线程执行不同的任务<br>jdk1.7Fork/Join 单机版人的Map/Reduce</p>
+<p><strong>互斥</strong><br>任意一个时刻只有一个线程在操作临界区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">synchronized</span><br><span class="line">Lock(为解决死锁而生)</span><br></pre></td></tr></table></figure>
+<p><strong>同步</strong><br>线程间通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wait、notify</span><br><span class="line">Comdition</span><br></pre></td></tr></table></figure>
+<h4 id="Lock体系"><a href="#Lock体系" class="headerlink" title="Lock体系"></a>Lock体系</h4><h6 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h6><p>只有当以下四个条件同时满足时,程序才会死锁</p>
+<ol>
+<li><strong>互斥:</strong> 共享资源X与Y只能被一个线程占用</li>
+<li><strong>占有且等待:</strong> 线程T1已经拥有共享资源X,在等待共享资源Y的时候,不释放X</li>
+<li><strong>不可抢占:</strong> 其他线程不能强行T1线程持有的资源X</li>
+<li><strong>循环等待</strong><h6 id="Lock接口常用方法"><a href="#Lock接口常用方法" class="headerlink" title="Lock接口常用方法"></a>Lock接口常用方法</h6></li>
+</ol>
 <ul>
-<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
-<li>nullArray 是一个数组类型的空引用。 <blockquote>
-<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
-</blockquote>
+<li><p><strong>void lock()</strong> 阻塞式获取锁</p>
+</li>
+<li><p><strong>boolean tryLock()</strong> 非阻塞获取锁,获取成功执行任务返回true否则返回false线程直接退出</p>
+</li>
+<li><p><strong>void lockInterruptibly() throws InterruptedException</strong> 获取锁时响应中断</p>
+</li>
+<li><p><strong>boolean tryLock(long time, TimeUnit unit)<br>throws InterruptedException</strong> 获取锁时支持超时,在指定时间内未获取到锁,线程直接退出<br><strong>Condition</strong> newCondition();获取绑定到该lock对象的等待队列,每当调用一次就产生一个新的等待队列</p>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	lock.lock();</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="sychronized与Lock的关系与区别"><a href="#sychronized与Lock的关系与区别" class="headerlink" title="==sychronized与Lock的关系与区别=="></a>==sychronized与Lock的关系与区别==</h6><ol>
+<li>sychronized是JVM级别的锁，属于Java中的关键字，使用sychronized，加锁与解锁都是隐式的;Lock是Java层面的锁，加锁与解锁都需要显示使用。</li>
+<li>lock可以提供一些synchronized不具备的功能，如响应中断、超时获取、非阻塞式获取、公平锁、共享锁如读写锁</li>
+<li>sychronized的等待队列只有一个，而同一个Lock可以拥有多个等待队列(多个Condition对象)</li>
+</ol>
+<p><strong>AQS:同步包装器</strong></p>
+<p>基于链表的一个队列,此队列包装类线程节点,所有获取锁失败的次三成都被包装为队列节点进入AQS中排队获取锁。</p>
+<h6 id="lock与AQS的关系"><a href="#lock与AQS的关系" class="headerlink" title="lock与AQS的关系"></a>lock与AQS的关系</h6><p>lock提供锁获取成功与否的状态给AQS，AQS根据此状态来确定是否将线程置入AQS中。</p>
+<h6 id="公平锁与非公平锁"><a href="#公平锁与非公平锁" class="headerlink" title="公平锁与非公平锁:"></a>公平锁与非公平锁:</h6><p><strong>公平锁:</strong> 等待时间最长的线程优先获取到锁,只有lock有,lock默认采用非公平锁</p>
+<p><strong>读写锁:</strong><br>Lock中的ReentrantReadWriteLock实现读写锁</p>
+<p><strong>线程间通信:</strong> Condition 搭配 Lock<br>await()<br>signal()/signalAll()</p>
+<p>==kafka:分布式消息队列==</p>
 
       
 
@@ -1118,11 +1123,11 @@ client.buyAirCondition(mideaFactory.createAriCondition());
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
       		
 		</ul>
@@ -1132,7 +1137,7 @@ client.buyAirCondition(mideaFactory.createAriCondition());
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/03/Lock体系相关/">展开全文 >></a>
         </p>
       
 
@@ -1194,19 +1199,7 @@ client.buyAirCondition(mideaFactory.createAriCondition());
  
   </div>
 
-<!--添加不蒜子内容-->
-  
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-            本站访客数<span id="busuanzi_value_site_uv"></span>人
-    </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1314,15 +1307,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1346,15 +1339,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,10 +1364,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1394,15 +1391,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
