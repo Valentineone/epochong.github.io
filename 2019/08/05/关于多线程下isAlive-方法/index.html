@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>关于多线程下isAlive()方法 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="isAlive()方法 isAlive()方法的作用是测试线程是否处于活动状态。   活动状态：线程已经启动尚未终止的状态即为活动状态  代码分析 自定义线程类   1234567891011121314151617181920package unit.one.mythread_1_4;/** * @author epochong * @date 2019/8/5 13:50 * @email e">
+  <meta name="description" content="isAlive()&amp;#x65B9;&amp;#x6CD5; isAlive()&amp;#x65B9;&amp;#x6CD5;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x6D4B;&amp;#x8BD5;&amp;#x7EBF;&amp;#x7A0B;&amp;#x662F;&amp;#x5426;&amp;#x5904;&amp;#x4E8E;&amp;#x6D3B;&amp;#x52A8;&amp;#x72B6;&amp;#x6001;&amp;#x3002;   &amp;#x6D3B;&amp;#">
 <meta name="keywords" content="java,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于多线程下isAlive()方法">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/关于多线程下isAlive-方法/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="isAlive()方法 isAlive()方法的作用是测试线程是否处于活动状态。   活动状态：线程已经启动尚未终止的状态即为活动状态  代码分析 自定义线程类   1234567891011121314151617181920package unit.one.mythread_1_4;/** * @author epochong * @date 2019/8/5 13:50 * @email e">
+<meta property="og:description" content="isAlive()&amp;#x65B9;&amp;#x6CD5; isAlive()&amp;#x65B9;&amp;#x6CD5;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x6D4B;&amp;#x8BD5;&amp;#x7EBF;&amp;#x7A0B;&amp;#x662F;&amp;#x5426;&amp;#x5904;&amp;#x4E8E;&amp;#x6D3B;&amp;#x52A8;&amp;#x72B6;&amp;#x6001;&amp;#x3002;   &amp;#x6D3B;&amp;#">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-05T08:45:55.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于多线程下isAlive()方法">
-<meta name="twitter:description" content="isAlive()方法 isAlive()方法的作用是测试线程是否处于活动状态。   活动状态：线程已经启动尚未终止的状态即为活动状态  代码分析 自定义线程类   1234567891011121314151617181920package unit.one.mythread_1_4;/** * @author epochong * @date 2019/8/5 13:50 * @email e">
+<meta name="twitter:description" content="isAlive()&amp;#x65B9;&amp;#x6CD5; isAlive()&amp;#x65B9;&amp;#x6CD5;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x6D4B;&amp;#x8BD5;&amp;#x7EBF;&amp;#x7A0B;&amp;#x662F;&amp;#x5426;&amp;#x5904;&amp;#x4E8E;&amp;#x6D3B;&amp;#x52A8;&amp;#x72B6;&amp;#x6001;&amp;#x3002;   &amp;#x6D3B;&amp;#">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,49 +193,49 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h4 id="isAlive-方法"><a href="#isAlive-方法" class="headerlink" title="isAlive()方法"></a>isAlive()方法</h4><blockquote>
-<p>isAlive()方法的作用是测试线程是否处于活动状态。</p>
+        <h4 id="isAlive-&#x65B9;&#x6CD5;"><a href="#isAlive-&#x65B9;&#x6CD5;" class="headerlink" title="isAlive()&#x65B9;&#x6CD5;"></a>isAlive()&#x65B9;&#x6CD5;</h4><blockquote>
+<p>isAlive()&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x6D4B;&#x8BD5;&#x7EBF;&#x7A0B;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
 </blockquote>
 <ul>
-<li><strong>活动状态：</strong>线程已经启动尚未终止的状态即为活动状态</li>
+<li><strong>&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF1A;</strong>&#x7EBF;&#x7A0B;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x5C1A;&#x672A;&#x7EC8;&#x6B62;&#x7684;&#x72B6;&#x6001;&#x5373;&#x4E3A;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
 </ul>
-<h4 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h4><ul>
-<li><p>自定义线程类</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:50</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 自定义线程类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountOperate</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountOperate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"构造-Thread.currentThread().getName() = "</span> +Thread.currentThread().isAlive());</span><br><span class="line">        System.out.println(<span class="string">"构造-this.isAlive() = "</span> + <span class="keyword">this</span>.isAlive());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"run-Thread.currentThread().getName() = "</span> + Thread.currentThread().getName()+ <span class="string">":"</span> + Thread.currentThread().isAlive());</span><br><span class="line">        System.out.println(<span class="string">"run-this.getName() = "</span> + <span class="keyword">this</span>.getName() + <span class="string">":"</span> + <span class="keyword">this</span>.isAlive());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="&#x4EE3;&#x7801;&#x5206;&#x6790;"><a href="#&#x4EE3;&#x7801;&#x5206;&#x6790;" class="headerlink" title="&#x4EE3;&#x7801;&#x5206;&#x6790;"></a>&#x4EE3;&#x7801;&#x5206;&#x6790;</h4><ul>
+<li><p>&#x81EA;&#x5B9A;&#x4E49;&#x7EBF;&#x7A0B;&#x7C7B;</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:50</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> &#x81EA;&#x5B9A;&#x4E49;&#x7EBF;&#x7A0B;&#x7C7B;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountOperate</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountOperate</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6784;&#x9020;-Thread.currentThread().getName() = &quot;</span> +Thread.currentThread().isAlive());</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6784;&#x9020;-this.isAlive() = &quot;</span> + <span class="keyword">this</span>.isAlive());</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;run-Thread.currentThread().getName() = &quot;</span> + Thread.currentThread().getName()+ <span class="string">&quot;:&quot;</span> + Thread.currentThread().isAlive());</span><br><span class="line">        System.out.println(<span class="string">&quot;run-this.getName() = &quot;</span> + <span class="keyword">this</span>.getName() + <span class="string">&quot;:&quot;</span> + <span class="keyword">this</span>.isAlive());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>测试类</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 测试类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CountOperate countOperate = <span class="keyword">new</span> CountOperate();</span><br><span class="line">        <span class="comment">//countOperate.start();</span></span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(countOperate);</span><br><span class="line">        thread.setName(<span class="string">"A"</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x6D4B;&#x8BD5;&#x7C7B;</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> &#x6D4B;&#x8BD5;&#x7C7B;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        CountOperate countOperate = <span class="keyword">new</span> CountOperate();</span><br><span class="line">        <span class="comment">//countOperate.start();</span></span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(countOperate);</span><br><span class="line">        thread.setName(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>结果</p>
+<li><p>&#x7ED3;&#x679C;</p>
 <blockquote>
-<p>构造-Thread.currentThread().getName() = main:true<br>构造-this.isAlive() = Thread-0:false<br>run-Thread.currentThread().getName() = A:true<br>run-this.getName() = Thread-0:false</p>
+<p>&#x6784;&#x9020;-Thread.currentThread().getName() = main:true<br>&#x6784;&#x9020;-this.isAlive() = Thread-0:false<br>run-Thread.currentThread().getName() = A:true<br>run-this.getName() = Thread-0:false</p>
 </blockquote>
 <ul>
-<li>调用构造的是名为main的线程，main线程是活动状态</li>
-<li>this-countOperate没有调用start()方法，为非活动状态</li>
-<li>调用start()方法的是thread对象，thread在测试类中命名为A，为活动状态</li>
-<li>this是countOperate对象，未使用setName为默认名称，未调用start()方法，为非活动状态</li>
+<li>&#x8C03;&#x7528;&#x6784;&#x9020;&#x7684;&#x662F;&#x540D;&#x4E3A;main&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;main&#x7EBF;&#x7A0B;&#x662F;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
+<li>this-countOperate&#x6CA1;&#x6709;&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x975E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
+<li>&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#x7684;&#x662F;thread&#x5BF9;&#x8C61;&#xFF0C;thread&#x5728;&#x6D4B;&#x8BD5;&#x7C7B;&#x4E2D;&#x547D;&#x540D;&#x4E3A;A&#xFF0C;&#x4E3A;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
+<li>this&#x662F;countOperate&#x5BF9;&#x8C61;&#xFF0C;&#x672A;&#x4F7F;&#x7528;setName&#x4E3A;&#x9ED8;&#x8BA4;&#x540D;&#x79F0;&#xFF0C;&#x672A;&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x975E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
 </ul>
 </li>
-<li><p>改为一下测试</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 测试类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CountOperate countOperate = <span class="keyword">new</span> CountOperate();</span><br><span class="line">        countOperate.start();</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(countOperate);</span><br><span class="line">        thread.setName(<span class="string">"A"</span>);</span><br><span class="line">        <span class="comment">//thread.start();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x6539;&#x4E3A;&#x4E00;&#x4E0B;&#x6D4B;&#x8BD5;</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> unit.one.mythread_1_4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/5 13:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> &#x6D4B;&#x8BD5;&#x7C7B;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        CountOperate countOperate = <span class="keyword">new</span> CountOperate();</span><br><span class="line">        countOperate.start();</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(countOperate);</span><br><span class="line">        thread.setName(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">        <span class="comment">//thread.start();</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>结果</p>
+<li><p>&#x7ED3;&#x679C;</p>
 <blockquote>
-<p>构造-Thread.currentThread().getName() = main:true<br>构造-this.isAlive() = Thread-0:false<br>run-Thread.currentThread().getName() = Thread-0:true<br>run-this.getName() = Thread-0:true</p>
+<p>&#x6784;&#x9020;-Thread.currentThread().getName() = main:true<br>&#x6784;&#x9020;-this.isAlive() = Thread-0:false<br>run-Thread.currentThread().getName() = Thread-0:true<br>run-this.getName() = Thread-0:true</p>
 </blockquote>
 </li>
-<li><p>解释</p>
+<li><p>&#x89E3;&#x91CA;</p>
 <ul>
-<li><code>Thread.currentThread().getName()</code>表示调用者线程，为活动状态</li>
-<li><code>this</code>代表当前对象<code>countOperate</code>调用的start方法，为活动状态</li>
+<li><code>Thread.currentThread().getName()</code>&#x8868;&#x793A;&#x8C03;&#x7528;&#x8005;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E3A;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
+<li><code>this</code>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x5BF9;&#x8C61;<code>countOperate</code>&#x8C03;&#x7528;&#x7684;start&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x6D3B;&#x52A8;&#x72B6;&#x6001;</li>
 </ul>
 </li>
 </ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>是否存活看调用<code>start()</code>方法的是那一个线程对象</li>
-<li><code>thread</code>和<code>countPerate</code>是两个线程对象，均未命名时为程序默认的名称从Thread-0开始命名</li>
-<li>因为<code>countPerate</code>继承<code>Thread</code>类对应的getter、setter调用父类的方法</li>
+<h4 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h4><ul>
+<li>&#x662F;&#x5426;&#x5B58;&#x6D3B;&#x770B;&#x8C03;&#x7528;<code>start()</code>&#x65B9;&#x6CD5;&#x7684;&#x662F;&#x90A3;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x8C61;</li>
+<li><code>thread</code>&#x548C;<code>countPerate</code>&#x662F;&#x4E24;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x8C61;&#xFF0C;&#x5747;&#x672A;&#x547D;&#x540D;&#x65F6;&#x4E3A;&#x7A0B;&#x5E8F;&#x9ED8;&#x8BA4;&#x7684;&#x540D;&#x79F0;&#x4ECE;Thread-0&#x5F00;&#x59CB;&#x547D;&#x540D;</li>
+<li>&#x56E0;&#x4E3A;<code>countPerate</code>&#x7EE7;&#x627F;<code>Thread</code>&#x7C7B;&#x5BF9;&#x5E94;&#x7684;getter&#x3001;setter&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</li>
 </ul>
 
       
@@ -431,16 +431,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -548,10 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -560,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,11 +580,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,19 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +640,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

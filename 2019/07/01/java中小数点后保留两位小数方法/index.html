@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>java中小数点后保留指定小数位数方法 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
+  <meta name="description" content="&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;java&amp;#x4E2D;&amp;#x51E0;&amp;#x79CD;&amp;#x4FDD;&amp;#x7559;&amp;#x5C0F;&amp;#x6570;&amp;#x70B9;&amp;#x540E;&amp;#x6307;&amp;#x5B9A;&amp;#x5C0F;&amp;#x4F4D;&amp;#x6570;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;,&amp;#x4E0B;&amp;#x9762;&amp;#x4EE5;&amp;#">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java中小数点后保留指定小数位数方法">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/java中小数点后保留两位小数方法/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
+<meta property="og:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;java&amp;#x4E2D;&amp;#x51E0;&amp;#x79CD;&amp;#x4FDD;&amp;#x7559;&amp;#x5C0F;&amp;#x6570;&amp;#x70B9;&amp;#x540E;&amp;#x6307;&amp;#x5B9A;&amp;#x5C0F;&amp;#x4F4D;&amp;#x6570;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;,&amp;#x4E0B;&amp;#x9762;&amp;#x4EE5;&amp;#">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-01T09:41:35.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java中小数点后保留指定小数位数方法">
-<meta name="twitter:description" content="本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例  1234567891011121314151617181920212223242526272829package study;import java.math.BigDecimal;import java.text.DecimalFormat;import java.text.NumberFormat;public cla">
+<meta name="twitter:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;java&amp;#x4E2D;&amp;#x51E0;&amp;#x79CD;&amp;#x4FDD;&amp;#x7559;&amp;#x5C0F;&amp;#x6570;&amp;#x70B9;&amp;#x540E;&amp;#x6307;&amp;#x5B9A;&amp;#x5C0F;&amp;#x4F4D;&amp;#x6570;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;,&amp;#x4E0B;&amp;#x9762;&amp;#x4EE5;&amp;#">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -194,9 +194,9 @@
 
       
         <blockquote>
-<p>本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例</p>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;java&#x4E2D;&#x51E0;&#x79CD;&#x4FDD;&#x7559;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x6307;&#x5B9A;&#x5C0F;&#x4F4D;&#x6570;&#x7684;&#x65B9;&#x6CD5;,&#x4E0B;&#x9762;&#x4EE5;&#x4FDD;&#x7559;&#x4E24;&#x4F4D;&#x4E3A;&#x4F8B;</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法一：最简便的方法，调用DecimalFormat类</span></span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">".00"</span>);</span><br><span class="line">        System.out.println(df.format(d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法二：直接通过String类的format函数实现</span></span><br><span class="line">        System.out.println(String.format(<span class="string">"%.2f"</span>, d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法三：通过BigDecimal类实现</span></span><br><span class="line">        BigDecimal bg = <span class="keyword">new</span> BigDecimal(d);</span><br><span class="line">        <span class="keyword">double</span> d3 = bg.setScale(<span class="number">2</span>, BigDecimal.ROUND_HALF_UP).doubleValue();</span><br><span class="line">        System.out.println(d3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法四：通过NumberFormat类实现</span></span><br><span class="line">        NumberFormat nf = NumberFormat.getNumberInstance();</span><br><span class="line">        nf.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">        System.out.println(nf.format(d));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x6700;&#x7B80;&#x4FBF;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;DecimalFormat&#x7C7B;</span></span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">&quot;.00&quot;</span>);</span><br><span class="line">        System.out.println(df.format(d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;&#x76F4;&#x63A5;&#x901A;&#x8FC7;String&#x7C7B;&#x7684;format&#x51FD;&#x6570;&#x5B9E;&#x73B0;</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;%.2f&quot;</span>, d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;&#x901A;&#x8FC7;BigDecimal&#x7C7B;&#x5B9E;&#x73B0;</span></span><br><span class="line">        BigDecimal bg = <span class="keyword">new</span> BigDecimal(d);</span><br><span class="line">        <span class="keyword">double</span> d3 = bg.setScale(<span class="number">2</span>, BigDecimal.ROUND_HALF_UP).doubleValue();</span><br><span class="line">        System.out.println(d3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;&#x901A;&#x8FC7;NumberFormat&#x7C7B;&#x5B9E;&#x73B0;</span></span><br><span class="line">        NumberFormat nf = NumberFormat.getNumberInstance();</span><br><span class="line">        nf.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">        System.out.println(nf.format(d));</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
 
@@ -387,16 +387,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -504,10 +516,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -516,11 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,11 +536,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,19 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,11 +596,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

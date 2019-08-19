@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>忽略大小写比较字符串 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 20">
+  <meta name="description" content="&amp;#x7248;&amp;#x6743;&amp;#x58F0;&amp;#x660E;&amp;#xFF1A;wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  &amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x5FFD;&amp;#x7565;&amp;#x5927;&amp;#x5C0F;&amp;#x">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="忽略大小写比较字符串">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/忽略大小写比较字符串/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 20">
+<meta property="og:description" content="&amp;#x7248;&amp;#x6743;&amp;#x58F0;&amp;#x660E;&amp;#xFF1A;wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  &amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x5FFD;&amp;#x7565;&amp;#x5927;&amp;#x5C0F;&amp;#x">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019050310184537.png">
 <meta property="og:updated_time" content="2019-05-25T01:22:43.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="忽略大小写比较字符串">
-<meta name="twitter:description" content="版权声明：wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  有时候我们需要忽略大小写比较两个字符串是否相等 使用String类中的函数 样例 12345678910111213141516package www.wangchong.study;/** * @author wangchong * @date 20">
+<meta name="twitter:description" content="&amp;#x7248;&amp;#x6743;&amp;#x58F0;&amp;#x660E;&amp;#xFF1A;wangchong https://blog.csdn.net/wfcn_zyq/article/details/89785334  &amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x5FFD;&amp;#x7565;&amp;#x5927;&amp;#x5C0F;&amp;#x">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019050310184537.png">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
@@ -196,9 +196,9 @@
 
       
         <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785334" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785334</a><br>  有时候我们需要忽略大小写比较两个字符串是否相等<br> 使用String类中的函数<br> <strong>样例</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.wangchong.study;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/3 10:15</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IgnoreUpperLowerCase</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="string">"ABC"</span>;</span><br><span class="line">        String b = <span class="string">"abc"</span>;</span><br><span class="line">        System.out.println(a.equalsIgnoreCase(b));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <strong>输出</strong><br> <img src="https://img-blog.csdnimg.cn/2019050310184537.png" alt="在这里插入图片描述"></p>
+<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89785334" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89785334</a><br>  &#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x76F8;&#x7B49;<br> &#x4F7F;&#x7528;String&#x7C7B;&#x4E2D;&#x7684;&#x51FD;&#x6570;<br> <strong>&#x6837;&#x4F8B;</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.wangchong.study;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/3 10:15</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IgnoreUpperLowerCase</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        String a = <span class="string">&quot;ABC&quot;</span>;</span><br><span class="line">        String b = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        System.out.println(a.equalsIgnoreCase(b));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p> <strong>&#x8F93;&#x51FA;</strong><br> <img src="https://img-blog.csdnimg.cn/2019050310184537.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
 
       
 
@@ -389,16 +389,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -506,10 +518,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -518,11 +526,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +538,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,19 +562,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,11 +598,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

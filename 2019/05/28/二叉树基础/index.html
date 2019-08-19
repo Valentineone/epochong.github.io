@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>二叉树基础 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二叉树:非线性的数据结构 树的基础概念:节点的度:一个节点包含的子树的个数.叶子节点:度为0的节点 节点高度:节点到叶子节点的最长路径节点深度:根节点到节点的路径树的高度:根节点的高度节点的层数:深度+1 树的特性: 子树不相交  除了根节点外，每个节点有且只有一个父节点  节点个数N 边个数 = N - 1   N叉树:树中度最大的个数即为N 二叉树:最多只有两个子树满二叉树: 一种特殊的完全二">
+  <meta name="description" content="&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;:&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784; &amp;#x6811;&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x6982;&amp;#x5FF5;:&amp;#x8282;&amp;#x70B9;&amp;#x7684;&amp;#x5EA6;:&amp;#x4E00;&amp;#x4E2A;&amp;#x8282;&amp;#x7">
 <meta name="keywords" content="algorithms,二叉树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二叉树基础">
 <meta property="og:url" content="http://yoursite.com/2019/05/28/二叉树基础/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="二叉树:非线性的数据结构 树的基础概念:节点的度:一个节点包含的子树的个数.叶子节点:度为0的节点 节点高度:节点到叶子节点的最长路径节点深度:根节点到节点的路径树的高度:根节点的高度节点的层数:深度+1 树的特性: 子树不相交  除了根节点外，每个节点有且只有一个父节点  节点个数N 边个数 = N - 1   N叉树:树中度最大的个数即为N 二叉树:最多只有两个子树满二叉树: 一种特殊的完全二">
+<meta property="og:description" content="&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;:&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784; &amp;#x6811;&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x6982;&amp;#x5FF5;:&amp;#x8282;&amp;#x70B9;&amp;#x7684;&amp;#x5EA6;:&amp;#x4E00;&amp;#x4E2A;&amp;#x8282;&amp;#x7">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-01T12:01:24.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树基础">
-<meta name="twitter:description" content="二叉树:非线性的数据结构 树的基础概念:节点的度:一个节点包含的子树的个数.叶子节点:度为0的节点 节点高度:节点到叶子节点的最长路径节点深度:根节点到节点的路径树的高度:根节点的高度节点的层数:深度+1 树的特性: 子树不相交  除了根节点外，每个节点有且只有一个父节点  节点个数N 边个数 = N - 1   N叉树:树中度最大的个数即为N 二叉树:最多只有两个子树满二叉树: 一种特殊的完全二">
+<meta name="twitter:description" content="&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;:&amp;#x975E;&amp;#x7EBF;&amp;#x6027;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x7ED3;&amp;#x6784; &amp;#x6811;&amp;#x7684;&amp;#x57FA;&amp;#x7840;&amp;#x6982;&amp;#x5FF5;:&amp;#x8282;&amp;#x70B9;&amp;#x7684;&amp;#x5EA6;:&amp;#x4E00;&amp;#x4E2A;&amp;#x8282;&amp;#x7">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,53 +193,53 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <p><strong>二叉树:</strong>非线性的数据结构</p>
-<h5 id="树的基础概念"><a href="#树的基础概念" class="headerlink" title="树的基础概念:"></a>树的基础概念:</h5><p><strong>节点的度:</strong>一个节点包含的子树的个数.<br><strong>叶子节点:</strong>度为0的节点</p>
-<p><strong>节点高度:</strong>节点到叶子节点的最长路径<br><strong>节点深度:</strong>根节点到节点的路径<br><strong>树的高度:</strong>根节点的高度<br><strong>节点的层数:</strong>深度+1</p>
-<h5 id="树的特性"><a href="#树的特性" class="headerlink" title="树的特性:"></a>树的特性:</h5><ol>
-<li><p>子树不相交</p>
+        <p><strong>&#x4E8C;&#x53C9;&#x6811;:</strong>&#x975E;&#x7EBF;&#x6027;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;</p>
+<h5 id="&#x6811;&#x7684;&#x57FA;&#x7840;&#x6982;&#x5FF5;"><a href="#&#x6811;&#x7684;&#x57FA;&#x7840;&#x6982;&#x5FF5;" class="headerlink" title="&#x6811;&#x7684;&#x57FA;&#x7840;&#x6982;&#x5FF5;:"></a>&#x6811;&#x7684;&#x57FA;&#x7840;&#x6982;&#x5FF5;:</h5><p><strong>&#x8282;&#x70B9;&#x7684;&#x5EA6;:</strong>&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x5305;&#x542B;&#x7684;&#x5B50;&#x6811;&#x7684;&#x4E2A;&#x6570;.<br><strong>&#x53F6;&#x5B50;&#x8282;&#x70B9;:</strong>&#x5EA6;&#x4E3A;0&#x7684;&#x8282;&#x70B9;</p>
+<p><strong>&#x8282;&#x70B9;&#x9AD8;&#x5EA6;:</strong>&#x8282;&#x70B9;&#x5230;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6700;&#x957F;&#x8DEF;&#x5F84;<br><strong>&#x8282;&#x70B9;&#x6DF1;&#x5EA6;:</strong>&#x6839;&#x8282;&#x70B9;&#x5230;&#x8282;&#x70B9;&#x7684;&#x8DEF;&#x5F84;<br><strong>&#x6811;&#x7684;&#x9AD8;&#x5EA6;:</strong>&#x6839;&#x8282;&#x70B9;&#x7684;&#x9AD8;&#x5EA6;<br><strong>&#x8282;&#x70B9;&#x7684;&#x5C42;&#x6570;:</strong>&#x6DF1;&#x5EA6;+1</p>
+<h5 id="&#x6811;&#x7684;&#x7279;&#x6027;"><a href="#&#x6811;&#x7684;&#x7279;&#x6027;" class="headerlink" title="&#x6811;&#x7684;&#x7279;&#x6027;:"></a>&#x6811;&#x7684;&#x7279;&#x6027;:</h5><ol>
+<li><p>&#x5B50;&#x6811;&#x4E0D;&#x76F8;&#x4EA4;</p>
 </li>
-<li><p>除了根节点外，每个节点有且只有一个父节点</p>
+<li><p>&#x9664;&#x4E86;&#x6839;&#x8282;&#x70B9;&#x5916;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6709;&#x4E14;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7236;&#x8282;&#x70B9;</p>
 </li>
-<li><p>节点个数N 边个数 = N - 1</p>
+<li><p>&#x8282;&#x70B9;&#x4E2A;&#x6570;N &#x8FB9;&#x4E2A;&#x6570; = N - 1</p>
 </li>
 </ol>
-<p><strong>N叉树:</strong>树中度最大的个数即为N</p>
-<p><strong>二叉树:</strong>最多只有两个子树<br><strong>满二叉树:</strong> <em>一种特殊的完全二叉树</em></p>
+<p><strong>N&#x53C9;&#x6811;:</strong>&#x6811;&#x4E2D;&#x5EA6;&#x6700;&#x5927;&#x7684;&#x4E2A;&#x6570;&#x5373;&#x4E3A;N</p>
+<p><strong>&#x4E8C;&#x53C9;&#x6811;:</strong>&#x6700;&#x591A;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x5B50;&#x6811;<br><strong>&#x6EE1;&#x4E8C;&#x53C9;&#x6811;:</strong> <em>&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</em></p>
 <blockquote>
-<p> 一个二叉树每一层的节点数都达到最大值。</p>
+<p> &#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x8282;&#x70B9;&#x6570;&#x90FD;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#x3002;</p>
 </blockquote>
-<p><strong>每一层的节点个数:</strong>2^(n-1) n为层数<br><strong>总节点个数:</strong>2^n - 1<br>树的高度:已知节点个数为N,求树的高度h = log2 (N+1)</p>
-<p><strong>完全二叉树:</strong><br>除了最后一层节点个数可以不满外，所有层的节点个数都达到最大值。<br>最后一层节点靠左排列</p>
-<p><strong>树的存储:</strong></p>
-<p><strong>数组:</strong>顺序存储,适合存储完全二叉树，否则会有空间浪费<br>堆</p>
-<p><strong>链表:</strong>链式存储<br><strong>二叉链</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>二叉树具有天然的递归特性</strong></p>
-<p><strong>树的应用:</strong></p>
+<p><strong>&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x8282;&#x70B9;&#x4E2A;&#x6570;:</strong>2^(n-1) n&#x4E3A;&#x5C42;&#x6570;<br><strong>&#x603B;&#x8282;&#x70B9;&#x4E2A;&#x6570;:</strong>2^n - 1<br>&#x6811;&#x7684;&#x9AD8;&#x5EA6;:&#x5DF2;&#x77E5;&#x8282;&#x70B9;&#x4E2A;&#x6570;&#x4E3A;N,&#x6C42;&#x6811;&#x7684;&#x9AD8;&#x5EA6;h = log2 (N+1)</p>
+<p><strong>&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;:</strong><br>&#x9664;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x8282;&#x70B9;&#x4E2A;&#x6570;&#x53EF;&#x4EE5;&#x4E0D;&#x6EE1;&#x5916;&#xFF0C;&#x6240;&#x6709;&#x5C42;&#x7684;&#x8282;&#x70B9;&#x4E2A;&#x6570;&#x90FD;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#x3002;<br>&#x6700;&#x540E;&#x4E00;&#x5C42;&#x8282;&#x70B9;&#x9760;&#x5DE6;&#x6392;&#x5217;</p>
+<p><strong>&#x6811;&#x7684;&#x5B58;&#x50A8;:</strong></p>
+<p><strong>&#x6570;&#x7EC4;:</strong>&#x987A;&#x5E8F;&#x5B58;&#x50A8;,&#x9002;&#x5408;&#x5B58;&#x50A8;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x6709;&#x7A7A;&#x95F4;&#x6D6A;&#x8D39;<br>&#x5806;</p>
+<p><strong>&#x94FE;&#x8868;:</strong>&#x94FE;&#x5F0F;&#x5B58;&#x50A8;<br><strong>&#x4E8C;&#x53C9;&#x94FE;</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>{</span><br><span class="line">	Object data;</span><br><span class="line">	Node left;</span><br><span class="line">	Node right;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>&#x4E8C;&#x53C9;&#x6811;&#x5177;&#x6709;&#x5929;&#x7136;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;</strong></p>
+<p><strong>&#x6811;&#x7684;&#x5E94;&#x7528;:</strong></p>
 <ol>
-<li>OS中的文件夹</li>
-<li>公司中的职位分布</li>
-<li>图书馆书的分类</li>
+<li>OS&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5939;</li>
+<li>&#x516C;&#x53F8;&#x4E2D;&#x7684;&#x804C;&#x4F4D;&#x5206;&#x5E03;</li>
+<li>&#x56FE;&#x4E66;&#x9986;&#x4E66;&#x7684;&#x5206;&#x7C7B;</li>
 </ol>
-<p><strong>树结构的优势:</strong>方便查找、删除</p>
-<p><strong>二叉搜索树:</strong>用到最多的二叉树之一<br><strong>特点:</strong></p>
+<p><strong>&#x6811;&#x7ED3;&#x6784;&#x7684;&#x4F18;&#x52BF;:</strong>&#x65B9;&#x4FBF;&#x67E5;&#x627E;&#x3001;&#x5220;&#x9664;</p>
+<p><strong>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;:</strong>&#x7528;&#x5230;&#x6700;&#x591A;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x4E4B;&#x4E00;<br><strong>&#x7279;&#x70B9;:</strong></p>
 <ol>
-<li><p>二分搜索树每个节点的值大于左子树所有节点的值，小于其右子树所有节点的值</p>
+<li><p>&#x4E8C;&#x5206;&#x641C;&#x7D22;&#x6811;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5927;&#x4E8E;&#x5DE6;&#x5B50;&#x6811;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x5C0F;&#x4E8E;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x503C;</p>
 </li>
-<li><p>也是二叉树</p>
+<li><p>&#x4E5F;&#x662F;&#x4E8C;&#x53C9;&#x6811;</p>
 </li>
-<li><p>元素具有可比较性<br>Comparable:内部比较 compareTo<br>Comparator:外部比较</p>
+<li><p>&#x5143;&#x7D20;&#x5177;&#x6709;&#x53EF;&#x6BD4;&#x8F83;&#x6027;<br>Comparable:&#x5185;&#x90E8;&#x6BD4;&#x8F83; compareTo<br>Comparator:&#x5916;&#x90E8;&#x6BD4;&#x8F83;</p>
 </li>
 </ol>
-<p><strong>堆:</strong>完全二叉树 顺序存储</p>
-<h5 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h5><p><strong>平衡二叉树:</strong>AVL 红黑树</p>
-<p><strong>二叉树遍历:</strong><br>按照相应的规则将二叉树中每个节点访问一次<br>所谓的序指的是每个子树根节点的访问顺序</p>
-<p><strong>前中后序遍历:</strong>树的深度优先遍历</p>
-<p><strong>前序</strong><br>先访问一个节点的根节点<br>再访问左子树<br>最后访问右子树</p>
-<p><strong>中序</strong></p>
-<p>二叉搜索树排序后的结果<br>先访问左子树<br>在访问根节点<br>最后右子树</p>
-<p><strong>后序</strong><br>先左树<br>再右树<br>最后根节点</p>
+<p><strong>&#x5806;:</strong>&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811; &#x987A;&#x5E8F;&#x5B58;&#x50A8;</p>
+<h5 id="&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;"><a href="#&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;" class="headerlink" title="&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;"></a>&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;</h5><p><strong>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;:</strong>AVL &#x7EA2;&#x9ED1;&#x6811;</p>
+<p><strong>&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;:</strong><br>&#x6309;&#x7167;&#x76F8;&#x5E94;&#x7684;&#x89C4;&#x5219;&#x5C06;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x8BBF;&#x95EE;&#x4E00;&#x6B21;<br>&#x6240;&#x8C13;&#x7684;&#x5E8F;&#x6307;&#x7684;&#x662F;&#x6BCF;&#x4E2A;&#x5B50;&#x6811;&#x6839;&#x8282;&#x70B9;&#x7684;&#x8BBF;&#x95EE;&#x987A;&#x5E8F;</p>
+<p><strong>&#x524D;&#x4E2D;&#x540E;&#x5E8F;&#x904D;&#x5386;:</strong>&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;</p>
+<p><strong>&#x524D;&#x5E8F;</strong><br>&#x5148;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6839;&#x8282;&#x70B9;<br>&#x518D;&#x8BBF;&#x95EE;&#x5DE6;&#x5B50;&#x6811;<br>&#x6700;&#x540E;&#x8BBF;&#x95EE;&#x53F3;&#x5B50;&#x6811;</p>
+<p><strong>&#x4E2D;&#x5E8F;</strong></p>
+<p>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x7ED3;&#x679C;<br>&#x5148;&#x8BBF;&#x95EE;&#x5DE6;&#x5B50;&#x6811;<br>&#x5728;&#x8BBF;&#x95EE;&#x6839;&#x8282;&#x70B9;<br>&#x6700;&#x540E;&#x53F3;&#x5B50;&#x6811;</p>
+<p><strong>&#x540E;&#x5E8F;</strong><br>&#x5148;&#x5DE6;&#x6811;<br>&#x518D;&#x53F3;&#x6811;<br>&#x6700;&#x540E;&#x6839;&#x8282;&#x70B9;</p>
 
       
 
@@ -434,16 +434,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -551,10 +563,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -563,11 +571,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,11 +583,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,19 +607,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,11 +643,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>多个catch异常的捕获顺序 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="try块中产生异常的时候按照 catch 块从上往下匹配执行 当它匹配某一个 catch 块的时候，他就直接进入到这个 catch 块里面去了，后面在再有 catch 块的话，它不做任何处理，直接跳过去，全部忽略掉。如果有匹配的 catch，它就会忽略掉这个 catch 后面所有的 catch。如果有 finally 的话进入到 finally 里面继续执行。 先看一下继承关系 12345- ja">
+  <meta name="description" content="try&amp;#x5757;&amp;#x4E2D;&amp;#x4EA7;&amp;#x751F;&amp;#x5F02;&amp;#x5E38;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6309;&amp;#x7167; catch &amp;#x5757;&amp;#x4ECE;&amp;#x4E0A;&amp;#x5F80;&amp;#x4E0B;&amp;#x5339;&amp;#x914D;&amp;#x6267;&amp;#x884C; &amp;#x5F53;&amp;#x5B83;&amp;#x5339;&amp;#x91">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多个catch异常的捕获顺序">
 <meta property="og:url" content="http://yoursite.com/2019/06/01/多个catch异常的捕获顺序/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="try块中产生异常的时候按照 catch 块从上往下匹配执行 当它匹配某一个 catch 块的时候，他就直接进入到这个 catch 块里面去了，后面在再有 catch 块的话，它不做任何处理，直接跳过去，全部忽略掉。如果有匹配的 catch，它就会忽略掉这个 catch 后面所有的 catch。如果有 finally 的话进入到 finally 里面继续执行。 先看一下继承关系 12345- ja">
+<meta property="og:description" content="try&amp;#x5757;&amp;#x4E2D;&amp;#x4EA7;&amp;#x751F;&amp;#x5F02;&amp;#x5E38;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6309;&amp;#x7167; catch &amp;#x5757;&amp;#x4ECE;&amp;#x4E0A;&amp;#x5F80;&amp;#x4E0B;&amp;#x5339;&amp;#x914D;&amp;#x6267;&amp;#x884C; &amp;#x5F53;&amp;#x5B83;&amp;#x5339;&amp;#x91">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://psb7ug9p7.bkt.clouddn.com/exception.png">
 <meta property="og:image" content="http://psb7ug9p7.bkt.clouddn.com/exception1.png">
 <meta property="og:updated_time" content="2019-06-01T08:15:26.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多个catch异常的捕获顺序">
-<meta name="twitter:description" content="try块中产生异常的时候按照 catch 块从上往下匹配执行 当它匹配某一个 catch 块的时候，他就直接进入到这个 catch 块里面去了，后面在再有 catch 块的话，它不做任何处理，直接跳过去，全部忽略掉。如果有匹配的 catch，它就会忽略掉这个 catch 后面所有的 catch。如果有 finally 的话进入到 finally 里面继续执行。 先看一下继承关系 12345- ja">
+<meta name="twitter:description" content="try&amp;#x5757;&amp;#x4E2D;&amp;#x4EA7;&amp;#x751F;&amp;#x5F02;&amp;#x5E38;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6309;&amp;#x7167; catch &amp;#x5757;&amp;#x4ECE;&amp;#x4E0A;&amp;#x5F80;&amp;#x4E0B;&amp;#x5339;&amp;#x914D;&amp;#x6267;&amp;#x884C; &amp;#x5F53;&amp;#x5B83;&amp;#x5339;&amp;#x91">
 <meta name="twitter:image" content="http://psb7ug9p7.bkt.clouddn.com/exception.png">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
@@ -196,19 +196,19 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="try块中产生异常的时候"><a href="#try块中产生异常的时候" class="headerlink" title="try块中产生异常的时候"></a>try块中产生异常的时候</h5><p><strong>按照 catch 块从上往下匹配执行</strong></p>
-<p>当它匹配某一个 catch 块的时候，他就直接进入到这个 catch 块里面去了，后面在再有 catch 块的话，它不做任何处理，直接跳过去，全部忽略掉。如果有匹配的 catch，它就会忽略掉这个 catch 后面所有的 catch。如果有 finally 的话进入到 finally 里面继续执行。</p>
-<h5 id="先看一下继承关系"><a href="#先看一下继承关系" class="headerlink" title="先看一下继承关系"></a>先看一下继承关系</h5><ul>
+        <h5 id="try&#x5757;&#x4E2D;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;"><a href="#try&#x5757;&#x4E2D;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;" class="headerlink" title="try&#x5757;&#x4E2D;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;"></a>try&#x5757;&#x4E2D;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#x7684;&#x65F6;&#x5019;</h5><p><strong>&#x6309;&#x7167; catch &#x5757;&#x4ECE;&#x4E0A;&#x5F80;&#x4E0B;&#x5339;&#x914D;&#x6267;&#x884C;</strong></p>
+<p>&#x5F53;&#x5B83;&#x5339;&#x914D;&#x67D0;&#x4E00;&#x4E2A; catch &#x5757;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x5C31;&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x5230;&#x8FD9;&#x4E2A; catch &#x5757;&#x91CC;&#x9762;&#x53BB;&#x4E86;&#xFF0C;&#x540E;&#x9762;&#x5728;&#x518D;&#x6709; catch &#x5757;&#x7684;&#x8BDD;&#xFF0C;&#x5B83;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x5904;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x8DF3;&#x8FC7;&#x53BB;&#xFF0C;&#x5168;&#x90E8;&#x5FFD;&#x7565;&#x6389;&#x3002;&#x5982;&#x679C;&#x6709;&#x5339;&#x914D;&#x7684; catch&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x5FFD;&#x7565;&#x6389;&#x8FD9;&#x4E2A; catch &#x540E;&#x9762;&#x6240;&#x6709;&#x7684; catch&#x3002;&#x5982;&#x679C;&#x6709; finally &#x7684;&#x8BDD;&#x8FDB;&#x5165;&#x5230; finally &#x91CC;&#x9762;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x3002;</p>
+<h5 id="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x7EE7;&#x627F;&#x5173;&#x7CFB;"><a href="#&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x7EE7;&#x627F;&#x5173;&#x7CFB;" class="headerlink" title="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x7EE7;&#x627F;&#x5173;&#x7CFB;"></a>&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x7EE7;&#x627F;&#x5173;&#x7CFB;</h5><ul>
 <li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- java.lang.Object  </span><br><span class="line">- - java.lang.Throwable  </span><br><span class="line">  - - java.lang.Exception  </span><br><span class="line">    - - java.io.IOException  </span><br><span class="line">      - - java.io.FileNotFoundException</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="父类异常在子类异常前面"><a href="#父类异常在子类异常前面" class="headerlink" title="父类异常在子类异常前面"></a>父类异常在子类异常前面</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCustomerInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"F:\\Test\\test.txt"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.lang.Exception e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Exception"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.io.FileNotFoundException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"FileNotFoundException"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.io.IOException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"IOException"</span> + e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    getCustomerInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一但抛出 <code>IOException</code>，它首先进入到 <code>catch (java.lang.Exception e) {}</code> 里面，先和 <code>Exception</code> 匹配，由于 <code>FileNotFoundException extends Exception</code>, 根据多态的原则，<code>FileNotFoundException</code> 是匹配 <code>Exception</code> 的，所以程序就会进入到 <code>catch (Exception e) {}</code> 里面，进入到第一个 <code>catch</code> 后，后面的 <code>catch</code> 都不会执行了，所以 catch <code>(FileNotFoundException e) {}</code> 永远都执行不到。</p>
-<p><strong>就会产生以下运行时异常，先处理了父类异常就不需要在后面处理子类异常</strong></p>
+<h5 id="&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x524D;&#x9762;"><a href="#&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x524D;&#x9762;" class="headerlink" title="&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x524D;&#x9762;"></a>&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x524D;&#x9762;</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCustomerInfo</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;F:\\Test\\test.txt&quot;</span>);</span><br><span class="line">    } <span class="keyword">catch</span> (java.lang.Exception e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;Exception&quot;</span>);</span><br><span class="line">    } <span class="keyword">catch</span> (java.io.FileNotFoundException e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;FileNotFoundException&quot;</span>);</span><br><span class="line">    } <span class="keyword">catch</span> (java.io.IOException e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;IOException&quot;</span> + e);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    getCustomerInfo();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E00;&#x4F46;&#x629B;&#x51FA; <code>IOException</code>&#xFF0C;&#x5B83;&#x9996;&#x5148;&#x8FDB;&#x5165;&#x5230; <code>catch (java.lang.Exception e) {}</code> &#x91CC;&#x9762;&#xFF0C;&#x5148;&#x548C; <code>Exception</code> &#x5339;&#x914D;&#xFF0C;&#x7531;&#x4E8E; <code>FileNotFoundException extends Exception</code>, &#x6839;&#x636E;&#x591A;&#x6001;&#x7684;&#x539F;&#x5219;&#xFF0C;<code>FileNotFoundException</code> &#x662F;&#x5339;&#x914D; <code>Exception</code> &#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x7A0B;&#x5E8F;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x5230; <code>catch (Exception e) {}</code> &#x91CC;&#x9762;&#xFF0C;&#x8FDB;&#x5165;&#x5230;&#x7B2C;&#x4E00;&#x4E2A; <code>catch</code> &#x540E;&#xFF0C;&#x540E;&#x9762;&#x7684; <code>catch</code> &#x90FD;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x6240;&#x4EE5; catch <code>(FileNotFoundException e) {}</code> &#x6C38;&#x8FDC;&#x90FD;&#x6267;&#x884C;&#x4E0D;&#x5230;&#x3002;</p>
+<p><strong>&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4EE5;&#x4E0B;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#xFF0C;&#x5148;&#x5904;&#x7406;&#x4E86;&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x540E;&#x9762;&#x5904;&#x7406;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;</strong></p>
 <p><img src="http://psb7ug9p7.bkt.clouddn.com/exception.png" alt="Exception"></p>
-<h5 id="那么如果父类异常在子类异常后面又是如何呢"><a href="#那么如果父类异常在子类异常后面又是如何呢" class="headerlink" title="那么如果父类异常在子类异常后面又是如何呢"></a>那么如果父类异常在子类异常后面又是如何呢</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCustomerInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"F:\\Test\\test.txt"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.io.FileNotFoundException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"FileNotFoundException"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.io.IOException e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"IOException"</span> + e);</span><br><span class="line">    &#125;<span class="keyword">catch</span> (java.lang.Exception e) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Exception"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    getCustomerInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x540E;&#x9762;&#x53C8;&#x662F;&#x5982;&#x4F55;&#x5462;"><a href="#&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x540E;&#x9762;&#x53C8;&#x662F;&#x5982;&#x4F55;&#x5462;" class="headerlink" title="&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x540E;&#x9762;&#x53C8;&#x662F;&#x5982;&#x4F55;&#x5462;"></a>&#x90A3;&#x4E48;&#x5982;&#x679C;&#x7236;&#x7C7B;&#x5F02;&#x5E38;&#x5728;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x540E;&#x9762;&#x53C8;&#x662F;&#x5982;&#x4F55;&#x5462;</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCustomerInfo</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;F:\\Test\\test.txt&quot;</span>);</span><br><span class="line">    } <span class="keyword">catch</span> (java.io.FileNotFoundException e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;FileNotFoundException&quot;</span>);</span><br><span class="line">    } <span class="keyword">catch</span> (java.io.IOException e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;IOException&quot;</span> + e);</span><br><span class="line">    }<span class="keyword">catch</span> (java.lang.Exception e) {</span><br><span class="line">        System.out.println(<span class="string">&quot;Exception&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    getCustomerInfo();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><img src="http://psb7ug9p7.bkt.clouddn.com/exception1.png" alt="exception1"></p>
-<p>从运行结果可以看出，捕获子类异常后，后面的catch块就不会执行了，如果产生的是<code>IOException</code>，则会达到第二个<code>catch</code>块不会执行第三个。</p>
+<p>&#x4ECE;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x6355;&#x83B7;&#x5B50;&#x7C7B;&#x5F02;&#x5E38;&#x540E;&#xFF0C;&#x540E;&#x9762;&#x7684;catch&#x5757;&#x5C31;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4EA7;&#x751F;&#x7684;&#x662F;<code>IOException</code>&#xFF0C;&#x5219;&#x4F1A;&#x8FBE;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;<code>catch</code>&#x5757;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x7B2C;&#x4E09;&#x4E2A;&#x3002;</p>
 
       
 
@@ -399,16 +399,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -516,10 +528,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -528,11 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +548,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,19 +572,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +608,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

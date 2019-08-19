@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>性能测试 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="猜测可能影响性能的因素 执行时间过短 执行次数过少（实验的次数） 优化原因/AOT（编译器）/JIT（编译器）优化处理 预热 其他  JMH 注解  语法：定义注解 1234@interface 注解名称（每个单词首字母大写）&amp;#123;	方法声明列表（抽象方法列表）    int iterations() default = 3;&amp;#125; 123@interface Measurement">
+  <meta name="description" content="&amp;#x731C;&amp;#x6D4B;&amp;#x53EF;&amp;#x80FD;&amp;#x5F71;&amp;#x54CD;&amp;#x6027;&amp;#x80FD;&amp;#x7684;&amp;#x56E0;&amp;#x7D20; &amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x95F4;&amp;#x8FC7;&amp;#x77ED; &amp;#x6267;&amp;#x884C;&amp;#x6B21;&amp;#x6570;&amp;#x8FC7;&amp;#x5C11;&amp;#xFF08;&amp;#x5B9">
 <meta name="keywords" content="java,测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="性能测试">
 <meta property="og:url" content="http://yoursite.com/2019/07/12/性能测试/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="猜测可能影响性能的因素 执行时间过短 执行次数过少（实验的次数） 优化原因/AOT（编译器）/JIT（编译器）优化处理 预热 其他  JMH 注解  语法：定义注解 1234@interface 注解名称（每个单词首字母大写）&amp;#123;	方法声明列表（抽象方法列表）    int iterations() default = 3;&amp;#125; 123@interface Measurement">
+<meta property="og:description" content="&amp;#x731C;&amp;#x6D4B;&amp;#x53EF;&amp;#x80FD;&amp;#x5F71;&amp;#x54CD;&amp;#x6027;&amp;#x80FD;&amp;#x7684;&amp;#x56E0;&amp;#x7D20; &amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x95F4;&amp;#x8FC7;&amp;#x77ED; &amp;#x6267;&amp;#x884C;&amp;#x6B21;&amp;#x6570;&amp;#x8FC7;&amp;#x5C11;&amp;#xFF08;&amp;#x5B9">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-13T03:35:38.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能测试">
-<meta name="twitter:description" content="猜测可能影响性能的因素 执行时间过短 执行次数过少（实验的次数） 优化原因/AOT（编译器）/JIT（编译器）优化处理 预热 其他  JMH 注解  语法：定义注解 1234@interface 注解名称（每个单词首字母大写）&amp;#123;	方法声明列表（抽象方法列表）    int iterations() default = 3;&amp;#125; 123@interface Measurement">
+<meta name="twitter:description" content="&amp;#x731C;&amp;#x6D4B;&amp;#x53EF;&amp;#x80FD;&amp;#x5F71;&amp;#x54CD;&amp;#x6027;&amp;#x80FD;&amp;#x7684;&amp;#x56E0;&amp;#x7D20; &amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x95F4;&amp;#x8FC7;&amp;#x77ED; &amp;#x6267;&amp;#x884C;&amp;#x6B21;&amp;#x6570;&amp;#x8FC7;&amp;#x5C11;&amp;#xFF08;&amp;#x5B9">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,86 +193,86 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="猜测可能影响性能的因素"><a href="#猜测可能影响性能的因素" class="headerlink" title="猜测可能影响性能的因素"></a>猜测可能影响性能的因素</h5><ol>
-<li>执行时间过短</li>
-<li>执行次数过少（实验的次数）</li>
-<li>优化原因/AOT（编译器）/JIT（编译器）优化处理</li>
-<li>预热</li>
-<li>其他</li>
+        <h5 id="&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;"><a href="#&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;" class="headerlink" title="&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;"></a>&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;</h5><ol>
+<li>&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8FC7;&#x77ED;</li>
+<li>&#x6267;&#x884C;&#x6B21;&#x6570;&#x8FC7;&#x5C11;&#xFF08;&#x5B9E;&#x9A8C;&#x7684;&#x6B21;&#x6570;&#xFF09;</li>
+<li>&#x4F18;&#x5316;&#x539F;&#x56E0;/AOT&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#xFF09;/JIT&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#xFF09;&#x4F18;&#x5316;&#x5904;&#x7406;</li>
+<li>&#x9884;&#x70ED;</li>
+<li>&#x5176;&#x4ED6;</li>
 </ol>
 <h5 id="JMH"><a href="#JMH" class="headerlink" title="JMH"></a>JMH</h5><ul>
-<li><p>注解</p>
+<li><p>&#x6CE8;&#x89E3;</p>
 <ul>
-<li><p>语法：定义注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> 注解名称（每个单词首字母大写）&#123;</span><br><span class="line">	方法声明列表（抽象方法列表）</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Measurement &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x8BED;&#x6CD5;&#xFF1A;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> &#x6CE8;&#x89E3;&#x540D;&#x79F0;&#xFF08;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF09;{</span><br><span class="line">	&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x5217;&#x8868;&#xFF08;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x5217;&#x8868;&#xFF09;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Measurement {</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用注解</p>
+<li><p>&#x4F7F;&#x7528;&#x6CE8;&#x89E3;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span>(iteartions = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span> 等同于 <span class="meta">@Measurement</span>（<span class="meta">@Measurement</span>(iteration = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x6216;&#x8005;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span> &#x7B49;&#x540C;&#x4E8E; <span class="meta">@Measurement</span>&#xFF08;<span class="meta">@Measurement</span>(iteration = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>存在情况</p>
+<li><p>&#x5B58;&#x5728;&#x60C5;&#x51B5;</p>
 <ul>
-<li>Annotation Processor（注解处理器）</li>
+<li>Annotation Processor&#xFF08;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#xFF09;</li>
 </ul>
 <ol>
-<li>编译期间 （变成了<code>*.class</code>）已经不存在</li>
-<li>编译期间 （变成了<code>*.class</code>）还存在，但是运行时不存在</li>
+<li>&#x7F16;&#x8BD1;&#x671F;&#x95F4; &#xFF08;&#x53D8;&#x6210;&#x4E86;<code>*.class</code>&#xFF09;&#x5DF2;&#x7ECF;&#x4E0D;&#x5B58;&#x5728;</li>
+<li>&#x7F16;&#x8BD1;&#x671F;&#x95F4; &#xFF08;&#x53D8;&#x6210;&#x4E86;<code>*.class</code>&#xFF09;&#x8FD8;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x4E0D;&#x5B58;&#x5728;</li>
 </ol>
 <ul>
-<li>反射</li>
+<li>&#x53CD;&#x5C04;</li>
 </ul>
 <ol>
-<li>运行期间 时钟存在（保存方法区的类的元信息中），利用发射获取信息</li>
+<li>&#x8FD0;&#x884C;&#x671F;&#x95F4; &#x65F6;&#x949F;&#x5B58;&#x5728;&#xFF08;&#x4FDD;&#x5B58;&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7C7B;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x4E2D;&#xFF09;&#xFF0C;&#x5229;&#x7528;&#x53D1;&#x5C04;&#x83B7;&#x53D6;&#x4FE1;&#x606F;</li>
 </ol>
 </li>
-<li><p>注解的使用场景（把代码逻辑转成配置逻辑）</p>
+<li><p>&#x6CE8;&#x89E3;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF08;&#x628A;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x8F6C;&#x6210;&#x914D;&#x7F6E;&#x903B;&#x8F91;&#xFF09;</p>
 <ol>
-<li>修改的代码逻辑的成本一定是高于配置的成本</li>
-<li>有些配置和代码是强相关的</li>
+<li>&#x4FEE;&#x6539;&#x7684;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x7684;&#x6210;&#x672C;&#x4E00;&#x5B9A;&#x662F;&#x9AD8;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x6210;&#x672C;</li>
+<li>&#x6709;&#x4E9B;&#x914D;&#x7F6E;&#x548C;&#x4EE3;&#x7801;&#x662F;&#x5F3A;&#x76F8;&#x5173;&#x7684;</li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>通过反射获取类的方法</p>
+<li><p>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x83B7;&#x53D6;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</p>
 <ol>
-<li>类名.class</li>
+<li>&#x7C7B;&#x540D;.class</li>
 <li><code>object.getClass()</code></li>
-<li><code>Class.forNmae(&quot;类的权威名称&quot;)</code></li>
+<li><code>Class.forNmae(&quot;&#x7C7B;&#x7684;&#x6743;&#x5A01;&#x540D;&#x79F0;&quot;)</code></li>
 </ol>
 </li>
 </ul>
-<h5 id="基准测试框架-性能测试框架"><a href="#基准测试框架-性能测试框架" class="headerlink" title="基准测试框架/性能测试框架"></a>基准测试框架/性能测试框架</h5><ul>
-<li>功能<ol>
-<li>自动加载测试用例</li>
-<li>通过接口标记待测试类</li>
-<li>通过注解标记待测试方法</li>
-<li>通过注解实现多级配置</li>
+<h5 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;-&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;"><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;-&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;" class="headerlink" title="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;/&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;"></a>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;/&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;</h5><ul>
+<li>&#x529F;&#x80FD;<ol>
+<li>&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</li>
+<li>&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x6807;&#x8BB0;&#x5F85;&#x6D4B;&#x8BD5;&#x7C7B;</li>
+<li>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x6807;&#x8BB0;&#x5F85;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x5B9E;&#x73B0;&#x591A;&#x7EA7;&#x914D;&#x7F6E;</li>
 </ol>
 </li>
-<li>TODO：<ol>
-<li>生成报表</li>
-<li>问题修复</li>
-<li>格式配置</li>
+<li>TODO&#xFF1A;<ol>
+<li>&#x751F;&#x6210;&#x62A5;&#x8868;</li>
+<li>&#x95EE;&#x9898;&#x4FEE;&#x590D;</li>
+<li>&#x683C;&#x5F0F;&#x914D;&#x7F6E;</li>
 </ol>
 </li>
 </ul>
-<h5 id="JMH使用"><a href="#JMH使用" class="headerlink" title="JMH使用"></a>JMH使用</h5><ul>
-<li><p>PATH环境变量</p>
-<p>java(绝对路径)</p>
+<h5 id="JMH&#x4F7F;&#x7528;"><a href="#JMH&#x4F7F;&#x7528;" class="headerlink" title="JMH&#x4F7F;&#x7528;"></a>JMH&#x4F7F;&#x7528;</h5><ul>
+<li><p>PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<p>java(&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;)</p>
 </li>
 </ul>
 <h5 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h5><ol>
-<li><p>系统工具</p>
+<li><p>&#x7CFB;&#x7EDF;&#x5DE5;&#x5177;</p>
 </li>
-<li><p>阶段</p>
+<li><p>&#x9636;&#x6BB5;</p>
 <ul>
-<li>清理    clean</li>
-<li>编译    compile</li>
-<li>打包    package</li>
-<li>安装    install</li>
+<li>&#x6E05;&#x7406;    clean</li>
+<li>&#x7F16;&#x8BD1;    compile</li>
+<li>&#x6253;&#x5305;    package</li>
+<li>&#x5B89;&#x88C5;    install</li>
 </ul>
 </li>
 </ol>
@@ -470,16 +470,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -587,10 +599,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -599,11 +607,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,11 +619,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,19 +643,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,11 +679,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

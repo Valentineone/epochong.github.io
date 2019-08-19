@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>239. 滑动窗口最大值 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
+  <meta name="description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0; &amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4; nums&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E3A; k &amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x7A97;&amp;#x53E3;&amp;#x4ECE;&amp;#x6570">
 <meta name="keywords" content="algorithms,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="239. 滑动窗口最大值">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode239. 滑动窗口最大值/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
+<meta property="og:description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0; &amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4; nums&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E3A; k &amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x7A97;&amp;#x53E3;&amp;#x4ECE;&amp;#x6570">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-05-25T01:20:36.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="239. 滑动窗口最大值">
-<meta name="twitter:description" content="题目描述 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。返回滑动窗口最大值。  示例:12输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3输出: [3,3,5,5,6,7] 解释:12345678滑动窗口的位置                最大值--------">
+<meta name="twitter:description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0; &amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4; nums&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E3A; k &amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x7A97;&amp;#x53E3;&amp;#x4ECE;&amp;#x6570">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,38 +193,38 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
-<p>给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口 k 内的数字。滑动窗口每次只向右移动一位。<br>返回滑动窗口最大值。</p>
+        <h5 id="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"><a href="#&#x9898;&#x76EE;&#x63CF;&#x8FF0;" class="headerlink" title="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"></a>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</h5><blockquote>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4; nums&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; k &#x7684;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x4ECE;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5DE6;&#x4FA7;&#x79FB;&#x52A8;&#x5230;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x53F3;&#x4FA7;&#x3002;&#x4F60;&#x53EA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;&#x6ED1;&#x52A8;&#x7A97;&#x53E3; k &#x5185;&#x7684;&#x6570;&#x5B57;&#x3002;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x6BCF;&#x6B21;&#x53EA;&#x5411;&#x53F3;&#x79FB;&#x52A8;&#x4E00;&#x4F4D;&#x3002;<br>&#x8FD4;&#x56DE;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x6700;&#x5927;&#x503C;&#x3002;</p>
 </blockquote>
-<h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">滑动窗口的位置                最大值</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<p><strong>进阶</strong>(==本题解法正式如此==)</p>
-<h4 id="你能在线性时间复杂度内解决此题吗？"><a href="#你能在线性时间复杂度内解决此题吗？" class="headerlink" title="你能在线性时间复杂度内解决此题吗？"></a>你能在线性时间复杂度内解决此题吗？</h4><blockquote>
-<p>使用一个双端队列存放数组的下标索引，遍历数组的同时进行值的比较按照从大到小的顺序从头到尾排列数对应的下标，一旦要放入的数不能满足这一结构就一直从尾部弹出数，直到它放进去仍能保持这种单调的结构</p>
+<h6 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;:"></a>&#x793A;&#x4F8B;:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], &#x548C; k = <span class="number">3</span></span><br><span class="line">&#x8F93;&#x51FA;: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<h6 id="&#x89E3;&#x91CA;"><a href="#&#x89E3;&#x91CA;" class="headerlink" title="&#x89E3;&#x91CA;:"></a>&#x89E3;&#x91CA;:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;                &#x6700;&#x5927;&#x503C;</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h6 id="&#x6CE8;&#x610F;&#xFF1A;"><a href="#&#x6CE8;&#x610F;&#xFF1A;" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h6><p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE; k &#x603B;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;1 &#x2264; k &#x2264; &#x8F93;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E14;&#x8F93;&#x5165;&#x6570;&#x7EC4;&#x4E0D;&#x4E3A;&#x7A7A;&#x3002;</p>
+<p><strong>&#x8FDB;&#x9636;</strong>(==&#x672C;&#x9898;&#x89E3;&#x6CD5;&#x6B63;&#x5F0F;&#x5982;&#x6B64;==)</p>
+<h4 id="&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;"><a href="#&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;" class="headerlink" title="&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;"></a>&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;</h4><blockquote>
+<p>&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x5B58;&#x653E;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x7D22;&#x5F15;&#xFF0C;&#x904D;&#x5386;&#x6570;&#x7EC4;&#x7684;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x503C;&#x7684;&#x6BD4;&#x8F83;&#x6309;&#x7167;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x7684;&#x987A;&#x5E8F;&#x4ECE;&#x5934;&#x5230;&#x5C3E;&#x6392;&#x5217;&#x6570;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x4E00;&#x65E6;&#x8981;&#x653E;&#x5165;&#x7684;&#x6570;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x8FD9;&#x4E00;&#x7ED3;&#x6784;&#x5C31;&#x4E00;&#x76F4;&#x4ECE;&#x5C3E;&#x90E8;&#x5F39;&#x51FA;&#x6570;&#xFF0C;&#x76F4;&#x5230;&#x5B83;&#x653E;&#x8FDB;&#x53BB;&#x4ECD;&#x80FD;&#x4FDD;&#x6301;&#x8FD9;&#x79CD;&#x5355;&#x8C03;&#x7684;&#x7ED3;&#x6784;</p>
 </blockquote>
-<h6 id="检查队列中的下标是否过期"><a href="#检查队列中的下标是否过期" class="headerlink" title="检查队列中的下标是否过期"></a>检查队列中的下标是否过期</h6><p>==<strong>何为过期:</strong>==<br>数不在窗口内即为过期，即窗口移动的时候从左端走出窗口的位置</p>
-<h6 id="想一想"><a href="#想一想" class="headerlink" title="想一想"></a>想一想</h6><p>双端队列的首部元素是否就是窗口内的最大值呢？</p>
-<p><strong>答案：</strong> 没错</p>
-<p><strong>解释：</strong> 队列中都是未过期的数，即以当前位置为窗口的尾部，过期元素下一个元素为窗口首部的中间的部分数(不满足尾部插入的数要弹出)，又因为是按照降序排列的，所以首部元素一定是窗口内最大值。</p>
-<p>==<strong>时间复杂度：</strong>== O(N)</p>
+<h6 id="&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;"><a href="#&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;" class="headerlink" title="&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;"></a>&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;</h6><p>==<strong>&#x4F55;&#x4E3A;&#x8FC7;&#x671F;:</strong>==<br>&#x6570;&#x4E0D;&#x5728;&#x7A97;&#x53E3;&#x5185;&#x5373;&#x4E3A;&#x8FC7;&#x671F;&#xFF0C;&#x5373;&#x7A97;&#x53E3;&#x79FB;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x4ECE;&#x5DE6;&#x7AEF;&#x8D70;&#x51FA;&#x7A97;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;</p>
+<h6 id="&#x60F3;&#x4E00;&#x60F3;"><a href="#&#x60F3;&#x4E00;&#x60F3;" class="headerlink" title="&#x60F3;&#x4E00;&#x60F3;"></a>&#x60F3;&#x4E00;&#x60F3;</h6><p>&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x7684;&#x9996;&#x90E8;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5C31;&#x662F;&#x7A97;&#x53E3;&#x5185;&#x7684;&#x6700;&#x5927;&#x503C;&#x5462;&#xFF1F;</p>
+<p><strong>&#x7B54;&#x6848;&#xFF1A;</strong> &#x6CA1;&#x9519;</p>
+<p><strong>&#x89E3;&#x91CA;&#xFF1A;</strong> &#x961F;&#x5217;&#x4E2D;&#x90FD;&#x662F;&#x672A;&#x8FC7;&#x671F;&#x7684;&#x6570;&#xFF0C;&#x5373;&#x4EE5;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x4E3A;&#x7A97;&#x53E3;&#x7684;&#x5C3E;&#x90E8;&#xFF0C;&#x8FC7;&#x671F;&#x5143;&#x7D20;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E3A;&#x7A97;&#x53E3;&#x9996;&#x90E8;&#x7684;&#x4E2D;&#x95F4;&#x7684;&#x90E8;&#x5206;&#x6570;(&#x4E0D;&#x6EE1;&#x8DB3;&#x5C3E;&#x90E8;&#x63D2;&#x5165;&#x7684;&#x6570;&#x8981;&#x5F39;&#x51FA;)&#xFF0C;&#x53C8;&#x56E0;&#x4E3A;&#x662F;&#x6309;&#x7167;&#x964D;&#x5E8F;&#x6392;&#x5217;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9996;&#x90E8;&#x5143;&#x7D20;&#x4E00;&#x5B9A;&#x662F;&#x7A97;&#x53E3;&#x5185;&#x6700;&#x5927;&#x503C;&#x3002;</p>
+<p>==<strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;</strong>== O(N)</p>
 <blockquote>
-<p>所有数都值进入一次队列，出一次队列，只遍历一遍数组。</p>
+<p>&#x6240;&#x6709;&#x6570;&#x90FD;&#x503C;&#x8FDB;&#x5165;&#x4E00;&#x6B21;&#x961F;&#x5217;&#xFF0C;&#x51FA;&#x4E00;&#x6B21;&#x961F;&#x5217;&#xFF0C;&#x53EA;&#x904D;&#x5386;&#x4E00;&#x904D;&#x6570;&#x7EC4;&#x3002;</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) &#123;</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 无论如何i都会加入qmax双端队列的尾部</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax队列最少会有一个位置</span></span><br><span class="line"><span class="comment">			 * 1.这种情况是由与arr[i]比之前的qmax中的所有数都大</span></span><br><span class="line"><span class="comment">			 * 2.亦或是qmax第一次添加元素</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4时</span></span><br><span class="line"><span class="comment">			 * 位置为 1 的就是过期位置</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) &#123;</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * 当 i &gt; 2 的时候才有窗口可言，所以才有窗口内最大值可言</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 最大值不更新这个窗口就一直是这个最大值所以是peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h4><h5 id="虽然题目说"><a href="#虽然题目说" class="headerlink" title="虽然题目说"></a>虽然题目说</h5><h6 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h6><p>你可以假设 k 总是有效的，1 ≤ k ≤ 输入数组的大小，且输入数组不为空。</p>
-<h5 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h5><p>给的测试用中却有这</p>
-<h6 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h6 id="预期值"><a href="#预期值" class="headerlink" title="预期值"></a>预期值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-<h6 id="返回值为-操作"><a href="#返回值为-操作" class="headerlink" title="返回值为[]操作"></a>返回值为[]操作</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>==如果你写的是return null那就是有一个测试(上面的那个用例)用例过不了呀==</p>
-<h5 id="对于空数组的理解"><a href="#对于空数组的理解" class="headerlink" title="对于空数组的理解"></a>对于空数组的理解</h5><p>Java 中长度为 0 的数组与 null 的区别<br>现有如下两个变量定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) {</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) {</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		}</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) {</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) {</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * &#x65E0;&#x8BBA;&#x5982;&#x4F55;i&#x90FD;&#x4F1A;&#x52A0;&#x5165;qmax&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x7684;&#x5C3E;&#x90E8;</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax&#x961F;&#x5217;&#x6700;&#x5C11;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;</span></span><br><span class="line"><span class="comment">			 * 1.&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x7531;&#x4E0E;arr[i]&#x6BD4;&#x4E4B;&#x524D;&#x7684;qmax&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x90FD;&#x5927;</span></span><br><span class="line"><span class="comment">			 * 2.&#x4EA6;&#x6216;&#x662F;qmax&#x7B2C;&#x4E00;&#x6B21;&#x6DFB;&#x52A0;&#x5143;&#x7D20;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4&#x65F6;</span></span><br><span class="line"><span class="comment">			 * &#x4F4D;&#x7F6E;&#x4E3A; 1 &#x7684;&#x5C31;&#x662F;&#x8FC7;&#x671F;&#x4F4D;&#x7F6E;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) {</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * &#x5F53; i &gt; 2 &#x7684;&#x65F6;&#x5019;&#x624D;&#x6709;&#x7A97;&#x53E3;&#x53EF;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x6709;&#x7A97;&#x53E3;&#x5185;&#x6700;&#x5927;&#x503C;&#x53EF;&#x8A00;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) {</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * &#x6700;&#x5927;&#x503C;&#x4E0D;&#x66F4;&#x65B0;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x5C31;&#x4E00;&#x76F4;&#x662F;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x503C;&#x6240;&#x4EE5;&#x662F;peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="&#x5751;"><a href="#&#x5751;" class="headerlink" title="&#x5751;"></a>&#x5751;</h4><h5 id="&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;"><a href="#&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;" class="headerlink" title="&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;"></a>&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;</h5><h6 id="&#x6CE8;&#x610F;&#xFF1A;-1"><a href="#&#x6CE8;&#x610F;&#xFF1A;-1" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h6><p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE; k &#x603B;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;1 &#x2264; k &#x2264; &#x8F93;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E14;&#x8F93;&#x5165;&#x6570;&#x7EC4;&#x4E0D;&#x4E3A;&#x7A7A;&#x3002;</p>
+<h5 id="&#x4F46;&#x662F;"><a href="#&#x4F46;&#x662F;" class="headerlink" title="&#x4F46;&#x662F;"></a>&#x4F46;&#x662F;</h5><p>&#x7ED9;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4E2D;&#x5374;&#x6709;&#x8FD9;</p>
+<h6 id="&#x8F93;&#x5165;"><a href="#&#x8F93;&#x5165;" class="headerlink" title="&#x8F93;&#x5165;"></a>&#x8F93;&#x5165;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h6 id="&#x9884;&#x671F;&#x503C;"><a href="#&#x9884;&#x671F;&#x503C;" class="headerlink" title="&#x9884;&#x671F;&#x503C;"></a>&#x9884;&#x671F;&#x503C;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+<h6 id="&#x8FD4;&#x56DE;&#x503C;&#x4E3A;-&#x64CD;&#x4F5C;"><a href="#&#x8FD4;&#x56DE;&#x503C;&#x4E3A;-&#x64CD;&#x4F5C;" class="headerlink" title="&#x8FD4;&#x56DE;&#x503C;&#x4E3A;[]&#x64CD;&#x4F5C;"></a>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;[]&#x64CD;&#x4F5C;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) {</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	}</span><br></pre></td></tr></table></figure>
+<p>==&#x5982;&#x679C;&#x4F60;&#x5199;&#x7684;&#x662F;return null&#x90A3;&#x5C31;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;(&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;&#x7528;&#x4F8B;)&#x7528;&#x4F8B;&#x8FC7;&#x4E0D;&#x4E86;&#x5440;==</p>
+<h5 id="&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;"><a href="#&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;" class="headerlink" title="&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;"></a>&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;</h5><p>Java &#x4E2D;&#x957F;&#x5EA6;&#x4E3A; 0 &#x7684;&#x6570;&#x7EC4;&#x4E0E; null &#x7684;&#x533A;&#x522B;<br>&#x73B0;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#xFF1A;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="上面这两种定义有什么区别呢？"><a href="#上面这两种定义有什么区别呢？" class="headerlink" title="上面这两种定义有什么区别呢？"></a>上面这两种定义有什么区别呢？</h6><p>zeroArray 是一个长度为 0 的数组，称之为 <strong>空数组</strong>。</p>
+<h6 id="&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;"><a href="#&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;" class="headerlink" title="&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;"></a>&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;</h6><p>zeroArray &#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 0 &#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A; <strong>&#x7A7A;&#x6570;&#x7EC4;</strong>&#x3002;</p>
 <ul>
-<li>空数组也是一个对象，只是包含元素个数为 0。 </li>
-<li>nullArray 是一个数组类型的空引用。 <blockquote>
-<p>假设一个方法返回一个数组，如果它返回 null，则调用方法必须先判断是否返回 null，才能对放回数组进一步处理。而如果返回空数组，则无须 null 引用检查。<br>鉴于此，返回数组的方法在没有结果时，我们通常返回空数组，而不是 null，这样做对于函数调用者的处理比较方便。 </p>
+<li>&#x7A7A;&#x6570;&#x7EC4;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x662F;&#x5305;&#x542B;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4E3A; 0&#x3002; </li>
+<li>nullArray &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x7684;&#x7A7A;&#x5F15;&#x7528;&#x3002; <blockquote>
+<p>&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x8FD4;&#x56DE; null&#xFF0C;&#x5219;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8FD4;&#x56DE; null&#xFF0C;&#x624D;&#x80FD;&#x5BF9;&#x653E;&#x56DE;&#x6570;&#x7EC4;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;&#x800C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x65E0;&#x987B; null &#x5F15;&#x7528;&#x68C0;&#x67E5;&#x3002;<br>&#x9274;&#x4E8E;&#x6B64;&#xFF0C;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x6CA1;&#x6709;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x662F; null&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8005;&#x7684;&#x5904;&#x7406;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x3002; </p>
 </blockquote>
 </li>
 </ul>
@@ -346,18 +346,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/Lock体系相关/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/LeetCode 206. 反转链表/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Lock体系相关
+          206. 反转链表
         
       </div>
     </a>
   
   
-    <a href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">输出该链表中倒数第k个结点</div>
+    <a href="/2019/03/03/LeetCode 876. 链表的中间结点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">876. 链表的中间结点</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -422,16 +422,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -539,10 +551,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -551,11 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +571,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,19 +595,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +631,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Spring AOP - 静态代理、动态代理 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要简单介绍一下静态代理和动态代理和使用Spring AOP应用">
+  <meta name="description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E0B;&amp;#x9759;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x52A8;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x4F7F;&amp;#x7528;Spring AOP&amp;#x5E94;&amp;#x75">
 <meta name="keywords" content="Spring,JavaEE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring AOP - 静态代理、动态代理">
 <meta property="og:url" content="http://yoursite.com/2019/07/31/静态代理、动态代理/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="本文主要简单介绍一下静态代理和动态代理和使用Spring AOP应用">
+<meta property="og:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E0B;&amp;#x9759;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x52A8;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x4F7F;&amp;#x7528;Spring AOP&amp;#x5E94;&amp;#x75">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-01T15:46:18.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring AOP - 静态代理、动态代理">
-<meta name="twitter:description" content="本文主要简单介绍一下静态代理和动态代理和使用Spring AOP应用">
+<meta name="twitter:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E0B;&amp;#x9759;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x52A8;&amp;#x6001;&amp;#x4EE3;&amp;#x7406;&amp;#x548C;&amp;#x4F7F;&amp;#x7528;Spring AOP&amp;#x5E94;&amp;#x75">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -194,70 +194,70 @@
 
       
         <blockquote>
-<p>本文主要简单介绍一下静态代理和动态代理和使用Spring AOP应用</p>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x548C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x548C;&#x4F7F;&#x7528;Spring AOP&#x5E94;&#x7528;</p>
 </blockquote>
 <a id="more"></a>
-<h4 id="静态代理（jdk1-5）"><a href="#静态代理（jdk1-5）" class="headerlink" title="静态代理（jdk1.5）"></a>静态代理（jdk1.5）</h4><blockquote>
-<p>目标对象和代理对象实现同一个接口，代理对象引用目标对象</p>
+<h4 id="&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF08;jdk1-5&#xFF09;"><a href="#&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF08;jdk1-5&#xFF09;" class="headerlink" title="&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF08;jdk1.5&#xFF09;"></a>&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF08;jdk1.5&#xFF09;</h4><blockquote>
+<p>&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x548C;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x540C;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x5F15;&#x7528;&#x76EE;&#x6807;&#x5BF9;&#x8C61;</p>
 </blockquote>
 <ul>
-<li>目标对象<ul>
-<li>增删改查方法（主营业务）</li>
+<li>&#x76EE;&#x6807;&#x5BF9;&#x8C61;<ul>
+<li>&#x589E;&#x5220;&#x6539;&#x67E5;&#x65B9;&#x6CD5;&#xFF08;&#x4E3B;&#x8425;&#x4E1A;&#x52A1;&#xFF09;</li>
 </ul>
 </li>
-<li>代理对象<ul>
-<li>不仅仅实现目标对象的方法（主营业务），还可以做别的方法（额外业务）</li>
-<li>安全检查</li>
-<li>权限检查</li>
-<li>日志记录</li>
+<li>&#x4EE3;&#x7406;&#x5BF9;&#x8C61;<ul>
+<li>&#x4E0D;&#x4EC5;&#x4EC5;&#x5B9E;&#x73B0;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x4E3B;&#x8425;&#x4E1A;&#x52A1;&#xFF09;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x505A;&#x522B;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x989D;&#x5916;&#x4E1A;&#x52A1;&#xFF09;</li>
+<li>&#x5B89;&#x5168;&#x68C0;&#x67E5;</li>
+<li>&#x6743;&#x9650;&#x68C0;&#x67E5;</li>
+<li>&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;</li>
 </ul>
 </li>
-<li>封装切面类-Aspect（对主营业务没有影响）<ul>
-<li>散落在目标对象中的横切性关注点拿出来模块化到类中<ul>
-<li>安全检查</li>
-<li>权限检查</li>
-<li>日志记录</li>
-</ul>
-</li>
+<li>&#x5C01;&#x88C5;&#x5207;&#x9762;&#x7C7B;-Aspect&#xFF08;&#x5BF9;&#x4E3B;&#x8425;&#x4E1A;&#x52A1;&#x6CA1;&#x6709;&#x5F71;&#x54CD;&#xFF09;<ul>
+<li>&#x6563;&#x843D;&#x5728;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A2A;&#x5207;&#x6027;&#x5173;&#x6CE8;&#x70B9;&#x62FF;&#x51FA;&#x6765;&#x6A21;&#x5757;&#x5316;&#x5230;&#x7C7B;&#x4E2D;<ul>
+<li>&#x5B89;&#x5168;&#x68C0;&#x67E5;</li>
+<li>&#x6743;&#x9650;&#x68C0;&#x67E5;</li>
+<li>&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;</li>
 </ul>
 </li>
 </ul>
-<h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><blockquote>
-<p>目标对象实现一个接口（增删改查），JVM通过反射动态生成代理对象，另外一个类实现</p>
+</li>
+</ul>
+<h4 id="&#x52A8;&#x6001;&#x4EE3;&#x7406;"><a href="#&#x52A8;&#x6001;&#x4EE3;&#x7406;" class="headerlink" title="&#x52A8;&#x6001;&#x4EE3;&#x7406;"></a>&#x52A8;&#x6001;&#x4EE3;&#x7406;</h4><blockquote>
+<p>&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF08;&#x589E;&#x5220;&#x6539;&#x67E5;&#xFF09;&#xFF0C;JVM&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x52A8;&#x6001;&#x751F;&#x6210;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;</p>
 </blockquote>
 <ul>
-<li>目标对象</li>
-<li>代理对象（通过反射实现和目标对象相同的几口，通过反射）<ul>
-<li>私有目标对象属性</li>
-<li>实现的接口方法</li>
-<li>切口方法</li>
+<li>&#x76EE;&#x6807;&#x5BF9;&#x8C61;</li>
+<li>&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF08;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x5B9E;&#x73B0;&#x548C;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x76F8;&#x540C;&#x7684;&#x51E0;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#xFF09;<ul>
+<li>&#x79C1;&#x6709;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;</li>
+<li>&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</li>
+<li>&#x5207;&#x53E3;&#x65B9;&#x6CD5;</li>
 </ul>
 </li>
 </ul>
 <h4 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h4><blockquote>
-<p>通过动态代理的方式</p>
+<p>&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;</p>
 </blockquote>
-<h4 id="AOP术语解释"><a href="#AOP术语解释" class="headerlink" title="AOP术语解释"></a>AOP术语解释</h4><ul>
-<li><p>目标对象-<code>TargetObject</code></p>
+<h4 id="AOP&#x672F;&#x8BED;&#x89E3;&#x91CA;"><a href="#AOP&#x672F;&#x8BED;&#x89E3;&#x91CA;" class="headerlink" title="AOP&#x672F;&#x8BED;&#x89E3;&#x91CA;"></a>AOP&#x672F;&#x8BED;&#x89E3;&#x91CA;</h4><ul>
+<li><p>&#x76EE;&#x6807;&#x5BF9;&#x8C61;-<code>TargetObject</code></p>
 <ul>
-<li>散落在目标对象中的横切性关注点拿出来模块化到类(<code>MyAspect</code>)中</li>
+<li>&#x6563;&#x843D;&#x5728;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A2A;&#x5207;&#x6027;&#x5173;&#x6CE8;&#x70B9;&#x62FF;&#x51FA;&#x6765;&#x6A21;&#x5757;&#x5316;&#x5230;&#x7C7B;(<code>MyAspect</code>)&#x4E2D;</li>
 </ul>
 </li>
-<li><p>标识方式</p>
+<li><p>&#x6807;&#x8BC6;&#x65B9;&#x5F0F;</p>
 <ul>
-<li>注解</li>
-<li>spring配置</li>
+<li>&#x6CE8;&#x89E3;</li>
+<li>spring&#x914D;&#x7F6E;</li>
 </ul>
 </li>
-<li><p><code>MyAspect</code>（@Aspect注解）</p>
+<li><p><code>MyAspect</code>&#xFF08;@Aspect&#x6CE8;&#x89E3;&#xFF09;</p>
 <ul>
 <li><p><code>Advice</code></p>
 <blockquote>
-<p>通知在什么时候执行</p>
+<p>&#x901A;&#x77E5;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x6267;&#x884C;</p>
 </blockquote>
 <ul>
 <li><p><strong>before:</strong></p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before</span>(<span class="string">"allMethod"</span>)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before</span>(<span class="string">&quot;allMethod&quot;</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>after:</strong></p>
 </li>
@@ -267,13 +267,13 @@
 </li>
 <li><p><code>PointCut</code></p>
 <blockquote>
-<p>设置范围，具体作用在目标对象的哪个方法上与<code>JoinPoint</code>的关系-植入（Weave）</p>
+<p>&#x8BBE;&#x7F6E;&#x8303;&#x56F4;&#xFF0C;&#x5177;&#x4F53;&#x4F5C;&#x7528;&#x5728;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684;&#x54EA;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0A;&#x4E0E;<code>JoinPoint</code>&#x7684;&#x5173;&#x7CFB;-&#x690D;&#x5165;&#xFF08;Weave&#xFF09;</p>
 </blockquote>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pointcut</span>(<span class="string">"execution(* add*(..)) || execution(*del*(..)))"</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">allMethod</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pointcut</span>(<span class="string">&quot;execution(* add*(..)) || execution(*del*(..)))&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">allMethod</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>JoinPoint</code></p>
 <blockquote>
-<p>标识，只是一个概念逻辑</p>
+<p>&#x6807;&#x8BC6;&#xFF0C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x903B;&#x8F91;</p>
 </blockquote>
 </li>
 </ul>
@@ -473,16 +473,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -590,10 +602,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -602,11 +610,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,11 +622,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,19 +646,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,11 +682,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

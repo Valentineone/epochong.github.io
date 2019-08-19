@@ -186,42 +186,43 @@
 
       
         <blockquote>
-<p>本文主要讲述我在做算法题时，运用集合中的remove方法时所引发的数组越界异常的问题</p>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB2;&#x8FF0;&#x6211;&#x5728;&#x505A;&#x7B97;&#x6CD5;&#x9898;&#x65F6;&#xFF0C;&#x8FD0;&#x7528;&#x96C6;&#x5408;&#x4E2D;&#x7684;remove&#x65B9;&#x6CD5;&#x65F6;&#x6240;&#x5F15;&#x53D1;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x5F02;&#x5E38;&#x7684;&#x95EE;&#x9898;</p>
 </blockquote>
 <ul>
-<li>先看原问题</li>
+<li>&#x5148;&#x770B;&#x539F;&#x95EE;&#x9898;</li>
 </ul>
-<p><img src="https://epochong-1259598883.cos.ap-chengdu.myqcloud.com/mubang.jpg" alt="题目"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 木棒拼图.jpg 题目%&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/16/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;/mubang.jpg" alt="&#x9898;&#x76EE;"></p>
+ <img src="/2019/07/16/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;/2019/07/16/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;/mubang.jpg" title="&#x9898;&#x76EE;">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{% asset_img &#x6728;&#x68D2;&#x62FC;&#x56FE;.jpg &#x9898;&#x76EE;%}</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>问题解析</p>
+<li><p>&#x95EE;&#x9898;&#x89E3;&#x6790;</p>
 <ol>
-<li>创建集合</li>
-<li>添加、删除元素</li>
-<li>从下到大排序元素</li>
-<li>前n-1个元素的和大于最后一个元素即为Yes，否则为No</li>
+<li>&#x521B;&#x5EFA;&#x96C6;&#x5408;</li>
+<li>&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x5143;&#x7D20;</li>
+<li>&#x4ECE;&#x4E0B;&#x5230;&#x5927;&#x6392;&#x5E8F;&#x5143;&#x7D20;</li>
+<li>&#x524D;n-1&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x548C;&#x5927;&#x4E8E;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5373;&#x4E3A;Yes&#xFF0C;&#x5426;&#x5219;&#x4E3A;No</li>
 </ol>
 </li>
-<li><p>有坑的解法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/7/15 22:51</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 木棒拼图 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (input.hasNextInt()) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">            List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList &lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> op = input.nextInt();</span><br><span class="line">                <span class="keyword">int</span> len = input.nextInt();</span><br><span class="line">                <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">                    list.add(len);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//坑在这，只要改为list.remove(new Integer(len))即可</span></span><br><span class="line">                    list.remove(len);</span><br><span class="line">                &#125;</span><br><span class="line">                Collections.sort(list);</span><br><span class="line">                <span class="keyword">int</span> other = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; list.size(); j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (j &lt; list.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                        other += list.get(j);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (other &lt;= list.get(list.size() - <span class="number">1</span>)) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"No"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(<span class="string">"Yes"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x6709;&#x5751;&#x7684;&#x89E3;&#x6CD5;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/7/15 22:51</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> &#x6728;&#x68D2;&#x62FC;&#x56FE; </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (input.hasNextInt()) {</span><br><span class="line">            <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">            List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList &lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">                <span class="keyword">int</span> op = input.nextInt();</span><br><span class="line">                <span class="keyword">int</span> len = input.nextInt();</span><br><span class="line">                <span class="keyword">if</span> (op == <span class="number">1</span>) {</span><br><span class="line">                    list.add(len);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="comment">//&#x5751;&#x5728;&#x8FD9;&#xFF0C;&#x53EA;&#x8981;&#x6539;&#x4E3A;list.remove(new Integer(len))&#x5373;&#x53EF;</span></span><br><span class="line">                    list.remove(len);</span><br><span class="line">                }</span><br><span class="line">                Collections.sort(list);</span><br><span class="line">                <span class="keyword">int</span> other = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; list.size(); j++) {</span><br><span class="line">                    <span class="keyword">if</span> (j &lt; list.size() - <span class="number">1</span>) {</span><br><span class="line">                        other += list.get(j);</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span> (other &lt;= list.get(list.size() - <span class="number">1</span>)) {</span><br><span class="line">                    System.out.println(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    System.out.println(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>错误情况</p>
-<p><img src="/.com//数组越界.png" alt="越界"></p>
+<li><p>&#x9519;&#x8BEF;&#x60C5;&#x51B5;</p>
+<p><img src="/2019/07/16/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;/&#x6570;&#x7EC4;&#x8D8A;&#x754C;.png" alt="&#x8D8A;&#x754C;"></p>
 </li>
-<li><p>修改后即为正常</p>
+<li><p>&#x4FEE;&#x6539;&#x540E;&#x5373;&#x4E3A;&#x6B63;&#x5E38;</p>
 </li>
 </ul>
-<p><img src="/.com//通过.png" alt="通过"></p>
+<p><img src="/2019/07/16/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;/&#x96C6;&#x5408;&#x7684;remove&#x65B9;&#x6CD5;&#x5F15;&#x8D77;&#x7684;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x95EE;&#x9898;\&#x901A;&#x8FC7;.png" alt="&#x901A;&#x8FC7;"></p>
 <ul>
-<li><p>先看remove方法</p>
+<li><p>&#x5148;&#x770B;remove&#x65B9;&#x6CD5;</p>
 <ul>
-<li><p>继承关系</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt;  </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">		<span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (elementData[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[index])) &#123;</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x7EE7;&#x627F;&#x5173;&#x7CFB;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">E</span>&gt;  </span>{</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>{</span><br><span class="line">		<span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>{</span><br><span class="line">            <span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (elementData[index] == <span class="keyword">null</span>) {</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; size; index++)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[index])) {</span><br><span class="line">                fastRemove(index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>所以指定元素删除时删除的是对象，最好是先new一个相同值的对象，不要使用直接传值的方式，这样向上转型虽然可以达到效果，但是牛客后台会报数组越界异常，如果在牛课上测试，建议使用第一种方法</p>
+<li><p>&#x6240;&#x4EE5;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x5220;&#x9664;&#x65F6;&#x5220;&#x9664;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x5148;new&#x4E00;&#x4E2A;&#x76F8;&#x540C;&#x503C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x76F4;&#x63A5;&#x4F20;&#x503C;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD9;&#x6837;&#x5411;&#x4E0A;&#x8F6C;&#x578B;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x6548;&#x679C;&#xFF0C;&#x4F46;&#x662F;&#x725B;&#x5BA2;&#x540E;&#x53F0;&#x4F1A;&#x62A5;&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x725B;&#x8BFE;&#x4E0A;&#x6D4B;&#x8BD5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;</p>
 </li>
 </ul>
 </li>
@@ -308,113 +309,113 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="网络发展背景"><a href="#网络发展背景" class="headerlink" title="网络发展背景"></a>网络发展背景</h5><ul>
-<li><p>网络分类</p>
+        <h5 id="&#x7F51;&#x7EDC;&#x53D1;&#x5C55;&#x80CC;&#x666F;"><a href="#&#x7F51;&#x7EDC;&#x53D1;&#x5C55;&#x80CC;&#x666F;" class="headerlink" title="&#x7F51;&#x7EDC;&#x53D1;&#x5C55;&#x80CC;&#x666F;"></a>&#x7F51;&#x7EDC;&#x53D1;&#x5C55;&#x80CC;&#x666F;</h5><ul>
+<li><p>&#x7F51;&#x7EDC;&#x5206;&#x7C7B;</p>
 <ul>
-<li>局域网</li>
-<li>城域网</li>
-<li>广域网</li>
-<li>因特网/互联网</li>
-<li>以太网</li>
-<li>令牌环网</li>
+<li>&#x5C40;&#x57DF;&#x7F51;</li>
+<li>&#x57CE;&#x57DF;&#x7F51;</li>
+<li>&#x5E7F;&#x57DF;&#x7F51;</li>
+<li>&#x56E0;&#x7279;&#x7F51;/&#x4E92;&#x8054;&#x7F51;</li>
+<li>&#x4EE5;&#x592A;&#x7F51;</li>
+<li>&#x4EE4;&#x724C;&#x73AF;&#x7F51;</li>
 </ul>
 </li>
-<li><p>IP地址</p>
+<li><p>IP&#x5730;&#x5740;</p>
 <ul>
-<li>功能：在网络中唯一表示一台主机<ul>
-<li>IPV4uint32_4–无符号32位整数—IP地址数量不到43亿</li>
+<li>&#x529F;&#x80FD;&#xFF1A;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x552F;&#x4E00;&#x8868;&#x793A;&#x4E00;&#x53F0;&#x4E3B;&#x673A;<ul>
+<li>IPV4uint32_4&#x2013;&#x65E0;&#x7B26;&#x53F7;32&#x4F4D;&#x6574;&#x6570;&#x2014;IP&#x5730;&#x5740;&#x6570;&#x91CF;&#x4E0D;&#x5230;43&#x4EBF;</li>
 <li>DHCP</li>
 <li>NAT</li>
 </ul>
 </li>
-<li>IPV6：uint8_ip[16]—因为步向前兼容IPv4，因此没有很好的推广起来</li>
-<li>在网络中每条数据中都会包含两条信息：源段IP地址，目的端IP地址</li>
+<li>IPV6&#xFF1A;uint8_ip[16]&#x2014;&#x56E0;&#x4E3A;&#x6B65;&#x5411;&#x524D;&#x517C;&#x5BB9;IPv4&#xFF0C;&#x56E0;&#x6B64;&#x6CA1;&#x6709;&#x5F88;&#x597D;&#x7684;&#x63A8;&#x5E7F;&#x8D77;&#x6765;</li>
+<li>&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x6BCF;&#x6761;&#x6570;&#x636E;&#x4E2D;&#x90FD;&#x4F1A;&#x5305;&#x542B;&#x4E24;&#x6761;&#x4FE1;&#x606F;&#xFF1A;&#x6E90;&#x6BB5;IP&#x5730;&#x5740;&#xFF0C;&#x76EE;&#x7684;&#x7AEF;IP&#x5730;&#x5740;</li>
 </ul>
 </li>
-<li><p>port端口</p>
+<li><p>port&#x7AEF;&#x53E3;</p>
 <ul>
-<li>功能：在一台主机上标识一个进程<ul>
-<li>uint16_t无符号16位整数</li>
-<li>范围：0~65535</li>
+<li>&#x529F;&#x80FD;&#xFF1A;&#x5728;&#x4E00;&#x53F0;&#x4E3B;&#x673A;&#x4E0A;&#x6807;&#x8BC6;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;<ul>
+<li>uint16_t&#x65E0;&#x7B26;&#x53F7;16&#x4F4D;&#x6574;&#x6570;</li>
+<li>&#x8303;&#x56F4;&#xFF1A;0~65535</li>
 </ul>
 </li>
-<li>特性：一个端口只能被一个进程占用，但是一个进程可以使用多个端口，在网络中每条数据中都会包含两条信息：源端口，目的端口</li>
+<li>&#x7279;&#x6027;&#xFF1A;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x53EA;&#x80FD;&#x88AB;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x6BCF;&#x6761;&#x6570;&#x636E;&#x4E2D;&#x90FD;&#x4F1A;&#x5305;&#x542B;&#x4E24;&#x6761;&#x4FE1;&#x606F;&#xFF1A;&#x6E90;&#x7AEF;&#x53E3;&#xFF0C;&#x76EE;&#x7684;&#x7AEF;&#x53E3;</li>
 </ul>
 </li>
-<li><p>协议：约定-&gt;通信协议：通信双方的数据格式约定（实现互联）</p>
+<li><p>&#x534F;&#x8BAE;&#xFF1A;&#x7EA6;&#x5B9A;-&gt;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF1A;&#x901A;&#x4FE1;&#x53CC;&#x65B9;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x7EA6;&#x5B9A;&#xFF08;&#x5B9E;&#x73B0;&#x4E92;&#x8054;&#xFF09;</p>
 <ul>
-<li><p>协议分层：按照每层提供的服务，使用的协议，提供的接口，对复杂的网路环境进行分层</p>
+<li><p>&#x534F;&#x8BAE;&#x5206;&#x5C42;&#xFF1A;&#x6309;&#x7167;&#x6BCF;&#x5C42;&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5BF9;&#x590D;&#x6742;&#x7684;&#x7F51;&#x8DEF;&#x73AF;&#x5883;&#x8FDB;&#x884C;&#x5206;&#x5C42;</p>
 <ul>
-<li><p>OSI七层参考模型（不实用）</p>
+<li><p>OSI&#x4E03;&#x5C42;&#x53C2;&#x8003;&#x6A21;&#x578B;&#xFF08;&#x4E0D;&#x5B9E;&#x7528;&#xFF09;</p>
 <ol>
-<li>应用层</li>
-<li>表示层</li>
-<li>会话层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>链路层</li>
-<li>物理层</li>
+<li>&#x5E94;&#x7528;&#x5C42;</li>
+<li>&#x8868;&#x793A;&#x5C42;</li>
+<li>&#x4F1A;&#x8BDD;&#x5C42;</li>
+<li>&#x4F20;&#x8F93;&#x5C42;</li>
+<li>&#x7F51;&#x7EDC;&#x5C42;</li>
+<li>&#x94FE;&#x8DEF;&#x5C42;</li>
+<li>&#x7269;&#x7406;&#x5C42;</li>
 </ol>
 </li>
-<li><p>TCP/IP五层模型</p>
+<li><p>TCP/IP&#x4E94;&#x5C42;&#x6A21;&#x578B;</p>
 <ol>
-<li>应用层</li>
-<li>传输层</li>
-<li>网络层</li>
-<li>链路层</li>
-<li>物理层</li>
+<li>&#x5E94;&#x7528;&#x5C42;</li>
+<li>&#x4F20;&#x8F93;&#x5C42;</li>
+<li>&#x7F51;&#x7EDC;&#x5C42;</li>
+<li>&#x94FE;&#x8DEF;&#x5C42;</li>
+<li>&#x7269;&#x7406;&#x5C42;</li>
 </ol>
-<p><strong>应用层：</strong>负责应用程序之间的数据沟通（HTTP/FTP/DNS/DHCP)</p>
-<p><strong>传输层：</strong>负责端与端之间的数据传输（两个进程间，封装端口，数据从哪个进程出来去哪个进程）（TCP/UDP)</p>
-<p> <strong>网络层：</strong>负责地址管理与路由选择（哪个主机到哪个主机）（IP，路由器）</p>
-<p><strong>链路层：</strong>相邻设备之间的数据传输（相邻两个网卡，网卡出厂时有MAC地址）（Ether，交换机：相邻设备之间数据转发）</p>
-<p><strong>物理层：</strong>光电信号传输（以太网协议，集线器：数据信号放大）</p>
+<p><strong>&#x5E94;&#x7528;&#x5C42;&#xFF1A;</strong>&#x8D1F;&#x8D23;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x6C9F;&#x901A;&#xFF08;HTTP/FTP/DNS/DHCP)</p>
+<p><strong>&#x4F20;&#x8F93;&#x5C42;&#xFF1A;</strong>&#x8D1F;&#x8D23;&#x7AEF;&#x4E0E;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF08;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x95F4;&#xFF0C;&#x5C01;&#x88C5;&#x7AEF;&#x53E3;&#xFF0C;&#x6570;&#x636E;&#x4ECE;&#x54EA;&#x4E2A;&#x8FDB;&#x7A0B;&#x51FA;&#x6765;&#x53BB;&#x54EA;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF09;&#xFF08;TCP/UDP)</p>
+<p> <strong>&#x7F51;&#x7EDC;&#x5C42;&#xFF1A;</strong>&#x8D1F;&#x8D23;&#x5730;&#x5740;&#x7BA1;&#x7406;&#x4E0E;&#x8DEF;&#x7531;&#x9009;&#x62E9;&#xFF08;&#x54EA;&#x4E2A;&#x4E3B;&#x673A;&#x5230;&#x54EA;&#x4E2A;&#x4E3B;&#x673A;&#xFF09;&#xFF08;IP&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#xFF09;</p>
+<p><strong>&#x94FE;&#x8DEF;&#x5C42;&#xFF1A;</strong>&#x76F8;&#x90BB;&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF08;&#x76F8;&#x90BB;&#x4E24;&#x4E2A;&#x7F51;&#x5361;&#xFF0C;&#x7F51;&#x5361;&#x51FA;&#x5382;&#x65F6;&#x6709;MAC&#x5730;&#x5740;&#xFF09;&#xFF08;Ether&#xFF0C;&#x4EA4;&#x6362;&#x673A;&#xFF1A;&#x76F8;&#x90BB;&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x6570;&#x636E;&#x8F6C;&#x53D1;&#xFF09;</p>
+<p><strong>&#x7269;&#x7406;&#x5C42;&#xFF1A;</strong>&#x5149;&#x7535;&#x4FE1;&#x53F7;&#x4F20;&#x8F93;&#xFF08;&#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;&#xFF0C;&#x96C6;&#x7EBF;&#x5668;&#xFF1A;&#x6570;&#x636E;&#x4FE1;&#x53F7;&#x653E;&#x5927;&#xFF09;</p>
 </li>
 </ul>
 </li>
-<li><p>网络通信中数据的传输流程：数据封装，数据分用</p>
+<li><p>&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x4E2D;&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#x6D41;&#x7A0B;&#xFF1A;&#x6570;&#x636E;&#x5C01;&#x88C5;&#xFF0C;&#x6570;&#x636E;&#x5206;&#x7528;</p>
 </li>
-<li><p>协议解析</p>
+<li><p>&#x534F;&#x8BAE;&#x89E3;&#x6790;</p>
 <ul>
-<li><p>应用层协议：HTTP协议</p>
+<li><p>&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF1A;HTTP&#x534F;&#x8BAE;</p>
 <ul>
-<li><p>RUL（网址）：统一资源定位符</p>
+<li><p>RUL&#xFF08;&#x7F51;&#x5740;&#xFF09;&#xFF1A;&#x7EDF;&#x4E00;&#x8D44;&#x6E90;&#x5B9A;&#x4F4D;&#x7B26;</p>
 </li>
-<li><p>url：<code>http://user:pass</code>(用户信息：不安全）<code>@ip:port</code>(端口信息，默认80端口)<code>@srv_add</code>r(服务器ip地址)<code>/uri</code>(服务器请求的资源的标识符，/为指定的子目录)<code>?</code>（间隔）<code>query_string</code>(key=val&amp;key=val)#片段标识符</p>
+<li><p>url&#xFF1A;<code>http://user:pass</code>(&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF1A;&#x4E0D;&#x5B89;&#x5168;&#xFF09;<code>@ip:port</code>(&#x7AEF;&#x53E3;&#x4FE1;&#x606F;&#xFF0C;&#x9ED8;&#x8BA4;80&#x7AEF;&#x53E3;)<code>@srv_add</code>r(&#x670D;&#x52A1;&#x5668;ip&#x5730;&#x5740;)<code>/uri</code>(&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;/&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x5B50;&#x76EE;&#x5F55;)<code>?</code>&#xFF08;&#x95F4;&#x9694;&#xFF09;<code>query_string</code>(key=val&amp;key=val)#&#x7247;&#x6BB5;&#x6807;&#x8BC6;&#x7B26;</p>
 </li>
-<li><p>url编码：url中特殊字符都有特殊含义，因此用户提交数据中若存在特殊字符则需要转码（每个字符转换为16进制数字的字符串–为表明数据经过了转码，因此在旋转吗的数据前加上%）</p>
+<li><p>url&#x7F16;&#x7801;&#xFF1A;url&#x4E2D;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x90FD;&#x6709;&#x7279;&#x6B8A;&#x542B;&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x6570;&#x636E;&#x4E2D;&#x82E5;&#x5B58;&#x5728;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x5219;&#x9700;&#x8981;&#x8F6C;&#x7801;&#xFF08;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x8F6C;&#x6362;&#x4E3A;16&#x8FDB;&#x5236;&#x6570;&#x5B57;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x2013;&#x4E3A;&#x8868;&#x660E;&#x6570;&#x636E;&#x7ECF;&#x8FC7;&#x4E86;&#x8F6C;&#x7801;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x65CB;&#x8F6C;&#x5417;&#x7684;&#x6570;&#x636E;&#x524D;&#x52A0;&#x4E0A;%&#xFF09;</p>
 </li>
-<li><p>url解码：在用户提交的数据中遇到%时，则对紧跟其后的连个字符转换为数字，并且第一个数字左移4位（乘16）加上第二个数字</p>
+<li><p>url&#x89E3;&#x7801;&#xFF1A;&#x5728;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x9047;&#x5230;%&#x65F6;&#xFF0C;&#x5219;&#x5BF9;&#x7D27;&#x8DDF;&#x5176;&#x540E;&#x7684;&#x8FDE;&#x4E2A;&#x5B57;&#x7B26;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x5DE6;&#x79FB;4&#x4F4D;&#xFF08;&#x4E58;16&#xFF09;&#x52A0;&#x4E0A;&#x7B2C;&#x4E8C;&#x4E2A;&#x6570;&#x5B57;</p>
 </li>
-<li><p>http协议格式</p>
+<li><p>http&#x534F;&#x8BAE;&#x683C;&#x5F0F;</p>
 <ol>
-<li><p>首行：</p>
-<p>​    <strong>请求首行：</strong>请求方法（GET:：没有正文，不是主要用于提交数据/POST：在请求头提交数    据）（不同版本方法数不同：HTTP/(0.9/1.0/1.1/2)）</p>
-<p>​    <strong>响应首行：</strong>协议版本 响应状态码（1–/2–/3–/4–/5–、200/302/400/404/502/500）</p>
+<li><p>&#x9996;&#x884C;&#xFF1A;</p>
+<p>&#x200B;    <strong>&#x8BF7;&#x6C42;&#x9996;&#x884C;&#xFF1A;</strong>&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF08;GET:&#xFF1A;&#x6CA1;&#x6709;&#x6B63;&#x6587;&#xFF0C;&#x4E0D;&#x662F;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x63D0;&#x4EA4;&#x6570;&#x636E;/POST&#xFF1A;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x63D0;&#x4EA4;&#x6570;    &#x636E;&#xFF09;&#xFF08;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x65B9;&#x6CD5;&#x6570;&#x4E0D;&#x540C;&#xFF1A;HTTP/(0.9/1.0/1.1/2)&#xFF09;</p>
+<p>&#x200B;    <strong>&#x54CD;&#x5E94;&#x9996;&#x884C;&#xFF1A;</strong>&#x534F;&#x8BAE;&#x7248;&#x672C; &#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#xFF08;1&#x2013;/2&#x2013;/3&#x2013;/4&#x2013;/5&#x2013;&#x3001;200/302/400/404/502/500&#xFF09;</p>
 </li>
-<li><p>头部：以<code>key：val</code>组成的键值对，并且键值对之间以\r\n进行间隔<code>key:val</code>\r\n<code>key:val</code>\r\n</p>
-<p>​    content-Length（正文的总长度）/Content-Type（描述数据类型）/Transfer-Encoding/Location（和重定    向结合使用）/Set-Cookie（下次请求）</p>
+<li><p>&#x5934;&#x90E8;&#xFF1A;&#x4EE5;<code>key&#xFF1A;val</code>&#x7EC4;&#x6210;&#x7684;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x5E76;&#x4E14;&#x952E;&#x503C;&#x5BF9;&#x4E4B;&#x95F4;&#x4EE5;\r\n&#x8FDB;&#x884C;&#x95F4;&#x9694;<code>key:val</code>\r\n<code>key:val</code>\r\n</p>
+<p>&#x200B;    content-Length&#xFF08;&#x6B63;&#x6587;&#x7684;&#x603B;&#x957F;&#x5EA6;&#xFF09;/Content-Type&#xFF08;&#x63CF;&#x8FF0;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;/Transfer-Encoding/Location&#xFF08;&#x548C;&#x91CD;&#x5B9A;    &#x5411;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF09;/Set-Cookie&#xFF08;&#x4E0B;&#x6B21;&#x8BF7;&#x6C42;&#xFF09;</p>
 </li>
-<li><p>空行：\r\n（结合上面的检测到两个\r\n识别头部结尾）</p>
+<li><p>&#x7A7A;&#x884C;&#xFF1A;\r\n&#xFF08;&#x7ED3;&#x5408;&#x4E0A;&#x9762;&#x7684;&#x68C0;&#x6D4B;&#x5230;&#x4E24;&#x4E2A;\r\n&#x8BC6;&#x522B;&#x5934;&#x90E8;&#x7ED3;&#x5C3E;&#xFF09;</p>
 </li>
-<li><p>正文：客户端提交的数据、服务端响应的数据</p>
+<li><p>&#x6B63;&#x6587;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x3001;&#x670D;&#x52A1;&#x7AEF;&#x54CD;&#x5E94;&#x7684;&#x6570;&#x636E;</p>
 </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>传输层：负责端与端之间的数据传输;TCP、UDP</p>
+<li><p>&#x4F20;&#x8F93;&#x5C42;&#xFF1A;&#x8D1F;&#x8D23;&#x7AEF;&#x4E0E;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;;TCP&#x3001;UDP</p>
 <ul>
-<li><p>udp协议特性：无连接，不可靠，面向数据报</p>
-<p><strong>无连接、不可靠：</strong>只要知道对端地址就可以发送数据，但是对方是否收到数据，收到的数据是否有序并不关心</p>
-<p><strong>面向数据报：</strong>向上层交付数据时，只能一整条一整条的交付</p>
-<p><strong>udp协议字段：</strong>16位源端口，16目的端口欧，16位数据报长度，16位校验和（二进制反码求和，相加为0则为正确信息）</p>
-<p><strong>16位数据报长度：</strong>决定的特性</p>
-<pre><code>1. 面向数据报
- 2. udp每次直接传输的报文大小是有长度限制的64k（用户给定的传输数据长度不能大于64k-8）
-      1. 若是数据过长，需要用户在应用层进行数据分包
-      2. udp不保证数据有序，因此若是应用层分包还需要用户在应用层进行包序管理
-</code></pre><p><strong>udp实现的应用层协议：</strong>DHCP</p>
+<li><p>udp&#x534F;&#x8BAE;&#x7279;&#x6027;&#xFF1A;&#x65E0;&#x8FDE;&#x63A5;&#xFF0C;&#x4E0D;&#x53EF;&#x9760;&#xFF0C;&#x9762;&#x5411;&#x6570;&#x636E;&#x62A5;</p>
+<p><strong>&#x65E0;&#x8FDE;&#x63A5;&#x3001;&#x4E0D;&#x53EF;&#x9760;&#xFF1A;</strong>&#x53EA;&#x8981;&#x77E5;&#x9053;&#x5BF9;&#x7AEF;&#x5730;&#x5740;&#x5C31;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x65B9;&#x662F;&#x5426;&#x6536;&#x5230;&#x6570;&#x636E;&#xFF0C;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x662F;&#x5426;&#x6709;&#x5E8F;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;</p>
+<p><strong>&#x9762;&#x5411;&#x6570;&#x636E;&#x62A5;&#xFF1A;</strong>&#x5411;&#x4E0A;&#x5C42;&#x4EA4;&#x4ED8;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x4E00;&#x6574;&#x6761;&#x4E00;&#x6574;&#x6761;&#x7684;&#x4EA4;&#x4ED8;</p>
+<p><strong>udp&#x534F;&#x8BAE;&#x5B57;&#x6BB5;&#xFF1A;</strong>16&#x4F4D;&#x6E90;&#x7AEF;&#x53E3;&#xFF0C;16&#x76EE;&#x7684;&#x7AEF;&#x53E3;&#x6B27;&#xFF0C;16&#x4F4D;&#x6570;&#x636E;&#x62A5;&#x957F;&#x5EA6;&#xFF0C;16&#x4F4D;&#x6821;&#x9A8C;&#x548C;&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#x53CD;&#x7801;&#x6C42;&#x548C;&#xFF0C;&#x76F8;&#x52A0;&#x4E3A;0&#x5219;&#x4E3A;&#x6B63;&#x786E;&#x4FE1;&#x606F;&#xFF09;</p>
+<p><strong>16&#x4F4D;&#x6570;&#x636E;&#x62A5;&#x957F;&#x5EA6;&#xFF1A;</strong>&#x51B3;&#x5B9A;&#x7684;&#x7279;&#x6027;</p>
+<pre><code>1. &#x9762;&#x5411;&#x6570;&#x636E;&#x62A5;
+ 2. udp&#x6BCF;&#x6B21;&#x76F4;&#x63A5;&#x4F20;&#x8F93;&#x7684;&#x62A5;&#x6587;&#x5927;&#x5C0F;&#x662F;&#x6709;&#x957F;&#x5EA6;&#x9650;&#x5236;&#x7684;64k&#xFF08;&#x7528;&#x6237;&#x7ED9;&#x5B9A;&#x7684;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x957F;&#x5EA6;&#x4E0D;&#x80FD;&#x5927;&#x4E8E;64k-8&#xFF09;
+      1. &#x82E5;&#x662F;&#x6570;&#x636E;&#x8FC7;&#x957F;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x6237;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x5305;
+      2. udp&#x4E0D;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x6709;&#x5E8F;&#xFF0C;&#x56E0;&#x6B64;&#x82E5;&#x662F;&#x5E94;&#x7528;&#x5C42;&#x5206;&#x5305;&#x8FD8;&#x9700;&#x8981;&#x7528;&#x6237;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x8FDB;&#x884C;&#x5305;&#x5E8F;&#x7BA1;&#x7406;
+</code></pre><p><strong>udp&#x5B9E;&#x73B0;&#x7684;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF1A;</strong>DHCP</p>
 </li>
 </ul>
 </li>
@@ -422,162 +423,162 @@
 </li>
 </ul>
 </li>
-<li><p>tcp协议：面向连接，可靠传输，面向字节流</p>
+<li><p>tcp&#x534F;&#x8BAE;&#xFF1A;&#x9762;&#x5411;&#x8FDE;&#x63A5;&#xFF0C;&#x53EF;&#x9760;&#x4F20;&#x8F93;&#xFF0C;&#x9762;&#x5411;&#x5B57;&#x8282;&#x6D41;</p>
 <ul>
-<li><p>连接管理（三次握手：操作系统完成，建立连接）</p>
+<li><p>&#x8FDE;&#x63A5;&#x7BA1;&#x7406;&#xFF08;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#xFF1A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5B8C;&#x6210;&#xFF0C;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF09;</p>
 <ul>
-<li>客户端<ol>
-<li>创建套接字</li>
-<li>为套接字绑定地址信息</li>
-<li>向服务端发起连接请求</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;<ol>
+<li>&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;</li>
+<li>&#x4E3A;&#x5957;&#x63A5;&#x5B57;&#x7ED1;&#x5B9A;&#x5730;&#x5740;&#x4FE1;&#x606F;</li>
+<li>&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x8D77;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;</li>
 </ol>
 </li>
-<li>服务端<ol>
-<li>创建套接字</li>
-<li>为套接字绑定地址信息</li>
-<li>开始监听（LISTEN状态）</li>
+<li>&#x670D;&#x52A1;&#x7AEF;<ol>
+<li>&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;</li>
+<li>&#x4E3A;&#x5957;&#x63A5;&#x5B57;&#x7ED1;&#x5B9A;&#x5730;&#x5740;&#x4FE1;&#x606F;</li>
+<li>&#x5F00;&#x59CB;&#x76D1;&#x542C;&#xFF08;LISTEN&#x72B6;&#x6001;&#xFF09;</li>
 </ol>
 </li>
 </ul>
-<p><strong>建立 TCP 连接需要三次握手：</strong></p>
+<p><strong>&#x5EFA;&#x7ACB; TCP &#x8FDE;&#x63A5;&#x9700;&#x8981;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#xFF1A;</strong></p>
 <ol>
-<li>（客户端SYN SENT发送状态）即发送方发送 SYN 包（服务端处于SYN_RCVD创建套接字，等待接收SYN+ACK），</li>
-<li>接收方接收 SYN 包并发送 SYN+ACK 包，</li>
-<li>发送方（客户端处于ESTABLISHEO状态）接收 SYN+ACK 包发送 ACK 确认包（服务端处于ESTABLISHED状态）</li>
+<li>&#xFF08;&#x5BA2;&#x6237;&#x7AEF;SYN SENT&#x53D1;&#x9001;&#x72B6;&#x6001;&#xFF09;&#x5373;&#x53D1;&#x9001;&#x65B9;&#x53D1;&#x9001; SYN &#x5305;&#xFF08;&#x670D;&#x52A1;&#x7AEF;&#x5904;&#x4E8E;SYN_RCVD&#x521B;&#x5EFA;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x7B49;&#x5F85;&#x63A5;&#x6536;SYN+ACK&#xFF09;&#xFF0C;</li>
+<li>&#x63A5;&#x6536;&#x65B9;&#x63A5;&#x6536; SYN &#x5305;&#x5E76;&#x53D1;&#x9001; SYN+ACK &#x5305;&#xFF0C;</li>
+<li>&#x53D1;&#x9001;&#x65B9;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#x5904;&#x4E8E;ESTABLISHEO&#x72B6;&#x6001;&#xFF09;&#x63A5;&#x6536; SYN+ACK &#x5305;&#x53D1;&#x9001; ACK &#x786E;&#x8BA4;&#x5305;&#xFF08;&#x670D;&#x52A1;&#x7AEF;&#x5904;&#x4E8E;ESTABLISHED&#x72B6;&#x6001;&#xFF09;</li>
 </ol>
-<p><strong>释放 TCP 连接需要四次握手：</strong>即发送方发送 FIN 包主动关闭连接，接收方接收 FIN 包并发送 ACK 确认包，发送方接收到 ACK 包后接收方发送 FIN 包，发送方发送 ACK 确认包</p>
-<p>​    <strong>为什么握手是三次二挥手是四次</strong></p>
-<p>​    <strong>握手三次：</strong>两次不安全，有可能SYN会延迟，缺乏状态保护的情况下，收到一个SYN就会建立一个新的socket，完    成整的状态保护避免对一个客户端创建多个socket，服务端无法通过客户端的SYN确定客户端具有数据收发的能力，需要服务端再次进行确认</p>
-<p>​    <strong>挥手四次：</strong>被动关闭方，收到fin之后对其进行ACK回复，但是不能直接关闭socket，因为这时候用户有             可能正在处理数据（socket接收缓冲区中有可能还有堆积的数据），需要用户来确认什么时候关闭socket发送fin；因此ACK和fin不能放在一起</p>
-<p>​    <strong>三次握手失败，服务端如何处理</strong></p>
-<p>​    服务端超时等待ACK之后，向客户端发送rst报文，然后释放新建的socket资源</p>
-<p>​    <strong>SYN泛洪攻击（是什么，怎么解决）</strong></p>
-<p>​    <strong>主动关闭方，TIME_WAIT状态的作用:</strong></p>
+<p><strong>&#x91CA;&#x653E; TCP &#x8FDE;&#x63A5;&#x9700;&#x8981;&#x56DB;&#x6B21;&#x63E1;&#x624B;&#xFF1A;</strong>&#x5373;&#x53D1;&#x9001;&#x65B9;&#x53D1;&#x9001; FIN &#x5305;&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x63A5;&#x6536; FIN &#x5305;&#x5E76;&#x53D1;&#x9001; ACK &#x786E;&#x8BA4;&#x5305;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x63A5;&#x6536;&#x5230; ACK &#x5305;&#x540E;&#x63A5;&#x6536;&#x65B9;&#x53D1;&#x9001; FIN &#x5305;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x53D1;&#x9001; ACK &#x786E;&#x8BA4;&#x5305;</p>
+<p>&#x200B;    <strong>&#x4E3A;&#x4EC0;&#x4E48;&#x63E1;&#x624B;&#x662F;&#x4E09;&#x6B21;&#x4E8C;&#x6325;&#x624B;&#x662F;&#x56DB;&#x6B21;</strong></p>
+<p>&#x200B;    <strong>&#x63E1;&#x624B;&#x4E09;&#x6B21;&#xFF1A;</strong>&#x4E24;&#x6B21;&#x4E0D;&#x5B89;&#x5168;&#xFF0C;&#x6709;&#x53EF;&#x80FD;SYN&#x4F1A;&#x5EF6;&#x8FDF;&#xFF0C;&#x7F3A;&#x4E4F;&#x72B6;&#x6001;&#x4FDD;&#x62A4;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6536;&#x5230;&#x4E00;&#x4E2A;SYN&#x5C31;&#x4F1A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;socket&#xFF0C;&#x5B8C;    &#x6210;&#x6574;&#x7684;&#x72B6;&#x6001;&#x4FDD;&#x62A4;&#x907F;&#x514D;&#x5BF9;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x521B;&#x5EFA;&#x591A;&#x4E2A;socket&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x5BA2;&#x6237;&#x7AEF;&#x7684;SYN&#x786E;&#x5B9A;&#x5BA2;&#x6237;&#x7AEF;&#x5177;&#x6709;&#x6570;&#x636E;&#x6536;&#x53D1;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x9700;&#x8981;&#x670D;&#x52A1;&#x7AEF;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x786E;&#x8BA4;</p>
+<p>&#x200B;    <strong>&#x6325;&#x624B;&#x56DB;&#x6B21;&#xFF1A;</strong>&#x88AB;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#xFF0C;&#x6536;&#x5230;fin&#x4E4B;&#x540E;&#x5BF9;&#x5176;&#x8FDB;&#x884C;ACK&#x56DE;&#x590D;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5173;&#x95ED;socket&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x65F6;&#x5019;&#x7528;&#x6237;&#x6709;             &#x53EF;&#x80FD;&#x6B63;&#x5728;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF08;socket&#x63A5;&#x6536;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x6709;&#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x5806;&#x79EF;&#x7684;&#x6570;&#x636E;&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x6237;&#x6765;&#x786E;&#x8BA4;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5173;&#x95ED;socket&#x53D1;&#x9001;fin&#xFF1B;&#x56E0;&#x6B64;ACK&#x548C;fin&#x4E0D;&#x80FD;&#x653E;&#x5728;&#x4E00;&#x8D77;</p>
+<p>&#x200B;    <strong>&#x4E09;&#x6B21;&#x63E1;&#x624B;&#x5931;&#x8D25;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x5982;&#x4F55;&#x5904;&#x7406;</strong></p>
+<p>&#x200B;    &#x670D;&#x52A1;&#x7AEF;&#x8D85;&#x65F6;&#x7B49;&#x5F85;ACK&#x4E4B;&#x540E;&#xFF0C;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;rst&#x62A5;&#x6587;&#xFF0C;&#x7136;&#x540E;&#x91CA;&#x653E;&#x65B0;&#x5EFA;&#x7684;socket&#x8D44;&#x6E90;</p>
+<p>&#x200B;    <strong>SYN&#x6CDB;&#x6D2A;&#x653B;&#x51FB;&#xFF08;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#xFF09;</strong></p>
+<p>&#x200B;    <strong>&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#xFF0C;TIME_WAIT&#x72B6;&#x6001;&#x7684;&#x4F5C;&#x7528;:</strong></p>
 <ol>
-<li><p>假设没有time_wait而是直接进入closed状态，释放socket资源会造成的危害</p>
-<p>在主动关闭方发送的最后一次ACK丢失的情况下</p>
-<p>如果主动关闭方使用相同的地址信息立即重启，但是被动关闭方有可能</p>
+<li><p>&#x5047;&#x8BBE;&#x6CA1;&#x6709;time_wait&#x800C;&#x662F;&#x76F4;&#x63A5;&#x8FDB;&#x5165;closed&#x72B6;&#x6001;&#xFF0C;&#x91CA;&#x653E;socket&#x8D44;&#x6E90;&#x4F1A;&#x9020;&#x6210;&#x7684;&#x5371;&#x5BB3;</p>
+<p>&#x5728;&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#x53D1;&#x9001;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B21;ACK&#x4E22;&#x5931;&#x7684;&#x60C5;&#x51B5;&#x4E0B;</p>
+<p>&#x5982;&#x679C;&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5730;&#x5740;&#x4FE1;&#x606F;&#x7ACB;&#x5373;&#x91CD;&#x542F;&#xFF0C;&#x4F46;&#x662F;&#x88AB;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#x6709;&#x53EF;&#x80FD;</p>
 <ol>
-<li>收到被动关闭方超时等待后重发的fin包，对新连接造成影响</li>
-<li>发送SYN请求，但是对方等待的是ACK，因为状态不对导致对新连接造成影响</li>
+<li>&#x6536;&#x5230;&#x88AB;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#x8D85;&#x65F6;&#x7B49;&#x5F85;&#x540E;&#x91CD;&#x53D1;&#x7684;fin&#x5305;&#xFF0C;&#x5BF9;&#x65B0;&#x8FDE;&#x63A5;&#x9020;&#x6210;&#x5F71;&#x54CD;</li>
+<li>&#x53D1;&#x9001;SYN&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x65B9;&#x7B49;&#x5F85;&#x7684;&#x662F;ACK&#xFF0C;&#x56E0;&#x4E3A;&#x72B6;&#x6001;&#x4E0D;&#x5BF9;&#x5BFC;&#x81F4;&#x5BF9;&#x65B0;&#x8FDE;&#x63A5;&#x9020;&#x6210;&#x5F71;&#x54CD;</li>
 </ol>
 </li>
-<li><p>因此主动关闭方需要等待一段时间：2个MSL时间</p>
+<li><p>&#x56E0;&#x6B64;&#x4E3B;&#x52A8;&#x5173;&#x95ED;&#x65B9;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF1A;2&#x4E2A;MSL&#x65F6;&#x95F4;</p>
 </li>
 </ol>
-<p>​    若是对方重发fin请求，可以对其再次进行确认回复</p>
-<p>​    <strong>MSL：</strong>报文最大生命周期（30秒）</p>
-<p>​    等待连个MSL时间是为了让<strong><em>网络中延迟的报文</em></strong>（后序重传的fin和ACK）都消失网络中不会对后序连接造成影响</p>
-<p><strong>大量time_wait解决方案：</strong>调整MSL时间，设置套接字选项（地址复用）</p>
+<p>&#x200B;    &#x82E5;&#x662F;&#x5BF9;&#x65B9;&#x91CD;&#x53D1;fin&#x8BF7;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5176;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x786E;&#x8BA4;&#x56DE;&#x590D;</p>
+<p>&#x200B;    <strong>MSL&#xFF1A;</strong>&#x62A5;&#x6587;&#x6700;&#x5927;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF08;30&#x79D2;&#xFF09;</p>
+<p>&#x200B;    &#x7B49;&#x5F85;&#x8FDE;&#x4E2A;MSL&#x65F6;&#x95F4;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;<strong><em>&#x7F51;&#x7EDC;&#x4E2D;&#x5EF6;&#x8FDF;&#x7684;&#x62A5;&#x6587;</em></strong>&#xFF08;&#x540E;&#x5E8F;&#x91CD;&#x4F20;&#x7684;fin&#x548C;ACK&#xFF09;&#x90FD;&#x6D88;&#x5931;&#x7F51;&#x7EDC;&#x4E2D;&#x4E0D;&#x4F1A;&#x5BF9;&#x540E;&#x5E8F;&#x8FDE;&#x63A5;&#x9020;&#x6210;&#x5F71;&#x54CD;</p>
+<p><strong>&#x5927;&#x91CF;time_wait&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</strong>&#x8C03;&#x6574;MSL&#x65F6;&#x95F4;&#xFF0C;&#x8BBE;&#x7F6E;&#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#xFF08;&#x5730;&#x5740;&#x590D;&#x7528;&#xFF09;</p>
 </li>
-<li><p>可靠传输</p>
-<p>面向连接</p>
-<p><strong>确认应答机制：</strong>对每一条数据，向发送发进行确认回复，</p>
-<p><strong>超时重传机制：</strong>发送数据后等待一段时间（200ms）若是没有收到确认回复，则认为数据丢失，进行重传</p>
-<p><strong>协议字段中的序号+确认序号：</strong>确保数据有序的向应用层交付</p>
-<p><strong>协议字段中的校验和：</strong>校验接收的数据是否一致，不一致则发送重传请求，否则确定回复</p>
-<p><strong>tcp为了保证可靠传输，牺牲了部分性能，（有些性能的是没必要的），比如ack丢失导致的重传，tcp又采用了几种机制来避免无谓的性能松狮以及提高性能的方法</strong></p>
+<li><p>&#x53EF;&#x9760;&#x4F20;&#x8F93;</p>
+<p>&#x9762;&#x5411;&#x8FDE;&#x63A5;</p>
+<p><strong>&#x786E;&#x8BA4;&#x5E94;&#x7B54;&#x673A;&#x5236;&#xFF1A;</strong>&#x5BF9;&#x6BCF;&#x4E00;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5411;&#x53D1;&#x9001;&#x53D1;&#x8FDB;&#x884C;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#xFF0C;</p>
+<p><strong>&#x8D85;&#x65F6;&#x91CD;&#x4F20;&#x673A;&#x5236;&#xFF1A;</strong>&#x53D1;&#x9001;&#x6570;&#x636E;&#x540E;&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF08;200ms&#xFF09;&#x82E5;&#x662F;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF0C;&#x8FDB;&#x884C;&#x91CD;&#x4F20;</p>
+<p><strong>&#x534F;&#x8BAE;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x5E8F;&#x53F7;+&#x786E;&#x8BA4;&#x5E8F;&#x53F7;&#xFF1A;</strong>&#x786E;&#x4FDD;&#x6570;&#x636E;&#x6709;&#x5E8F;&#x7684;&#x5411;&#x5E94;&#x7528;&#x5C42;&#x4EA4;&#x4ED8;</p>
+<p><strong>&#x534F;&#x8BAE;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x6821;&#x9A8C;&#x548C;&#xFF1A;</strong>&#x6821;&#x9A8C;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#x662F;&#x5426;&#x4E00;&#x81F4;&#xFF0C;&#x4E0D;&#x4E00;&#x81F4;&#x5219;&#x53D1;&#x9001;&#x91CD;&#x4F20;&#x8BF7;&#x6C42;&#xFF0C;&#x5426;&#x5219;&#x786E;&#x5B9A;&#x56DE;&#x590D;</p>
+<p><strong>tcp&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x53EF;&#x9760;&#x4F20;&#x8F93;&#xFF0C;&#x727A;&#x7272;&#x4E86;&#x90E8;&#x5206;&#x6027;&#x80FD;&#xFF0C;&#xFF08;&#x6709;&#x4E9B;&#x6027;&#x80FD;&#x7684;&#x662F;&#x6CA1;&#x5FC5;&#x8981;&#x7684;&#xFF09;&#xFF0C;&#x6BD4;&#x5982;ack&#x4E22;&#x5931;&#x5BFC;&#x81F4;&#x7684;&#x91CD;&#x4F20;&#xFF0C;tcp&#x53C8;&#x91C7;&#x7528;&#x4E86;&#x51E0;&#x79CD;&#x673A;&#x5236;&#x6765;&#x907F;&#x514D;&#x65E0;&#x8C13;&#x7684;&#x6027;&#x80FD;&#x677E;&#x72EE;&#x4EE5;&#x53CA;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x65B9;&#x6CD5;</strong></p>
 <ol>
-<li><p>滑动窗口机制：</p>
-<p><strong>流量控制：</strong>通过协议字段中的窗口大小（不会大于接收方的接收缓冲区间中剩余空间大小）字段控制发送发发送的数据大小；避免因为发送过快而接收方处理过慢导致接收缓冲区数据放满后，大量的数据丢失重传降低的性能</p>
-<p>窗口大小在每次对数据进行确认回复的时候都会进行重新协商</p>
-<p>每一条确认回复，中的确认序号，都要保证之前的数据已经完全收到，没有收到第一条回复，但是收到第二条回复，认为第一条和第二条都已经正确插损胡，避免因为ack对视而导致的数据重传。</p>
-<p><strong>快速重传机制：</strong>收到了第二条数据，但是没有收到第一条，则初步认为第一条数据丢失，则立即发送第一条数据的重传请求，并且连续发送三次（避免因为网络阻塞，数据延迟到达而导致的重传），当发送方连续收到三次重传请求的时候，就不需要等待超时，直接对这条数据进行重传</p>
-<p><strong>拥塞控制：</strong>网络通信开始时，并不会直接发送窗口大小的数据，而是以一种慢启动，快增长的形式进行数据传输，起到一个网络探测在作用，避免开始通信时因为网络状况不好导致的发送数据越多，对视数据越多的重传性能功能损失，在快增长的过程中，若出现丢包则初始化拥塞窗口大小，重新开始探测网络状况；</p>
+<li><p>&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x673A;&#x5236;&#xFF1A;</p>
+<p><strong>&#x6D41;&#x91CF;&#x63A7;&#x5236;&#xFF1A;</strong>&#x901A;&#x8FC7;&#x534F;&#x8BAE;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF08;&#x4E0D;&#x4F1A;&#x5927;&#x4E8E;&#x63A5;&#x6536;&#x65B9;&#x7684;&#x63A5;&#x6536;&#x7F13;&#x51B2;&#x533A;&#x95F4;&#x4E2D;&#x5269;&#x4F59;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#xFF09;&#x5B57;&#x6BB5;&#x63A7;&#x5236;&#x53D1;&#x9001;&#x53D1;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#xFF1B;&#x907F;&#x514D;&#x56E0;&#x4E3A;&#x53D1;&#x9001;&#x8FC7;&#x5FEB;&#x800C;&#x63A5;&#x6536;&#x65B9;&#x5904;&#x7406;&#x8FC7;&#x6162;&#x5BFC;&#x81F4;&#x63A5;&#x6536;&#x7F13;&#x51B2;&#x533A;&#x6570;&#x636E;&#x653E;&#x6EE1;&#x540E;&#xFF0C;&#x5927;&#x91CF;&#x7684;&#x6570;&#x636E;&#x4E22;&#x5931;&#x91CD;&#x4F20;&#x964D;&#x4F4E;&#x7684;&#x6027;&#x80FD;</p>
+<p>&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x5728;&#x6BCF;&#x6B21;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x8FDB;&#x884C;&#x91CD;&#x65B0;&#x534F;&#x5546;</p>
+<p>&#x6BCF;&#x4E00;&#x6761;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#xFF0C;&#x4E2D;&#x7684;&#x786E;&#x8BA4;&#x5E8F;&#x53F7;&#xFF0C;&#x90FD;&#x8981;&#x4FDD;&#x8BC1;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x6536;&#x5230;&#xFF0C;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x7B2C;&#x4E00;&#x6761;&#x56DE;&#x590D;&#xFF0C;&#x4F46;&#x662F;&#x6536;&#x5230;&#x7B2C;&#x4E8C;&#x6761;&#x56DE;&#x590D;&#xFF0C;&#x8BA4;&#x4E3A;&#x7B2C;&#x4E00;&#x6761;&#x548C;&#x7B2C;&#x4E8C;&#x6761;&#x90FD;&#x5DF2;&#x7ECF;&#x6B63;&#x786E;&#x63D2;&#x635F;&#x80E1;&#xFF0C;&#x907F;&#x514D;&#x56E0;&#x4E3A;ack&#x5BF9;&#x89C6;&#x800C;&#x5BFC;&#x81F4;&#x7684;&#x6570;&#x636E;&#x91CD;&#x4F20;&#x3002;</p>
+<p><strong>&#x5FEB;&#x901F;&#x91CD;&#x4F20;&#x673A;&#x5236;&#xFF1A;</strong>&#x6536;&#x5230;&#x4E86;&#x7B2C;&#x4E8C;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x7B2C;&#x4E00;&#x6761;&#xFF0C;&#x5219;&#x521D;&#x6B65;&#x8BA4;&#x4E3A;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF0C;&#x5219;&#x7ACB;&#x5373;&#x53D1;&#x9001;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;&#x7684;&#x91CD;&#x4F20;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x4E14;&#x8FDE;&#x7EED;&#x53D1;&#x9001;&#x4E09;&#x6B21;&#xFF08;&#x907F;&#x514D;&#x56E0;&#x4E3A;&#x7F51;&#x7EDC;&#x963B;&#x585E;&#xFF0C;&#x6570;&#x636E;&#x5EF6;&#x8FDF;&#x5230;&#x8FBE;&#x800C;&#x5BFC;&#x81F4;&#x7684;&#x91CD;&#x4F20;&#xFF09;&#xFF0C;&#x5F53;&#x53D1;&#x9001;&#x65B9;&#x8FDE;&#x7EED;&#x6536;&#x5230;&#x4E09;&#x6B21;&#x91CD;&#x4F20;&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x8D85;&#x65F6;&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x8FD9;&#x6761;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x91CD;&#x4F20;</p>
+<p><strong>&#x62E5;&#x585E;&#x63A7;&#x5236;&#xFF1A;</strong>&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x662F;&#x4EE5;&#x4E00;&#x79CD;&#x6162;&#x542F;&#x52A8;&#xFF0C;&#x5FEB;&#x589E;&#x957F;&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;&#x8D77;&#x5230;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x63A2;&#x6D4B;&#x5728;&#x4F5C;&#x7528;&#xFF0C;&#x907F;&#x514D;&#x5F00;&#x59CB;&#x901A;&#x4FE1;&#x65F6;&#x56E0;&#x4E3A;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;&#x4E0D;&#x597D;&#x5BFC;&#x81F4;&#x7684;&#x53D1;&#x9001;&#x6570;&#x636E;&#x8D8A;&#x591A;&#xFF0C;&#x5BF9;&#x89C6;&#x6570;&#x636E;&#x8D8A;&#x591A;&#x7684;&#x91CD;&#x4F20;&#x6027;&#x80FD;&#x529F;&#x80FD;&#x635F;&#x5931;&#xFF0C;&#x5728;&#x5FEB;&#x589E;&#x957F;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x82E5;&#x51FA;&#x73B0;&#x4E22;&#x5305;&#x5219;&#x521D;&#x59CB;&#x5316;&#x62E5;&#x585E;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF0C;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x63A2;&#x6D4B;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;&#xFF1B;</p>
 </li>
-<li><p><strong>延迟应答机制：</strong>接受方接收数据若是立即回复，则窗口大小会降低， 会导致传输速度降低，因此接收方接收到的数据后，并不立即回复，而延迟一会（不超过500ms），在这期间，用户可又能将数据从接收缓冲区中取出，可以尽最大的能力保证窗口大小，保证传输速度不会降低</p>
+<li><p><strong>&#x5EF6;&#x8FDF;&#x5E94;&#x7B54;&#x673A;&#x5236;&#xFF1A;</strong>&#x63A5;&#x53D7;&#x65B9;&#x63A5;&#x6536;&#x6570;&#x636E;&#x82E5;&#x662F;&#x7ACB;&#x5373;&#x56DE;&#x590D;&#xFF0C;&#x5219;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F1A;&#x964D;&#x4F4E;&#xFF0C; &#x4F1A;&#x5BFC;&#x81F4;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x964D;&#x4F4E;&#xFF0C;&#x56E0;&#x6B64;&#x63A5;&#x6536;&#x65B9;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5E76;&#x4E0D;&#x7ACB;&#x5373;&#x56DE;&#x590D;&#xFF0C;&#x800C;&#x5EF6;&#x8FDF;&#x4E00;&#x4F1A;&#xFF08;&#x4E0D;&#x8D85;&#x8FC7;500ms&#xFF09;&#xFF0C;&#x5728;&#x8FD9;&#x671F;&#x95F4;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x53C8;&#x80FD;&#x5C06;&#x6570;&#x636E;&#x4ECE;&#x63A5;&#x6536;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x53D6;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x5C3D;&#x6700;&#x5927;&#x7684;&#x80FD;&#x529B;&#x4FDD;&#x8BC1;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF0C;&#x4FDD;&#x8BC1;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x4E0D;&#x4F1A;&#x964D;&#x4F4E;</p>
 </li>
-<li><p><strong>捎带应答机制：</strong>每次接收方对发送的数据进行确认回复，若单独发送一个数据报（仅仅包含一个tcp报头）是不划算的，解决方案就是将要进行的确认回复和即将要发送的数据合到一起进行发送，就可省略一个tcp报头的发送，减少网络中不必要的流量信息；</p>
-<p><strong>tcp可靠传输：</strong>连接管理，确认一个大，超时重传，序号/确认序号，校验和滑动窗口机制（流量控制，拥塞控制，快速重传），延迟应答，捎带应答</p>
+<li><p><strong>&#x634E;&#x5E26;&#x5E94;&#x7B54;&#x673A;&#x5236;&#xFF1A;</strong>&#x6BCF;&#x6B21;&#x63A5;&#x6536;&#x65B9;&#x5BF9;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#xFF0C;&#x82E5;&#x5355;&#x72EC;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x62A5;&#xFF08;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A;tcp&#x62A5;&#x5934;&#xFF09;&#x662F;&#x4E0D;&#x5212;&#x7B97;&#x7684;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5C31;&#x662F;&#x5C06;&#x8981;&#x8FDB;&#x884C;&#x7684;&#x786E;&#x8BA4;&#x56DE;&#x590D;&#x548C;&#x5373;&#x5C06;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x5408;&#x5230;&#x4E00;&#x8D77;&#x8FDB;&#x884C;&#x53D1;&#x9001;&#xFF0C;&#x5C31;&#x53EF;&#x7701;&#x7565;&#x4E00;&#x4E2A;tcp&#x62A5;&#x5934;&#x7684;&#x53D1;&#x9001;&#xFF0C;&#x51CF;&#x5C11;&#x7F51;&#x7EDC;&#x4E2D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x6D41;&#x91CF;&#x4FE1;&#x606F;&#xFF1B;</p>
+<p><strong>tcp&#x53EF;&#x9760;&#x4F20;&#x8F93;&#xFF1A;</strong>&#x8FDE;&#x63A5;&#x7BA1;&#x7406;&#xFF0C;&#x786E;&#x8BA4;&#x4E00;&#x4E2A;&#x5927;&#xFF0C;&#x8D85;&#x65F6;&#x91CD;&#x4F20;&#xFF0C;&#x5E8F;&#x53F7;/&#x786E;&#x8BA4;&#x5E8F;&#x53F7;&#xFF0C;&#x6821;&#x9A8C;&#x548C;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x673A;&#x5236;&#xFF08;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#xFF0C;&#x62E5;&#x585E;&#x63A7;&#x5236;&#xFF0C;&#x5FEB;&#x901F;&#x91CD;&#x4F20;&#xFF09;&#xFF0C;&#x5EF6;&#x8FDF;&#x5E94;&#x7B54;&#xFF0C;&#x634E;&#x5E26;&#x5E94;&#x7B54;</p>
 </li>
 </ol>
 </li>
-<li><p>面向字节流：数据不会直接发送，而是放到缓冲区中，操作系统选择一个合适的时机将合适大小的数据发送出去，对方接收数据时可以一次性接收所有数据，也可以一次接收一点，分多次接收</p>
+<li><p>&#x9762;&#x5411;&#x5B57;&#x8282;&#x6D41;&#xFF1A;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#xFF0C;&#x800C;&#x662F;&#x653E;&#x5230;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x65F6;&#x673A;&#x5C06;&#x5408;&#x9002;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x636E;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#xFF0C;&#x5BF9;&#x65B9;&#x63A5;&#x6536;&#x6570;&#x636E;&#x65F6;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x6027;&#x63A5;&#x6536;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x63A5;&#x6536;&#x4E00;&#x70B9;&#xFF0C;&#x5206;&#x591A;&#x6B21;&#x63A5;&#x6536;</p>
 <ul>
-<li><p><strong>tcp面向字节流特性：</strong>传输灵活，但是会造成粘包问题</p>
-<p><strong>粘包问题：</strong>tcp传输的数据在发送缓冲区或者接收缓冲区中堆积，因为tcp数据收发的灵活性，导致有可能多条数据当做一条接收；（两条数据的粘连）</p>
-<p><strong>tcp粘包原因：</strong>tcp在传输层，对数据的格式并不关心，对数据之间没有边界区分因此造成得到数据报</p>
-<p><strong>粘包是tcp在传输层对数据边界不敏感，因此需要用户在应用层进行数据边界管理：</strong></p>
+<li><p><strong>tcp&#x9762;&#x5411;&#x5B57;&#x8282;&#x6D41;&#x7279;&#x6027;&#xFF1A;</strong>&#x4F20;&#x8F93;&#x7075;&#x6D3B;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x9020;&#x6210;&#x7C98;&#x5305;&#x95EE;&#x9898;</p>
+<p><strong>&#x7C98;&#x5305;&#x95EE;&#x9898;&#xFF1A;</strong>tcp&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x5728;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x6216;&#x8005;&#x63A5;&#x6536;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x5806;&#x79EF;&#xFF0C;&#x56E0;&#x4E3A;tcp&#x6570;&#x636E;&#x6536;&#x53D1;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x5BFC;&#x81F4;&#x6709;&#x53EF;&#x80FD;&#x591A;&#x6761;&#x6570;&#x636E;&#x5F53;&#x505A;&#x4E00;&#x6761;&#x63A5;&#x6536;&#xFF1B;&#xFF08;&#x4E24;&#x6761;&#x6570;&#x636E;&#x7684;&#x7C98;&#x8FDE;&#xFF09;</p>
+<p><strong>tcp&#x7C98;&#x5305;&#x539F;&#x56E0;&#xFF1A;</strong>tcp&#x5728;&#x4F20;&#x8F93;&#x5C42;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x8FB9;&#x754C;&#x533A;&#x5206;&#x56E0;&#x6B64;&#x9020;&#x6210;&#x5F97;&#x5230;&#x6570;&#x636E;&#x62A5;</p>
+<p><strong>&#x7C98;&#x5305;&#x662F;tcp&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x5BF9;&#x6570;&#x636E;&#x8FB9;&#x754C;&#x4E0D;&#x654F;&#x611F;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x7528;&#x6237;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x8FB9;&#x754C;&#x7BA1;&#x7406;&#xFF1A;</strong></p>
 <ol>
-<li>特殊字符间隔</li>
-<li>定长数据</li>
-<li>不定长数据应用协议头中声明数据长度</li>
+<li>&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x95F4;&#x9694;</li>
+<li>&#x5B9A;&#x957F;&#x6570;&#x636E;</li>
+<li>&#x4E0D;&#x5B9A;&#x957F;&#x6570;&#x636E;&#x5E94;&#x7528;&#x534F;&#x8BAE;&#x5934;&#x4E2D;&#x58F0;&#x660E;&#x6570;&#x636E;&#x957F;&#x5EA6;</li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>tcp连接管理中的保活机制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">若是通信双方，长时间（7200s）没有数据往来，在会向对方发送保活探测数据包（要求对方对这个数据包进行回复），若是收到回复则认为连接正常，若是间隔（75s)发送连续多次（9c次）没有收到回复，则认为连接断开</span><br></pre></td></tr></table></figure>
+<li><p>tcp&#x8FDE;&#x63A5;&#x7BA1;&#x7406;&#x4E2D;&#x7684;&#x4FDD;&#x6D3B;&#x673A;&#x5236;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x82E5;&#x662F;&#x901A;&#x4FE1;&#x53CC;&#x65B9;&#xFF0C;&#x957F;&#x65F6;&#x95F4;&#xFF08;7200s&#xFF09;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x5F80;&#x6765;&#xFF0C;&#x5728;&#x4F1A;&#x5411;&#x5BF9;&#x65B9;&#x53D1;&#x9001;&#x4FDD;&#x6D3B;&#x63A2;&#x6D4B;&#x6570;&#x636E;&#x5305;&#xFF08;&#x8981;&#x6C42;&#x5BF9;&#x65B9;&#x5BF9;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x8FDB;&#x884C;&#x56DE;&#x590D;&#xFF09;&#xFF0C;&#x82E5;&#x662F;&#x6536;&#x5230;&#x56DE;&#x590D;&#x5219;&#x8BA4;&#x4E3A;&#x8FDE;&#x63A5;&#x6B63;&#x5E38;&#xFF0C;&#x82E5;&#x662F;&#x95F4;&#x9694;&#xFF08;75s)&#x53D1;&#x9001;&#x8FDE;&#x7EED;&#x591A;&#x6B21;&#xFF08;9c&#x6B21;&#xFF09;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x56DE;&#x590D;&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;&#x8FDE;&#x63A5;&#x65AD;&#x5F00;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>tcp异常链接断开的情况：断电</li>
+<li>tcp&#x5F02;&#x5E38;&#x94FE;&#x63A5;&#x65AD;&#x5F00;&#x7684;&#x60C5;&#x51B5;&#xFF1A;&#x65AD;&#x7535;</li>
 </ul>
 </li>
-<li><p>tcp协议字段</p>
+<li><p>tcp&#x534F;&#x8BAE;&#x5B57;&#x6BB5;</p>
 <ul>
-<li>16位源/目的端口：负责端与端之间的数据传输</li>
-<li>32位序号/确认序号：保证数据有序交付</li>
-<li>4位头部长度：解析时获取tcp头部，以4字节为 单位（tcp头部最小20字节，最大60字节）</li>
-<li>6位标志位：URG/ACK(确认回复)/PSH/RST(重置连接)/SYN/FIN(断开连接)</li>
-<li>16窗口大小：实现活动窗口，以及进行流量控制</li>
-<li>16位校验和：保证数据一致性</li>
-<li>16位紧急指针：带外数据</li>
-<li>40字节的选项数据：可有可无</li>
+<li>16&#x4F4D;&#x6E90;/&#x76EE;&#x7684;&#x7AEF;&#x53E3;&#xFF1A;&#x8D1F;&#x8D23;&#x7AEF;&#x4E0E;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;</li>
+<li>32&#x4F4D;&#x5E8F;&#x53F7;/&#x786E;&#x8BA4;&#x5E8F;&#x53F7;&#xFF1A;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x6709;&#x5E8F;&#x4EA4;&#x4ED8;</li>
+<li>4&#x4F4D;&#x5934;&#x90E8;&#x957F;&#x5EA6;&#xFF1A;&#x89E3;&#x6790;&#x65F6;&#x83B7;&#x53D6;tcp&#x5934;&#x90E8;&#xFF0C;&#x4EE5;4&#x5B57;&#x8282;&#x4E3A; &#x5355;&#x4F4D;&#xFF08;tcp&#x5934;&#x90E8;&#x6700;&#x5C0F;20&#x5B57;&#x8282;&#xFF0C;&#x6700;&#x5927;60&#x5B57;&#x8282;&#xFF09;</li>
+<li>6&#x4F4D;&#x6807;&#x5FD7;&#x4F4D;&#xFF1A;URG/ACK(&#x786E;&#x8BA4;&#x56DE;&#x590D;)/PSH/RST(&#x91CD;&#x7F6E;&#x8FDE;&#x63A5;)/SYN/FIN(&#x65AD;&#x5F00;&#x8FDE;&#x63A5;)</li>
+<li>16&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF1A;&#x5B9E;&#x73B0;&#x6D3B;&#x52A8;&#x7A97;&#x53E3;&#xFF0C;&#x4EE5;&#x53CA;&#x8FDB;&#x884C;&#x6D41;&#x91CF;&#x63A7;&#x5236;</li>
+<li>16&#x4F4D;&#x6821;&#x9A8C;&#x548C;&#xFF1A;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;</li>
+<li>16&#x4F4D;&#x7D27;&#x6025;&#x6307;&#x9488;&#xFF1A;&#x5E26;&#x5916;&#x6570;&#x636E;</li>
+<li>40&#x5B57;&#x8282;&#x7684;&#x9009;&#x9879;&#x6570;&#x636E;&#xFF1A;&#x53EF;&#x6709;&#x53EF;&#x65E0;</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>网络层：负责地质管理与路由选择；IP；路由器</p>
+<li><p>&#x7F51;&#x7EDC;&#x5C42;&#xFF1A;&#x8D1F;&#x8D23;&#x5730;&#x8D28;&#x7BA1;&#x7406;&#x4E0E;&#x8DEF;&#x7531;&#x9009;&#x62E9;&#xFF1B;IP&#xFF1B;&#x8DEF;&#x7531;&#x5668;</p>
 <ul>
-<li><p><strong>路由选择：</strong>在复杂的网络环境中为每一条数据都选择一条合适的路径</p>
+<li><p><strong>&#x8DEF;&#x7531;&#x9009;&#x62E9;&#xFF1A;</strong>&#x5728;&#x590D;&#x6742;&#x7684;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x4E2D;&#x4E3A;&#x6BCF;&#x4E00;&#x6761;&#x6570;&#x636E;&#x90FD;&#x9009;&#x62E9;&#x4E00;&#x6761;&#x5408;&#x9002;&#x7684;&#x8DEF;&#x5F84;</p>
 <ul>
-<li>在网络中的IP地质不能随意分配，因为随意分配很容易造成IP地质冲突，一次IP地质需要得到合理的管理才可以</li>
-<li>一个路由器可以组件一个局域网，这时候路由器向局域网中的主机分配IP地质的时候，就必须带有自己网络的表示—网络号（网段），这时候只需要将每个网络的网络号规范起来就可以避免IP地址冲突</li>
-<li>在一个局域网中，路由器向主机分配IP地址，还要能够在局域网中标识这个主机，这个表示叫主机号</li>
-<li>IP的组成：网络号+主机号</li>
-<li>保证相邻的网络不能具有相同的网络号就可以尽可能的避免IP地址冲突</li>
+<li>&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;IP&#x5730;&#x8D28;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x5206;&#x914D;&#xFF0C;&#x56E0;&#x4E3A;&#x968F;&#x610F;&#x5206;&#x914D;&#x5F88;&#x5BB9;&#x6613;&#x9020;&#x6210;IP&#x5730;&#x8D28;&#x51B2;&#x7A81;&#xFF0C;&#x4E00;&#x6B21;IP&#x5730;&#x8D28;&#x9700;&#x8981;&#x5F97;&#x5230;&#x5408;&#x7406;&#x7684;&#x7BA1;&#x7406;&#x624D;&#x53EF;&#x4EE5;</li>
+<li>&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#x53EF;&#x4EE5;&#x7EC4;&#x4EF6;&#x4E00;&#x4E2A;&#x5C40;&#x57DF;&#x7F51;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x8DEF;&#x7531;&#x5668;&#x5411;&#x5C40;&#x57DF;&#x7F51;&#x4E2D;&#x7684;&#x4E3B;&#x673A;&#x5206;&#x914D;IP&#x5730;&#x8D28;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x5E26;&#x6709;&#x81EA;&#x5DF1;&#x7F51;&#x7EDC;&#x7684;&#x8868;&#x793A;&#x2014;&#x7F51;&#x7EDC;&#x53F7;&#xFF08;&#x7F51;&#x6BB5;&#xFF09;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x8981;&#x5C06;&#x6BCF;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x7F51;&#x7EDC;&#x53F7;&#x89C4;&#x8303;&#x8D77;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x907F;&#x514D;IP&#x5730;&#x5740;&#x51B2;&#x7A81;</li>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x5C40;&#x57DF;&#x7F51;&#x4E2D;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x5411;&#x4E3B;&#x673A;&#x5206;&#x914D;IP&#x5730;&#x5740;&#xFF0C;&#x8FD8;&#x8981;&#x80FD;&#x591F;&#x5728;&#x5C40;&#x57DF;&#x7F51;&#x4E2D;&#x6807;&#x8BC6;&#x8FD9;&#x4E2A;&#x4E3B;&#x673A;&#xFF0C;&#x8FD9;&#x4E2A;&#x8868;&#x793A;&#x53EB;&#x4E3B;&#x673A;&#x53F7;</li>
+<li>IP&#x7684;&#x7EC4;&#x6210;&#xFF1A;&#x7F51;&#x7EDC;&#x53F7;+&#x4E3B;&#x673A;&#x53F7;</li>
+<li>&#x4FDD;&#x8BC1;&#x76F8;&#x90BB;&#x7684;&#x7F51;&#x7EDC;&#x4E0D;&#x80FD;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x7F51;&#x7EDC;&#x53F7;&#x5C31;&#x53EF;&#x4EE5;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x907F;&#x514D;IP&#x5730;&#x5740;&#x51B2;&#x7A81;</li>
 </ul>
 </li>
-<li><p><strong>网段的划分：</strong></p>
+<li><p><strong>&#x7F51;&#x6BB5;&#x7684;&#x5212;&#x5206;&#xFF1A;</strong></p>
 <ul>
-<li><p>早期划分方式：A/B/C/D/E</p>
+<li><p>&#x65E9;&#x671F;&#x5212;&#x5206;&#x65B9;&#x5F0F;&#xFF1A;A/B/C/D/E</p>
 <ul>
-<li><p>A类地址：低24位是主机号，A类网络地址主机号有2^24，地址范围：    </p>
+<li><p>A&#x7C7B;&#x5730;&#x5740;&#xFF1A;&#x4F4E;24&#x4F4D;&#x662F;&#x4E3B;&#x673A;&#x53F7;&#xFF0C;A&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E3B;&#x673A;&#x53F7;&#x6709;2^24&#xFF0C;&#x5730;&#x5740;&#x8303;&#x56F4;&#xFF1A;    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0~127.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>B类地址：低16位时主机号，B类网络地址主机有65536个，地址范围：</p>
+<li><p>B&#x7C7B;&#x5730;&#x5740;&#xFF1A;&#x4F4E;16&#x4F4D;&#x65F6;&#x4E3B;&#x673A;&#x53F7;&#xFF0C;B&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E3B;&#x673A;&#x6709;65536&#x4E2A;&#xFF0C;&#x5730;&#x5740;&#x8303;&#x56F4;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">128.0.0.0~191.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>C类地址：低8位时主机号，C类网络地址主机号有256个，地址范围：</p>
+<li><p>C&#x7C7B;&#x5730;&#x5740;&#xFF1A;&#x4F4E;8&#x4F4D;&#x65F6;&#x4E3B;&#x673A;&#x53F7;&#xFF0C;C&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E3B;&#x673A;&#x53F7;&#x6709;256&#x4E2A;&#xFF0C;&#x5730;&#x5740;&#x8303;&#x56F4;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.0.0.0~223.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>D类地址：</p>
+<li><p>D&#x7C7B;&#x5730;&#x5740;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">224.0.0.0~239.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>E类地址：</p>
+<li><p>E&#x7C7B;&#x5730;&#x5740;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">240.0.0.0~247.255.255.255</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p><strong>现在解决方案-CIDR：</strong>加入了一个字段叫子网掩码，通过子网掩码来对网络进行划分</p>
+<li><p><strong>&#x73B0;&#x5728;&#x89E3;&#x51B3;&#x65B9;&#x6848;-CIDR&#xFF1A;</strong>&#x52A0;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x53EB;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF0C;&#x901A;&#x8FC7;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x6765;&#x5BF9;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x5212;&#x5206;</p>
 <ul>
-<li><p><strong>子网掩码：</strong>由一串连续的二进制1组成的一个无符号4个字节的整数</p>
+<li><p><strong>&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF1A;</strong>&#x7531;&#x4E00;&#x4E32;&#x8FDE;&#x7EED;&#x7684;&#x4E8C;&#x8FDB;&#x5236;1&#x7EC4;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x65E0;&#x7B26;&#x53F7;4&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6574;&#x6570;</p>
 <p>192.168.132                 255.255.255.0</p>
-<p><strong>作用：</strong></p>
+<p><strong>&#x4F5C;&#x7528;&#xFF1A;</strong></p>
 <ol>
-<li><p>子网掩码与IP地址相与能够得到网络号</p>
+<li><p>&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x4E0E;IP&#x5730;&#x5740;&#x76F8;&#x4E0E;&#x80FD;&#x591F;&#x5F97;&#x5230;&#x7F51;&#x7EDC;&#x53F7;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.122.132&amp;255.255.255.0=192.168.122.0</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>子网掩码取反，可以得到网络中主机号的个数~255.255.255.0=255+1=256</p>
+<li><p>&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x53D6;&#x53CD;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x7F51;&#x7EDC;&#x4E2D;&#x4E3B;&#x673A;&#x53F7;&#x7684;&#x4E2A;&#x6570;~255.255.255.0=255+1=256</p>
 </li>
 </ol>
 <ul>
-<li><strong>现在有一个C类网络地址，将这个C类网络划分出20个子网，请问每个子网的子网掩码是多少，IP地址范围是多少，以及各自网络的网络号是多少</strong></li>
+<li><strong>&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;C&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;C&#x7C7B;&#x7F51;&#x7EDC;&#x5212;&#x5206;&#x51FA;20&#x4E2A;&#x5B50;&#x7F51;&#xFF0C;&#x8BF7;&#x95EE;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x7684;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x662F;&#x591A;&#x5C11;&#xFF0C;IP&#x5730;&#x5740;&#x8303;&#x56F4;&#x662F;&#x591A;&#x5C11;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x81EA;&#x7F51;&#x7EDC;&#x7684;&#x7F51;&#x7EDC;&#x53F7;&#x662F;&#x591A;&#x5C11;</strong></li>
 </ul>
-<p>​        C类网络地址有256个主机号，平均划分20个子网，每隔子网中主机号个数256/20，每个子网中主机号个数是12；每个子网掩码是连续的1，因此12取反无法得到连续1，在每个子网主机号能少，不能多的情况下，为了保证子网掩码是连续的1，因此主机号个数最好是8，得到最大主机号7</p>
-<p>~0.0.0.7=255.255.255.248 — 这就是每个子网的子网掩码</p>
+<p>&#x200B;        C&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x6709;256&#x4E2A;&#x4E3B;&#x673A;&#x53F7;&#xFF0C;&#x5E73;&#x5747;&#x5212;&#x5206;20&#x4E2A;&#x5B50;&#x7F51;&#xFF0C;&#x6BCF;&#x9694;&#x5B50;&#x7F51;&#x4E2D;&#x4E3B;&#x673A;&#x53F7;&#x4E2A;&#x6570;256/20&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x4E2D;&#x4E3B;&#x673A;&#x53F7;&#x4E2A;&#x6570;&#x662F;12&#xFF1B;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x662F;&#x8FDE;&#x7EED;&#x7684;1&#xFF0C;&#x56E0;&#x6B64;12&#x53D6;&#x53CD;&#x65E0;&#x6CD5;&#x5F97;&#x5230;&#x8FDE;&#x7EED;1&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x4E3B;&#x673A;&#x53F7;&#x80FD;&#x5C11;&#xFF0C;&#x4E0D;&#x80FD;&#x591A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x662F;&#x8FDE;&#x7EED;&#x7684;1&#xFF0C;&#x56E0;&#x6B64;&#x4E3B;&#x673A;&#x53F7;&#x4E2A;&#x6570;&#x6700;&#x597D;&#x662F;8&#xFF0C;&#x5F97;&#x5230;&#x6700;&#x5927;&#x4E3B;&#x673A;&#x53F7;7</p>
+<p>~0.0.0.7=255.255.255.248 &#x2014; &#x8FD9;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x7684;&#x5B50;&#x7F51;&#x63A9;&#x7801;</p>
 <ul>
-<li><p><strong>现在有一个C类网络地址，将这个C类网络划分出4个子网，请问每个子网的子网掩码是多少，IP地址范围是多少，以及各自网络的网络号是多少</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">256  / 4 = 64 每个子网中最大主机号是63</span><br><span class="line"></span><br><span class="line">63取反就能得到每个网络的子网掩码 ~0.0.0.63 = 255.255.255.192</span><br><span class="line"></span><br><span class="line">192.168.122.0 ~ 192.168.122.63				192.168.122.0 </span><br><span class="line"></span><br><span class="line">192.168.122.64 ~ 192.168.122.127			192.168.122.64</span><br><span class="line"></span><br><span class="line">192.168.122.128 ~ 192.168.122.191		  192.168.122.128 </span><br><span class="line"></span><br><span class="line">192.168.122.192 ~ 192.168.122.255          192.168.122.192</span><br></pre></td></tr></table></figure>
+<li><p><strong>&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;C&#x7C7B;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;C&#x7C7B;&#x7F51;&#x7EDC;&#x5212;&#x5206;&#x51FA;4&#x4E2A;&#x5B50;&#x7F51;&#xFF0C;&#x8BF7;&#x95EE;&#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x7684;&#x5B50;&#x7F51;&#x63A9;&#x7801;&#x662F;&#x591A;&#x5C11;&#xFF0C;IP&#x5730;&#x5740;&#x8303;&#x56F4;&#x662F;&#x591A;&#x5C11;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x81EA;&#x7F51;&#x7EDC;&#x7684;&#x7F51;&#x7EDC;&#x53F7;&#x662F;&#x591A;&#x5C11;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">256  / 4 = 64 &#x6BCF;&#x4E2A;&#x5B50;&#x7F51;&#x4E2D;&#x6700;&#x5927;&#x4E3B;&#x673A;&#x53F7;&#x662F;63</span><br><span class="line"></span><br><span class="line">63&#x53D6;&#x53CD;&#x5C31;&#x80FD;&#x5F97;&#x5230;&#x6BCF;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x5B50;&#x7F51;&#x63A9;&#x7801; ~0.0.0.63 = 255.255.255.192</span><br><span class="line"></span><br><span class="line">192.168.122.0 ~ 192.168.122.63				192.168.122.0 </span><br><span class="line"></span><br><span class="line">192.168.122.64 ~ 192.168.122.127			192.168.122.64</span><br><span class="line"></span><br><span class="line">192.168.122.128 ~ 192.168.122.191		  192.168.122.128 </span><br><span class="line"></span><br><span class="line">192.168.122.192 ~ 192.168.122.255          192.168.122.192</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -588,60 +589,60 @@
 </ul>
 </li>
 </ul>
-<pre><code>- 在一个网络中，并不是所有主机号都能分配个主机（2个不能分配，主机号 - 2 = 可分配地址）
+<pre><code>- &#x5728;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x4E3B;&#x673A;&#x53F7;&#x90FD;&#x80FD;&#x5206;&#x914D;&#x4E2A;&#x4E3B;&#x673A;&#xFF08;2&#x4E2A;&#x4E0D;&#x80FD;&#x5206;&#x914D;&#xFF0C;&#x4E3B;&#x673A;&#x53F7; - 2 = &#x53EF;&#x5206;&#x914D;&#x5730;&#x5740;&#xFF09;
 
-  - 主机号全为0的IP地址 -- 网络号，用于表示一个网络
-  - 主机号权威1的IP地址 -- udp广播地址
-  - **127.0.0.1        本机虚拟会还网卡地址 --- 用于本机的网络测试**
+  - &#x4E3B;&#x673A;&#x53F7;&#x5168;&#x4E3A;0&#x7684;IP&#x5730;&#x5740; -- &#x7F51;&#x7EDC;&#x53F7;&#xFF0C;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;
+  - &#x4E3B;&#x673A;&#x53F7;&#x6743;&#x5A01;1&#x7684;IP&#x5730;&#x5740; -- udp&#x5E7F;&#x64AD;&#x5730;&#x5740;
+  - **127.0.0.1        &#x672C;&#x673A;&#x865A;&#x62DF;&#x4F1A;&#x8FD8;&#x7F51;&#x5361;&#x5730;&#x5740; --- &#x7528;&#x4E8E;&#x672C;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#x6D4B;&#x8BD5;**
 
-- 在RFC1918中进行规定，用于组建私网的网段也不能随意使用，只能在一下几个网段能够用于组建私网
+- &#x5728;RFC1918&#x4E2D;&#x8FDB;&#x884C;&#x89C4;&#x5B9A;&#xFF0C;&#x7528;&#x4E8E;&#x7EC4;&#x5EFA;&#x79C1;&#x7F51;&#x7684;&#x7F51;&#x6BB5;&#x4E5F;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x4F7F;&#x7528;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x4E00;&#x4E0B;&#x51E0;&#x4E2A;&#x7F51;&#x6BB5;&#x80FD;&#x591F;&#x7528;&#x4E8E;&#x7EC4;&#x5EFA;&#x79C1;&#x7F51;
 
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10.-.-.-		172.16.-.- ~ 172.31.-.- 		192.168.-.-</span><br><span class="line"></span><br><span class="line">相邻的网络不能使用相同的网络号</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10.-.-.-		172.16.-.- ~ 172.31.-.- 		192.168.-.-</span><br><span class="line"></span><br><span class="line">&#x76F8;&#x90BB;&#x7684;&#x7F51;&#x7EDC;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7F51;&#x7EDC;&#x53F7;</span><br></pre></td></tr></table></figure>
 
-- 路由选择
+- &#x8DEF;&#x7531;&#x9009;&#x62E9;
 
-  - **路由表：**每个路由器上都有一个路由表，记录的连接在路由器上的网络
+  - **&#x8DEF;&#x7531;&#x8868;&#xFF1A;**&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x8868;&#xFF0C;&#x8BB0;&#x5F55;&#x7684;&#x8FDE;&#x63A5;&#x5728;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x7684;&#x7F51;&#x7EDC;
 
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Destinnation		Gateway			Genmask				Iface</span><br><span class="line"></span><br><span class="line">192.168.122.0						255.255.255.0		eth1</span><br><span class="line"></span><br><span class="line">192.168.10.0						255.255.255.0		eth0</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
-<li><p>IP协议字段</p>
+<li><p>IP&#x534F;&#x8BAE;&#x5B57;&#x6BB5;</p>
 <ul>
-<li><p><strong>4位版本：</strong>IPV4/IPV6</p>
+<li><p><strong>4&#x4F4D;&#x7248;&#x672C;&#xFF1A;</strong>IPV4/IPV6</p>
 </li>
-<li><p><strong>4位头部长度：</strong>IP报文头最大长度60个字节（以4字节为单位）</p>
+<li><p><strong>4&#x4F4D;&#x5934;&#x90E8;&#x957F;&#x5EA6;&#xFF1A;</strong>IP&#x62A5;&#x6587;&#x5934;&#x6700;&#x5927;&#x957F;&#x5EA6;60&#x4E2A;&#x5B57;&#x8282;&#xFF08;&#x4EE5;4&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#xFF09;</p>
 </li>
-<li><p><strong>8位服务类型：</strong>4位TOS字段（最小延时/最大吞吐量/最高可靠习性/最小成本），1位保留位</p>
+<li><p><strong>8&#x4F4D;&#x670D;&#x52A1;&#x7C7B;&#x578B;&#xFF1A;</strong>4&#x4F4D;TOS&#x5B57;&#x6BB5;&#xFF08;&#x6700;&#x5C0F;&#x5EF6;&#x65F6;/&#x6700;&#x5927;&#x541E;&#x5410;&#x91CF;/&#x6700;&#x9AD8;&#x53EF;&#x9760;&#x4E60;&#x6027;/&#x6700;&#x5C0F;&#x6210;&#x672C;&#xFF09;&#xFF0C;1&#x4F4D;&#x4FDD;&#x7559;&#x4F4D;</p>
 </li>
-<li><p><strong>16位报文长度：</strong>限制一个IP报文最大长度64k ，udp数据最大长度：64k-20-8</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MTU:最大传输单元 &lt; udp数据长度 &lt; 64k-20-8时，链路层则不支持大于mtu大小数据传输，这时候网络线获取下层mtu大小，在网络层对数据进行分片</span><br></pre></td></tr></table></figure>
+<li><p><strong>16&#x4F4D;&#x62A5;&#x6587;&#x957F;&#x5EA6;&#xFF1A;</strong>&#x9650;&#x5236;&#x4E00;&#x4E2A;IP&#x62A5;&#x6587;&#x6700;&#x5927;&#x957F;&#x5EA6;64k &#xFF0C;udp&#x6570;&#x636E;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF1A;64k-20-8</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MTU:&#x6700;&#x5927;&#x4F20;&#x8F93;&#x5355;&#x5143; &lt; udp&#x6570;&#x636E;&#x957F;&#x5EA6; &lt; 64k-20-8&#x65F6;&#xFF0C;&#x94FE;&#x8DEF;&#x5C42;&#x5219;&#x4E0D;&#x652F;&#x6301;&#x5927;&#x4E8E;mtu&#x5927;&#x5C0F;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x7F51;&#x7EDC;&#x7EBF;&#x83B7;&#x53D6;&#x4E0B;&#x5C42;mtu&#x5927;&#x5C0F;&#xFF0C;&#x5728;&#x7F51;&#x7EDC;&#x5C42;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x7247;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>16位标识：</strong>udp数据有可能在网络层进行数据分片，这个表示则可以指定当前分片属于哪个udp数据包</p>
+<li><p><strong>16&#x4F4D;&#x6807;&#x8BC6;&#xFF1A;</strong>udp&#x6570;&#x636E;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x7F51;&#x7EDC;&#x5C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x7247;&#xFF0C;&#x8FD9;&#x4E2A;&#x8868;&#x793A;&#x5219;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x5206;&#x7247;&#x5C5E;&#x4E8E;&#x54EA;&#x4E2A;udp&#x6570;&#x636E;&#x5305;</p>
 </li>
-<li><p><strong>3位标志：</strong>1位启用，1位标识是否禁止分片，1位用于标识分片末尾</p>
+<li><p><strong>3&#x4F4D;&#x6807;&#x5FD7;&#xFF1A;</strong>1&#x4F4D;&#x542F;&#x7528;&#xFF0C;1&#x4F4D;&#x6807;&#x8BC6;&#x662F;&#x5426;&#x7981;&#x6B62;&#x5206;&#x7247;&#xFF0C;1&#x4F4D;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x5206;&#x7247;&#x672B;&#x5C3E;</p>
 </li>
-<li><p><strong>13位片偏移：</strong>用于指定udp数据分片相对于udp数据报起始位置的偏移量（分片在数据包中的位置）</p>
+<li><p><strong>13&#x4F4D;&#x7247;&#x504F;&#x79FB;&#xFF1A;</strong>&#x7528;&#x4E8E;&#x6307;&#x5B9A;udp&#x6570;&#x636E;&#x5206;&#x7247;&#x76F8;&#x5BF9;&#x4E8E;udp&#x6570;&#x636E;&#x62A5;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x5206;&#x7247;&#x5728;&#x6570;&#x636E;&#x5305;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;</p>
 <ul>
-<li>偏移量是以8字节为单位，每个分片都是8的整数倍长度（除最后一个分片）</li>
+<li>&#x504F;&#x79FB;&#x91CF;&#x662F;&#x4EE5;8&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5206;&#x7247;&#x90FD;&#x662F;8&#x7684;&#x6574;&#x6570;&#x500D;&#x957F;&#x5EA6;&#xFF08;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5206;&#x7247;&#xFF09;</li>
 </ul>
 </li>
-<li><p><strong>8位ttl：</strong>报文生命周期，最大经过的路由器跳数</p>
+<li><p><strong>8&#x4F4D;ttl&#xFF1A;</strong>&#x62A5;&#x6587;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x6700;&#x5927;&#x7ECF;&#x8FC7;&#x7684;&#x8DEF;&#x7531;&#x5668;&#x8DF3;&#x6570;</p>
 </li>
-<li><p><strong>8位上层协议：</strong>用于数据分用时，决定由上层哪个协议进行解析</p>
+<li><p><strong>8&#x4F4D;&#x4E0A;&#x5C42;&#x534F;&#x8BAE;&#xFF1A;</strong>&#x7528;&#x4E8E;&#x6570;&#x636E;&#x5206;&#x7528;&#x65F6;&#xFF0C;&#x51B3;&#x5B9A;&#x7531;&#x4E0A;&#x5C42;&#x54EA;&#x4E2A;&#x534F;&#x8BAE;&#x8FDB;&#x884C;&#x89E3;&#x6790;</p>
 </li>
-<li><p><strong>16位校验和：</strong>校验数据一致性</p>
+<li><p><strong>16&#x4F4D;&#x6821;&#x9A8C;&#x548C;&#xFF1A;</strong>&#x6821;&#x9A8C;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;</p>
 </li>
-<li><p><strong>32位源/目的IP地址：</strong>标识数据从哪来到哪去</p>
+<li><p><strong>32&#x4F4D;&#x6E90;/&#x76EE;&#x7684;IP&#x5730;&#x5740;&#xFF1A;</strong>&#x6807;&#x8BC6;&#x6570;&#x636E;&#x4ECE;&#x54EA;&#x6765;&#x5230;&#x54EA;&#x53BB;</p>
 </li>
-<li><p><strong>40字节选项数据</strong></p>
+<li><p><strong>40&#x5B57;&#x8282;&#x9009;&#x9879;&#x6570;&#x636E;</strong></p>
 </li>
 </ul>
 </li>
-<li><p>链路层：负责相邻设备之间的数据传输；Ether；交换机</p>
+<li><p>&#x94FE;&#x8DEF;&#x5C42;&#xFF1A;&#x8D1F;&#x8D23;&#x76F8;&#x90BB;&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF1B;Ether&#xFF1B;&#x4EA4;&#x6362;&#x673A;</p>
 <ul>
-<li><strong>链路层协议字段：</strong>源MAC地址，目的MAC地址，上层协议类型，数据，帧尾</li>
-<li><strong>MAC地址：</strong>网络物理硬件地址，用于表示硬件设备<ul>
-<li><strong>mtu对tcp协议的影响：</strong>tcp在传输层的时候就会获取mtu大小进行计算得到自己的mss大小，并于对方进行协商，取其中较小的一个作为传输大小，发送数据的时候从发送缓冲区中取出的数据大小就不会大于mss大小，tcp在传输层会进行数据分段，因此不会在网络层进行数据分片</li>
-<li><strong>mtu对udp协议的影响：</strong>因为udp在传输层不会进行数据分段，因此当啊udp传输的数据大小，大于mtu但是小于64k-20-8的时候，数据会在网络层进行数据分片，分片了再对端就会进行分片重组，只要有一个分片出现问题，都会导致整个udp数据报被丢弃；因此对于udp来说分片越多，传输就越危险，因此用户在应用层进行udp数据分包的时候最好就将数据大小控制在mtu-20-8</li>
+<li><strong>&#x94FE;&#x8DEF;&#x5C42;&#x534F;&#x8BAE;&#x5B57;&#x6BB5;&#xFF1A;</strong>&#x6E90;MAC&#x5730;&#x5740;&#xFF0C;&#x76EE;&#x7684;MAC&#x5730;&#x5740;&#xFF0C;&#x4E0A;&#x5C42;&#x534F;&#x8BAE;&#x7C7B;&#x578B;&#xFF0C;&#x6570;&#x636E;&#xFF0C;&#x5E27;&#x5C3E;</li>
+<li><strong>MAC&#x5730;&#x5740;&#xFF1A;</strong>&#x7F51;&#x7EDC;&#x7269;&#x7406;&#x786C;&#x4EF6;&#x5730;&#x5740;&#xFF0C;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x786C;&#x4EF6;&#x8BBE;&#x5907;<ul>
+<li><strong>mtu&#x5BF9;tcp&#x534F;&#x8BAE;&#x7684;&#x5F71;&#x54CD;&#xFF1A;</strong>tcp&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x83B7;&#x53D6;mtu&#x5927;&#x5C0F;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x81EA;&#x5DF1;&#x7684;mss&#x5927;&#x5C0F;&#xFF0C;&#x5E76;&#x4E8E;&#x5BF9;&#x65B9;&#x8FDB;&#x884C;&#x534F;&#x5546;&#xFF0C;&#x53D6;&#x5176;&#x4E2D;&#x8F83;&#x5C0F;&#x7684;&#x4E00;&#x4E2A;&#x4F5C;&#x4E3A;&#x4F20;&#x8F93;&#x5927;&#x5C0F;&#xFF0C;&#x53D1;&#x9001;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4ECE;&#x53D1;&#x9001;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x53D6;&#x51FA;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x5C31;&#x4E0D;&#x4F1A;&#x5927;&#x4E8E;mss&#x5927;&#x5C0F;&#xFF0C;tcp&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x4F1A;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x6BB5;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x5728;&#x7F51;&#x7EDC;&#x5C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x7247;</li>
+<li><strong>mtu&#x5BF9;udp&#x534F;&#x8BAE;&#x7684;&#x5F71;&#x54CD;&#xFF1A;</strong>&#x56E0;&#x4E3A;udp&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x6BB5;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x554A;udp&#x4F20;&#x8F93;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#xFF0C;&#x5927;&#x4E8E;mtu&#x4F46;&#x662F;&#x5C0F;&#x4E8E;64k-20-8&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6570;&#x636E;&#x4F1A;&#x5728;&#x7F51;&#x7EDC;&#x5C42;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5206;&#x7247;&#xFF0C;&#x5206;&#x7247;&#x4E86;&#x518D;&#x5BF9;&#x7AEF;&#x5C31;&#x4F1A;&#x8FDB;&#x884C;&#x5206;&#x7247;&#x91CD;&#x7EC4;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x5206;&#x7247;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6574;&#x4E2A;udp&#x6570;&#x636E;&#x62A5;&#x88AB;&#x4E22;&#x5F03;&#xFF1B;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;udp&#x6765;&#x8BF4;&#x5206;&#x7247;&#x8D8A;&#x591A;&#xFF0C;&#x4F20;&#x8F93;&#x5C31;&#x8D8A;&#x5371;&#x9669;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x6237;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x8FDB;&#x884C;udp&#x6570;&#x636E;&#x5206;&#x5305;&#x7684;&#x65F6;&#x5019;&#x6700;&#x597D;&#x5C31;&#x5C06;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x63A7;&#x5236;&#x5728;mtu-20-8</li>
 </ul>
 </li>
 </ul>
@@ -726,86 +727,86 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="猜测可能影响性能的因素"><a href="#猜测可能影响性能的因素" class="headerlink" title="猜测可能影响性能的因素"></a>猜测可能影响性能的因素</h5><ol>
-<li>执行时间过短</li>
-<li>执行次数过少（实验的次数）</li>
-<li>优化原因/AOT（编译器）/JIT（编译器）优化处理</li>
-<li>预热</li>
-<li>其他</li>
+        <h5 id="&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;"><a href="#&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;" class="headerlink" title="&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;"></a>&#x731C;&#x6D4B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x6027;&#x80FD;&#x7684;&#x56E0;&#x7D20;</h5><ol>
+<li>&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8FC7;&#x77ED;</li>
+<li>&#x6267;&#x884C;&#x6B21;&#x6570;&#x8FC7;&#x5C11;&#xFF08;&#x5B9E;&#x9A8C;&#x7684;&#x6B21;&#x6570;&#xFF09;</li>
+<li>&#x4F18;&#x5316;&#x539F;&#x56E0;/AOT&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#xFF09;/JIT&#xFF08;&#x7F16;&#x8BD1;&#x5668;&#xFF09;&#x4F18;&#x5316;&#x5904;&#x7406;</li>
+<li>&#x9884;&#x70ED;</li>
+<li>&#x5176;&#x4ED6;</li>
 </ol>
 <h5 id="JMH"><a href="#JMH" class="headerlink" title="JMH"></a>JMH</h5><ul>
-<li><p>注解</p>
+<li><p>&#x6CE8;&#x89E3;</p>
 <ul>
-<li><p>语法：定义注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> 注解名称（每个单词首字母大写）&#123;</span><br><span class="line">	方法声明列表（抽象方法列表）</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Measurement &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>&#x8BED;&#x6CD5;&#xFF1A;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> &#x6CE8;&#x89E3;&#x540D;&#x79F0;&#xFF08;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF09;{</span><br><span class="line">	&#x65B9;&#x6CD5;&#x58F0;&#x660E;&#x5217;&#x8868;&#xFF08;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x5217;&#x8868;&#xFF09;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> Measurement {</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">iterations</span><span class="params">()</span> <span class="keyword">default</span> </span>= <span class="number">3</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用注解</p>
+<li><p>&#x4F7F;&#x7528;&#x6CE8;&#x89E3;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span>(iteartions = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span> 等同于 <span class="meta">@Measurement</span>（<span class="meta">@Measurement</span>(iteration = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x6216;&#x8005;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Measurement</span> &#x7B49;&#x540C;&#x4E8E; <span class="meta">@Measurement</span>&#xFF08;<span class="meta">@Measurement</span>(iteration = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>存在情况</p>
+<li><p>&#x5B58;&#x5728;&#x60C5;&#x51B5;</p>
 <ul>
-<li>Annotation Processor（注解处理器）</li>
+<li>Annotation Processor&#xFF08;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5668;&#xFF09;</li>
 </ul>
 <ol>
-<li>编译期间 （变成了<code>*.class</code>）已经不存在</li>
-<li>编译期间 （变成了<code>*.class</code>）还存在，但是运行时不存在</li>
+<li>&#x7F16;&#x8BD1;&#x671F;&#x95F4; &#xFF08;&#x53D8;&#x6210;&#x4E86;<code>*.class</code>&#xFF09;&#x5DF2;&#x7ECF;&#x4E0D;&#x5B58;&#x5728;</li>
+<li>&#x7F16;&#x8BD1;&#x671F;&#x95F4; &#xFF08;&#x53D8;&#x6210;&#x4E86;<code>*.class</code>&#xFF09;&#x8FD8;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x4E0D;&#x5B58;&#x5728;</li>
 </ol>
 <ul>
-<li>反射</li>
+<li>&#x53CD;&#x5C04;</li>
 </ul>
 <ol>
-<li>运行期间 时钟存在（保存方法区的类的元信息中），利用发射获取信息</li>
+<li>&#x8FD0;&#x884C;&#x671F;&#x95F4; &#x65F6;&#x949F;&#x5B58;&#x5728;&#xFF08;&#x4FDD;&#x5B58;&#x65B9;&#x6CD5;&#x533A;&#x7684;&#x7C7B;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x4E2D;&#xFF09;&#xFF0C;&#x5229;&#x7528;&#x53D1;&#x5C04;&#x83B7;&#x53D6;&#x4FE1;&#x606F;</li>
 </ol>
 </li>
-<li><p>注解的使用场景（把代码逻辑转成配置逻辑）</p>
+<li><p>&#x6CE8;&#x89E3;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF08;&#x628A;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x8F6C;&#x6210;&#x914D;&#x7F6E;&#x903B;&#x8F91;&#xFF09;</p>
 <ol>
-<li>修改的代码逻辑的成本一定是高于配置的成本</li>
-<li>有些配置和代码是强相关的</li>
+<li>&#x4FEE;&#x6539;&#x7684;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x7684;&#x6210;&#x672C;&#x4E00;&#x5B9A;&#x662F;&#x9AD8;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x6210;&#x672C;</li>
+<li>&#x6709;&#x4E9B;&#x914D;&#x7F6E;&#x548C;&#x4EE3;&#x7801;&#x662F;&#x5F3A;&#x76F8;&#x5173;&#x7684;</li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>通过反射获取类的方法</p>
+<li><p>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x83B7;&#x53D6;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</p>
 <ol>
-<li>类名.class</li>
+<li>&#x7C7B;&#x540D;.class</li>
 <li><code>object.getClass()</code></li>
-<li><code>Class.forNmae(&quot;类的权威名称&quot;)</code></li>
+<li><code>Class.forNmae(&quot;&#x7C7B;&#x7684;&#x6743;&#x5A01;&#x540D;&#x79F0;&quot;)</code></li>
 </ol>
 </li>
 </ul>
-<h5 id="基准测试框架-性能测试框架"><a href="#基准测试框架-性能测试框架" class="headerlink" title="基准测试框架/性能测试框架"></a>基准测试框架/性能测试框架</h5><ul>
-<li>功能<ol>
-<li>自动加载测试用例</li>
-<li>通过接口标记待测试类</li>
-<li>通过注解标记待测试方法</li>
-<li>通过注解实现多级配置</li>
+<h5 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;-&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;"><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;-&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;" class="headerlink" title="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;/&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;"></a>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;/&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;</h5><ul>
+<li>&#x529F;&#x80FD;<ol>
+<li>&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</li>
+<li>&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x6807;&#x8BB0;&#x5F85;&#x6D4B;&#x8BD5;&#x7C7B;</li>
+<li>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x6807;&#x8BB0;&#x5F85;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x5B9E;&#x73B0;&#x591A;&#x7EA7;&#x914D;&#x7F6E;</li>
 </ol>
 </li>
-<li>TODO：<ol>
-<li>生成报表</li>
-<li>问题修复</li>
-<li>格式配置</li>
+<li>TODO&#xFF1A;<ol>
+<li>&#x751F;&#x6210;&#x62A5;&#x8868;</li>
+<li>&#x95EE;&#x9898;&#x4FEE;&#x590D;</li>
+<li>&#x683C;&#x5F0F;&#x914D;&#x7F6E;</li>
 </ol>
 </li>
 </ul>
-<h5 id="JMH使用"><a href="#JMH使用" class="headerlink" title="JMH使用"></a>JMH使用</h5><ul>
-<li><p>PATH环境变量</p>
-<p>java(绝对路径)</p>
+<h5 id="JMH&#x4F7F;&#x7528;"><a href="#JMH&#x4F7F;&#x7528;" class="headerlink" title="JMH&#x4F7F;&#x7528;"></a>JMH&#x4F7F;&#x7528;</h5><ul>
+<li><p>PATH&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+<p>java(&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;)</p>
 </li>
 </ul>
 <h5 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h5><ol>
-<li><p>系统工具</p>
+<li><p>&#x7CFB;&#x7EDF;&#x5DE5;&#x5177;</p>
 </li>
-<li><p>阶段</p>
+<li><p>&#x9636;&#x6BB5;</p>
 <ul>
-<li>清理    clean</li>
-<li>编译    compile</li>
-<li>打包    package</li>
-<li>安装    install</li>
+<li>&#x6E05;&#x7406;    clean</li>
+<li>&#x7F16;&#x8BD1;    compile</li>
+<li>&#x6253;&#x5305;    package</li>
+<li>&#x5B89;&#x88C5;    install</li>
 </ul>
 </li>
 </ol>
@@ -891,12 +892,12 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大家应该都会玩“锤子剪刀布”的游戏： 现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。</span><br></pre></td></tr></table></figure>
-<h5 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入第1行给出正整数N（&lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代表“锤子”、J代表“剪刀”、B代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。</span><br></pre></td></tr></table></figure>
-<h5 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出第1、2行分别给出甲、乙的胜、平、负次数，数字间以1个空格分隔。第3行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有1个空格。如果解不唯一，则输出按字母序最小的解。</span><br></pre></td></tr></table></figure>
-<h5 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a>输入例子:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 C J J B C B B B B C C C C B J B B C J J</span><br></pre></td></tr></table></figure>
-<h5 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a>输出例子:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 3 2 2 3 5 B B</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * 枚举类型，存放B,C,J三种手势；</span><br><span class="line"> * 自定义方法：1.将手势字符转换为下标；2.将下标数字转换为手势字符；</span><br><span class="line"> */</span><br><span class="line">enum EnumTest&#123;</span><br><span class="line">	B, C, J;</span><br><span class="line">	public static int convert(char c)&#123;</span><br><span class="line">		switch (c) &#123;</span><br><span class="line">		case &apos;B&apos;:</span><br><span class="line">			return 0;</span><br><span class="line">		case &apos;C&apos;:</span><br><span class="line">			return 1;</span><br><span class="line">		case &apos;J&apos;:</span><br><span class="line">			return 2;</span><br><span class="line">		default:</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		return c;</span><br><span class="line">	&#125;</span><br><span class="line">	public static char convert2(int i)&#123;</span><br><span class="line">		switch (i) &#123;</span><br><span class="line">		case 0:</span><br><span class="line">			return &apos;B&apos;;</span><br><span class="line">		case 1:</span><br><span class="line">			return &apos;C&apos;;</span><br><span class="line">		case 2:</span><br><span class="line">			return &apos;J&apos;;</span><br><span class="line"></span><br><span class="line">		default:</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Scanner in = new Scanner(System.in);</span><br><span class="line">		int N = in.nextInt();</span><br><span class="line"></span><br><span class="line">		//A、B玩家以B（布）、C（锤子）、J（剪刀）赢的次数</span><br><span class="line">		int[] AWin = new int[3];</span><br><span class="line">		int[] BWin = new int[3];</span><br><span class="line">		int countDraw = 0;//平局次数</span><br><span class="line">		/*</span><br><span class="line">		 * 输入手势字符，转换成数字下标，判断输赢，并增加对应玩家出特定手势的次数；</span><br><span class="line">		 */</span><br><span class="line">		for (int i = 0; i &lt; N; i++) &#123;</span><br><span class="line">			int a = EnumTest.convert(in.next().charAt(0));</span><br><span class="line">			int b = EnumTest.convert(in.next().charAt(0));</span><br><span class="line">			//手势相同，增加平局次数</span><br><span class="line">			if (a == b) &#123;</span><br><span class="line">				countDraw++;</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				boolean win = compare(a, b);</span><br><span class="line">				if (win) &#123;</span><br><span class="line">					AWin[a]++;</span><br><span class="line">				&#125;else&#123;</span><br><span class="line">					BWin[b]++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		in.close();</span><br><span class="line">		int countA = AWin[0]+AWin[1]+AWin[2];</span><br><span class="line">		//打印A、B赢、平局、输的次数，并打印A、B获胜最多的手势</span><br><span class="line">		System.out.println(countA+&quot; &quot;+countDraw+&quot; &quot;+(N-countA-countDraw));</span><br><span class="line">		System.out.println((N-countA-countDraw)+&quot; &quot;+countDraw+&quot; &quot;+countA);</span><br><span class="line">		System.out.println(EnumTest.convert2(max(AWin))+&quot; &quot;+EnumTest.convert2(max(BWin)));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//判断A、B输赢</span><br><span class="line">	public static boolean compare(int c1, int c2)&#123;</span><br><span class="line">		if ((c1 == 0 &amp;&amp; c2 == 1) </span><br><span class="line">				|| (c1 == 1 &amp;&amp; c2 == 2) </span><br><span class="line">				|| (c1 == 2 &amp;&amp; c2 == 0)) &#123;</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	//判断玩家获胜时采用最多的手势</span><br><span class="line">	public static int max(int[] array)&#123;</span><br><span class="line">		int max = array[0];</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			if (max &lt; array[i]) &#123;</span><br><span class="line">				max = array[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			if(array[i] == max)&#123;</span><br><span class="line">				return i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h5 id="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"><a href="#&#x9898;&#x76EE;&#x63CF;&#x8FF0;" class="headerlink" title="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"></a>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x4F1A;&#x73A9;&#x201C;&#x9524;&#x5B50;&#x526A;&#x5200;&#x5E03;&#x201D;&#x7684;&#x6E38;&#x620F;&#xFF1A; &#x73B0;&#x7ED9;&#x51FA;&#x4E24;&#x4EBA;&#x7684;&#x4EA4;&#x950B;&#x8BB0;&#x5F55;&#xFF0C;&#x8BF7;&#x7EDF;&#x8BA1;&#x53CC;&#x65B9;&#x7684;&#x80DC;&#x3001;&#x5E73;&#x3001;&#x8D1F;&#x6B21;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x7ED9;&#x51FA;&#x53CC;&#x65B9;&#x5206;&#x522B;&#x51FA;&#x4EC0;&#x4E48;&#x624B;&#x52BF;&#x7684;&#x80DC;&#x7B97;&#x6700;&#x5927;&#x3002;</span><br></pre></td></tr></table></figure>
+<h5 id="&#x8F93;&#x5165;&#x63CF;&#x8FF0;"><a href="#&#x8F93;&#x5165;&#x63CF;&#x8FF0;" class="headerlink" title="&#x8F93;&#x5165;&#x63CF;&#x8FF0;:"></a>&#x8F93;&#x5165;&#x63CF;&#x8FF0;:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;&#x7B2C;1&#x884C;&#x7ED9;&#x51FA;&#x6B63;&#x6574;&#x6570;N&#xFF08;&lt;=105&#xFF09;&#xFF0C;&#x5373;&#x53CC;&#x65B9;&#x4EA4;&#x950B;&#x7684;&#x6B21;&#x6570;&#x3002;&#x968F;&#x540E;N&#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x7ED9;&#x51FA;&#x4E00;&#x6B21;&#x4EA4;&#x950B;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x7532;&#x3001;&#x4E59;&#x53CC;&#x65B9;&#x540C;&#x65F6;&#x7ED9;&#x51FA;&#x7684;&#x7684;&#x624B;&#x52BF;&#x3002;C&#x4EE3;&#x8868;&#x201C;&#x9524;&#x5B50;&#x201D;&#x3001;J&#x4EE3;&#x8868;&#x201C;&#x526A;&#x5200;&#x201D;&#x3001;B&#x4EE3;&#x8868;&#x201C;&#x5E03;&#x201D;&#xFF0C;&#x7B2C;1&#x4E2A;&#x5B57;&#x6BCD;&#x4EE3;&#x8868;&#x7532;&#x65B9;&#xFF0C;&#x7B2C;2&#x4E2A;&#x4EE3;&#x8868;&#x4E59;&#x65B9;&#xFF0C;&#x4E2D;&#x95F4;&#x6709;1&#x4E2A;&#x7A7A;&#x683C;&#x3002;</span><br></pre></td></tr></table></figure>
+<h5 id="&#x8F93;&#x51FA;&#x63CF;&#x8FF0;"><a href="#&#x8F93;&#x51FA;&#x63CF;&#x8FF0;" class="headerlink" title="&#x8F93;&#x51FA;&#x63CF;&#x8FF0;:"></a>&#x8F93;&#x51FA;&#x63CF;&#x8FF0;:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x51FA;&#x7B2C;1&#x3001;2&#x884C;&#x5206;&#x522B;&#x7ED9;&#x51FA;&#x7532;&#x3001;&#x4E59;&#x7684;&#x80DC;&#x3001;&#x5E73;&#x3001;&#x8D1F;&#x6B21;&#x6570;&#xFF0C;&#x6570;&#x5B57;&#x95F4;&#x4EE5;1&#x4E2A;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x3002;&#x7B2C;3&#x884C;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x5B57;&#x6BCD;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;&#x7532;&#x3001;&#x4E59;&#x83B7;&#x80DC;&#x6B21;&#x6570;&#x6700;&#x591A;&#x7684;&#x624B;&#x52BF;&#xFF0C;&#x4E2D;&#x95F4;&#x6709;1&#x4E2A;&#x7A7A;&#x683C;&#x3002;&#x5982;&#x679C;&#x89E3;&#x4E0D;&#x552F;&#x4E00;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x6309;&#x5B57;&#x6BCD;&#x5E8F;&#x6700;&#x5C0F;&#x7684;&#x89E3;&#x3002;</span><br></pre></td></tr></table></figure>
+<h5 id="&#x8F93;&#x5165;&#x4F8B;&#x5B50;"><a href="#&#x8F93;&#x5165;&#x4F8B;&#x5B50;" class="headerlink" title="&#x8F93;&#x5165;&#x4F8B;&#x5B50;:"></a>&#x8F93;&#x5165;&#x4F8B;&#x5B50;:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 C J J B C B B B B C C C C B J B B C J J</span><br></pre></td></tr></table></figure>
+<h5 id="&#x8F93;&#x51FA;&#x4F8B;&#x5B50;"><a href="#&#x8F93;&#x51FA;&#x4F8B;&#x5B50;" class="headerlink" title="&#x8F93;&#x51FA;&#x4F8B;&#x5B50;:"></a>&#x8F93;&#x51FA;&#x4F8B;&#x5B50;:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 3 2 2 3 5 B B</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * &#x679A;&#x4E3E;&#x7C7B;&#x578B;&#xFF0C;&#x5B58;&#x653E;B,C,J&#x4E09;&#x79CD;&#x624B;&#x52BF;&#xFF1B;</span><br><span class="line"> * &#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#xFF1A;1.&#x5C06;&#x624B;&#x52BF;&#x5B57;&#x7B26;&#x8F6C;&#x6362;&#x4E3A;&#x4E0B;&#x6807;&#xFF1B;2.&#x5C06;&#x4E0B;&#x6807;&#x6570;&#x5B57;&#x8F6C;&#x6362;&#x4E3A;&#x624B;&#x52BF;&#x5B57;&#x7B26;&#xFF1B;</span><br><span class="line"> */</span><br><span class="line">enum EnumTest{</span><br><span class="line">	B, C, J;</span><br><span class="line">	public static int convert(char c){</span><br><span class="line">		switch (c) {</span><br><span class="line">		case &apos;B&apos;:</span><br><span class="line">			return 0;</span><br><span class="line">		case &apos;C&apos;:</span><br><span class="line">			return 1;</span><br><span class="line">		case &apos;J&apos;:</span><br><span class="line">			return 2;</span><br><span class="line">		default:</span><br><span class="line">			break;</span><br><span class="line">		}</span><br><span class="line">		return c;</span><br><span class="line">	}</span><br><span class="line">	public static char convert2(int i){</span><br><span class="line">		switch (i) {</span><br><span class="line">		case 0:</span><br><span class="line">			return &apos;B&apos;;</span><br><span class="line">		case 1:</span><br><span class="line">			return &apos;C&apos;;</span><br><span class="line">		case 2:</span><br><span class="line">			return &apos;J&apos;;</span><br><span class="line"></span><br><span class="line">		default:</span><br><span class="line">			break;</span><br><span class="line">		}</span><br><span class="line">		return 0;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">public class Main {</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) {</span><br><span class="line"></span><br><span class="line">		Scanner in = new Scanner(System.in);</span><br><span class="line">		int N = in.nextInt();</span><br><span class="line"></span><br><span class="line">		//A&#x3001;B&#x73A9;&#x5BB6;&#x4EE5;B&#xFF08;&#x5E03;&#xFF09;&#x3001;C&#xFF08;&#x9524;&#x5B50;&#xFF09;&#x3001;J&#xFF08;&#x526A;&#x5200;&#xFF09;&#x8D62;&#x7684;&#x6B21;&#x6570;</span><br><span class="line">		int[] AWin = new int[3];</span><br><span class="line">		int[] BWin = new int[3];</span><br><span class="line">		int countDraw = 0;//&#x5E73;&#x5C40;&#x6B21;&#x6570;</span><br><span class="line">		/*</span><br><span class="line">		 * &#x8F93;&#x5165;&#x624B;&#x52BF;&#x5B57;&#x7B26;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x5B57;&#x4E0B;&#x6807;&#xFF0C;&#x5224;&#x65AD;&#x8F93;&#x8D62;&#xFF0C;&#x5E76;&#x589E;&#x52A0;&#x5BF9;&#x5E94;&#x73A9;&#x5BB6;&#x51FA;&#x7279;&#x5B9A;&#x624B;&#x52BF;&#x7684;&#x6B21;&#x6570;&#xFF1B;</span><br><span class="line">		 */</span><br><span class="line">		for (int i = 0; i &lt; N; i++) {</span><br><span class="line">			int a = EnumTest.convert(in.next().charAt(0));</span><br><span class="line">			int b = EnumTest.convert(in.next().charAt(0));</span><br><span class="line">			//&#x624B;&#x52BF;&#x76F8;&#x540C;&#xFF0C;&#x589E;&#x52A0;&#x5E73;&#x5C40;&#x6B21;&#x6570;</span><br><span class="line">			if (a == b) {</span><br><span class="line">				countDraw++;</span><br><span class="line">			}else{</span><br><span class="line">				boolean win = compare(a, b);</span><br><span class="line">				if (win) {</span><br><span class="line">					AWin[a]++;</span><br><span class="line">				}else{</span><br><span class="line">					BWin[b]++;</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		in.close();</span><br><span class="line">		int countA = AWin[0]+AWin[1]+AWin[2];</span><br><span class="line">		//&#x6253;&#x5370;A&#x3001;B&#x8D62;&#x3001;&#x5E73;&#x5C40;&#x3001;&#x8F93;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x5E76;&#x6253;&#x5370;A&#x3001;B&#x83B7;&#x80DC;&#x6700;&#x591A;&#x7684;&#x624B;&#x52BF;</span><br><span class="line">		System.out.println(countA+&quot; &quot;+countDraw+&quot; &quot;+(N-countA-countDraw));</span><br><span class="line">		System.out.println((N-countA-countDraw)+&quot; &quot;+countDraw+&quot; &quot;+countA);</span><br><span class="line">		System.out.println(EnumTest.convert2(max(AWin))+&quot; &quot;+EnumTest.convert2(max(BWin)));</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	//&#x5224;&#x65AD;A&#x3001;B&#x8F93;&#x8D62;</span><br><span class="line">	public static boolean compare(int c1, int c2){</span><br><span class="line">		if ((c1 == 0 &amp;&amp; c2 == 1) </span><br><span class="line">				|| (c1 == 1 &amp;&amp; c2 == 2) </span><br><span class="line">				|| (c1 == 2 &amp;&amp; c2 == 0)) {</span><br><span class="line">			return true;</span><br><span class="line">		}</span><br><span class="line">		return false;</span><br><span class="line">	}</span><br><span class="line">	//&#x5224;&#x65AD;&#x73A9;&#x5BB6;&#x83B7;&#x80DC;&#x65F6;&#x91C7;&#x7528;&#x6700;&#x591A;&#x7684;&#x624B;&#x52BF;</span><br><span class="line">	public static int max(int[] array){</span><br><span class="line">		int max = array[0];</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) {</span><br><span class="line">			if (max &lt; array[i]) {</span><br><span class="line">				max = array[i];</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) {</span><br><span class="line">			if(array[i] == max){</span><br><span class="line">				return i;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		return 0;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1047,29 +1048,29 @@
 
       
         <ul>
-<li>十进制转成十六进制：   </li>
+<li>&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6210;&#x5341;&#x516D;&#x8FDB;&#x5236;&#xFF1A;   </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.toHexString(<span class="keyword">int</span> i)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>十进制转成八进制   </li>
+<li>&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6210;&#x516B;&#x8FDB;&#x5236;   </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.toOctalString(<span class="keyword">int</span> i)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>十进制转成二进制   </li>
+<li>&#x5341;&#x8FDB;&#x5236;&#x8F6C;&#x6210;&#x4E8C;&#x8FDB;&#x5236;   </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.toBinaryString(<span class="keyword">int</span> i)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>十六进制转成十进制   </li>
+<li>&#x5341;&#x516D;&#x8FDB;&#x5236;&#x8F6C;&#x6210;&#x5341;&#x8FDB;&#x5236;   </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">"FFFF"</span>,<span class="number">16</span>).toString()</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">&quot;FFFF&quot;</span>,<span class="number">16</span>).toString()</span><br></pre></td></tr></table></figure>
 <ul>
-<li>八进制转成十进制   </li>
+<li>&#x516B;&#x8FDB;&#x5236;&#x8F6C;&#x6210;&#x5341;&#x8FDB;&#x5236;   </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">"876"</span>,<span class="number">8</span>).toString()</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">&quot;876&quot;</span>,<span class="number">8</span>).toString()</span><br></pre></td></tr></table></figure>
 <ul>
-<li>二进制转十进制   </li>
+<li>&#x4E8C;&#x8FDB;&#x5236;&#x8F6C;&#x5341;&#x8FDB;&#x5236;   </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">"0101"</span>,<span class="number">2</span>).toString()</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(<span class="string">&quot;0101&quot;</span>,<span class="number">2</span>).toString()</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1149,9 +1150,9 @@
 
       
         <blockquote>
-<p>本文介绍java中几种保留小数点后指定小位数的方法,下面以保留两位为例</p>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;java&#x4E2D;&#x51E0;&#x79CD;&#x4FDD;&#x7559;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x6307;&#x5B9A;&#x5C0F;&#x4F4D;&#x6570;&#x7684;&#x65B9;&#x6CD5;,&#x4E0B;&#x9762;&#x4EE5;&#x4FDD;&#x7559;&#x4E24;&#x4F4D;&#x4E3A;&#x4F8B;</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法一：最简便的方法，调用DecimalFormat类</span></span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">".00"</span>);</span><br><span class="line">        System.out.println(df.format(d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法二：直接通过String类的format函数实现</span></span><br><span class="line">        System.out.println(String.format(<span class="string">"%.2f"</span>, d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法三：通过BigDecimal类实现</span></span><br><span class="line">        BigDecimal bg = <span class="keyword">new</span> BigDecimal(d);</span><br><span class="line">        <span class="keyword">double</span> d3 = bg.setScale(<span class="number">2</span>, BigDecimal.ROUND_HALF_UP).doubleValue();</span><br><span class="line">        System.out.println(d3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//方法四：通过NumberFormat类实现</span></span><br><span class="line">        NumberFormat nf = NumberFormat.getNumberInstance();</span><br><span class="line">        nf.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">        System.out.println(nf.format(d));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> study;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">double</span> d = <span class="number">123.456</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x6700;&#x7B80;&#x4FBF;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;DecimalFormat&#x7C7B;</span></span><br><span class="line">        DecimalFormat df = <span class="keyword">new</span> DecimalFormat(<span class="string">&quot;.00&quot;</span>);</span><br><span class="line">        System.out.println(df.format(d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;&#x76F4;&#x63A5;&#x901A;&#x8FC7;String&#x7C7B;&#x7684;format&#x51FD;&#x6570;&#x5B9E;&#x73B0;</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;%.2f&quot;</span>, d));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;&#x901A;&#x8FC7;BigDecimal&#x7C7B;&#x5B9E;&#x73B0;</span></span><br><span class="line">        BigDecimal bg = <span class="keyword">new</span> BigDecimal(d);</span><br><span class="line">        <span class="keyword">double</span> d3 = bg.setScale(<span class="number">2</span>, BigDecimal.ROUND_HALF_UP).doubleValue();</span><br><span class="line">        System.out.println(d3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//&#x65B9;&#x6CD5;&#x56DB;&#xFF1A;&#x901A;&#x8FC7;NumberFormat&#x7C7B;&#x5B9E;&#x73B0;</span></span><br><span class="line">        NumberFormat nf = NumberFormat.getNumberInstance();</span><br><span class="line">        nf.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">        System.out.println(nf.format(d));</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1230,41 +1231,41 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="问题产生"><a href="#问题产生" class="headerlink" title="问题产生"></a>问题产生</h5><ul>
-<li>观察下面程序的输出结果</li>
+        <h5 id="&#x95EE;&#x9898;&#x4EA7;&#x751F;"><a href="#&#x95EE;&#x9898;&#x4EA7;&#x751F;" class="headerlink" title="&#x95EE;&#x9898;&#x4EA7;&#x751F;"></a>&#x95EE;&#x9898;&#x4EA7;&#x751F;</h5><ul>
+<li>&#x89C2;&#x5BDF;&#x4E0B;&#x9762;&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);</span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p align="left"><font face="楷体" color="#FF8247" size="5">为何他们的值如上述所示呢？</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Integer a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);</span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p align="left"><font face="&#x6977;&#x4F53;" color="#FF8247" size="5">&#x4E3A;&#x4F55;&#x4ED6;&#x4EEC;&#x7684;&#x503C;&#x5982;&#x4E0A;&#x8FF0;&#x6240;&#x793A;&#x5462;&#xFF1F;</font></p>
 
-<h5 id="先介绍一下java中Integer的对象池就会恍然大悟"><a href="#先介绍一下java中Integer的对象池就会恍然大悟" class="headerlink" title="先介绍一下java中Integer的对象池就会恍然大悟"></a>先介绍一下java中Integer的对象池就会恍然大悟</h5><ul>
-<li>java 在编译代码的时候会把 <code>integer a = 1</code>、 <code>integer d = new integer (1)</code>翻译成 <code>integer x = integer.valueof (1)</code>所以关键在于 <code>valueof ()</code> 函数</li>
+<h5 id="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;"><a href="#&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;" class="headerlink" title="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;"></a>&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;</h5><ul>
+<li>java &#x5728;&#x7F16;&#x8BD1;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x628A; <code>integer a = 1</code>&#x3001; <code>integer d = new integer (1)</code>&#x7FFB;&#x8BD1;&#x6210; <code>integer x = integer.valueof (1)</code>&#x6240;&#x4EE5;&#x5173;&#x952E;&#x5728;&#x4E8E; <code>valueof ()</code> &#x51FD;&#x6570;</li>
 </ul>
 <ol>
-<li><code>valueof()</code>源码</li>
+<li><code>valueof()</code>&#x6E90;&#x7801;</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li><code>IntegerCache</code>(缓存池数组)</li>
+<li><code>IntegerCache</code>(&#x7F13;&#x5B58;&#x6C60;&#x6570;&#x7EC4;)</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// high value may be configured by property</span></span><br><span class="line">        <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">        String integerCacheHighPropValue =</span><br><span class="line">            sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</span><br><span class="line">        <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">                i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">                <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">                h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</span><br><span class="line">                <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        high = h;</span><br><span class="line"></span><br><span class="line">        cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> j = low;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">            cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line">        <span class="comment">// high value may be configured by property</span></span><br><span class="line">        <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">        String integerCacheHighPropValue =</span><br><span class="line">            sun.misc.VM.getSavedProperty(<span class="string">&quot;java.lang.Integer.IntegerCache.high&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">                i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">                <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">                h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">catch</span>( NumberFormatException nfe) {</span><br><span class="line">                <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        high = h;</span><br><span class="line"></span><br><span class="line">        cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> j = low;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">            cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>{}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ul>
-<li>对象池原理</li>
+<li>&#x5BF9;&#x8C61;&#x6C60;&#x539F;&#x7406;</li>
 </ul>
-<p aling="left"><font face="楷体" color="#0000CD" size="4">看到上方cache缓存数组，在static静态块中，而Integer类又在java.lang包（jdk目录中）下，在java编译时就加载了类，所以静态块中的数组在编译的时候就创建了，从命名可以就可以看出这个数组是作为缓存数组，保存着从[-128,127]的Integer对象。</font></p>
+<p aling="left"><font face="&#x6977;&#x4F53;" color="#0000CD" size="4">&#x770B;&#x5230;&#x4E0A;&#x65B9;cache&#x7F13;&#x5B58;&#x6570;&#x7EC4;&#xFF0C;&#x5728;static&#x9759;&#x6001;&#x5757;&#x4E2D;&#xFF0C;&#x800C;Integer&#x7C7B;&#x53C8;&#x5728;java.lang&#x5305;&#xFF08;jdk&#x76EE;&#x5F55;&#x4E2D;&#xFF09;&#x4E0B;&#xFF0C;&#x5728;java&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x52A0;&#x8F7D;&#x4E86;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x9759;&#x6001;&#x5757;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x5728;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#xFF0C;&#x4ECE;&#x547D;&#x540D;&#x53EF;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x662F;&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#x6570;&#x7EC4;&#xFF0C;&#x4FDD;&#x5B58;&#x7740;&#x4ECE;[-128,127]&#x7684;Integer&#x5BF9;&#x8C61;&#x3002;</font></p>
 
 <ul>
-<li>创建对象过程</li>
+<li>&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x8FC7;&#x7A0B;</li>
 </ul>
-<p aling="left"><font face="楷体" color="red" size="4">只要 Integer 对象的值在 [-128,127] 范围内，都是从这个对象池中取(同一对象)。所以只要是这个范围内的 Integer 对象，只要值相同，就是同一个对象。那么 == 的结果，就是 true。超过了这个范围，则会 new 新的 Integer 对象，尽管值相同，但是已经是不同的对象了。</font></p>
+<p aling="left"><font face="&#x6977;&#x4F53;" color="red" size="4">&#x53EA;&#x8981; Integer &#x5BF9;&#x8C61;&#x7684;&#x503C;&#x5728; [-128,127] &#x8303;&#x56F4;&#x5185;&#xFF0C;&#x90FD;&#x662F;&#x4ECE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x53D6;(&#x540C;&#x4E00;&#x5BF9;&#x8C61;)&#x3002;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x662F;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#x7684; Integer &#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x8981;&#x503C;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x90A3;&#x4E48; == &#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5C31;&#x662F; true&#x3002;&#x8D85;&#x8FC7;&#x4E86;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#xFF0C;&#x5219;&#x4F1A; new &#x65B0;&#x7684; Integer &#x5BF9;&#x8C61;&#xFF0C;&#x5C3D;&#x7BA1;&#x503C;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x5DF2;&#x7ECF;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x4E86;&#x3002;</font></p>
 
 <ul>
-<li><strong>这下在来看最开始程序的结果就可以很容易理解了</strong></li>
+<li><strong>&#x8FD9;&#x4E0B;&#x5728;&#x6765;&#x770B;&#x6700;&#x5F00;&#x59CB;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x4E86;</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer a = <span class="number">1</span>;<span class="comment">//在对象池中获取</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;<span class="comment">//定义基本数据类型</span></span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);<span class="comment">//对象池中获取</span></span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//新建的对象</span></span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Integer a = <span class="number">1</span>;<span class="comment">//&#x5728;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x83B7;&#x53D6;</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;<span class="comment">//&#x5B9A;&#x4E49;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</span></span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);<span class="comment">//&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x83B7;&#x53D6;</span></span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//&#x65B0;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ol>
-<li><code>a==b</code>，<code>b==d</code>输出结果为<code>true</code>，因为 <code>Integer</code> 和 <code>int</code> 比都会自动拆箱（jdk1.5 以上） </li>
-<li><code>a==c</code>输出结果为 <code>true</code>,因为a,c为对象池中的相同对象，如果a,c不在[-128,127]中，结果则为false，因为从源码可以看到会新<code>new</code>一个对象  </li>
-<li><code>c==d</code> 输出结果为 <code>false</code>，和 <code>String</code> 一样，在内存中的对象不一样，输出结果为 <code>false</code>.</li>
+<li><code>a==b</code>&#xFF0C;<code>b==d</code>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;<code>true</code>&#xFF0C;&#x56E0;&#x4E3A; <code>Integer</code> &#x548C; <code>int</code> &#x6BD4;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x62C6;&#x7BB1;&#xFF08;jdk1.5 &#x4EE5;&#x4E0A;&#xFF09; </li>
+<li><code>a==c</code>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>true</code>,&#x56E0;&#x4E3A;a,c&#x4E3A;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x7684;&#x76F8;&#x540C;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;a,c&#x4E0D;&#x5728;[-128,127]&#x4E2D;&#xFF0C;&#x7ED3;&#x679C;&#x5219;&#x4E3A;false&#xFF0C;&#x56E0;&#x4E3A;&#x4ECE;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F1A;&#x65B0;<code>new</code>&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;  </li>
+<li><code>c==d</code> &#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>false</code>&#xFF0C;&#x548C; <code>String</code> &#x4E00;&#x6837;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>false</code>.</li>
 </ol>
 
       
@@ -1345,36 +1346,36 @@
 
       
         <blockquote>
-<p>本文主要介绍懒汉和饿汉单例模式实现以及多线线程场景下完整的懒汉单例模式的实现</p>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x61D2;&#x6C49;&#x548C;&#x997F;&#x6C49;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x4EE5;&#x53CA;&#x591A;&#x7EBF;&#x7EBF;&#x7A0B;&#x573A;&#x666F;&#x4E0B;&#x5B8C;&#x6574;&#x7684;&#x61D2;&#x6C49;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x5B9E;&#x73B0;</p>
 </blockquote>
-<h5 id="一般实现"><a href="#一般实现" class="headerlink" title="一般实现"></a>一般实现</h5><ul>
-<li>饿汉式单例(一开始就实例化)</li>
+<h5 id="&#x4E00;&#x822C;&#x5B9E;&#x73B0;"><a href="#&#x4E00;&#x822C;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4E00;&#x822C;&#x5B9E;&#x73B0;"></a>&#x4E00;&#x822C;&#x5B9E;&#x73B0;</h5><ul>
+<li>&#x997F;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;(&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x5B9E;&#x4F8B;&#x5316;)</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>{}</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ul>
-<li>懒汉式单例（用到的时候在实例化）</li>
+<li>&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#xFF08;&#x7528;&#x5230;&#x7684;&#x65F6;&#x5019;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#xFF09;</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 懒汉式单例</span></span><br><span class="line"><span class="comment"> * 存在线程安全问题</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//线程1、2同时进来都是null，所以new出来不止一个对象</span></span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            singleton = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="线程安全的懒汉式单例模式"><a href="#线程安全的懒汉式单例模式" class="headerlink" title="线程安全的懒汉式单例模式"></a>线程安全的懒汉式单例模式</h5><ul>
-<li>正如上面的经典懒汉单例模式，在多线程场景下，线程1和线程2会同时进入if语句，这样就会产生两个对象，这样违背了单例的思想</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;</span></span><br><span class="line"><span class="comment"> * &#x5B58;&#x5728;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazySingleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span> </span>{}</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//&#x7EBF;&#x7A0B;1&#x3001;2&#x540C;&#x65F6;&#x8FDB;&#x6765;&#x90FD;&#x662F;null&#xFF0C;&#x6240;&#x4EE5;new&#x51FA;&#x6765;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span></span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) {</span><br><span class="line">            singleton = <span class="keyword">new</span> LazySingleton();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h5 id="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><a href="#&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;" class="headerlink" title="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"></a>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</h5><ul>
+<li>&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x7684;&#x7ECF;&#x5178;&#x61D2;&#x6C49;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x7EBF;&#x7A0B;1&#x548C;&#x7EBF;&#x7A0B;2&#x4F1A;&#x540C;&#x65F6;&#x8FDB;&#x5165;if&#x8BED;&#x53E5;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x8FDD;&#x80CC;&#x4E86;&#x5355;&#x4F8B;&#x7684;&#x601D;&#x60F3;</li>
 </ul>
-<h6 id="那么应该如何解决呢？"><a href="#那么应该如何解决呢？" class="headerlink" title="那么应该如何解决呢？"></a>那么应该如何解决呢？</h6><p>先观察下面的代码，然后解释</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 最完整的懒汉式单例模式(双重加锁、双重检查 单例模式)</span></span><br><span class="line"><span class="comment"> * 线程安全的懒汉单例模式，写单例直接写这个</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadSafeLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String str;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加上volatile是最完整的懒汉式单例模式</span></span><br><span class="line"><span class="comment">     * 第二层锁,禁止指令重排</span></span><br><span class="line"><span class="comment">     * 第二层保证不管多少线程拿到singleton对象，一定是完全初始化好的对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> ThreadSafeLazySingleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ThreadSafeLazySingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        str = <span class="string">"hello"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadSafeLazySingleton</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.str = str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ThreadSafeLazySingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">/* 线程1、2同时进来都是null，所以new出来不止一个对象</span></span><br><span class="line"><span class="comment">         * 双重检查</span></span><br><span class="line"><span class="comment">         * single checked</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * 不在single checked外加synchronized 是因为力度要轻，我们还需在单例中干一些事情</span></span><br><span class="line"><span class="comment">             * 第一层锁保证,拿到的一定是同一个对象</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">synchronized</span> (ThreadSafeLazySingleton.class) &#123;</span><br><span class="line">                <span class="comment">//double checked 防止第一次进入上一个single checked 继续产生对象</span></span><br><span class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    singleton = <span class="keyword">new</span> ThreadSafeLazySingleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5462;&#xFF1F;"><a href="#&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5462;&#xFF1F;" class="headerlink" title="&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5462;&#xFF1F;"></a>&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x5462;&#xFF1F;</h6><p>&#x5148;&#x89C2;&#x5BDF;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x91CA;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#x6700;&#x5B8C;&#x6574;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;(&#x53CC;&#x91CD;&#x52A0;&#x9501;&#x3001;&#x53CC;&#x91CD;&#x68C0;&#x67E5; &#x5355;&#x4F8B;&#x6A21;&#x5F0F;)</span></span><br><span class="line"><span class="comment"> * &#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x61D2;&#x6C49;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x5199;&#x5355;&#x4F8B;&#x76F4;&#x63A5;&#x5199;&#x8FD9;&#x4E2A;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadSafeLazySingleton</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> String str;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x52A0;&#x4E0A;volatile&#x662F;&#x6700;&#x5B8C;&#x6574;&#x7684;&#x61D2;&#x6C49;&#x5F0F;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</span></span><br><span class="line"><span class="comment">     * &#x7B2C;&#x4E8C;&#x5C42;&#x9501;,&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;</span></span><br><span class="line"><span class="comment">     * &#x7B2C;&#x4E8C;&#x5C42;&#x4FDD;&#x8BC1;&#x4E0D;&#x7BA1;&#x591A;&#x5C11;&#x7EBF;&#x7A0B;&#x62FF;&#x5230;singleton&#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x5B9A;&#x662F;&#x5B8C;&#x5168;&#x521D;&#x59CB;&#x5316;&#x597D;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> ThreadSafeLazySingleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ThreadSafeLazySingleton</span><span class="params">()</span> </span>{</span><br><span class="line">        str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadSafeLazySingleton</span><span class="params">(String str)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.str = str;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ThreadSafeLazySingleton <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">/* &#x7EBF;&#x7A0B;1&#x3001;2&#x540C;&#x65F6;&#x8FDB;&#x6765;&#x90FD;&#x662F;null&#xFF0C;&#x6240;&#x4EE5;new&#x51FA;&#x6765;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="comment">         * &#x53CC;&#x91CD;&#x68C0;&#x67E5;</span></span><br><span class="line"><span class="comment">         * single checked</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) {</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * &#x4E0D;&#x5728;single checked&#x5916;&#x52A0;synchronized &#x662F;&#x56E0;&#x4E3A;&#x529B;&#x5EA6;&#x8981;&#x8F7B;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x5728;&#x5355;&#x4F8B;&#x4E2D;&#x5E72;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;</span></span><br><span class="line"><span class="comment">             * &#x7B2C;&#x4E00;&#x5C42;&#x9501;&#x4FDD;&#x8BC1;,&#x62FF;&#x5230;&#x7684;&#x4E00;&#x5B9A;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">synchronized</span> (ThreadSafeLazySingleton.class) {</span><br><span class="line">                <span class="comment">//double checked &#x9632;&#x6B62;&#x7B2C;&#x4E00;&#x6B21;&#x8FDB;&#x5165;&#x4E0A;&#x4E00;&#x4E2A;single checked &#x7EE7;&#x7EED;&#x4EA7;&#x751F;&#x5BF9;&#x8C61;</span></span><br><span class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) {</span><br><span class="line">                    singleton = <span class="keyword">new</span> ThreadSafeLazySingleton();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>程序的注释中解释了双重检查，和双重加锁的位置，难以理解<code>volatile</code>禁止指令重排，解释如下</p>
+<li><p>&#x7A0B;&#x5E8F;&#x7684;&#x6CE8;&#x91CA;&#x4E2D;&#x89E3;&#x91CA;&#x4E86;&#x53CC;&#x91CD;&#x68C0;&#x67E5;&#xFF0C;&#x548C;&#x53CC;&#x91CD;&#x52A0;&#x9501;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x96BE;&#x4EE5;&#x7406;&#x89E3;<code>volatile</code>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#xFF0C;&#x89E3;&#x91CA;&#x5982;&#x4E0B;</p>
 <ul>
-<li>java创建对象的时候进行如下三步操作</li>
+<li>java&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x4E09;&#x6B65;&#x64CD;&#x4F5C;</li>
 </ul>
 <ol>
-<li>在堆上分配空间</li>
-<li>属性初始化</li>
-<li>引用指向对象（这个时候<code>singleton</code>已经不为<code>null</code>）</li>
+<li>&#x5728;&#x5806;&#x4E0A;&#x5206;&#x914D;&#x7A7A;&#x95F4;</li>
+<li>&#x5C5E;&#x6027;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#x5F15;&#x7528;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#xFF08;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;<code>singleton</code>&#x5DF2;&#x7ECF;&#x4E0D;&#x4E3A;<code>null</code>&#xFF09;</li>
 </ol>
 </li>
-<li><p>当第一个线程执行<code>singleton = new Singleton();</code>的时候如果进行指令重排，3可以再2前面执行，<code>singleton</code>已经不为null,这个时候线程2调用<code>getInstance</code>直接<code>return singleton</code>这个时候没有初始化,出现没有赋值的情况，所以线程2得到的不是完整的对象</p>
+<li><p>&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C;<code>singleton = new Singleton();</code>&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x8FDB;&#x884C;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#xFF0C;3&#x53EF;&#x4EE5;&#x518D;2&#x524D;&#x9762;&#x6267;&#x884C;&#xFF0C;<code>singleton</code>&#x5DF2;&#x7ECF;&#x4E0D;&#x4E3A;null,&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x7EBF;&#x7A0B;2&#x8C03;&#x7528;<code>getInstance</code>&#x76F4;&#x63A5;<code>return singleton</code>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;,&#x51FA;&#x73B0;&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6240;&#x4EE5;&#x7EBF;&#x7A0B;2&#x5F97;&#x5230;&#x7684;&#x4E0D;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x5BF9;&#x8C61;</p>
 </li>
 </ul>
-<p><strong>为了解决这一问题，引入<code>volatile</code>禁止了指令重排，保证了2一定在3前面执行，这样线程2得到的一定是初始化完成的对象</strong></p>
+<p><strong>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E00;&#x95EE;&#x9898;&#xFF0C;&#x5F15;&#x5165;<code>volatile</code>&#x7981;&#x6B62;&#x4E86;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;2&#x4E00;&#x5B9A;&#x5728;3&#x524D;&#x9762;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x7EBF;&#x7A0B;2&#x5F97;&#x5230;&#x7684;&#x4E00;&#x5B9A;&#x662F;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x7684;&#x5BF9;&#x8C61;</strong></p>
 
       
 
@@ -1457,43 +1458,43 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="先看一下我在网上看到的一个二进制加法-讲解的很容易懂"><a href="#先看一下我在网上看到的一个二进制加法-讲解的很容易懂" class="headerlink" title="先看一下我在网上看到的一个二进制加法(讲解的很容易懂)"></a>先看一下我在网上看到的一个二进制加法(讲解的很容易懂)</h5><ol>
-<li><strong>原码：</strong>在数值前直接加一符号位的表示法。</li>
-<li><strong>反码：</strong><br><strong>正数：</strong>正数的反码与原码相同。<br><strong>负数：</strong>负数的反码，符号位为 “1”，数值部分按位取反。</li>
-<li><strong>补码：</strong><br><strong>正数：</strong>正数的补码和原码相同。</li>
+        <h5 id="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;-&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;"><a href="#&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;-&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;" class="headerlink" title="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;(&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;)"></a>&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;(&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;)</h5><ol>
+<li><strong>&#x539F;&#x7801;&#xFF1A;</strong>&#x5728;&#x6570;&#x503C;&#x524D;&#x76F4;&#x63A5;&#x52A0;&#x4E00;&#x7B26;&#x53F7;&#x4F4D;&#x7684;&#x8868;&#x793A;&#x6CD5;&#x3002;</li>
+<li><strong>&#x53CD;&#x7801;&#xFF1A;</strong><br><strong>&#x6B63;&#x6570;&#xFF1A;</strong>&#x6B63;&#x6570;&#x7684;&#x53CD;&#x7801;&#x4E0E;&#x539F;&#x7801;&#x76F8;&#x540C;&#x3002;<br><strong>&#x8D1F;&#x6570;&#xFF1A;</strong>&#x8D1F;&#x6570;&#x7684;&#x53CD;&#x7801;&#xFF0C;&#x7B26;&#x53F7;&#x4F4D;&#x4E3A; &#x201C;1&#x201D;&#xFF0C;&#x6570;&#x503C;&#x90E8;&#x5206;&#x6309;&#x4F4D;&#x53D6;&#x53CD;&#x3002;</li>
+<li><strong>&#x8865;&#x7801;&#xFF1A;</strong><br><strong>&#x6B63;&#x6570;&#xFF1A;</strong>&#x6B63;&#x6570;&#x7684;&#x8865;&#x7801;&#x548C;&#x539F;&#x7801;&#x76F8;&#x540C;&#x3002;</li>
 </ol>
-<p><strong>负数：</strong>负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程</p>
+<p><strong>&#x8D1F;&#x6570;&#xFF1A;</strong>&#x8D1F;&#x6570;&#x7684;&#x8865;&#x7801;&#x5219;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x4E3A; &#x201C;1&#x201D;&#x3002;&#x6570;&#x503C;&#x90E8;&#x5206;&#x6309;&#x4F4D;&#x53D6;&#x53CD;&#x540E;&#x518D;&#x5728;&#x6700;&#x4F4E;&#x4F4D;&#x52A0; 1&#x3002;&#x4E5F;&#x5C31;&#x662F; &#x201C;&#x53CD;&#x7801; + 1&#x201D;&#x3002;5-3 &#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;</p>
 <ul>
-<li><p>以字长 8bit 为例</p>
-<p>5 - 3 = (0000 0101) 补 + (1000 0011) 补 = 0000 0101 + 1111 1101 (这里就是反码为 1111 1100，+1 得到) =<br>1 0000 0010<br>最后，这里字长为 8bit，所以 8 位以后的都舍弃（从右边开始数）<br>PS: 如果舍弃掉的是有效数字，那么这就是传说中的溢出</p>
-<p><strong>结果：</strong> (0000 0010) 2=(2) 10<br>所以 5-3=2</p>
+<li><p>&#x4EE5;&#x5B57;&#x957F; 8bit &#x4E3A;&#x4F8B;</p>
+<p>5 - 3 = (0000 0101) &#x8865; + (1000 0011) &#x8865; = 0000 0101 + 1111 1101 (&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x53CD;&#x7801;&#x4E3A; 1111 1100&#xFF0C;+1 &#x5F97;&#x5230;) =<br>1 0000 0010<br>&#x6700;&#x540E;&#xFF0C;&#x8FD9;&#x91CC;&#x5B57;&#x957F;&#x4E3A; 8bit&#xFF0C;&#x6240;&#x4EE5; 8 &#x4F4D;&#x4EE5;&#x540E;&#x7684;&#x90FD;&#x820D;&#x5F03;&#xFF08;&#x4ECE;&#x53F3;&#x8FB9;&#x5F00;&#x59CB;&#x6570;&#xFF09;<br>PS: &#x5982;&#x679C;&#x820D;&#x5F03;&#x6389;&#x7684;&#x662F;&#x6709;&#x6548;&#x6570;&#x5B57;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x5C31;&#x662F;&#x4F20;&#x8BF4;&#x4E2D;&#x7684;&#x6EA2;&#x51FA;</p>
+<p><strong>&#x7ED3;&#x679C;&#xFF1A;</strong> (0000 0010) 2=(2) 10<br>&#x6240;&#x4EE5; 5-3=2</p>
 </li>
 </ul>
-<h5 id="再看一下我在程序的遇到的问题"><a href="#再看一下我在程序的遇到的问题" class="headerlink" title="再看一下我在程序的遇到的问题"></a>再看一下我在程序的遇到的问题</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"(byte) 127:"</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) 128:"</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -128:"</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -127:"</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -1:"</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h6 id="结果如下"><a href="#结果如下" class="headerlink" title="结果如下"></a>结果如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>可以看到<code>(byte) 128:-128</code>，</p>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><p>这是因为，127 –&gt;原码、反码、补码： 0111  1111</p>
-<p>​                    127 + 1 –&gt;1000  0000</p>
-<p>byte类型一共8个bit位，在计算机中负数的二进制表示为补码。而1000  0000正是-128的补码</p>
-<h6 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h6><p>-128，不能按照数值位前直接加一个符号位，要从128开始，其他的负数可以按照这一规律计算</p>
+<h5 id="&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="#&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;(byte) 127:&quot;</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) 128:&quot;</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -128:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -127:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -1:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="&#x7ED3;&#x679C;&#x5982;&#x4E0B;"><a href="#&#x7ED3;&#x679C;&#x5982;&#x4E0B;" class="headerlink" title="&#x7ED3;&#x679C;&#x5982;&#x4E0B;"></a>&#x7ED3;&#x679C;&#x5982;&#x4E0B;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>(byte) 128:-128</code>&#xFF0C;</p>
+<h6 id="&#x89E3;&#x91CA;"><a href="#&#x89E3;&#x91CA;" class="headerlink" title="&#x89E3;&#x91CA;"></a>&#x89E3;&#x91CA;</h6><p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;127 &#x2013;&gt;&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;&#xFF1A; 0111  1111</p>
+<p>&#x200B;                    127 + 1 &#x2013;&gt;1000  0000</p>
+<p>byte&#x7C7B;&#x578B;&#x4E00;&#x5171;8&#x4E2A;bit&#x4F4D;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x8D1F;&#x6570;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;&#x8865;&#x7801;&#x3002;&#x800C;1000  0000&#x6B63;&#x662F;-128&#x7684;&#x8865;&#x7801;</p>
+<h6 id="&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;"><a href="#&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;"></a>&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;</h6><p>-128&#xFF0C;&#x4E0D;&#x80FD;&#x6309;&#x7167;&#x6570;&#x503C;&#x4F4D;&#x524D;&#x76F4;&#x63A5;&#x52A0;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x4F4D;&#xFF0C;&#x8981;&#x4ECE;128&#x5F00;&#x59CB;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8D1F;&#x6570;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x8FD9;&#x4E00;&#x89C4;&#x5F8B;&#x8BA1;&#x7B97;</p>
 <ul>
-<li><p>原码：1000  0000 (-128，进位被舍去)</p>
+<li><p>&#x539F;&#x7801;&#xFF1A;1000  0000 (-128&#xFF0C;&#x8FDB;&#x4F4D;&#x88AB;&#x820D;&#x53BB;)</p>
 </li>
-<li><p>反码：1111  1111</p>
+<li><p>&#x53CD;&#x7801;&#xFF1A;1111  1111</p>
 </li>
-<li><p>补码：1000  0000</p>
-<p>补码计算为： (11111111 (反码) + 1=10000000, 这里实际上真正相加的是 11111111 后面的 7 位，<strong>第 1 位是符号位始终不会变</strong>，所以，<strong>当进到第 8 位的时候，就表示溢出了，会被舍弃</strong>。</p>
-<p><strong>0 只有一个补码 00000000，那么 10000000 就不会表示成 - 0 的补码，即：补码 1000 0000 唯一的表示是 - 128，在补码中用 (-128) 代替了 (-0), 所以补码的表示范围为: (-128~0~127) 共 256 个.</strong></p>
+<li><p>&#x8865;&#x7801;&#xFF1A;1000  0000</p>
+<p>&#x8865;&#x7801;&#x8BA1;&#x7B97;&#x4E3A;&#xFF1A; (11111111 (&#x53CD;&#x7801;) + 1=10000000, &#x8FD9;&#x91CC;&#x5B9E;&#x9645;&#x4E0A;&#x771F;&#x6B63;&#x76F8;&#x52A0;&#x7684;&#x662F; 11111111 &#x540E;&#x9762;&#x7684; 7 &#x4F4D;&#xFF0C;<strong>&#x7B2C; 1 &#x4F4D;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x59CB;&#x7EC8;&#x4E0D;&#x4F1A;&#x53D8;</strong>&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;<strong>&#x5F53;&#x8FDB;&#x5230;&#x7B2C; 8 &#x4F4D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x8868;&#x793A;&#x6EA2;&#x51FA;&#x4E86;&#xFF0C;&#x4F1A;&#x88AB;&#x820D;&#x5F03;</strong>&#x3002;</p>
+<p><strong>0 &#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8865;&#x7801; 00000000&#xFF0C;&#x90A3;&#x4E48; 10000000 &#x5C31;&#x4E0D;&#x4F1A;&#x8868;&#x793A;&#x6210; - 0 &#x7684;&#x8865;&#x7801;&#xFF0C;&#x5373;&#xFF1A;&#x8865;&#x7801; 1000 0000 &#x552F;&#x4E00;&#x7684;&#x8868;&#x793A;&#x662F; - 128&#xFF0C;&#x5728;&#x8865;&#x7801;&#x4E2D;&#x7528; (-128) &#x4EE3;&#x66FF;&#x4E86; (-0), &#x6240;&#x4EE5;&#x8865;&#x7801;&#x7684;&#x8868;&#x793A;&#x8303;&#x56F4;&#x4E3A;: (-128~0~127) &#x5171; 256 &#x4E2A;.</strong></p>
 </li>
 </ul>
-<p>int为4个字节，byte为1个字节，int转byte只能取低八位补码：1000  0000</p>
-<p><strong>实际上，int型的负数，在一个字节的基础上前面补1即可，计算过程同普通的负数，没有发生溢出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
-<p>普通负数-1：</p>
+<p>int&#x4E3A;4&#x4E2A;&#x5B57;&#x8282;&#xFF0C;byte&#x4E3A;1&#x4E2A;&#x5B57;&#x8282;&#xFF0C;int&#x8F6C;byte&#x53EA;&#x80FD;&#x53D6;&#x4F4E;&#x516B;&#x4F4D;&#x8865;&#x7801;&#xFF1A;1000  0000</p>
+<p><strong>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;int&#x578B;&#x7684;&#x8D1F;&#x6570;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x524D;&#x9762;&#x8865;1&#x5373;&#x53EF;&#xFF0C;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x540C;&#x666E;&#x901A;&#x7684;&#x8D1F;&#x6570;&#xFF0C;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x6EA2;&#x51FA;</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>&#xFF1A;</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
+<p>&#x666E;&#x901A;&#x8D1F;&#x6570;-1&#xFF1A;</p>
 <ul>
-<li>原码：1000  0001</li>
-<li>反码：1111  1110</li>
-<li>补码：1111  1111</li>
+<li>&#x539F;&#x7801;&#xFF1A;1000  0001</li>
+<li>&#x53CD;&#x7801;&#xFF1A;1111  1110</li>
+<li>&#x8865;&#x7801;&#xFF1A;1111  1111</li>
 </ul>
 
       
@@ -1571,16 +1572,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1688,10 +1701,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1700,11 +1709,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1712,11 +1721,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1732,19 +1745,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1772,11 +1781,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

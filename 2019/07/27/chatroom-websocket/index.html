@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>chatroom_websocket | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目讲解，基于websocket实现的聊天室">
+  <meta name="description" content="&amp;#x9879;&amp;#x76EE;&amp;#x8BB2;&amp;#x89E3;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;websocket&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x804A;&amp;#x5929;&amp;#x5BA4;">
 <meta name="keywords" content="java,project">
 <meta property="og:type" content="article">
 <meta property="og:title" content="chatroom_websocket">
 <meta property="og:url" content="http://yoursite.com/2019/07/27/chatroom-websocket/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="项目讲解，基于websocket实现的聊天室">
+<meta property="og:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x8BB2;&amp;#x89E3;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;websocket&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x804A;&amp;#x5929;&amp;#x5BA4;">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-19T05:40:42.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chatroom_websocket">
-<meta name="twitter:description" content="项目讲解，基于websocket实现的聊天室">
+<meta name="twitter:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x8BB2;&amp;#x89E3;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;websocket&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x804A;&amp;#x5929;&amp;#x5BA4;">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -194,72 +194,72 @@
 
       
         <blockquote>
-<p>项目讲解，基于websocket实现的聊天室</p>
+<p>&#x9879;&#x76EE;&#x8BB2;&#x89E3;&#xFF0C;&#x57FA;&#x4E8E;websocket&#x5B9E;&#x73B0;&#x7684;&#x804A;&#x5929;&#x5BA4;</p>
 </blockquote>
 <a id="more"></a>
-<h4 id="业务"><a href="#业务" class="headerlink" title="业务"></a>业务</h4><blockquote>
-<p>开发从dao层开始写</p>
+<h4 id="&#x4E1A;&#x52A1;"><a href="#&#x4E1A;&#x52A1;" class="headerlink" title="&#x4E1A;&#x52A1;"></a>&#x4E1A;&#x52A1;</h4><blockquote>
+<p>&#x5F00;&#x53D1;&#x4ECE;dao&#x5C42;&#x5F00;&#x59CB;&#x5199;</p>
 </blockquote>
-<h5 id="dao：数据库CURD"><a href="#dao：数据库CURD" class="headerlink" title="dao：数据库CURD"></a>dao：数据库CURD</h5><ol>
-<li>获取数据源</li>
-<li>获取连接</li>
-<li>sql语句</li>
-<li>关闭</li>
+<h5 id="dao&#xFF1A;&#x6570;&#x636E;&#x5E93;CURD"><a href="#dao&#xFF1A;&#x6570;&#x636E;&#x5E93;CURD" class="headerlink" title="dao&#xFF1A;&#x6570;&#x636E;&#x5E93;CURD"></a>dao&#xFF1A;&#x6570;&#x636E;&#x5E93;CURD</h5><ol>
+<li>&#x83B7;&#x53D6;&#x6570;&#x636E;&#x6E90;</li>
+<li>&#x83B7;&#x53D6;&#x8FDE;&#x63A5;</li>
+<li>sql&#x8BED;&#x53E5;</li>
+<li>&#x5173;&#x95ED;</li>
 </ol>
 <ul>
-<li>各个数据操作只是sql语句不同，1,2,4为公共操作封装在父类BaseDao中</li>
-<li>数据库操作在子类AccountDao中实现</li>
+<li>&#x5404;&#x4E2A;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x53EA;&#x662F;sql&#x8BED;&#x53E5;&#x4E0D;&#x540C;&#xFF0C;1,2,4&#x4E3A;&#x516C;&#x5171;&#x64CD;&#x4F5C;&#x5C01;&#x88C5;&#x5728;&#x7236;&#x7C7B;BaseDao&#x4E2D;</li>
+<li>&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;&#x5728;&#x5B50;&#x7C7B;AccountDao&#x4E2D;&#x5B9E;&#x73B0;</li>
 </ul>
-<h5 id="service：处理业务"><a href="#service：处理业务" class="headerlink" title="service：处理业务"></a>service：处理业务</h5><blockquote>
-<p>调用dao层</p>
+<h5 id="service&#xFF1A;&#x5904;&#x7406;&#x4E1A;&#x52A1;"><a href="#service&#xFF1A;&#x5904;&#x7406;&#x4E1A;&#x52A1;" class="headerlink" title="service&#xFF1A;&#x5904;&#x7406;&#x4E1A;&#x52A1;"></a>service&#xFF1A;&#x5904;&#x7406;&#x4E1A;&#x52A1;</h5><blockquote>
+<p>&#x8C03;&#x7528;dao&#x5C42;</p>
 </blockquote>
 <ul>
-<li>登录验证</li>
-<li>注册验证</li>
+<li>&#x767B;&#x5F55;&#x9A8C;&#x8BC1;</li>
+<li>&#x6CE8;&#x518C;&#x9A8C;&#x8BC1;</li>
 </ul>
-<h5 id="controller："><a href="#controller：" class="headerlink" title="controller："></a>controller：</h5><ul>
-<li>调用service获取数据返回给客户端</li>
-<li>从客户端获得数据调用业务处理</li>
+<h5 id="controller&#xFF1A;"><a href="#controller&#xFF1A;" class="headerlink" title="controller&#xFF1A;"></a>controller&#xFF1A;</h5><ul>
+<li>&#x8C03;&#x7528;service&#x83B7;&#x53D6;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x83B7;&#x5F97;&#x6570;&#x636E;&#x8C03;&#x7528;&#x4E1A;&#x52A1;&#x5904;&#x7406;</li>
 </ul>
-<h4 id="JDBC（Java程序连接数据库标准）"><a href="#JDBC（Java程序连接数据库标准）" class="headerlink" title="JDBC（Java程序连接数据库标准）"></a>JDBC（Java程序连接数据库标准）</h4><h5 id="JDBC-Java操作数据库的接口-OS"><a href="#JDBC-Java操作数据库的接口-OS" class="headerlink" title="JDBC:Java操作数据库的接口(OS)"></a>JDBC:Java操作数据库的接口(OS)</h5><p>所有数据库厂商必须实现此接口<br>Java DataBase Connector</p>
-<h5 id="JDBC操作格式"><a href="#JDBC操作格式" class="headerlink" title="JDBC操作格式"></a>JDBC操作格式</h5><ul>
-<li><p>数据源</p>
+<h4 id="JDBC&#xFF08;Java&#x7A0B;&#x5E8F;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x6807;&#x51C6;&#xFF09;"><a href="#JDBC&#xFF08;Java&#x7A0B;&#x5E8F;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x6807;&#x51C6;&#xFF09;" class="headerlink" title="JDBC&#xFF08;Java&#x7A0B;&#x5E8F;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x6807;&#x51C6;&#xFF09;"></a>JDBC&#xFF08;Java&#x7A0B;&#x5E8F;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x6807;&#x51C6;&#xFF09;</h4><h5 id="JDBC-Java&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;-OS"><a href="#JDBC-Java&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;-OS" class="headerlink" title="JDBC:Java&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;(OS)"></a>JDBC:Java&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x63A5;&#x53E3;(OS)</h5><p>&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x5382;&#x5546;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x6B64;&#x63A5;&#x53E3;<br>Java DataBase Connector</p>
+<h5 id="JDBC&#x64CD;&#x4F5C;&#x683C;&#x5F0F;"><a href="#JDBC&#x64CD;&#x4F5C;&#x683C;&#x5F0F;" class="headerlink" title="JDBC&#x64CD;&#x4F5C;&#x683C;&#x5F0F;"></a>JDBC&#x64CD;&#x4F5C;&#x683C;&#x5F0F;</h5><ul>
+<li><p>&#x6570;&#x636E;&#x6E90;</p>
 <blockquote>
-<p>类似线程池，创建好已连接的数据库直接拿来使用</p>
+<p>&#x7C7B;&#x4F3C;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x521B;&#x5EFA;&#x597D;&#x5DF2;&#x8FDE;&#x63A5;&#x7684;&#x6570;&#x636E;&#x5E93;&#x76F4;&#x63A5;&#x62FF;&#x6765;&#x4F7F;&#x7528;</p>
 </blockquote>
 <ul>
 <li>c3p0</li>
-<li>druid（阿里数据源）</li>
+<li>druid&#xFF08;&#x963F;&#x91CC;&#x6570;&#x636E;&#x6E90;&#xFF09;</li>
 <li><p>Hakari</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql://localhost:3306/chatroom_websocket?charset=utf8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</span><br><span class="line">username=root</span><br><span class="line">password=root</span><br><span class="line">filters=stat</span><br><span class="line">initialSize=5//初始化数量</span><br><span class="line">maxActive=30//最大数量</span><br><span class="line">maxWait=60000//创建后等待时间</span><br><span class="line">timeBetweenEvictionRunsMillis=60000</span><br><span class="line">minEvictableIdleTimeMillis=300000</span><br><span class="line">validationQuery=SELECT 1</span><br><span class="line">testWhileIdle=true</span><br><span class="line">testOnBorrow=false</span><br><span class="line">testOnReturn=false</span><br><span class="line">poolPreparedStatements=false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql://localhost:3306/chatroom_websocket?charset=utf8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</span><br><span class="line">username=root</span><br><span class="line">password=root</span><br><span class="line">filters=stat</span><br><span class="line">initialSize=5//&#x521D;&#x59CB;&#x5316;&#x6570;&#x91CF;</span><br><span class="line">maxActive=30//&#x6700;&#x5927;&#x6570;&#x91CF;</span><br><span class="line">maxWait=60000//&#x521B;&#x5EFA;&#x540E;&#x7B49;&#x5F85;&#x65F6;&#x95F4;</span><br><span class="line">timeBetweenEvictionRunsMillis=60000</span><br><span class="line">minEvictableIdleTimeMillis=300000</span><br><span class="line">validationQuery=SELECT 1</span><br><span class="line">testWhileIdle=true</span><br><span class="line">testOnBorrow=false</span><br><span class="line">testOnReturn=false</span><br><span class="line">poolPreparedStatements=false</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>线程池优点</p>
+<li><p>&#x7EBF;&#x7A0B;&#x6C60;&#x4F18;&#x70B9;</p>
 <ul>
-<li><strong>提高响应速度 ：</strong>因为当线程池中的线程没有超过线程池的最大上限时，有的线程处于等待分配任务状态，当任务到来时，无需创建线程就能被执行。 </li>
-<li><strong>提高资源利用率：</strong>线程池可以重复利用已经创建了的线程 </li>
-<li><strong>方便线程管理：</strong>线程池会根据当前系统特点对池内的线程进行优化处理，减少创建和销毁线程带来的系统开销</li>
+<li><strong>&#x63D0;&#x9AD8;&#x54CD;&#x5E94;&#x901F;&#x5EA6; &#xFF1A;</strong>&#x56E0;&#x4E3A;&#x5F53;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6CA1;&#x6709;&#x8D85;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x6700;&#x5927;&#x4E0A;&#x9650;&#x65F6;&#xFF0C;&#x6709;&#x7684;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x5206;&#x914D;&#x4EFB;&#x52A1;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x4EFB;&#x52A1;&#x5230;&#x6765;&#x65F6;&#xFF0C;&#x65E0;&#x9700;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x5C31;&#x80FD;&#x88AB;&#x6267;&#x884C;&#x3002; </li>
+<li><strong>&#x63D0;&#x9AD8;&#x8D44;&#x6E90;&#x5229;&#x7528;&#x7387;&#xFF1A;</strong>&#x7EBF;&#x7A0B;&#x6C60;&#x53EF;&#x4EE5;&#x91CD;&#x590D;&#x5229;&#x7528;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x4E86;&#x7684;&#x7EBF;&#x7A0B; </li>
+<li><strong>&#x65B9;&#x4FBF;&#x7EBF;&#x7A0B;&#x7BA1;&#x7406;&#xFF1A;</strong>&#x7EBF;&#x7A0B;&#x6C60;&#x4F1A;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7279;&#x70B9;&#x5BF9;&#x6C60;&#x5185;&#x7684;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x5904;&#x7406;&#xFF0C;&#x51CF;&#x5C11;&#x521B;&#x5EFA;&#x548C;&#x9500;&#x6BC1;&#x7EBF;&#x7A0B;&#x5E26;&#x6765;&#x7684;&#x7CFB;&#x7EDF;&#x5F00;&#x9500;</li>
 </ul>
 </li>
-<li><p>1.加载驱动或加载数据源<br>  Class.forName(“com.mysql.jdbc.Driver”);</p>
+<li><p>1.&#x52A0;&#x8F7D;&#x9A71;&#x52A8;&#x6216;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x6E90;<br>  Class.forName(&#x201C;com.mysql.jdbc.Driver&#x201D;);</p>
 </li>
-<li><p>2.获取连接 Connection</p>
+<li><p>2.&#x83B7;&#x53D6;&#x8FDE;&#x63A5; Connection</p>
 <ul>
-<li><strong>url：</strong>jdbc:mysql://localhost:3306/db_name</li>
+<li><strong>url&#xFF1A;</strong>jdbc:mysql://localhost:3306/db_name</li>
 <li><strong>username</strong></li>
 <li><strong>password</strong></li>
 </ul>
 </li>
-<li><p>3.使用连接执行SQL CURD</p>
+<li><p>3.&#x4F7F;&#x7528;&#x8FDE;&#x63A5;&#x6267;&#x884C;SQL CURD</p>
 <ul>
-<li>执行sql Statement</li>
-<li><p>获取查询返回值 ResultSet</p>
+<li>&#x6267;&#x884C;sql Statement</li>
+<li><p>&#x83B7;&#x53D6;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x503C; ResultSet</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select : statement.executeQuery(sql) : ResultSet</span><br><span class="line">insert,delete,update</span><br><span class="line">statement.executeUpdate(sql) : <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>4.关闭资源</p>
+<li><p>4.&#x5173;&#x95ED;&#x8D44;&#x6E90;</p>
 <ul>
 <li>Connection</li>
 <li>Statement</li>
@@ -267,59 +267,59 @@
 </ul>
 </li>
 </ul>
-<h5 id="配置文件方式"><a href="#配置文件方式" class="headerlink" title="配置文件方式"></a>配置文件方式</h5><ul>
-<li>将数据库的配置信息存放到配置文件(*.properties)</li>
-<li>将信息从配置文件读到程序中 </li>
+<h5 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;"><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;" class="headerlink" title="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;"></a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;</h5><ul>
+<li>&#x5C06;&#x6570;&#x636E;&#x5E93;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x5B58;&#x653E;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;(*.properties)</li>
+<li>&#x5C06;&#x4FE1;&#x606F;&#x4ECE;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BFB;&#x5230;&#x7A0B;&#x5E8F;&#x4E2D; </li>
 </ul>
-<h5 id="Junit单元测试-白盒测试"><a href="#Junit单元测试-白盒测试" class="headerlink" title="Junit单元测试 : 白盒测试"></a>Junit单元测试 : 白盒测试</h5><ul>
-<li>创建测试类<ol>
-<li>创建测试文件夹,test与main同目录,将test文件夹标记为测试文件夹 </li>
-<li>要测试的类选中，ctrl+shift+T 创建测试类</li>
-<li>使用断言Assert</li>
+<h5 id="Junit&#x5355;&#x5143;&#x6D4B;&#x8BD5;-&#x767D;&#x76D2;&#x6D4B;&#x8BD5;"><a href="#Junit&#x5355;&#x5143;&#x6D4B;&#x8BD5;-&#x767D;&#x76D2;&#x6D4B;&#x8BD5;" class="headerlink" title="Junit&#x5355;&#x5143;&#x6D4B;&#x8BD5; : &#x767D;&#x76D2;&#x6D4B;&#x8BD5;"></a>Junit&#x5355;&#x5143;&#x6D4B;&#x8BD5; : &#x767D;&#x76D2;&#x6D4B;&#x8BD5;</h5><ul>
+<li>&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x7C7B;<ol>
+<li>&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5939;,test&#x4E0E;main&#x540C;&#x76EE;&#x5F55;,&#x5C06;test&#x6587;&#x4EF6;&#x5939;&#x6807;&#x8BB0;&#x4E3A;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5939; </li>
+<li>&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x7C7B;&#x9009;&#x4E2D;&#xFF0C;ctrl+shift+T &#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x7C7B;</li>
+<li>&#x4F7F;&#x7528;&#x65AD;&#x8A00;Assert</li>
 </ol>
 </li>
 </ul>
-<h5 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a>SQL注入漏洞</h5><blockquote>
-<p><code>Statement</code>语句通过字符串拼接，黑客只需改变参数的值即可改变sql语句的正确性</p>
+<h5 id="SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;"><a href="#SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;" class="headerlink" title="SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;"></a>SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;</h5><blockquote>
+<p><code>Statement</code>&#x8BED;&#x53E5;&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#xFF0C;&#x9ED1;&#x5BA2;&#x53EA;&#x9700;&#x6539;&#x53D8;&#x53C2;&#x6570;&#x7684;&#x503C;&#x5373;&#x53EF;&#x6539;&#x53D8;sql&#x8BED;&#x53E5;&#x7684;&#x6B63;&#x786E;&#x6027;</p>
 </blockquote>
 <ul>
-<li><p>userName为正确值password拼接为 or 1 = 1成为一个永真式就可以获得这个用户的连接</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">"select * from user where username = ' "</span> + username + <span class="string">" ' and"</span> + <span class="string">"password = '"</span> + password <span class="string">"'"</span>;</span><br><span class="line">statement = connection.createStatement();</span><br><span class="line">resultSet = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
+<li><p>userName&#x4E3A;&#x6B63;&#x786E;&#x503C;password&#x62FC;&#x63A5;&#x4E3A; or 1 = 1&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x6C38;&#x771F;&#x5F0F;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x8FDE;&#x63A5;</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">&quot;select * from user where username = &apos; &quot;</span> + username + <span class="string">&quot; &apos; and&quot;</span> + <span class="string">&quot;password = &apos;&quot;</span> + password <span class="string">&quot;&apos;&quot;</span>;</span><br><span class="line">statement = connection.createStatement();</span><br><span class="line">resultSet = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>通过PreparedStatement用通配符替换字符串拼接可以检查语法错误</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">"select * from user where username = ? and"</span> + <span class="string">"password = ?"</span>;</span><br><span class="line">statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, userName);</span><br><span class="line">statement.setString(<span class="number">2</span>, DigestUtils.md5Hex(password));</span><br><span class="line">resultSet = statement.executeQuery();</span><br></pre></td></tr></table></figure>
+<li><p>&#x901A;&#x8FC7;PreparedStatement&#x7528;&#x901A;&#x914D;&#x7B26;&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">&quot;select * from user where username = ? and&quot;</span> + <span class="string">&quot;password = ?&quot;</span>;</span><br><span class="line">statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, userName);</span><br><span class="line">statement.setString(<span class="number">2</span>, DigestUtils.md5Hex(password));</span><br><span class="line">resultSet = statement.executeQuery();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h4><h5 id="单边通信-http协议"><a href="#单边通信-http协议" class="headerlink" title="单边通信 - http协议"></a>单边通信 - http协议</h5><ul>
-<li>浏览器</li>
-<li>服务端</li>
+<h4 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h4><h5 id="&#x5355;&#x8FB9;&#x901A;&#x4FE1;-http&#x534F;&#x8BAE;"><a href="#&#x5355;&#x8FB9;&#x901A;&#x4FE1;-http&#x534F;&#x8BAE;" class="headerlink" title="&#x5355;&#x8FB9;&#x901A;&#x4FE1; - http&#x534F;&#x8BAE;"></a>&#x5355;&#x8FB9;&#x901A;&#x4FE1; - http&#x534F;&#x8BAE;</h5><ul>
+<li>&#x6D4F;&#x89C8;&#x5668;</li>
+<li>&#x670D;&#x52A1;&#x7AEF;</li>
 </ul>
-<h5 id="全双工通信（应用层协议）-tcp-ip"><a href="#全双工通信（应用层协议）-tcp-ip" class="headerlink" title="全双工通信（应用层协议） - tcp/ip"></a>全双工通信（应用层协议） - tcp/ip</h5><ul>
-<li><p>websocket -（c/s） </p>
+<h5 id="&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF08;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF09;-tcp-ip"><a href="#&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF08;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF09;-tcp-ip" class="headerlink" title="&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF08;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF09; - tcp/ip"></a>&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF08;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#xFF09; - tcp/ip</h5><ul>
+<li><p>websocket -&#xFF08;c/s&#xFF09; </p>
 </li>
-<li><p>多线程聊天</p>
+<li><p>&#x591A;&#x7EBF;&#x7A0B;&#x804A;&#x5929;</p>
 </li>
 </ul>
 <blockquote>
-<p>服务端可以主动向浏览器发送信息</p>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x53EF;&#x4EE5;&#x4E3B;&#x52A8;&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;&#x4FE1;&#x606F;</p>
 </blockquote>
-<h5 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h5><ul>
-<li><p><strong>http协议：</strong>http://域名:端口号</p>
+<h5 id="&#x534F;&#x8BAE;"><a href="#&#x534F;&#x8BAE;" class="headerlink" title="&#x534F;&#x8BAE;"></a>&#x534F;&#x8BAE;</h5><ul>
+<li><p><strong>http&#x534F;&#x8BAE;&#xFF1A;</strong>http://&#x57DF;&#x540D;:&#x7AEF;&#x53E3;&#x53F7;</p>
 </li>
-<li><p><strong>websocket：</strong>//域名:端口号</p>
+<li><p><strong>websocket&#xFF1A;</strong>//&#x57DF;&#x540D;:&#x7AEF;&#x53E3;&#x53F7;</p>
 <blockquote>
-<p>浏览器版本的socket</p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x7248;&#x672C;&#x7684;socket</p>
 </blockquote>
 </li>
 </ul>
-<h4 id="模板引擎-FreeMarker"><a href="#模板引擎-FreeMarker" class="headerlink" title="模板引擎 - FreeMarker"></a>模板引擎 - FreeMarker</h4><blockquote>
-<p>获取后端传的参数，也可以用jsp，html，但是这个比较方便，要想用模板引擎后端必须要加载模板引擎</p>
+<h4 id="&#x6A21;&#x677F;&#x5F15;&#x64CE;-FreeMarker"><a href="#&#x6A21;&#x677F;&#x5F15;&#x64CE;-FreeMarker" class="headerlink" title="&#x6A21;&#x677F;&#x5F15;&#x64CE; - FreeMarker"></a>&#x6A21;&#x677F;&#x5F15;&#x64CE; - FreeMarker</h4><blockquote>
+<p>&#x83B7;&#x53D6;&#x540E;&#x7AEF;&#x4F20;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;jsp&#xFF0C;html&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#xFF0C;&#x8981;&#x60F3;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x540E;&#x7AEF;&#x5FC5;&#x987B;&#x8981;&#x52A0;&#x8F7D;&#x6A21;&#x677F;&#x5F15;&#x64CE;</p>
 </blockquote>
 <ul>
-<li>配置tomcat加载ftl页面路径</li>
-<li>配置监听器，项目启动的时候监听器就执行了，所以可以将全局配置放在里面，各个Servlet都能用了</li>
+<li>&#x914D;&#x7F6E;tomcat&#x52A0;&#x8F7D;ftl&#x9875;&#x9762;&#x8DEF;&#x5F84;</li>
+<li>&#x914D;&#x7F6E;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x9879;&#x76EE;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x76D1;&#x542C;&#x5668;&#x5C31;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5C06;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x653E;&#x5728;&#x91CC;&#x9762;&#xFF0C;&#x5404;&#x4E2A;Servlet&#x90FD;&#x80FD;&#x7528;&#x4E86;</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epochong.chatroom.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> freemarker.template.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebListener;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/6 10:03</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> 预加载配置，相当于类的static静态块</span></span><br><span class="line"><span class="comment"> * WebListener：这个类具备监听器的能力</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreeMarkerListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读取配置的时候通过k,v的方式</span></span><br><span class="line"><span class="comment">     * k：_template_</span></span><br><span class="line"><span class="comment">     * v：cfg （freemarker.template.Configuration）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEMPLATE_KEY = <span class="string">"_template_"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当项目启动的时候tomcat会自动调用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sce</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//配置版本</span></span><br><span class="line">        Configuration cfg = <span class="keyword">new</span> Configuration(Configuration.VERSION_2_3_0);</span><br><span class="line">        <span class="comment">//配置加载ftl路径</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            cfg.setDirectoryForTemplateLoading(<span class="keyword">new</span> File(<span class="string">"F:\\Program\\Java\\Maven\\chatroom_websocket\\src\\main\\webapp"</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 配置页面编码</span></span><br><span class="line">        cfg.setDefaultEncoding(StandardCharsets.UTF_8.displayName());</span><br><span class="line">        <span class="comment">//将配置写入上下文中，设置k,v</span></span><br><span class="line">        sce.getServletContext().setAttribute(TEMPLATE_KEY,cfg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 项目快要终止的时候调用</span></span><br><span class="line"><span class="comment">     * 可以放一些全局的资源释放</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sce</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.epochong.chatroom.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> freemarker.template.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebListener;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> epochong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/8/6 10:03</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> epochong@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@blog</span> epochong.github.io</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span> &#x9884;&#x52A0;&#x8F7D;&#x914D;&#x7F6E;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x7C7B;&#x7684;static&#x9759;&#x6001;&#x5757;</span></span><br><span class="line"><span class="comment"> * WebListener&#xFF1A;&#x8FD9;&#x4E2A;&#x7C7B;&#x5177;&#x5907;&#x76D1;&#x542C;&#x5668;&#x7684;&#x80FD;&#x529B;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreeMarkerListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x8BFB;&#x53D6;&#x914D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x901A;&#x8FC7;k,v&#x7684;&#x65B9;&#x5F0F;</span></span><br><span class="line"><span class="comment">     * k&#xFF1A;_template_</span></span><br><span class="line"><span class="comment">     * v&#xFF1A;cfg &#xFF08;freemarker.template.Configuration&#xFF09;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TEMPLATE_KEY = <span class="string">&quot;_template_&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x5F53;&#x9879;&#x76EE;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;tomcat&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sce</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent sce)</span> </span>{</span><br><span class="line">        <span class="comment">//&#x914D;&#x7F6E;&#x7248;&#x672C;</span></span><br><span class="line">        Configuration cfg = <span class="keyword">new</span> Configuration(Configuration.VERSION_2_3_0);</span><br><span class="line">        <span class="comment">//&#x914D;&#x7F6E;&#x52A0;&#x8F7D;ftl&#x8DEF;&#x5F84;</span></span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            cfg.setDirectoryForTemplateLoading(<span class="keyword">new</span> File(<span class="string">&quot;F:\\Program\\Java\\Maven\\chatroom_websocket\\src\\main\\webapp&quot;</span>));</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// &#x914D;&#x7F6E;&#x9875;&#x9762;&#x7F16;&#x7801;</span></span><br><span class="line">        cfg.setDefaultEncoding(StandardCharsets.UTF_8.displayName());</span><br><span class="line">        <span class="comment">//&#x5C06;&#x914D;&#x7F6E;&#x5199;&#x5165;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#xFF0C;&#x8BBE;&#x7F6E;k,v</span></span><br><span class="line">        sce.getServletContext().setAttribute(TEMPLATE_KEY,cfg);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x9879;&#x76EE;&#x5FEB;&#x8981;&#x7EC8;&#x6B62;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;</span></span><br><span class="line"><span class="comment">     * &#x53EF;&#x4EE5;&#x653E;&#x4E00;&#x4E9B;&#x5168;&#x5C40;&#x7684;&#x8D44;&#x6E90;&#x91CA;&#x653E;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sce</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent sce)</span> </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
 
@@ -514,16 +514,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -631,10 +643,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -643,11 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,11 +663,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,19 +687,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,11 +723,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

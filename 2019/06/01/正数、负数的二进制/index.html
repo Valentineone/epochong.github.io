@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>正数、负数的二进制 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先看一下我在网上看到的一个二进制加法(讲解的很容易懂) 原码：在数值前直接加一符号位的表示法。 反码：正数：正数的反码与原码相同。负数：负数的反码，符号位为 “1”，数值部分按位取反。 补码：正数：正数的补码和原码相同。  负数：负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程  以字长 8bit 为例 5 - 3 = (0000 01">
+  <meta name="description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;&amp;#x6211;&amp;#x5728;&amp;#x7F51;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x52A0;&amp;#x6CD5;(&amp;#x8BB2;&amp;#x89E3;&amp;#x7684;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x61C2">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正数、负数的二进制">
 <meta property="og:url" content="http://yoursite.com/2019/06/01/正数、负数的二进制/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="先看一下我在网上看到的一个二进制加法(讲解的很容易懂) 原码：在数值前直接加一符号位的表示法。 反码：正数：正数的反码与原码相同。负数：负数的反码，符号位为 “1”，数值部分按位取反。 补码：正数：正数的补码和原码相同。  负数：负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程  以字长 8bit 为例 5 - 3 = (0000 01">
+<meta property="og:description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;&amp;#x6211;&amp;#x5728;&amp;#x7F51;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x52A0;&amp;#x6CD5;(&amp;#x8BB2;&amp;#x89E3;&amp;#x7684;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x61C2">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-01T11:59:29.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正数、负数的二进制">
-<meta name="twitter:description" content="先看一下我在网上看到的一个二进制加法(讲解的很容易懂) 原码：在数值前直接加一符号位的表示法。 反码：正数：正数的反码与原码相同。负数：负数的反码，符号位为 “1”，数值部分按位取反。 补码：正数：正数的补码和原码相同。  负数：负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程  以字长 8bit 为例 5 - 3 = (0000 01">
+<meta name="twitter:description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;&amp;#x6211;&amp;#x5728;&amp;#x7F51;&amp;#x4E0A;&amp;#x770B;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x52A0;&amp;#x6CD5;(&amp;#x8BB2;&amp;#x89E3;&amp;#x7684;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x61C2">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,43 +193,43 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h5 id="先看一下我在网上看到的一个二进制加法-讲解的很容易懂"><a href="#先看一下我在网上看到的一个二进制加法-讲解的很容易懂" class="headerlink" title="先看一下我在网上看到的一个二进制加法(讲解的很容易懂)"></a>先看一下我在网上看到的一个二进制加法(讲解的很容易懂)</h5><ol>
-<li><strong>原码：</strong>在数值前直接加一符号位的表示法。</li>
-<li><strong>反码：</strong><br><strong>正数：</strong>正数的反码与原码相同。<br><strong>负数：</strong>负数的反码，符号位为 “1”，数值部分按位取反。</li>
-<li><strong>补码：</strong><br><strong>正数：</strong>正数的补码和原码相同。</li>
+        <h5 id="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;-&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;"><a href="#&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;-&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;" class="headerlink" title="&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;(&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;)"></a>&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x52A0;&#x6CD5;(&#x8BB2;&#x89E3;&#x7684;&#x5F88;&#x5BB9;&#x6613;&#x61C2;)</h5><ol>
+<li><strong>&#x539F;&#x7801;&#xFF1A;</strong>&#x5728;&#x6570;&#x503C;&#x524D;&#x76F4;&#x63A5;&#x52A0;&#x4E00;&#x7B26;&#x53F7;&#x4F4D;&#x7684;&#x8868;&#x793A;&#x6CD5;&#x3002;</li>
+<li><strong>&#x53CD;&#x7801;&#xFF1A;</strong><br><strong>&#x6B63;&#x6570;&#xFF1A;</strong>&#x6B63;&#x6570;&#x7684;&#x53CD;&#x7801;&#x4E0E;&#x539F;&#x7801;&#x76F8;&#x540C;&#x3002;<br><strong>&#x8D1F;&#x6570;&#xFF1A;</strong>&#x8D1F;&#x6570;&#x7684;&#x53CD;&#x7801;&#xFF0C;&#x7B26;&#x53F7;&#x4F4D;&#x4E3A; &#x201C;1&#x201D;&#xFF0C;&#x6570;&#x503C;&#x90E8;&#x5206;&#x6309;&#x4F4D;&#x53D6;&#x53CD;&#x3002;</li>
+<li><strong>&#x8865;&#x7801;&#xFF1A;</strong><br><strong>&#x6B63;&#x6570;&#xFF1A;</strong>&#x6B63;&#x6570;&#x7684;&#x8865;&#x7801;&#x548C;&#x539F;&#x7801;&#x76F8;&#x540C;&#x3002;</li>
 </ol>
-<p><strong>负数：</strong>负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程</p>
+<p><strong>&#x8D1F;&#x6570;&#xFF1A;</strong>&#x8D1F;&#x6570;&#x7684;&#x8865;&#x7801;&#x5219;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x4E3A; &#x201C;1&#x201D;&#x3002;&#x6570;&#x503C;&#x90E8;&#x5206;&#x6309;&#x4F4D;&#x53D6;&#x53CD;&#x540E;&#x518D;&#x5728;&#x6700;&#x4F4E;&#x4F4D;&#x52A0; 1&#x3002;&#x4E5F;&#x5C31;&#x662F; &#x201C;&#x53CD;&#x7801; + 1&#x201D;&#x3002;5-3 &#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;</p>
 <ul>
-<li><p>以字长 8bit 为例</p>
-<p>5 - 3 = (0000 0101) 补 + (1000 0011) 补 = 0000 0101 + 1111 1101 (这里就是反码为 1111 1100，+1 得到) =<br>1 0000 0010<br>最后，这里字长为 8bit，所以 8 位以后的都舍弃（从右边开始数）<br>PS: 如果舍弃掉的是有效数字，那么这就是传说中的溢出</p>
-<p><strong>结果：</strong> (0000 0010) 2=(2) 10<br>所以 5-3=2</p>
+<li><p>&#x4EE5;&#x5B57;&#x957F; 8bit &#x4E3A;&#x4F8B;</p>
+<p>5 - 3 = (0000 0101) &#x8865; + (1000 0011) &#x8865; = 0000 0101 + 1111 1101 (&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x53CD;&#x7801;&#x4E3A; 1111 1100&#xFF0C;+1 &#x5F97;&#x5230;) =<br>1 0000 0010<br>&#x6700;&#x540E;&#xFF0C;&#x8FD9;&#x91CC;&#x5B57;&#x957F;&#x4E3A; 8bit&#xFF0C;&#x6240;&#x4EE5; 8 &#x4F4D;&#x4EE5;&#x540E;&#x7684;&#x90FD;&#x820D;&#x5F03;&#xFF08;&#x4ECE;&#x53F3;&#x8FB9;&#x5F00;&#x59CB;&#x6570;&#xFF09;<br>PS: &#x5982;&#x679C;&#x820D;&#x5F03;&#x6389;&#x7684;&#x662F;&#x6709;&#x6548;&#x6570;&#x5B57;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x5C31;&#x662F;&#x4F20;&#x8BF4;&#x4E2D;&#x7684;&#x6EA2;&#x51FA;</p>
+<p><strong>&#x7ED3;&#x679C;&#xFF1A;</strong> (0000 0010) 2=(2) 10<br>&#x6240;&#x4EE5; 5-3=2</p>
 </li>
 </ul>
-<h5 id="再看一下我在程序的遇到的问题"><a href="#再看一下我在程序的遇到的问题" class="headerlink" title="再看一下我在程序的遇到的问题"></a>再看一下我在程序的遇到的问题</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"(byte) 127:"</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) 128:"</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -128:"</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -127:"</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -1:"</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h6 id="结果如下"><a href="#结果如下" class="headerlink" title="结果如下"></a>结果如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>可以看到<code>(byte) 128:-128</code>，</p>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><p>这是因为，127 –&gt;原码、反码、补码： 0111  1111</p>
-<p>​                    127 + 1 –&gt;1000  0000</p>
-<p>byte类型一共8个bit位，在计算机中负数的二进制表示为补码。而1000  0000正是-128的补码</p>
-<h6 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h6><p>-128，不能按照数值位前直接加一个符号位，要从128开始，其他的负数可以按照这一规律计算</p>
+<h5 id="&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="#&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;(byte) 127:&quot;</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) 128:&quot;</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -128:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -127:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;(byte) -1:&quot;</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="&#x7ED3;&#x679C;&#x5982;&#x4E0B;"><a href="#&#x7ED3;&#x679C;&#x5982;&#x4E0B;" class="headerlink" title="&#x7ED3;&#x679C;&#x5982;&#x4E0B;"></a>&#x7ED3;&#x679C;&#x5982;&#x4E0B;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>(byte) 128:-128</code>&#xFF0C;</p>
+<h6 id="&#x89E3;&#x91CA;"><a href="#&#x89E3;&#x91CA;" class="headerlink" title="&#x89E3;&#x91CA;"></a>&#x89E3;&#x91CA;</h6><p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;127 &#x2013;&gt;&#x539F;&#x7801;&#x3001;&#x53CD;&#x7801;&#x3001;&#x8865;&#x7801;&#xFF1A; 0111  1111</p>
+<p>&#x200B;                    127 + 1 &#x2013;&gt;1000  0000</p>
+<p>byte&#x7C7B;&#x578B;&#x4E00;&#x5171;8&#x4E2A;bit&#x4F4D;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x8D1F;&#x6570;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x8868;&#x793A;&#x4E3A;&#x8865;&#x7801;&#x3002;&#x800C;1000  0000&#x6B63;&#x662F;-128&#x7684;&#x8865;&#x7801;</p>
+<h6 id="&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;"><a href="#&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;"></a>&#x8F6C;&#x6362;&#x8FC7;&#x7A0B;</h6><p>-128&#xFF0C;&#x4E0D;&#x80FD;&#x6309;&#x7167;&#x6570;&#x503C;&#x4F4D;&#x524D;&#x76F4;&#x63A5;&#x52A0;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x4F4D;&#xFF0C;&#x8981;&#x4ECE;128&#x5F00;&#x59CB;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8D1F;&#x6570;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x8FD9;&#x4E00;&#x89C4;&#x5F8B;&#x8BA1;&#x7B97;</p>
 <ul>
-<li><p>原码：1000  0000 (-128，进位被舍去)</p>
+<li><p>&#x539F;&#x7801;&#xFF1A;1000  0000 (-128&#xFF0C;&#x8FDB;&#x4F4D;&#x88AB;&#x820D;&#x53BB;)</p>
 </li>
-<li><p>反码：1111  1111</p>
+<li><p>&#x53CD;&#x7801;&#xFF1A;1111  1111</p>
 </li>
-<li><p>补码：1000  0000</p>
-<p>补码计算为： (11111111 (反码) + 1=10000000, 这里实际上真正相加的是 11111111 后面的 7 位，<strong>第 1 位是符号位始终不会变</strong>，所以，<strong>当进到第 8 位的时候，就表示溢出了，会被舍弃</strong>。</p>
-<p><strong>0 只有一个补码 00000000，那么 10000000 就不会表示成 - 0 的补码，即：补码 1000 0000 唯一的表示是 - 128，在补码中用 (-128) 代替了 (-0), 所以补码的表示范围为: (-128~0~127) 共 256 个.</strong></p>
+<li><p>&#x8865;&#x7801;&#xFF1A;1000  0000</p>
+<p>&#x8865;&#x7801;&#x8BA1;&#x7B97;&#x4E3A;&#xFF1A; (11111111 (&#x53CD;&#x7801;) + 1=10000000, &#x8FD9;&#x91CC;&#x5B9E;&#x9645;&#x4E0A;&#x771F;&#x6B63;&#x76F8;&#x52A0;&#x7684;&#x662F; 11111111 &#x540E;&#x9762;&#x7684; 7 &#x4F4D;&#xFF0C;<strong>&#x7B2C; 1 &#x4F4D;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x59CB;&#x7EC8;&#x4E0D;&#x4F1A;&#x53D8;</strong>&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;<strong>&#x5F53;&#x8FDB;&#x5230;&#x7B2C; 8 &#x4F4D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x8868;&#x793A;&#x6EA2;&#x51FA;&#x4E86;&#xFF0C;&#x4F1A;&#x88AB;&#x820D;&#x5F03;</strong>&#x3002;</p>
+<p><strong>0 &#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8865;&#x7801; 00000000&#xFF0C;&#x90A3;&#x4E48; 10000000 &#x5C31;&#x4E0D;&#x4F1A;&#x8868;&#x793A;&#x6210; - 0 &#x7684;&#x8865;&#x7801;&#xFF0C;&#x5373;&#xFF1A;&#x8865;&#x7801; 1000 0000 &#x552F;&#x4E00;&#x7684;&#x8868;&#x793A;&#x662F; - 128&#xFF0C;&#x5728;&#x8865;&#x7801;&#x4E2D;&#x7528; (-128) &#x4EE3;&#x66FF;&#x4E86; (-0), &#x6240;&#x4EE5;&#x8865;&#x7801;&#x7684;&#x8868;&#x793A;&#x8303;&#x56F4;&#x4E3A;: (-128~0~127) &#x5171; 256 &#x4E2A;.</strong></p>
 </li>
 </ul>
-<p>int为4个字节，byte为1个字节，int转byte只能取低八位补码：1000  0000</p>
-<p><strong>实际上，int型的负数，在一个字节的基础上前面补1即可，计算过程同普通的负数，没有发生溢出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
-<p>普通负数-1：</p>
+<p>int&#x4E3A;4&#x4E2A;&#x5B57;&#x8282;&#xFF0C;byte&#x4E3A;1&#x4E2A;&#x5B57;&#x8282;&#xFF0C;int&#x8F6C;byte&#x53EA;&#x80FD;&#x53D6;&#x4F4E;&#x516B;&#x4F4D;&#x8865;&#x7801;&#xFF1A;1000  0000</p>
+<p><strong>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;int&#x578B;&#x7684;&#x8D1F;&#x6570;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x524D;&#x9762;&#x8865;1&#x5373;&#x53EF;&#xFF0C;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x540C;&#x666E;&#x901A;&#x7684;&#x8D1F;&#x6570;&#xFF0C;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x6EA2;&#x51FA;</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>&#xFF1A;</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
+<p>&#x666E;&#x901A;&#x8D1F;&#x6570;-1&#xFF1A;</p>
 <ul>
-<li>原码：1000  0001</li>
-<li>反码：1111  1110</li>
-<li>补码：1111  1111</li>
+<li>&#x539F;&#x7801;&#xFF1A;1000  0001</li>
+<li>&#x53CD;&#x7801;&#xFF1A;1111  1110</li>
+<li>&#x8865;&#x7801;&#xFF1A;1111  1111</li>
 </ul>
 
       
@@ -421,16 +421,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -538,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -550,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +570,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,19 +594,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,11 +630,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">

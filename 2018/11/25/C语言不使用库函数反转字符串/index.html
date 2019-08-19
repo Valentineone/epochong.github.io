@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C语言不使用库函数反转字符串 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;	int i = 0;	int count = 0;	char stu[] = &amp;#123; &quot;stude">
+  <meta name="description" content="&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x5F53;&amp;#x7136;&amp;#x4F60;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5DF1;&amp;#x8F93;&amp;#x5165;&amp;#xFF08;&amp;#x66F4;&amp;#x6539;&amp;#x4E00;&amp;#x4E0B;&amp;#x8BED;&amp;#x53">
 <meta name="keywords" content="algorithms,C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言不使用库函数反转字符串">
 <meta property="og:url" content="http://yoursite.com/2018/11/25/C语言不使用库函数反转字符串/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;	int i = 0;	int count = 0;	char stu[] = &amp;#123; &quot;stude">
+<meta property="og:description" content="&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x5F53;&amp;#x7136;&amp;#x4F60;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5DF1;&amp;#x8F93;&amp;#x5165;&amp;#xFF08;&amp;#x66F4;&amp;#x6539;&amp;#x4E00;&amp;#x4E0B;&amp;#x8BED;&amp;#x53">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-28T02:12:22.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言不使用库函数反转字符串">
-<meta name="twitter:description" content="给定一个字符串，当然你也可以自己输入（更改一下语句） 给定：“student a am i” 输出：“i ma a tneduts” 1234567891011121314151617181920212223#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;	int i = 0;	int count = 0;	char stu[] = &amp;#123; &quot;stude">
+<meta name="twitter:description" content="&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x5F53;&amp;#x7136;&amp;#x4F60;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5DF1;&amp;#x8F93;&amp;#x5165;&amp;#xFF08;&amp;#x66F4;&amp;#x6539;&amp;#x4E00;&amp;#x4E0B;&amp;#x8BED;&amp;#x53">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -194,8 +194,8 @@
 
       
         <a id="more"></a>
-<p>  给定一个字符串，当然你也可以自己输入（更改一下语句）<br> 给定：“student a am i”<br> 输出：“i ma a tneduts”</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> stu[] = &#123; <span class="string">"student a am i"</span> &#125;;</span><br><span class="line">	<span class="keyword">char</span>* star = stu;</span><br><span class="line">	<span class="keyword">while</span> (*star++)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	star = stu;</span><br><span class="line">	<span class="keyword">char</span>* end = stu + count - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; star &lt; end; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">char</span> temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  &#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5F53;&#x7136;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8F93;&#x5165;&#xFF08;&#x66F4;&#x6539;&#x4E00;&#x4E0B;&#x8BED;&#x53E5;&#xFF09;<br> &#x7ED9;&#x5B9A;&#xFF1A;&#x201C;student a am i&#x201D;<br> &#x8F93;&#x51FA;&#xFF1A;&#x201C;i ma a tneduts&#x201D;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> stu[] = { <span class="string">&quot;student a am i&quot;</span> };</span><br><span class="line">	<span class="keyword">char</span>* star = stu;</span><br><span class="line">	<span class="keyword">while</span> (*star++)</span><br><span class="line">	{</span><br><span class="line">		count++;</span><br><span class="line">	}</span><br><span class="line">	star = stu;</span><br><span class="line">	<span class="keyword">char</span>* end = stu + count - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; star &lt; end; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">char</span> temp = *star;</span><br><span class="line">		*star = *end;</span><br><span class="line">		*end = temp;</span><br><span class="line">		end--;</span><br><span class="line">		star++;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, stu);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
 
@@ -390,16 +390,28 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
+        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span> 人
+        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
       </span>
     </div>
  
   </div>
 
+<!--添加不蒜子内容-->
+  
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_site_pv">
+          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+            本站访客数<span id="busuanzi_value_site_uv"></span>人
+    </span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<!--不蒜子结束-->
 
 </footer>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -507,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -519,11 +527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,11 +539,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,19 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +599,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">practice</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">practice</a>
               </li>
              
               <li class="article-tag-list-item">
