@@ -160,104 +160,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-计蒜客 集合之TreeMap 水果店" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/计蒜客 集合之TreeMap 水果店/">TreeMap 水果店</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/05/03/计蒜客 集合之TreeMap 水果店/" class="archive-article-date">
-  	<time datetime="2019-05-03T07:30:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <a id="more"></a>
-<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89788070" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89788070</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间限制1000ms   空间限制131072K</span><br></pre></td></tr></table></figure></p>
-<p> 蒜头君经营着一个不大的水果店。他认为生存之道就是经营最受顾客欢迎的水果。现在他想要一份水果销售情况的明细表，这样就可以很容易掌握所有水果的销售情况了。蒜头君告诉你每一笔销售记录的水果名称，产地和销售的数量，请你帮他生成明细表。</p>
-<p> <strong>输入格式</strong><br> 第一行是一个整数 N(0 &lt; N \le 1000)N(0&lt;N≤1000)，表示工有 NN 次成功的交易。其后有 NN 行数据，每行表示一次交易，由水果名称 (小写字母组成，长度不超过 100100)，水果产地 (小写字母组成，长度不超过 100100) 和交易的水果数目 (正整数，不超过 10001000) 组成.</p>
-<p> <strong>输出格式</strong><br> 请你输出一份排版格式正确 (请分析样本输出) 的水果销售情况明细表。这份明细表包括所有水果的产地、名称和销售数目的信息。水果先按产地分类，产地按字母顺序排列；同一产地的水果按照名称排序，名称按字母顺序排序。</p>
-<p> <strong>样例输入</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">apple shandong 3</span><br><span class="line">pineapple guangdong 1</span><br><span class="line">sugarcane guangdong 1</span><br><span class="line">pineapple guangdong 3</span><br><span class="line">pineapple guangdong 1</span><br></pre></td></tr></table></figure>
-<p> <strong>样例输出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">guangdong</span><br><span class="line">   |----pineapple(<span class="number">5</span>)</span><br><span class="line">   |----sugarcane(<span class="number">1</span>)</span><br><span class="line">shandong</span><br><span class="line">   |----apple(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p> <strong>实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/3 13:38</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_06_FruitTable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        Map&lt;String,Map&lt;String,Integer&gt;&gt; cityFruit = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">        Map&lt;String,Integer&gt; fruitNum = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            String fruit = input.next();</span><br><span class="line">            String city = input.next();</span><br><span class="line">            <span class="keyword">int</span> num = input.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (cityFruit.containsKey(city)) &#123;</span><br><span class="line">                fruitNum = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">                fruitNum.putAll(cityFruit.get(city));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                fruitNum = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (fruitNum.containsKey(fruit)) &#123;</span><br><span class="line">                fruitNum.put(fruit,fruitNum.get(fruit) + num);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                fruitNum.put(fruit,num);</span><br><span class="line">            &#125;</span><br><span class="line">            cityFruit.put(city,fruitNum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String,Map&lt;String,Integer&gt;&gt; entry : cityFruit.entrySet()</span><br><span class="line">             ) &#123;</span><br><span class="line">            System.out.println(entry.getKey());</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String,Integer&gt; fruitMap : cityFruit.get(entry.getKey()).entrySet()</span><br><span class="line">                 ) &#123;</span><br><span class="line">                System.out.println(<span class="string">"   |----"</span> + fruitMap.getKey() + <span class="string">"("</span> + fruitMap.getValue() + <span class="string">")"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <strong>小tips</strong><br> 每次换了城市的时候必须刷新fruitNum，每次遇到相同的城市必须刷新fruitNum并且将之前对应的表拿出来再赋给他才能保证不同城市不会串到一起，我在找个地方吃力很大的亏<br> <strong>entend</strong><br> 学了TreeMap的基础知识，我想如果TreeMap可以放基本数据类型和String类型，那么应该可以放集合，没想到真的可以，根据这一题，就尝试了一下，题目要求中有三个值，所以普通的key，value是不可能满足的，那么如果value又是一个Map那么就可以满足三个值的对应关系，一个城市对应一批水果，水果则用TreeMap存放，就可以达到输出对应每个城市的水果销售情况了。<br> 我只对解法做了简单的介绍，要想明白其中的道理，必须体会我的代码中的魅力。鬼知道debug用来多长时间。</p>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/计蒜客 集合之TreeMap 水果店/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-HashMap的迭代（HashMap遍历）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,12 +186,18 @@
 
       
         <a id="more"></a>
-<h5 id="entrySet"><a href="#entrySet" class="headerlink" title="entrySet()"></a><code>entrySet()</code></h5><h6 id="将Map集合转换为存储元素类型为Map的Set集合"><a href="#将Map集合转换为存储元素类型为Map的Set集合" class="headerlink" title="将Map集合转换为存储元素类型为Map的Set集合"></a>将Map集合转换为存储元素类型为Map的Set集合</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (HashMap.Entry&lt;String, Integer&gt; entry : dict.entrySet()) &#123;</span><br><span class="line">    System.out.println(entry.getKey() + <span class="string">" is in class "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="keySet"><a href="#keySet" class="headerlink" title="keySet()"></a><code>keySet()</code></h5><h6 id="map-keySet-以Set集合的形式返回Map集合中所有的键对象Key"><a href="#map-keySet-以Set集合的形式返回Map集合中所有的键对象Key" class="headerlink" title="map.keySet()以Set集合的形式返回Map集合中所有的键对象Key"></a>map.keySet()以Set集合的形式返回Map集合中所有的键对象Key</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> mapKey : map.keySet()</span><br><span class="line">	) &#123;   </span><br><span class="line">	System.out.println( <span class="string">"key:"</span> + mapKey + <span class="string">"value:"</span> + map.get(mapKey));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><code>Iterator</code></h5><h6 id="Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值"><a href="#Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值" class="headerlink" title="Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值"></a>Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line">Iterator&lt;String&gt; iterator = keySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    String key = iterator.next();</span><br><span class="line">    System.out.println( <span class="string">"key:"</span> + key + <span class="string">"value:"</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="forEach-BiConsumer-action"><a href="#forEach-BiConsumer-action" class="headerlink" title="forEach(BiConsumer action)"></a><code>forEach(BiConsumer action)</code></h5><p><strong>与Collection结合遍历类似，在JDK8中也根据Lambda表达式特性新增了一个forEach(BiConsumer action)方法来遍历Map集合</strong></p>
+<h5 id="1-entrySet"><a href="#1-entrySet" class="headerlink" title="1. entrySet()"></a>1. <code>entrySet()</code></h5><p><strong>将Map集合转换为存储元素类型为Map的Set集合</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (HashMap.Entry&lt;String, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(entry.getKey() + <span class="string">" is in class "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-keySet"><a href="#2-keySet" class="headerlink" title="2. keySet()"></a>2. <code>keySet()</code></h5><p><strong>map.keySet()以Set集合的形式返回Map集合中所有的键对象Key</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> mapKey : map.keySet()</span><br><span class="line">	) &#123;   </span><br><span class="line">	System.out.println( <span class="string">"key:"</span> + mapKey + <span class="string">"value:"</span> + map.get(mapKey));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-stream"><a href="#3-stream" class="headerlink" title="3. stream()"></a>3. <code>stream()</code></h5><p><strong>结合entrySet转成Set集合，然后通过Collection接口下的stream()转换为Stream流进行遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Map.Entry&lt;String,String&gt;&gt; entry = map.entrySet();</span><br><span class="line">Stream&lt;Map.Entry&lt;String,String&gt;&gt; stream = entry.stream();</span><br><span class="line">stream.forEach(i -&gt; System.out.println(<span class="string">"key:"</span> + i.getKey() + <span class="string">" value:"</span> + i.getValue()));</span><br></pre></td></tr></table></figure>
+<h5 id="4-Iterator"><a href="#4-Iterator" class="headerlink" title="4. Iterator"></a>4. <code>Iterator</code></h5><p><strong>Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line">Iterator&lt;String&gt; iterator = keySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    String key = iterator.next();</span><br><span class="line">    System.out.println( <span class="string">"key:"</span> + key + <span class="string">"value:"</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-forEach-BiConsumer-action"><a href="#5-forEach-BiConsumer-action" class="headerlink" title="5. forEach(BiConsumer action)"></a>5. <code>forEach(BiConsumer action)</code></h5><p><strong>与Collection结合遍历类似，在JDK8中也根据Lambda表达式特性新增了一个forEach(BiConsumer action)方法来遍历Map集合</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">map.forEach((key,value) -&gt; System.out.println(key + <span class="string">":"</span> + value));</span><br></pre></td></tr></table></figure>
-<h5 id="values"><a href="#values" class="headerlink" title="values"></a><code>values</code></h5><h6 id="通过这个方法可以直接获取Map中存储所有值的Collection结合"><a href="#通过这个方法可以直接获取Map中存储所有值的Collection结合" class="headerlink" title="通过这个方法可以直接获取Map中存储所有值的Collection结合"></a>通过这个方法可以直接获取Map中存储所有值的Collection结合</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Collection values = map.values();</span><br><span class="line">values.forEach(v -&gt; System.out.println(v));</span><br></pre></td></tr></table></figure>
+<h5 id="6-values"><a href="#6-values" class="headerlink" title="6. values"></a>6. <code>values</code></h5><p><strong>通过这个方法可以直接获取Map中存储所有值的Collection结合</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Collection values = map.values();</span><br><span class="line">values.forEach(v -&gt; System.out.println(v));</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1097,6 +1005,98 @@
 
 
   
+    <article id="post-集合 ArrayList创建二维数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/集合 ArrayList创建二维数组/">使用ArrayList创建二维数组</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/04/30/集合 ArrayList创建二维数组/" class="archive-article-date">
+  	<time datetime="2019-04-30T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> 版权声明：wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712213" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712213</a><br>  <strong>计蒜客data structure：Code_01</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/4/30 16:09</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_01_SpecialMatrix</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> m = input.nextInt();</span><br><span class="line">        ArrayList[] arrayList = <span class="keyword">new</span> ArrayList[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            arrayList[i] = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = input.nextInt();</span><br><span class="line">            <span class="keyword">int</span> y = input.nextInt();</span><br><span class="line">            arrayList[x - <span class="number">1</span>].add(y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrayList[i].size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &lt; arrayList[i].size() - <span class="number">1</span>) &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j) + <span class="string">" "</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.print(arrayList[i].get(j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="为什么要在声明后初始化呢"><a href="#为什么要在声明后初始化呢" class="headerlink" title="为什么要在声明后初始化呢?"></a>为什么要在声明后初始化呢?</h5><ul>
+<li>泛型数组初始化时不能声明泛型类型<h6 id="如下代码编译时通不过："><a href="#如下代码编译时通不过：" class="headerlink" title="如下代码编译时通不过："></a>如下代码编译时通不过：</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;[] list = <span class="keyword">new</span> List&lt;String&gt;[];</span><br><span class="line">        在这里可以声明一个带有泛型参数的数组，但是不能初始化该数组，因为执行了类型擦除操作后，List&lt;Object&gt;[] 与 List&lt;String&gt;[] 就是同一回事了，编译器拒绝如此声明。</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/集合 ArrayList创建二维数组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1120,10 +1120,10 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>|
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -1133,7 +1133,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -1265,11 +1265,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,19 +1281,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,6 +1298,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,6 +1326,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">

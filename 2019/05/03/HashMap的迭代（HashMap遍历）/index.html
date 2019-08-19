@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HashMap的迭代（HashMap遍历） | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="entrySet()将Map集合转换为存储元素类型为Map的Set集合1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : dict.entrySet()) &amp;#123;    System.ou">
+  <meta name="description" content="1. entrySet()将Map集合转换为存储元素类型为Map的Set集合 1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : map.entrySet()) &amp;#123;    System">
 <meta name="keywords" content="java,集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashMap的迭代（HashMap遍历）">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/HashMap的迭代（HashMap遍历）/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="entrySet()将Map集合转换为存储元素类型为Map的Set集合1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : dict.entrySet()) &amp;#123;    System.ou">
+<meta property="og:description" content="1. entrySet()将Map集合转换为存储元素类型为Map的Set集合 1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : map.entrySet()) &amp;#123;    System">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-12T15:45:41.931Z">
+<meta property="og:updated_time" content="2019-08-19T03:01:29.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap的迭代（HashMap遍历）">
-<meta name="twitter:description" content="entrySet()将Map集合转换为存储元素类型为Map的Set集合1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : dict.entrySet()) &amp;#123;    System.ou">
+<meta name="twitter:description" content="1. entrySet()将Map集合转换为存储元素类型为Map的Set集合 1234HashMap&amp;lt;String, Integer&amp;gt; map = new HashMap&amp;lt;String, Integer&amp;gt;();for (HashMap.Entry&amp;lt;String, Integer&amp;gt; entry : map.entrySet()) &amp;#123;    System">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -194,12 +194,18 @@
 
       
         <a id="more"></a>
-<h5 id="entrySet"><a href="#entrySet" class="headerlink" title="entrySet()"></a><code>entrySet()</code></h5><h6 id="将Map集合转换为存储元素类型为Map的Set集合"><a href="#将Map集合转换为存储元素类型为Map的Set集合" class="headerlink" title="将Map集合转换为存储元素类型为Map的Set集合"></a>将Map集合转换为存储元素类型为Map的Set集合</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (HashMap.Entry&lt;String, Integer&gt; entry : dict.entrySet()) &#123;</span><br><span class="line">    System.out.println(entry.getKey() + <span class="string">" is in class "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="keySet"><a href="#keySet" class="headerlink" title="keySet()"></a><code>keySet()</code></h5><h6 id="map-keySet-以Set集合的形式返回Map集合中所有的键对象Key"><a href="#map-keySet-以Set集合的形式返回Map集合中所有的键对象Key" class="headerlink" title="map.keySet()以Set集合的形式返回Map集合中所有的键对象Key"></a>map.keySet()以Set集合的形式返回Map集合中所有的键对象Key</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> mapKey : map.keySet()</span><br><span class="line">	) &#123;   </span><br><span class="line">	System.out.println( <span class="string">"key:"</span> + mapKey + <span class="string">"value:"</span> + map.get(mapKey));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><code>Iterator</code></h5><h6 id="Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值"><a href="#Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值" class="headerlink" title="Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值"></a>Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line">Iterator&lt;String&gt; iterator = keySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    String key = iterator.next();</span><br><span class="line">    System.out.println( <span class="string">"key:"</span> + key + <span class="string">"value:"</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="forEach-BiConsumer-action"><a href="#forEach-BiConsumer-action" class="headerlink" title="forEach(BiConsumer action)"></a><code>forEach(BiConsumer action)</code></h5><p><strong>与Collection结合遍历类似，在JDK8中也根据Lambda表达式特性新增了一个forEach(BiConsumer action)方法来遍历Map集合</strong></p>
+<h5 id="1-entrySet"><a href="#1-entrySet" class="headerlink" title="1. entrySet()"></a>1. <code>entrySet()</code></h5><p><strong>将Map集合转换为存储元素类型为Map的Set集合</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (HashMap.Entry&lt;String, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(entry.getKey() + <span class="string">" is in class "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-keySet"><a href="#2-keySet" class="headerlink" title="2. keySet()"></a>2. <code>keySet()</code></h5><p><strong>map.keySet()以Set集合的形式返回Map集合中所有的键对象Key</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> mapKey : map.keySet()</span><br><span class="line">	) &#123;   </span><br><span class="line">	System.out.println( <span class="string">"key:"</span> + mapKey + <span class="string">"value:"</span> + map.get(mapKey));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-stream"><a href="#3-stream" class="headerlink" title="3. stream()"></a>3. <code>stream()</code></h5><p><strong>结合entrySet转成Set集合，然后通过Collection接口下的stream()转换为Stream流进行遍历</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Map.Entry&lt;String,String&gt;&gt; entry = map.entrySet();</span><br><span class="line">Stream&lt;Map.Entry&lt;String,String&gt;&gt; stream = entry.stream();</span><br><span class="line">stream.forEach(i -&gt; System.out.println(<span class="string">"key:"</span> + i.getKey() + <span class="string">" value:"</span> + i.getValue()));</span><br></pre></td></tr></table></figure>
+<h5 id="4-Iterator"><a href="#4-Iterator" class="headerlink" title="4. Iterator"></a>4. <code>Iterator</code></h5><p><strong>Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line">Iterator&lt;String&gt; iterator = keySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    String key = iterator.next();</span><br><span class="line">    System.out.println( <span class="string">"key:"</span> + key + <span class="string">"value:"</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-forEach-BiConsumer-action"><a href="#5-forEach-BiConsumer-action" class="headerlink" title="5. forEach(BiConsumer action)"></a>5. <code>forEach(BiConsumer action)</code></h5><p><strong>与Collection结合遍历类似，在JDK8中也根据Lambda表达式特性新增了一个forEach(BiConsumer action)方法来遍历Map集合</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">map.forEach((key,value) -&gt; System.out.println(key + <span class="string">":"</span> + value));</span><br></pre></td></tr></table></figure>
-<h5 id="values"><a href="#values" class="headerlink" title="values"></a><code>values</code></h5><h6 id="通过这个方法可以直接获取Map中存储所有值的Collection结合"><a href="#通过这个方法可以直接获取Map中存储所有值的Collection结合" class="headerlink" title="通过这个方法可以直接获取Map中存储所有值的Collection结合"></a>通过这个方法可以直接获取Map中存储所有值的Collection结合</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Collection values = map.values();</span><br><span class="line">values.forEach(v -&gt; System.out.println(v));</span><br></pre></td></tr></table></figure>
+<h5 id="6-values"><a href="#6-values" class="headerlink" title="6. values"></a>6. <code>values</code></h5><p><strong>通过这个方法可以直接获取Map中存储所有值的Collection结合</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> HashMap &lt;&gt;();</span><br><span class="line">Collection values = map.values();</span><br><span class="line">values.forEach(v -&gt; System.out.println(v));</span><br></pre></td></tr></table></figure>
 
       
 
@@ -356,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#entrySet"><span class="toc-number">1.</span> <span class="toc-text">entrySet()</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#将Map集合转换为存储元素类型为Map的Set集合"><span class="toc-number">1.1.</span> <span class="toc-text">将Map集合转换为存储元素类型为Map的Set集合</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#keySet"><span class="toc-number">2.</span> <span class="toc-text">keySet()</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#map-keySet-以Set集合的形式返回Map集合中所有的键对象Key"><span class="toc-number">2.1.</span> <span class="toc-text">map.keySet()以Set集合的形式返回Map集合中所有的键对象Key</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Iterator"><span class="toc-number">3.</span> <span class="toc-text">Iterator</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值"><span class="toc-number">3.1.</span> <span class="toc-text">Map集合中所有键对象转换为Set单列集合，接着将包含键对象的Set集合转换为Iterator接口对象，然后遍历Map集合中所有的键，在根据键获取相应的值</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#forEach-BiConsumer-action"><span class="toc-number">4.</span> <span class="toc-text">forEach(BiConsumer action)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#values"><span class="toc-number">5.</span> <span class="toc-text">values</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#通过这个方法可以直接获取Map中存储所有值的Collection结合"><span class="toc-number">5.1.</span> <span class="toc-text">通过这个方法可以直接获取Map中存储所有值的Collection结合</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-entrySet"><span class="toc-number">1.</span> <span class="toc-text">1. entrySet()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-keySet"><span class="toc-number">2.</span> <span class="toc-text">2. keySet()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-stream"><span class="toc-number">3.</span> <span class="toc-text">3. stream()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Iterator"><span class="toc-number">4.</span> <span class="toc-text">4. Iterator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-forEach-BiConsumer-action"><span class="toc-number">5.</span> <span class="toc-text">5. forEach(BiConsumer action)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-values"><span class="toc-number">6.</span> <span class="toc-text">6. values</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -394,10 +400,10 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>|
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -407,7 +413,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -539,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,19 +561,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,6 +578,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,6 +606,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">

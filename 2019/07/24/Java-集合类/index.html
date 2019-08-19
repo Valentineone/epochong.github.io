@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>java集合类 | epochong</title>
+  <title>Java-集合类 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
+  <meta name="description" content="本文主要讲解Java中集合类中一些重要的问题，需要注意点有很多">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java集合类">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/java集合类/index.html">
+<meta property="og:title" content="Java-集合类">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/Java-集合类/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
+<meta property="og:description" content="本文主要讲解Java中集合类中一些重要的问题，需要注意点有很多">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-17T12:50:27.011Z">
+<meta property="og:updated_time" content="2019-08-19T05:39:24.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java集合类">
-<meta name="twitter:description" content="类集 ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全） ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现 ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高 懒加载策略：如果初始化不给参数初始化大小，">
+<meta name="twitter:title" content="Java-集合类">
+<meta name="twitter:description" content="本文主要讲解Java中集合类中一些重要的问题，需要注意点有很多">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -163,14 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java集合类" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java-集合类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java集合类
+      Java-集合类
     </h1>
   
 
@@ -184,7 +184,7 @@
 
 <!--不蒜子内容结束-->
 
-<a href="/2019/07/24/java集合类/" class="archive-article-date">
+<a href="/2019/07/24/Java-集合类/" class="archive-article-date">
   	<time datetime="2019-07-24T11:06:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
 </a>
         
@@ -193,7 +193,11 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h3 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h3><ol>
+        <blockquote>
+<p>本文主要讲解Java中集合类中一些重要的问题，需要注意点有很多</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="类集"><a href="#类集" class="headerlink" title="类集"></a>类集</h3><ol>
 <li><h4 id="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><a href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）" class="headerlink" title="ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"></a>ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</h4><ul>
 <li>ArrayList、Vector、LinkedList都属于List接口常用类，其中ArrayLsit、Vector基于数组实现，LinkedList基于链表实现</li>
 <li>ArrayList采用懒加载策略，扩容为原先数组的1.5倍，采用异步处理，线程不安全，性能较高<ul>
@@ -335,12 +339,18 @@
 </li>
 </ol>
 </li>
-<li><p><font color="blue">总结一哈<br><br> </font></p>
-
-<pre><code>1. equals 方法用于比较对象的内容是否相等（覆盖以后）
- 2. hashcode 方法只有在集合中用到
- 3. 将对象放入到集合中时，首先判断要放入对象的 hashcode 值与集合中的任意一个元素的 hashcode 值是否相等，如果不相等直接将该对象放入集合中。如果 hashcode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。
-</code></pre></li>
+<li><p></p><p><font color="blue">总结一哈</font></p>
+<ol>
+<li><p>equals 方法用于比较对象的内容是否相等（覆盖以后）</p>
+<ol start="2">
+<li>hashcode 方法只有在集合中用到<ol start="3">
+<li>将对象放入到集合中时，首先判断要放入对象的 hashcode 值与集合中的任意一个元素的 hashcode 值是否相等，如果不相等直接将该对象放入集合中。如果 hashcode 值相等，然后再通过 equals 方法判断要放入对象与集合中的任意一个对象是否相等，如果 equals 判断不相等，直接将该元素放入到集合中，否则不放入。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
 </ul>
 <ol start="5">
 <li><h5 id="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><a href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）" class="headerlink" title="Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"></a>Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</h5><ol>
@@ -387,7 +397,7 @@
 <li><p>说明</p>
 <blockquote>
 <p>compare和Comparable的compareTo意义一样</p>
-<p>equals方法在Object中已经存在，</p>
+<p>equals方法在Object中已经存在，可以不实现</p>
 </blockquote>
 </li>
 </ul>
@@ -396,17 +406,48 @@
 <p></p><p><font color="green">Comparable接口与Compartor接口的关系：</font></p><p></p>
 <ul>
 <li><p>Comparable是排序接口，若一个类实现了Comparable接口，意味着该类支持排序</p>
-<pre><code>是一个内部比较器(自己去和别人比)
-</code></pre></li>
+<p>是一个内部比较器(自己去和别人比)</p>
+</li>
 <li><p>Compartor接口是比较器接口，类本身不支持排序，专门有若干个第三方的比较器(实<br>  现了Compartor接口的类)来进行类的排序，是一个外部比较器(策略模式)</p>
 </li>
 </ul>
-<p></p><p><font colort="blue"></font></p>
 </li>
-<li><h5 id="HashMap、TreeMap、Hashtable的关系与区别"><a href="#HashMap、TreeMap、Hashtable的关系与区别" class="headerlink" title="HashMap、TreeMap、Hashtable的关系与区别"></a>HashMap、TreeMap、Hashtable的关系与区别</h5><ul>
+</ol>
+<p><font color="blue">TreeSet保存的实体必须实现Comparable接口或者传出一个实现了Compartor接口的比较器作为参数（默认为升序）</font></p>
+
+<ul>
+<li><p>代码实现</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Set_Comparable_CoparatorTest</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, Integer age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Person&#123;"</span> +</span><br><span class="line">                    <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                    <span class="string">", age="</span> + age +</span><br><span class="line">                    <span class="string">'&#125;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">AscAgeComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Person o1, Person o2)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (o1.age - o2.age &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o1.age - o2.age &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> o1.name.compareTo(o2.name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DescAgeComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Person</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Person o1, Person o2)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (o2.age - o2.age &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o2.age - o1.age &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> o2.name.compareTo(o1.name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">treeSetTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        TreeSet&lt;Person&gt; treeSet = <span class="keyword">new</span> TreeSet &lt;&gt;(<span class="keyword">new</span> DescAgeComparator());</span><br><span class="line">        Person person = <span class="keyword">new</span> Person(<span class="string">"wangchong"</span>,<span class="number">19</span>);</span><br><span class="line">        Person person1 = <span class="keyword">new</span> Person(<span class="string">"epochong"</span>,<span class="number">18</span>);</span><br><span class="line">        Person person2 = <span class="keyword">new</span> Person(<span class="string">"ErioY"</span>,<span class="number">17</span>);</span><br><span class="line">        Person person3 = <span class="keyword">new</span> Person(<span class="string">"a"</span>,<span class="number">18</span>);</span><br><span class="line">        Person person4 = <span class="keyword">new</span> Person(<span class="string">"f"</span>,<span class="number">18</span>);</span><br><span class="line">        treeSet.add(person);</span><br><span class="line">        treeSet.add(person1);</span><br><span class="line">        treeSet.add(person2);</span><br><span class="line">        treeSet.add(person3);</span><br><span class="line">        treeSet.add(person4);</span><br><span class="line">        System.out.println(treeSet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>传入new DescAgeComparator()比较器为降序</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Person&#123;name=<span class="string">'wangchong'</span>, age=<span class="number">19</span>&#125;, Person&#123;name=<span class="string">'f'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'epochong'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'a'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'ErioY'</span>, age=<span class="number">17</span>&#125;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>传入new AscAgeComparator()比较器为升序</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Person&#123;name=<span class="string">'ErioY'</span>, age=<span class="number">17</span>&#125;, Person&#123;name=<span class="string">'a'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'epochong'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'f'</span>, age=<span class="number">18</span>&#125;, Person&#123;name=<span class="string">'wangchong'</span>, age=<span class="number">19</span>&#125;]</span><br></pre></td></tr></table></figure>
+<p><font color="red">值得注意的是，实现比较器的时候，如果只比较一个属性的大小，当这个属性的值相同时，Set认为是同一个元素<br><p><font color="blue">TreeSet本质上是value值相同的TreeMap,TreeMap实现排序的是根据Key值进行排序的，所以实现原理大致相同</font></p>
+
+</font></p></li>
+</ul>
+<ul>
+<li><p>代码实现</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">treeMapTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    TreeMap&lt;Person,Integer&gt; treeMap = <span class="keyword">new</span> TreeMap &lt;&gt;(<span class="keyword">new</span> AscAgeComparator());</span><br><span class="line">    treeMap.put(<span class="keyword">new</span> Person(<span class="string">"f"</span>,<span class="number">1</span>),<span class="number">1</span>);</span><br><span class="line">    treeMap.put(<span class="keyword">new</span> Person(<span class="string">"a"</span>,<span class="number">2</span>),<span class="number">5</span>);</span><br><span class="line">    treeMap.put(<span class="keyword">new</span> Person(<span class="string">"c"</span>,<span class="number">5</span>),<span class="number">4</span>);</span><br><span class="line">    System.out.println(treeMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>结果</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;Person&#123;name=<span class="string">'f'</span>, age=<span class="number">1</span>&#125;=<span class="number">1</span>, Person&#123;name=<span class="string">'a'</span>, age=<span class="number">2</span>&#125;=<span class="number">5</span>, Person&#123;name=<span class="string">'c'</span>, age=<span class="number">5</span>&#125;=<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="6">
+<li><h5 id="HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别"><a href="#HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别" class="headerlink" title="HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别"></a>HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别</h5><ul>
 <li>HashMap、TreeMap、Hashtable都是Map的常用子类，HashMap基于哈希表+红黑树（JDK1.8，Hashtable基于哈希表，TreeMap基于红黑树）</li>
 <li>HashMap采用懒加载策略，采用异步处理，线程不安全，性能较高</li>
-<li>Hashtable产生对象时初始化内部哈希表（默认大小为16），采用synchronized同步方法，线程安全，性能很低（读读互斥）</li>
+<li>Hashtable产生对象时初始化内部哈希表（默认大小为11），采用synchronized同步方法，线程安全，性能很低（读读互斥）</li>
+<li></li>
 <li>关于null<ul>
 <li>HashMap：K和V都可以为null</li>
 <li>Hashtable：K和V都不能为null</li>
@@ -541,7 +582,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/24/java集合类/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/24/Java-集合类/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -593,7 +634,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类集"><span class="toc-number">1.</span> <span class="toc-text">类集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><span class="toc-number">1.1.</span> <span class="toc-text">ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jcl中fail-fast-、fail-safe"><span class="toc-number">1.2.</span> <span class="toc-text">jcl中fail-fast 、fail - safe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set与Map的关系"><span class="toc-number">1.3.</span> <span class="toc-text">Set与Map的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashCode与equals的关系"><span class="toc-number">1.4.</span> <span class="toc-text">hashCode与equals的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><span class="toc-number">1.4.1.</span> <span class="toc-text">Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap、TreeMap、Hashtable的关系与区别"><span class="toc-number">1.4.2.</span> <span class="toc-text">HashMap、TreeMap、Hashtable的关系与区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"><span class="toc-number">1.4.3.</span> <span class="toc-text">HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap如何高效实现线程安全"><span class="toc-number">1.4.4.</span> <span class="toc-text">ConcurrentHashMap如何高效实现线程安全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK1-7与JDK1-8-ConcurrentHashMap设计区别"><span class="toc-number">1.4.5.</span> <span class="toc-text">JDK1.7与JDK1.8 ConcurrentHashMap设计区别</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类集"><span class="toc-number">1.</span> <span class="toc-text">类集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）"><span class="toc-number">1.1.</span> <span class="toc-text">ArrayList、Vector、LinkedList关系与区别（初始化、扩容、线程安全）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jcl中fail-fast-、fail-safe"><span class="toc-number">1.2.</span> <span class="toc-text">jcl中fail-fast 、fail - safe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set与Map的关系"><span class="toc-number">1.3.</span> <span class="toc-text">Set与Map的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashCode与equals的关系"><span class="toc-number">1.4.</span> <span class="toc-text">hashCode与equals的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）"><span class="toc-number">1.4.1.</span> <span class="toc-text">Java中实现一个类的两个对象大小比较的方式（内部排序、外部排序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别"><span class="toc-number">1.4.2.</span> <span class="toc-text">HashMap、TreeMap、Hashtable、LinkedHashMap的关系与区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）"><span class="toc-number">1.4.3.</span> <span class="toc-text">HashMap内部源码解析（负载因子、树化策略、扩容策略、内部哈希算法）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap如何高效实现线程安全"><span class="toc-number">1.4.4.</span> <span class="toc-text">ConcurrentHashMap如何高效实现线程安全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK1-7与JDK1-8-ConcurrentHashMap设计区别"><span class="toc-number">1.4.5.</span> <span class="toc-text">JDK1.7与JDK1.8 ConcurrentHashMap设计区别</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -631,10 +672,10 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>|
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -644,7 +685,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -776,11 +817,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,19 +833,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,6 +850,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,6 +878,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">

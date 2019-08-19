@@ -160,122 +160,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-正数、负数的二进制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/01/正数、负数的二进制/">正数、负数的二进制</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/06/01/正数、负数的二进制/" class="archive-article-date">
-  	<time datetime="2019-06-01T09:38:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <h5 id="先看一下我在网上看到的一个二进制加法-讲解的很容易懂"><a href="#先看一下我在网上看到的一个二进制加法-讲解的很容易懂" class="headerlink" title="先看一下我在网上看到的一个二进制加法(讲解的很容易懂)"></a>先看一下我在网上看到的一个二进制加法(讲解的很容易懂)</h5><ol>
-<li><strong>原码：</strong>在数值前直接加一符号位的表示法。</li>
-<li><strong>反码：</strong><br><strong>正数：</strong>正数的反码与原码相同。<br><strong>负数：</strong>负数的反码，符号位为 “1”，数值部分按位取反。</li>
-<li><strong>补码：</strong><br><strong>正数：</strong>正数的补码和原码相同。</li>
-</ol>
-<p><strong>负数：</strong>负数的补码则是符号位为 “1”。数值部分按位取反后再在最低位加 1。也就是 “反码 + 1”。5-3 计算过程</p>
-<ul>
-<li><p>以字长 8bit 为例</p>
-<p>5 - 3 = (0000 0101) 补 + (1000 0011) 补 = 0000 0101 + 1111 1101 (这里就是反码为 1111 1100，+1 得到) =<br>1 0000 0010<br>最后，这里字长为 8bit，所以 8 位以后的都舍弃（从右边开始数）<br>PS: 如果舍弃掉的是有效数字，那么这就是传说中的溢出</p>
-<p><strong>结果：</strong> (0000 0010) 2=(2) 10<br>所以 5-3=2</p>
-</li>
-</ul>
-<h5 id="再看一下我在程序的遇到的问题"><a href="#再看一下我在程序的遇到的问题" class="headerlink" title="再看一下我在程序的遇到的问题"></a>再看一下我在程序的遇到的问题</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"(byte) 127:"</span> + (<span class="keyword">byte</span>) <span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) 128:"</span> + (<span class="keyword">byte</span>) <span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -128:"</span> + (<span class="keyword">byte</span>) -<span class="number">128</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -127:"</span> + (<span class="keyword">byte</span>) -<span class="number">127</span>);</span><br><span class="line">System.out.println(<span class="string">"(byte) -1:"</span> + (<span class="keyword">byte</span>) -<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h6 id="结果如下"><a href="#结果如下" class="headerlink" title="结果如下"></a>结果如下</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">byte</span>) <span class="number">127</span>:<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) <span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">128</span>:-<span class="number">128</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">127</span>:-<span class="number">127</span></span><br><span class="line">(<span class="keyword">byte</span>) -<span class="number">1</span>:-<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>可以看到<code>(byte) 128:-128</code>，</p>
-<h6 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h6><p>这是因为，127 –&gt;原码、反码、补码： 0111  1111</p>
-<p>​                    127 + 1 –&gt;1000  0000</p>
-<p>byte类型一共8个bit位，在计算机中负数的二进制表示为补码。而1000  0000正是-128的补码</p>
-<h6 id="转换过程"><a href="#转换过程" class="headerlink" title="转换过程"></a>转换过程</h6><p>-128，不能按照数值位前直接加一个符号位，要从128开始，其他的负数可以按照这一规律计算</p>
-<ul>
-<li><p>原码：1000  0000 (-128，进位被舍去)</p>
-</li>
-<li><p>反码：1111  1111</p>
-</li>
-<li><p>补码：1000  0000</p>
-<p>补码计算为： (11111111 (反码) + 1=10000000, 这里实际上真正相加的是 11111111 后面的 7 位，<strong>第 1 位是符号位始终不会变</strong>，所以，<strong>当进到第 8 位的时候，就表示溢出了，会被舍弃</strong>。</p>
-<p><strong>0 只有一个补码 00000000，那么 10000000 就不会表示成 - 0 的补码，即：补码 1000 0000 唯一的表示是 - 128，在补码中用 (-128) 代替了 (-0), 所以补码的表示范围为: (-128~0~127) 共 256 个.</strong></p>
-</li>
-</ul>
-<p>int为4个字节，byte为1个字节，int转byte只能取低八位补码：1000  0000</p>
-<p><strong>实际上，int型的负数，在一个字节的基础上前面补1即可，计算过程同普通的负数，没有发生溢出</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">128</span>：</span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  </span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1111</span></span><br><span class="line">	<span class="number">1111</span>  <span class="number">1111</span>  <span class="number">1000</span>  <span class="number">0000</span></span><br></pre></td></tr></table></figure>
-<p>普通负数-1：</p>
-<ul>
-<li>原码：1000  0001</li>
-<li>反码：1111  1110</li>
-<li>补码：1111  1111</li>
-</ul>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/01/正数、负数的二进制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-接口、接口方法、接口属性的修饰符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1776,6 +1660,96 @@
 
 
   
+    <article id="post-双栈结构实现最小栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/双栈结构实现最小栈/">双栈结构实现最小栈</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/22/双栈结构实现最小栈/" class="archive-article-date">
+  	<time datetime="2019-05-22T13:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说双栈之前先说一下我愚钝的做法,链表实现最小值存储,后面发现最小栈与我这个十分相似</p>
+</blockquote>
+<h6 id="实现思想"><a href="#实现思想" class="headerlink" title="实现思想"></a>实现思想</h6><p><strong>进栈时:</strong>创建一个最小值链表,每次push元素的时候,和之前的最小值比较(当然,第一次push的就是最小的),与之前的最小值比较,小则头插最小值链表,大则执行下一步</p>
+<p><strong>退栈时:</strong>每次pop时检测退栈的元素是否和链表头最小的元素相等,如果相等链表头元素也删除,这保证了链表头元素一定在栈实时的元素中是最小的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/20 9:05</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] elementArray;</span><br><span class="line">    <span class="keyword">int</span> maxSize = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> currentSize;</span><br><span class="line">    Node headNode;</span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> v;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        Node nextNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        headNode = <span class="keyword">null</span>;</span><br><span class="line">        elementArray = <span class="keyword">new</span> <span class="keyword">int</span>[maxSize];</span><br><span class="line">        currentSize = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (currentSize == maxSize) &#123;</span><br><span class="line">            <span class="keyword">int</span> oldSize = maxSize;</span><br><span class="line">            <span class="keyword">int</span> newSize = oldSize &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            maxSize = newSize;</span><br><span class="line">            elementArray = Arrays.copyOf(elementArray,maxSize);</span><br><span class="line">        &#125;</span><br><span class="line">        Node newNode = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="keyword">if</span> (currentSize == <span class="number">0</span>) &#123;</span><br><span class="line">            newNode.v = x;</span><br><span class="line">            newNode.index = currentSize;</span><br><span class="line">            headNode = newNode;</span><br><span class="line">            elementArray[currentSize++] = x;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &lt; headNode.v) &#123;</span><br><span class="line">                newNode.v = x;</span><br><span class="line">                newNode.index = currentSize;</span><br><span class="line">                newNode.nextNode = headNode;</span><br><span class="line">                headNode = newNode;</span><br><span class="line">            &#125;</span><br><span class="line">            elementArray[currentSize++] = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (currentSize == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (top() == headNode.v &amp;&amp; headNode.index == currentSize - <span class="number">1</span>) &#123;</span><br><span class="line">            headNode = headNode.nextNode;</span><br><span class="line">        &#125;</span><br><span class="line">        currentSize--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (currentSize == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> elementArray[currentSize - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> headNode.v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="双栈结构"><a href="#双栈结构" class="headerlink" title="双栈结构"></a>双栈结构</h6><p><strong>思想:</strong>与链表的思想相同,只是结构不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_02_GetMinStack</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStack1</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> Stack&lt;Integer&gt; stackData;</span><br><span class="line">      <span class="keyword">private</span> Stack&lt;Integer&gt; stackMin;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">MyStack1</span><span class="params">()</span> </span>&#123;       <span class="comment">//Stack系统提供栈结构</span></span><br><span class="line">         <span class="keyword">this</span>.stackData = <span class="keyword">new</span> Stack&lt;Integer&gt;();<span class="comment">//数据栈</span></span><br><span class="line">         <span class="keyword">this</span>.stackMin = <span class="keyword">new</span> Stack&lt;Integer&gt;();<span class="comment">//栈顶为最小值</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> newNum)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackMin.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.stackMin.push(newNum);</span><br><span class="line">         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (newNum &lt;= <span class="keyword">this</span>.getmin()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.stackMin.push(newNum);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">this</span>.stackData.push(newNum);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackData.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Your stack is empty."</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">int</span> value = <span class="keyword">this</span>.stackData.pop();</span><br><span class="line">         <span class="keyword">if</span> (value == <span class="keyword">this</span>.getmin()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.stackMin.pop();</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> value;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getmin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackMin.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Your stack is empty."</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.stackMin.peek();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStack2</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> Stack&lt;Integer&gt; stackData;</span><br><span class="line">      <span class="keyword">private</span> Stack&lt;Integer&gt; stackMin;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">MyStack2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.stackData = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">         <span class="keyword">this</span>.stackMin = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> newNum)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackMin.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.stackMin.push(newNum);</span><br><span class="line">         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (newNum &lt; <span class="keyword">this</span>.getmin()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.stackMin.push(newNum);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> newMin = <span class="keyword">this</span>.stackMin.peek();</span><br><span class="line">            <span class="keyword">this</span>.stackMin.push(newMin);<span class="comment">//重复压入栈顶</span></span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">this</span>.stackData.push(newNum);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackData.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Your stack is empty."</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">this</span>.stackMin.pop();</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.stackData.pop();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getmin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">this</span>.stackMin.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Your stack is empty."</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.stackMin.peek();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      MyStack1 stack1 = <span class="keyword">new</span> MyStack1();</span><br><span class="line">      stack1.push(<span class="number">3</span>);</span><br><span class="line">      System.out.println(stack1.getmin());</span><br><span class="line">      stack1.push(<span class="number">4</span>);</span><br><span class="line">      System.out.println(stack1.getmin());</span><br><span class="line">      stack1.push(<span class="number">1</span>);</span><br><span class="line">      System.out.println(stack1.getmin());</span><br><span class="line">      System.out.println(stack1.pop());</span><br><span class="line">      System.out.println(stack1.getmin());</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"============="</span>);</span><br><span class="line"></span><br><span class="line">      MyStack1 stack2 = <span class="keyword">new</span> MyStack1();</span><br><span class="line">      stack2.push(<span class="number">3</span>);</span><br><span class="line">      System.out.println(stack2.getmin());</span><br><span class="line">      stack2.push(<span class="number">4</span>);</span><br><span class="line">      System.out.println(stack2.getmin());</span><br><span class="line">      stack2.push(<span class="number">1</span>);</span><br><span class="line">      System.out.println(stack2.getmin());</span><br><span class="line">      System.out.println(stack2.pop());</span><br><span class="line">      System.out.println(stack2.getmin());</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/22/双栈结构实现最小栈/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1799,10 +1773,10 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>|
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -1812,7 +1786,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -1944,11 +1918,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1960,19 +1934,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1985,6 +1951,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2009,6 +1979,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">

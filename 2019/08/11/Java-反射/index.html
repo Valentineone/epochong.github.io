@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java-反射 | epochong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  fields 构造方法：Constructor[]  cons 成">
+  <meta name="description" content="本文主要讲述Java中的反射这一新特性，快进来了解一下吧！  反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  f">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-反射">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/Java-反射/index.html">
 <meta property="og:site_name" content="epochong">
-<meta property="og:description" content="反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  fields 构造方法：Constructor[]  cons 成">
+<meta property="og:description" content="本文主要讲述Java中的反射这一新特性，快进来了解一下吧！  反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T16:12:03.344Z">
+<meta property="og:updated_time" content="2019-08-19T05:41:33.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-反射">
-<meta name="twitter:description" content="反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  fields 构造方法：Constructor[]  cons 成">
+<meta name="twitter:description" content="本文主要讲述Java中的反射这一新特性，快进来了解一下吧！  反射 - 框架设计的灵魂框架：半成品软件。可以在框架的基础上进行软件开发，简化编码 反射：将类的各个组成部分封装为其他对象，这就是发射机制。 Java代码在计算机中经历的三个阶段 Source源代码阶段：javac编译.java文件成.class字节码文件  属性 构造方法 方法   Class类阶段  成员变量：Filed[]  f">
   
     <link rel="alternative" href="/atom.xml" title="epochong" type="application/atom+xml">
   
@@ -193,7 +193,10 @@
     <div class="article-entry" itemprop="articleBody">
 
       
-        <h3 id="反射-框架设计的灵魂"><a href="#反射-框架设计的灵魂" class="headerlink" title="反射 - 框架设计的灵魂"></a>反射 - 框架设计的灵魂</h3><p><strong>框架：</strong>半成品软件。可以在框架的基础上进行软件开发，简化编码</p>
+        <blockquote>
+<p>本文主要讲述Java中的反射这一新特性，快进来了解一下吧！</p>
+</blockquote>
+<h3 id="反射-框架设计的灵魂"><a href="#反射-框架设计的灵魂" class="headerlink" title="反射 - 框架设计的灵魂"></a>反射 - 框架设计的灵魂</h3><p><strong>框架：</strong>半成品软件。可以在框架的基础上进行软件开发，简化编码</p>
 <p><strong>反射：</strong>将类的各个组成部分封装为其他对象，这就是发射机制。</p>
 <h4 id="Java代码在计算机中经历的三个阶段"><a href="#Java代码在计算机中经历的三个阶段" class="headerlink" title="Java代码在计算机中经历的三个阶段"></a>Java代码在计算机中经历的三个阶段</h4><ul>
 <li><p><strong>Source源代码阶段：</strong><code>javac</code>编译<code>.java</code>文件成<code>.class</code>字节码文件</p>
@@ -598,10 +601,10 @@
 
     <div calss="count-span">
       <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>|
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
       <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv"></span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -611,7 +614,7 @@
   
     <!-- 不蒜子统计 -->
     <span id="busuanzi_container_site_pv">
-          本站总访问量<span id="busuanzi_value_site_pv">3264</span>次
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_uv" style='display:none'>
@@ -743,11 +746,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,19 +762,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,6 +779,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,6 +807,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
