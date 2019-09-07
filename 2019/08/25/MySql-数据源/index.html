@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="DataSource &amp;#x6570;&amp;#x636E;&amp;#x6E90;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x6E90; JDBC2.0 &amp;#x63D0;&amp;#x4F9B;&amp;#x4E86; javax.sql.DataSource &amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x5B83;&amp;#x8D1F;&amp;#x8D23;&amp;#x5EFA;&amp;#x7AC">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-25T06:40:49.645Z">
+<meta property="og:updated_time" content="2019-09-07T07:02:21.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL-数据源">
 <meta name="twitter:description" content="DataSource &amp;#x6570;&amp;#x636E;&amp;#x6E90;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x6E90; JDBC2.0 &amp;#x63D0;&amp;#x4F9B;&amp;#x4E86; javax.sql.DataSource &amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x5B83;&amp;#x8D1F;&amp;#x8D23;&amp;#x5EFA;&amp;#x7AC">
@@ -196,6 +196,7 @@
         <h4 id="DataSource-&#x6570;&#x636E;&#x6E90;"><a href="#DataSource-&#x6570;&#x636E;&#x6E90;" class="headerlink" title="DataSource &#x6570;&#x636E;&#x6E90;"></a><code>DataSource</code> &#x6570;&#x636E;&#x6E90;</h4><h5 id="&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x6E90;"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x6E90;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x6E90;"></a>&#x4EC0;&#x4E48;&#x662F;&#x6570;&#x636E;&#x6E90;</h5><blockquote>
 <p>JDBC2.0 &#x63D0;&#x4F9B;&#x4E86; <code>javax.sql.DataSource</code> &#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x8D1F;&#x8D23;&#x5EFA;&#x7ACB;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5F53;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x65F6; &#x4E0D;&#x5FC5;&#x7F16;&#x5199;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x76F4;&#x63A5;&#x5F15;&#x7528; <code>DataSource</code> &#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x5373;&#x53EF;&#x3002;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x6570;&#x636E; Connection &#x5BF9;&#x8C61;&#x3002;</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;"><a href="#&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;" class="headerlink" title="&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;"></a>&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;</h4><blockquote>
 <p>&#x8981;&#x4E86;&#x89E3; Java &#x8FDE;&#x63A5;&#x6C60;&#x6211;&#x4EEC;&#x5148;&#x8981;&#x4E86;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;&#xFF08;connection pool&#xFF09;&#x7684;&#x539F;&#x7406;&#xFF0C;Java &#x8FDE;&#x63A5;&#x6C60;&#x6B63;&#x662F;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6C60;&#x5728; Java &#x4E0A;&#x7684;&#x5E94;&#x7528;&#x3002;&#x2014;&#x2014; &#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5BF9;&#x4E8E;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x8457;&#x540D;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF1A;&#x8D44;&#x6E90;&#x6C60;&#xFF08;Resource Pool&#xFF09;&#x3002;</p>
 </blockquote>
@@ -437,11 +438,11 @@
     </div>
 
     <div calss="count-span">
-      <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv">32324</span>次 |
+      <span>
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
       </span>
-      <span id="busuanzi_container_site_uv">
-        总访客: <span id="busuanzi_value_site_uv">2321</span> 人
+      <span>
+        总访客: <span id="busuanzi_value_site_uv"></span> 人
       </span>
     </div>
  
@@ -450,11 +451,11 @@
 <!--添加不蒜子内容-->
   
     <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-          本站总访问量: <span id="busuanzi_value_site_pv">32324</span>次
+    <span>
+          本站总访问量: <span id="busuanzi_value_site_pv"></span>次
     </span>
     <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
+    <span style='display:none'>
             本站访客数<span id="busuanzi_value_site_uv"></span>人
     </span>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -563,11 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">algorithms</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,10 +592,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
@@ -607,11 +604,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">java，MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">java，MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,7 +616,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,19 +632,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,15 +656,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
