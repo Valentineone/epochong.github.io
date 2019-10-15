@@ -160,6 +160,411 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java中HashMap数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/Java中HashMap数组/">HashMap数组简单实用</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/04/30/Java中HashMap数组/" class="archive-article-date">
+  	<time datetime="2019-04-30T08:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712257" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712257</a><br>  <strong>&#x5929;&#x68AF;&#x8D5B;</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.tianti;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">L7_4_Shuai_Hash</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> line = input.nextInt();</span><br><span class="line">        HashMap[] arr = <span class="keyword">new</span>  HashMap[line];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; line; i++) {</span><br><span class="line">            arr[i] = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; line; i++) {</span><br><span class="line">            <span class="keyword">int</span> nLine = input.nextInt();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nLine; j++) {</span><br><span class="line">                <span class="keyword">int</span> cur = input.nextInt();</span><br><span class="line">                arr[i].put(cur,cur);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> nCe = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] chaZhao = <span class="keyword">new</span> <span class="keyword">int</span>[nCe];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nCe; i++) {</span><br><span class="line">            chaZhao[i] = input.nextInt();</span><br><span class="line">        }</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nCe; i++) {</span><br><span class="line">            <span class="keyword">int</span> notIn = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; line; j++) {</span><br><span class="line">                <span class="keyword">if</span> (arr[j].containsKey(chaZhao[i]) &amp;&amp; arr[j].size() &lt;= <span class="number">1</span>) {</span><br><span class="line">                    <span class="keyword">if</span> (!arrayList.contains(chaZhao[i])){</span><br><span class="line">                        arrayList.add(chaZhao[i]);</span><br><span class="line">                    }</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (arr[j].containsKey(chaZhao[i])) {</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    notIn++;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (notIn == line) {</span><br><span class="line">                <span class="keyword">if</span> (!arrayList.contains(chaZhao[i])) {</span><br><span class="line">                    arrayList.add(chaZhao[i]);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) {</span><br><span class="line">            <span class="keyword">if</span> (i == arrayList.size() - <span class="number">1</span>) {</span><br><span class="line">                System.out.print(arrayList.get(i));</span><br><span class="line">            }<span class="keyword">else</span> {</span><br><span class="line">                System.out.print(arrayList.get(i) + <span class="string">&quot; &quot;</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (arrayList.size() == <span class="number">0</span>) {</span><br><span class="line">            System.out.println(<span class="string">&quot;No one is handsome&quot;</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/Java中HashMap数组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-集合 ArrayList创建二维数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/集合 ArrayList创建二维数组/">使用ArrayList创建二维数组</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/04/30/集合 ArrayList创建二维数组/" class="archive-article-date">
+  	<time datetime="2019-04-30T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89712213" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89712213</a><br>  <strong>&#x8BA1;&#x849C;&#x5BA2;data structure&#xFF1A;Code_01</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/4/30 16:09</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Code_01_SpecialMatrix</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">        <span class="keyword">int</span> m = input.nextInt();</span><br><span class="line">        ArrayList[] arrayList = <span class="keyword">new</span> ArrayList[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">            arrayList[i] = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) {</span><br><span class="line">            <span class="keyword">int</span> x = input.nextInt();</span><br><span class="line">            <span class="keyword">int</span> y = input.nextInt();</span><br><span class="line">            arrayList[x - <span class="number">1</span>].add(y);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arrayList[i].size(); j++) {</span><br><span class="line">                <span class="keyword">if</span> (j &lt; arrayList[i].size() - <span class="number">1</span>) {</span><br><span class="line">                    System.out.print(arrayList[i].get(j) + <span class="string">&quot; &quot;</span>);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    System.out.print(arrayList[i].get(j));</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            System.out.println();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h5 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x58F0;&#x660E;&#x540E;&#x521D;&#x59CB;&#x5316;&#x5462;"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x58F0;&#x660E;&#x540E;&#x521D;&#x59CB;&#x5316;&#x5462;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x58F0;&#x660E;&#x540E;&#x521D;&#x59CB;&#x5316;&#x5462;?"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5728;&#x58F0;&#x660E;&#x540E;&#x521D;&#x59CB;&#x5316;&#x5462;?</h5><ul>
+<li>&#x6CDB;&#x578B;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4E0D;&#x80FD;&#x58F0;&#x660E;&#x6CDB;&#x578B;&#x7C7B;&#x578B;<h6 id="&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x65F6;&#x901A;&#x4E0D;&#x8FC7;&#xFF1A;"><a href="#&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x65F6;&#x901A;&#x4E0D;&#x8FC7;&#xFF1A;" class="headerlink" title="&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x65F6;&#x901A;&#x4E0D;&#x8FC7;&#xFF1A;"></a>&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x65F6;&#x901A;&#x4E0D;&#x8FC7;&#xFF1A;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;[] list = <span class="keyword">new</span> List&lt;String&gt;[];</span><br><span class="line">&#xA0; &#xA0; &#xA0; &#xA0; &#x5728;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x521D;&#x59CB;&#x5316;&#x8BE5;&#x6570;&#x7EC4;&#xFF0C;&#x56E0;&#x4E3A;&#x6267;&#x884C;&#x4E86;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;List&lt;Object&gt;[] &#x4E0E; List&lt;String&gt;[] &#x5C31;&#x662F;&#x540C;&#x4E00;&#x56DE;&#x4E8B;&#x4E86;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x62D2;&#x7EDD;&#x5982;&#x6B64;&#x58F0;&#x660E;&#x3002;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/集合 ArrayList创建二维数组/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java JDBC学生管理系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/23/Java JDBC学生管理系统/">实现学生管理系统</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/04/23/Java JDBC学生管理系统/" class="archive-article-date">
+  	<time datetime="2019-04-23T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h4 id="&#x6784;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;"><a href="#&#x6784;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;" class="headerlink" title="&#x6784;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;"></a>&#x6784;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;</h4><p>&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;,&#x7136;&#x540E;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6784;&#x5EFA;&#x8868;&#x683C;</p>
+<h5 id="&#x521B;&#x5EFA;&#x5B66;&#x751F;&#x8868;"><a href="#&#x521B;&#x5EFA;&#x5B66;&#x751F;&#x8868;" class="headerlink" title="&#x521B;&#x5EFA;&#x5B66;&#x751F;&#x8868;"></a>&#x521B;&#x5EFA;&#x5B66;&#x751F;&#x8868;</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Students (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line"> <span class="built_in">number</span> <span class="built_in">varchar</span>(<span class="number">5</span>),</span><br><span class="line"> <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line"> sex <span class="built_in">varchar</span>(<span class="number">2</span>),</span><br><span class="line"> age <span class="built_in">TINYINT</span>(<span class="number">150</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h6 id="&#x5728;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"><a href="#&#x5728;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;" class="headerlink" title="&#x5728;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"></a>&#x5728;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> students <span class="keyword">values</span> (<span class="literal">null</span>,<span class="string">&apos;1001&apos;</span>,<span class="string">&apos;&#x738B;&#x5D07;&apos;</span>,<span class="string">&apos;&#x7537;&apos;</span>,<span class="number">18</span>),</span><br><span class="line">	(<span class="literal">null</span>,<span class="string">&apos;1002&apos;</span>,<span class="string">&apos;&#x9AD8;&#x6D0B;&#x6D0B;&apos;</span>,<span class="string">&apos;&#x7537;&apos;</span>,<span class="number">23</span>),(<span class="literal">null</span>,<span class="string">&apos;1003&apos;</span>,<span class="string">&apos;&#x7126;&#x5B87;&#x73E0;&apos;</span>,<span class="string">&apos;&#x7537;&apos;</span>,<span class="number">20</span>),(<span class="literal">null</span>,<span class="string">&apos;1004&apos;</span>,<span class="string">&apos;&#x5973;&#x540C;&#x5B66;&apos;</span>,<span class="string">&apos;&#x5973;&apos;</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="&#x521B;&#x5EFA;&#x8BFE;&#x7A0B;&#x8868;"><a href="#&#x521B;&#x5EFA;&#x8BFE;&#x7A0B;&#x8868;" class="headerlink" title="&#x521B;&#x5EFA;&#x8BFE;&#x7A0B;&#x8868;"></a>&#x521B;&#x5EFA;&#x8BFE;&#x7A0B;&#x8868;</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> C (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line"> Cno <span class="built_in">TINYINT</span>(<span class="number">20</span>),</span><br><span class="line"> Cname <span class="built_in">varchar</span>(<span class="number">10</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h6 id="&#x5411;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"><a href="#&#x5411;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;" class="headerlink" title="&#x5411;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"></a>&#x5411;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> C <span class="keyword">values</span> (<span class="literal">null</span>,<span class="number">1</span>,<span class="string">&apos;&#x6570;&#x636E;&#x5E93;&apos;</span>),</span><br><span class="line">	(<span class="literal">null</span>,<span class="number">2</span>,<span class="string">&apos;Java&apos;</span>),(<span class="literal">null</span>,<span class="number">3</span>,<span class="string">&apos;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x65B9;&#x6CD5;&apos;</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="&#x521B;&#x5EFA;&#x6210;&#x7EE9;&#x8868;"><a href="#&#x521B;&#x5EFA;&#x6210;&#x7EE9;&#x8868;" class="headerlink" title="&#x521B;&#x5EFA;&#x6210;&#x7EE9;&#x8868;"></a>&#x521B;&#x5EFA;&#x6210;&#x7EE9;&#x8868;</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> SC (</span><br><span class="line"> <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line"> SCno <span class="built_in">TINYINT</span>(<span class="number">20</span>),</span><br><span class="line"> Snumber <span class="built_in">varchar</span>(<span class="number">5</span>),</span><br><span class="line"> Cno <span class="built_in">TINYINT</span>(<span class="number">10</span>),</span><br><span class="line"> Score <span class="built_in">TINYINT</span>(<span class="number">100</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h6 id="&#x5411;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"><a href="#&#x5411;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;" class="headerlink" title="&#x5411;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;"></a>&#x5411;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x4FE1;&#x606F;</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> SC <span class="keyword">values</span> (<span class="literal">null</span>,<span class="number">1</span>,<span class="string">&apos;1001&apos;</span>,<span class="number">3</span>,<span class="number">100</span>),</span><br><span class="line">	(<span class="literal">null</span>,<span class="number">2</span>,<span class="string">&apos;1002&apos;</span>,<span class="number">2</span>,<span class="number">90</span>),(<span class="literal">null</span>,<span class="number">1</span>,<span class="string">&apos;1003&apos;</span>,<span class="number">1</span>,<span class="number">95</span>),(<span class="literal">null</span>,<span class="number">1</span>,<span class="string">&apos;1004&apos;</span>,<span class="number">2</span>,<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="&#x4E0B;&#x9762;&#x5EFA;&#x7ACB;Java-JDBC-&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;"><a href="#&#x4E0B;&#x9762;&#x5EFA;&#x7ACB;Java-JDBC-&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;" class="headerlink" title="&#x4E0B;&#x9762;&#x5EFA;&#x7ACB;Java(JDBC)&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;"></a>&#x4E0B;&#x9762;&#x5EFA;&#x7ACB;Java(JDBC)&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;</h4><h5 id="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"><a href="#&#x51C6;&#x5907;&#x5DE5;&#x4F5C;" class="headerlink" title="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;"></a>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</h5><ol>
+<li>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;java&#x9879;&#x76EE;</li>
+<li>&#x5728;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;libs&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x653E;JDBC&#x9A71;&#x52A8;mysql&#x7684;jar&#x5305;,&#x5E76;&#x8BBE;&#x7F6E;&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x8F7D;jar&#x5305;</li>
+<li>&#x5199;java&#x4EE3;&#x7801;,&#x4F7F;&#x7528;JDBC&#x8FDE;&#x63A5;mysql</li>
+</ol>
+<h6 id="&#x5B9E;&#x73B0;"><a href="#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</h6><h6 id="&#x4E66;&#x5199;&#x5DE5;&#x5177;&#x7C7B;"><a href="#&#x4E66;&#x5199;&#x5DE5;&#x5177;&#x7C7B;" class="headerlink" title="&#x4E66;&#x5199;&#x5DE5;&#x5177;&#x7C7B;"></a>&#x4E66;&#x5199;&#x5DE5;&#x5177;&#x7C7B;</h6><p>&#x65B9;&#x4FBF;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.epochong;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/23 7:54</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdbcUtils</span> </span>{</span><br><span class="line">    <span class="comment">//&#x53EF;&#x4EE5;&#x628A;&#x51E0;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5B9A;&#x4E49;&#x6210;&#x5E38;&#x91CF;&#xFF1A;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x5BC6;&#x7801;&#xFF0C;URL&#xFF0C;&#x9A71;&#x52A8;&#x7C7B;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String USER = <span class="string">&quot;wangchong&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String PWD = <span class="string">&quot;wangchong&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String URL = <span class="string">&quot;jdbc:mysql://localhost:3306/jdbc ?serverTimezone=UTC&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DRIVER= <span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x6CE8;&#x518C;&#x9A71;&#x52A8;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">	<span class="comment">/*    static {</span></span><br><span class="line"><span class="comment">        try {</span></span><br><span class="line"><span class="comment">            Class.forName(DRIVER);</span></span><br><span class="line"><span class="comment">        } catch (ClassNotFoundException e) {</span></span><br><span class="line"><span class="comment">            e.printStackTrace();</span></span><br><span class="line"><span class="comment">        }</span></span><br><span class="line"><span class="comment">    }*/</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x5F97;&#x5230;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">        <span class="keyword">return</span> DriverManager.getConnection(URL,USER,PWD);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x5173;&#x95ED;&#x6240;&#x6709;&#x6253;&#x5F00;&#x7684;&#x8D44;&#x6E90;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn, Statement stmt)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (stmt!=<span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                stmt.close();</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (conn!=<span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                conn.close();</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x5173;&#x95ED;&#x6240;&#x6709;&#x6253;&#x5F00;&#x7684;&#x8D44;&#x6E90;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn, Statement stmt, ResultSet rs)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (rs != <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                rs.close();</span><br><span class="line">            } <span class="keyword">catch</span> (SQLException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        close(conn, stmt);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="&#x7528;&#x6237;&#x6CE8;&#x518C;&#x7C7B;"><a href="#&#x7528;&#x6237;&#x6CE8;&#x518C;&#x7C7B;" class="headerlink" title="&#x7528;&#x6237;&#x6CE8;&#x518C;&#x7C7B;"></a>&#x7528;&#x6237;&#x6CE8;&#x518C;&#x7C7B;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.epochong;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/23 7:57</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Login</span> </span>{</span><br><span class="line">    <span class="comment">//&#x4ECE;&#x63A7;&#x5236;&#x53F0;&#x4E0A;&#x8F93;&#x5165;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x767B;&#x5F55;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">login</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x767B;&#x5F55;&#x754C;&#x9762;&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#xFF1A;&quot;</span>);</span><br><span class="line">        String name = sc.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#xFF1A;&quot;</span>);</span><br><span class="line">        String password = sc.nextLine();</span><br><span class="line">        Connection connection = JdbcUtils.getConnection();</span><br><span class="line">        <span class="comment">//&#x5199;&#x6210;&#x767B;&#x5F55; SQL &#x8BED;&#x53E5;&#xFF0C;&#x6CA1;&#x6709;&#x5355;&#x5F15;&#x53F7;</span></span><br><span class="line">        String sql = <span class="string">&quot;select * from user where name=? and password=?&quot;</span>;</span><br><span class="line">        <span class="comment">//&#x5F97;&#x5230;&#x8BED;&#x53E5;&#x5BF9;&#x8C61;</span></span><br><span class="line">        PreparedStatement ps = connection.prepareStatement(sql);</span><br><span class="line">        <span class="comment">//&#x8BBE;&#x7F6E;&#x53C2;&#x6570;</span></span><br><span class="line">        ps.setString(<span class="number">1</span>, name);</span><br><span class="line">        ps.setString(<span class="number">2</span>,password);</span><br><span class="line">        ResultSet resultSet = ps.executeQuery();</span><br><span class="line">        <span class="keyword">if</span> (resultSet.next()) {</span><br><span class="line">            System.out.println(<span class="string">&quot;&#x7528;&#x6237;:&quot;</span>+ name + <span class="string">&quot; &#x767B;&#x5F55;&#x6210;&#x529F;!&quot;</span> );</span><br><span class="line">            <span class="comment">//&#x91CA;&#x653E;&#x8D44;&#x6E90;,&#x5B50;&#x63A5;&#x53E3;&#x76F4;&#x63A5;&#x7ED9;&#x7236;&#x63A5;&#x53E3;</span></span><br><span class="line">            JdbcUtils.close(connection,ps,resultSet);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            System.out.println(<span class="string">&quot;&#x767B;&#x5F55;&#x5931;&#x8D25;&quot;</span>);</span><br><span class="line">            JdbcUtils.close(connection,ps,resultSet);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="&#x5EFA;&#x7ACB;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7C7B;"><a href="#&#x5EFA;&#x7ACB;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7C7B;" class="headerlink" title="&#x5EFA;&#x7ACB;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7C7B;"></a>&#x5EFA;&#x7ACB;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7C7B;</h6><p>&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x5B66;&#x751F;&#x4FE1;&#x606F;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.epochong;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/26 5:48</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>{</span><br><span class="line">    String number;</span><br><span class="line">    String name;</span><br><span class="line">    String sex;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNumber</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNumber</span><span class="params">(String number)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.number = number;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> sex;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String sex)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h5 id="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x7C7B;StudentManage-java"><a href="#&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x7C7B;StudentManage-java" class="headerlink" title="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x7C7B;StudentManage.java"></a>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x7C7B;StudentManage.java</h5><h6 id="&#x4E3B;&#x51FD;&#x6570;"><a href="#&#x4E3B;&#x51FD;&#x6570;" class="headerlink" title="&#x4E3B;&#x51FD;&#x6570;"></a>&#x4E3B;&#x51FD;&#x6570;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">        <span class="keyword">if</span> (Login.login()) {</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            System.out.println(<span class="string">&quot;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x4E0D;&#x5339;&#x914D;,&#x8BF7;&#x91CD;&#x65B0;&#x8F93;&#x5165;!&quot;</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">        <span class="keyword">int</span> operateSelect = operationMenu();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">switch</span>(operateSelect){</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                studentManage();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                chooseManage();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="comment">//classManage();</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#x5F00;&#x59CB;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x64CD;&#x4F5C;"><a href="#&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#x5F00;&#x59CB;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x64CD;&#x4F5C;" class="headerlink" title="&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#x5F00;&#x59CB;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x64CD;&#x4F5C;"></a>&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#x5F00;&#x59CB;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x64CD;&#x4F5C;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">operationMenu</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;***************&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  0.&#x9000;&#x51FA;&#x7BA1;&#x7406;  *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  1.&#x5B66;&#x751F;&#x7BA1;&#x7406;  *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  2.&#x9009;&#x8BFE;&#x7BA1;&#x7406;  *&quot;</span>);</span><br><span class="line">    <span class="comment">//System.out.println(&quot;*  3.&#x8BFE;&#x7A0B;&#x7BA1;&#x7406;  *&quot;);</span></span><br><span class="line">    System.out.println(<span class="string">&quot;***************&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;&#x8BF7;&#x9009;&#x62E9;:&gt;&quot;</span>);</span><br><span class="line">    n = get03();</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="&#x9009;&#x62E9;1&#x5B9E;&#x73B0;&#x5B66;&#x751F;&#x7BA1;&#x7406;"><a href="#&#x9009;&#x62E9;1&#x5B9E;&#x73B0;&#x5B66;&#x751F;&#x7BA1;&#x7406;" class="headerlink" title="&#x9009;&#x62E9;1&#x5B9E;&#x73B0;&#x5B66;&#x751F;&#x7BA1;&#x7406;"></a>&#x9009;&#x62E9;1&#x5B9E;&#x73B0;&#x5B66;&#x751F;&#x7BA1;&#x7406;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">studentManage</span> <span class="params">()</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">        <span class="comment">//showStudents();</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">            <span class="keyword">int</span> select = studentManageMenu();</span><br><span class="line">            <span class="keyword">switch</span>(select){</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    <span class="comment">//&#x6DFB;&#x52A0;&#x4FE1;&#x606F;</span></span><br><span class="line">                    insert();</span><br><span class="line">                    <span class="comment">//showStudents();</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="comment">//&#x5220;&#x9664;&#x4FE1;&#x606F;</span></span><br><span class="line">                    delete();</span><br><span class="line">                    <span class="comment">//showStudents();</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="comment">//&#x4FEE;&#x6539;&#x4FE1;&#x606F;</span></span><br><span class="line">                    update();</span><br><span class="line">                    <span class="comment">//showStudents();</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                    <span class="comment">//&#x4FEE;&#x6539;&#x4FE1;&#x606F;</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">0</span>) {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<h6 id="1-&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x83DC;&#x5355;"><a href="#1-&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x83DC;&#x5355;" class="headerlink" title="1.&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x83DC;&#x5355;"></a>1.&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x83DC;&#x5355;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">studentManageMenu</span><span class="params">()</span> </span>{</span><br><span class="line">       <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">       System.out.println(<span class="string">&quot;***************&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;*  0.&#x7ED3;&#x675F;&#x7BA1;&#x7406;  *&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;*  1.&#x6DFB;&#x52A0;&#x5B66;&#x751F;  *&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;*  2.&#x5220;&#x9664;&#x5B66;&#x751F;  *&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;*  3.&#x4FEE;&#x6539;&#x5B66;&#x751F;  *&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;***************&quot;</span>);</span><br><span class="line">       System.out.println(<span class="string">&quot;&#x8BF7;&#x9009;&#x62E9;:&gt;&quot;</span>);</span><br><span class="line">       n = get03();</span><br><span class="line">       <span class="keyword">return</span> n;</span><br><span class="line">   }</span><br></pre></td></tr></table></figure>
+<h6 id="2-&#x63D2;&#x5165;&#x4FE1;&#x606F;"><a href="#2-&#x63D2;&#x5165;&#x4FE1;&#x606F;" class="headerlink" title="2.&#x63D2;&#x5165;&#x4FE1;&#x606F;"></a>2.&#x63D2;&#x5165;&#x4FE1;&#x606F;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">        Connection connection = JdbcUtils.getConnection();</span><br><span class="line">        PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;insert into students values(null,?,?,?,?)&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x751F;&#x5B66;&#x53F7;:&gt;&quot;</span>);</span><br><span class="line">        String studentNumber = input.nextLine();</span><br><span class="line">        ps.setString(<span class="number">1</span>,studentNumber);</span><br><span class="line">        System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x751F;&#x59D3;&#x540D;:&gt;&quot;</span>);</span><br><span class="line">        String studentName = input.nextLine();</span><br><span class="line">        ps.setString(<span class="number">2</span>, studentName);</span><br><span class="line">        System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x751F;&#x6027;&#x522B;:&gt;&quot;</span>);</span><br><span class="line">        String studentSex = input.nextLine();</span><br><span class="line">        ps.setString(<span class="number">3</span>,studentSex);</span><br><span class="line">        System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x751F;&#x5E74;&#x9F84;:&gt;&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> age = input.nextInt();</span><br><span class="line">        ps.setInt(<span class="number">4</span>,age);</span><br><span class="line">        <span class="keyword">int</span> row = ps.executeUpdate();</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x63D2;&#x5165;&#x4E86;&quot;</span> + row + <span class="string">&quot;&#x6761;&#x8BB0;&#x5F55;&quot;</span>);</span><br><span class="line">        JdbcUtils.close(connection,ps);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<h6 id="3-&#x5220;&#x9664;&#x4FE1;&#x606F;"><a href="#3-&#x5220;&#x9664;&#x4FE1;&#x606F;" class="headerlink" title="3.&#x5220;&#x9664;&#x4FE1;&#x606F;"></a>3.&#x5220;&#x9664;&#x4FE1;&#x606F;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>{</span><br><span class="line">        Connection connection = JdbcUtils.getConnection();</span><br><span class="line">        PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;delete from students where id=?&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x4F60;&#x60F3;&#x5220;&#x9664;&#x7684;ID:&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> id = input.nextInt();</span><br><span class="line">        ps.setInt(<span class="number">1</span>,id);</span><br><span class="line">        <span class="keyword">int</span> row = ps.executeUpdate();</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x5220;&#x9664;&#x4E86;&quot;</span> + row + <span class="string">&quot;&#x6761;&#x8BB0;&#x5F55;&quot;</span>);</span><br><span class="line">        JdbcUtils.close(connection,ps);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<h6 id="4-&#x66F4;&#x65B0;&#x4FE1;&#x606F;"><a href="#4-&#x66F4;&#x65B0;&#x4FE1;&#x606F;" class="headerlink" title="4.&#x66F4;&#x65B0;&#x4FE1;&#x606F;"></a>4.&#x66F4;&#x65B0;&#x4FE1;&#x606F;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">        Connection connection = JdbcUtils.getConnection();</span><br><span class="line">        PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;update students set number =?, name =? , sex = ?, age  = ? where number =?&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x4F60;&#x8981;&#x4FEE;&#x6539;&#x5B66;&#x751F;&#x7684;&#x5B66;&#x53F7;:&gt;&quot;</span>);</span><br><span class="line">        String studentNubmer = input.nextLine();</span><br><span class="line">        Student student = getStudentMessageByStudentNumber(studentNubmer);</span><br><span class="line">        ps.setString(<span class="number">5</span>,studentNubmer);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x4F60;&#x60F3;&#x4FEE;&#x6539;&#x90A3;&#x4E00;&#x5217;:&gt;&quot;</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">            <span class="keyword">int</span> select = updateMenu();</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">0</span>) {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">1</span>) {</span><br><span class="line">                System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x53F7;:&gt;&quot;</span>);</span><br><span class="line">                String number = input.nextLine();</span><br><span class="line">                ps.setString(<span class="number">1</span>,number);</span><br><span class="line">                ps.setString(<span class="number">2</span>,student.getName());</span><br><span class="line">                ps.setString(<span class="number">3</span>,student.getSex());</span><br><span class="line">                ps.setInt(<span class="number">4</span>,student.getAge());</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">2</span>) {</span><br><span class="line">                System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x59D3;&#x540D;:&gt;&quot;</span>);</span><br><span class="line">                String name = input.nextLine();</span><br><span class="line">                ps.setString(<span class="number">1</span>,student.getNumber());</span><br><span class="line">                ps.setString(<span class="number">2</span>,name);</span><br><span class="line">                ps.setString(<span class="number">3</span>,student.getSex());</span><br><span class="line">                ps.setInt(<span class="number">4</span>,student.getAge());</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">3</span>) {</span><br><span class="line">                System.out.println(<span class="string">&quot;&#x8F93;&#x5165;&#x6027;&#x522B;:&gt;&quot;</span>);</span><br><span class="line">                String sex = input.nextLine();</span><br><span class="line">                ps.setString(<span class="number">1</span>,student.getNumber());</span><br><span class="line">                ps.setString(<span class="number">2</span>,student.getName());</span><br><span class="line">                ps.setString(<span class="number">3</span>,sex);</span><br><span class="line">                ps.setInt(<span class="number">4</span>,student.getAge());</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (select == <span class="number">4</span>) {</span><br><span class="line">                System.out.print(<span class="string">&quot;&#x8F93;&#x5165;&#x5E74;&#x9F84;:&gt;&quot;</span>);</span><br><span class="line">                <span class="keyword">int</span> age = input.nextInt();</span><br><span class="line">                ps.setString(<span class="number">1</span>, student.getNumber());</span><br><span class="line">                ps.setString(<span class="number">2</span>,student.getName());</span><br><span class="line">                ps.setString(<span class="number">3</span>,student.getSex());</span><br><span class="line">                ps.setInt(<span class="number">4</span>,age);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">int</span> row = ps.executeUpdate();</span><br><span class="line">            System.out.println(<span class="string">&quot;&#x66F4;&#x65B0;&quot;</span> + row + <span class="string">&quot;&#x6761;&#x8BB0;&#x5F55;&quot;</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        JdbcUtils.close(connection,ps);</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<h6 id="&#x9009;&#x62E9;2&#x8FDB;&#x884C;&#x6210;&#x7EE9;&#x7BA1;&#x7406;"><a href="#&#x9009;&#x62E9;2&#x8FDB;&#x884C;&#x6210;&#x7EE9;&#x7BA1;&#x7406;" class="headerlink" title="&#x9009;&#x62E9;2&#x8FDB;&#x884C;&#x6210;&#x7EE9;&#x7BA1;&#x7406;"></a>&#x9009;&#x62E9;2&#x8FDB;&#x884C;&#x6210;&#x7EE9;&#x7BA1;&#x7406;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">chooseManage</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>{</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">        <span class="keyword">int</span> select = chooseMenu();</span><br><span class="line">        <span class="keyword">switch</span>(select){</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="comment">//&#x6DFB;&#x52A0;&#x4FE1;&#x606F;</span></span><br><span class="line">                selectScoreInSCByNumber(selectByName());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                selectScoreInSCByClassNumber(selectByClassName());</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                <span class="comment">//&#x4FEE;&#x6539;&#x4FE1;&#x606F;</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (select == <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>&#x7528;&#x5230;&#x7684;&#x51FD;&#x6570;</strong></p>
+<h6 id="1-&#x6210;&#x7EE9;&#x67E5;&#x8BE2;&#x83DC;&#x5355;"><a href="#1-&#x6210;&#x7EE9;&#x67E5;&#x8BE2;&#x83DC;&#x5355;" class="headerlink" title="1.&#x6210;&#x7EE9;&#x67E5;&#x8BE2;&#x83DC;&#x5355;"></a>1.&#x6210;&#x7EE9;&#x67E5;&#x8BE2;&#x83DC;&#x5355;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">chooseMenu</span><span class="params">()</span> </span>{</span><br><span class="line">    System.out.println(<span class="string">&quot;********************&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*    &#x6210;&#x7EE9;&#x67E5;&#x8BE2;       *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;********************&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  0.&#x7ED3;&#x675F;&#x67E5;&#x8BE2;       *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  1.&#x6309;&#x5B66;&#x751F;&#x59D3;&#x540D;&#x67E5;&#x8BE2;  *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*  2.&#x6309;&#x8BFE;&#x7A0B;&#x540D;&#x79F0;&#x67E5;&#x8BE2;  *&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;*********************&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;&#x8BF7;&#x9009;&#x62E9;:&gt;&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> n = get03();</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="2-&#x6309;&#x5B66;&#x751F;&#x59D3;&#x540D;&#x67E5;&#x8BE2;"><a href="#2-&#x6309;&#x5B66;&#x751F;&#x59D3;&#x540D;&#x67E5;&#x8BE2;" class="headerlink" title="2.&#x6309;&#x5B66;&#x751F;&#x59D3;&#x540D;&#x67E5;&#x8BE2;"></a>2.&#x6309;&#x5B66;&#x751F;&#x59D3;&#x540D;&#x67E5;&#x8BE2;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">selectByName</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">    <span class="comment">//1) &#x5F97;&#x5230;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;</span></span><br><span class="line">    Connection connection = JdbcUtils.getConnection();</span><br><span class="line">    <span class="comment">//2) &#x5F97;&#x5230;&#x8BED;&#x53E5;&#x5BF9;&#x8C61;</span></span><br><span class="line">    PreparedStatement studentsPS = connection.prepareStatement(<span class="string">&quot;select * from Students where name = ?&quot;</span>);</span><br><span class="line">    String studentNumber = <span class="keyword">null</span>;</span><br><span class="line">    ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x53D6;&#x51FA;&#x6BCF;&#x4E00;&#x6761;&#x8BB0;&#x5F55;</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) {</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8F93;&#x5165;&#x5B66;&#x751F;&#x59D3;&#x540D;:&quot;</span>);</span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String studentName = input.nextLine();</span><br><span class="line">        studentsPS.setString(<span class="number">1</span>,studentName);</span><br><span class="line">        rs = studentsPS.executeQuery();</span><br><span class="line">        <span class="keyword">while</span>(rs.next()) {</span><br><span class="line">            <span class="comment">//&#x6839;&#x636E;&#x59D3;&#x540D;&#x5728;Students&#x8868;&#x4E2D;&#x67E5;&#x5230;&#x5B66;&#x53F7;</span></span><br><span class="line">            studentNumber = rs.getString(<span class="string">&quot;number&quot;</span>);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (!studentNumber.equals(<span class="keyword">null</span>)) {</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            System.out.println(<span class="string">&quot;&#x6CA1;&#x6709;&#x8BE5;&#x5B66;&#x751F;&#x7684;&#x8BB0;&#x5F55;,&#x91CD;&#x65B0;&#x8F93;&#x5165;&#x5427;!&quot;</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+<h6 id="3-&#x5728;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x5B66;&#x53F7;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;"><a href="#3-&#x5728;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x5B66;&#x53F7;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;" class="headerlink" title="3.&#x5728;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x5B66;&#x53F7;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;"></a>3.&#x5728;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x5B66;&#x53F7;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectScoreInSCByNumber</span><span class="params">(String studentNumber)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">    <span class="comment">//1) &#x5F97;&#x5230;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;</span></span><br><span class="line">    Connection connection = JdbcUtils.getConnection();</span><br><span class="line">    <span class="comment">//&#x6839;&#x636E;&#x67E5;&#x5230;&#x7684;&#x5B66;&#x53F7;&#x5728;&#x6210;&#x7EE9;&#x8868;&#x4E2D;&#x67E5;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x6210;&#x7EE9;,&#x53EA;&#x663E;&#x793A;&#x59D3;&#x540D;&#x548C;&#x6210;&#x7EE9;</span></span><br><span class="line">    PreparedStatement scPrepareStatement = connection.prepareStatement(<span class="string">&quot;select * from SC where Snumber = ?&quot;</span>);</span><br><span class="line">    scPrepareStatement.setString(<span class="number">1</span>,studentNumber);</span><br><span class="line">    ResultSet resultSet = scPrepareStatement.executeQuery();</span><br><span class="line">    <span class="keyword">while</span>(resultSet.next()) {</span><br><span class="line">        <span class="keyword">int</span> score = resultSet.getInt(<span class="string">&quot;Score&quot;</span>);</span><br><span class="line">        String className = getClassNameByClassNumber(resultSet.getString(<span class="string">&quot;Cno&quot;</span>));</span><br><span class="line">        <span class="comment">//5) &#x8F93;&#x51FA;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x4E0A;</span></span><br><span class="line">        System.out.println(<span class="string">&quot;&#x8BFE;&#x7A0B;&#x540D;:&quot;</span> + className + <span class="string">&quot;  &#x6210;&#x7EE9;:&quot;</span> + score);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="4-&#x5728;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x8BFE;&#x7A0B;&#x7F16;&#x53F7;&#x67E5;&#x8BE2;&#x8BFE;&#x7A0B;&#x540D;&#x79F0;"><a href="#4-&#x5728;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x8BFE;&#x7A0B;&#x7F16;&#x53F7;&#x67E5;&#x8BE2;&#x8BFE;&#x7A0B;&#x540D;&#x79F0;" class="headerlink" title="4.&#x5728;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x8BFE;&#x7A0B;&#x7F16;&#x53F7;&#x67E5;&#x8BE2;&#x8BFE;&#x7A0B;&#x540D;&#x79F0;"></a>4.&#x5728;&#x8BFE;&#x7A0B;&#x8868;&#x4E2D;&#x901A;&#x8FC7;&#x8BFE;&#x7A0B;&#x7F16;&#x53F7;&#x67E5;&#x8BE2;&#x8BFE;&#x7A0B;&#x540D;&#x79F0;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getClassNameByClassNumber</span><span class="params">(String cno)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">    <span class="comment">//1) &#x5F97;&#x5230;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;</span></span><br><span class="line">    Connection connection = JdbcUtils.getConnection();</span><br><span class="line">    <span class="comment">//2) &#x5F97;&#x5230;&#x8BED;&#x53E5;&#x5BF9;&#x8C61;</span></span><br><span class="line">    PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;select * from C where Cno = ?&quot;</span>);</span><br><span class="line">    ps.setString(<span class="number">1</span>,cno);</span><br><span class="line">    ResultSet rs = ps.executeQuery();</span><br><span class="line">    String className = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span>(rs.next()) {</span><br><span class="line">        className = rs.getString(<span class="string">&quot;Cname&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">    rs.close();</span><br><span class="line">    ps.close();</span><br><span class="line">    connection.close();</span><br><span class="line">    <span class="keyword">return</span> className;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/23/Java JDBC学生管理系统/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/">简单工厂模式 抽象工厂模式 抽象工厂方法模式</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/" class="archive-article-date">
+  	<time datetime="2019-04-22T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <p><strong>&#x4E00;&#x3001;&#x9898;&#x76EE;&#x5206;&#x6790;</strong><br><strong>1&#x3001;&#x9898;&#x76EE;&#x8981;&#x6C42;</strong><br><strong>1.1&#x3001;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x6A21;&#x62DF;&#x5973;&#x5A32;&#xFF08;Nvwa&#xFF09;&#x9020;&#x4EBA;&#xFF08;Person&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x4F20;&#x5165;&#x53C2;&#x6570;M&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Man&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x4F20;&#x5165;&#x53C2;&#x6570;W&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Woman&#x5BF9;&#x8C61;&#xFF0C;&#x8BF7;&#x5B9E;&#x73B0;&#x8BE5;&#x573A;&#x666F;&#x3002;&#x73B0;&#x9700;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Robot&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x4F20;&#x5165;&#x53C2;&#x6570;R&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Robot&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x5E76;&#x6CE8;&#x610F;&#x5973;&#x5A32;&#x7684;&#x53D8;&#x5316;&#x3002;<br><strong>1.2&#x3001;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</strong><br>&#x6D77;&#x5C14;&#x5DE5;&#x5382;(Haier)&#x751F;&#x4EA7;&#x6D77;&#x5C14;&#x7A7A;&#x8C03;(HaierAirCondition)&#xFF0C;&#x7F8E;&#x7684;&#x5DE5;&#x5382;(Midea)&#x751F;&#x4EA7;&#x7F8E;&#x7684;&#x7A7A;&#x8C03;(MideaAirCondition) &#x3002;&#x4F7F;&#x7528;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x63CF;&#x8FF0;&#x8BE5;&#x573A;&#x666F;&#xFF0C;&#x7ED8;&#x5236;&#x7C7B;&#x56FE;&#x5E76;&#x7F16;&#x7A0B;&#x5B9E;&#x73B0;&#x3002;<br><strong>1.3&#x3001;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x7535;&#x8111;&#x914D;&#x4EF6;&#x751F;&#x4EA7;&#x5DE5;&#x5382;&#x751F;&#x4EA7;&#x5185;&#x5B58;&#x3001;CPU&#x7B49;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5B58;&#x3001;CPU&#x7684;&#x54C1;&#x724C;&#x3001;&#x578B;&#x53F7;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x76F8;&#x540C;&#xFF0C;&#x6839;&#x636E;&#x4E0B;&#x9762;&#x7684;&#x201C;&#x4EA7;&#x54C1;&#x7B49;&#x7EA7;&#x7ED3;&#x6784;-&#x4EA7;&#x54C1;&#x65CF;&#x201D;&#x793A;&#x610F;&#x56FE;&#xFF0C;&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x7535;&#x8111;&#x914D;&#x4EF6;&#x751F;&#x4EA7;&#x8FC7;&#x7A0B;&#x5E76;&#x7ED8;&#x5236;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x56FE;&#xFF0C;&#x7ED8;&#x5236;&#x7C7B;&#x56FE;&#x5E76;&#x7F16;&#x7A0B;&#x5B9E;&#x73B0;&#x3002;<br><img src="https://img-blog.csdnimg.cn/20190517203000613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>2&#x3001;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x4E09;&#x79CD;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;</strong><br><strong>2.1&#x3001;&#x7B80;&#x5355;&#x5DE5;&#x5382;</strong><br>   &#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF1A;&#x4E13;&#x95E8;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7C7B;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5176;&#x5B83;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x5B9E;&#x4F8B;&#x901A;&#x5E38;&#x90FD;&#x5177;&#x6709;&#x5171;&#x540C;&#x7684;&#x7236;&#x7C7B;&#x3002;<br><strong>&#x6982;&#x8981;&#xFF1A;</strong></p>
+<pre><code>1. &#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x7C7B;
+2. &#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x7C7B;
+3. &#x4E00;&#x4E2A;&#x5DE5;&#x5382;
+</code></pre><p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong><br>&#x7B80;&#x5355;&#x6613;&#x4E8E;&#x5B9E;&#x73B0;&#x628A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4EA4;&#x7ED9;&#x5DE5;&#x5382;,&#x6613;&#x4E8E;&#x89E3;&#x8026;&#x3002;<br><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong><br>&#x6DFB;&#x52A0;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5DE5;&#x5382;&#x8FDD;&#x53CD;OCP&#x5F00;&#x653E;&#x5C01;&#x95ED;&#x539F;&#x5219;<br><strong>2.2&#x3001;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</strong><br>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF1A;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x8BA9;&#x5B50;&#x7C7B;&#x51B3;&#x5B9A;&#x5B9E;&#x4F8B;&#x5316;&#x54EA;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x8BA9;&#x5B50;&#x7C7B;&#x51B3;&#x5B9A;&#x5B9E;&#x4F8B;&#x5316;&#x5EF6;&#x8FDF;&#x5230;&#x5B50;&#x7C7B;&#x3002;<br>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x4EA7;&#x54C1;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#xFF0C;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x5224;&#x65AD;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;&#x53BB;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x3002;<br>&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F; VS &#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF1A;<br>&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x800C;&#x8A00;&#xFF0C;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x903B;&#x8F91;&#x5224;&#x65AD;&#x653E;&#x5728;&#x4E86;&#x5DE5;&#x5382;&#x7C7B;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x4E0D;&#x611F;&#x77E5;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x8FDD;&#x80CC;&#x4E86;&#x5F00;&#x95ED;&#x539F;&#x5219;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x589E;&#x52A0;&#x65B0;&#x7684;&#x5177;&#x4F53;&#x7C7B;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x4FEE;&#x6539;&#x5DE5;&#x5382;&#x7C7B;&#x3002;<br>&#x5BF9;&#x4E8E;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x800C;&#x8A00;&#xFF0C;&#x662F;&#x901A;&#x8FC7;&#x6269;&#x5C55;&#x6765;&#x65B0;&#x589E;&#x5177;&#x4F53;&#x7C7B;&#x7684;&#xFF0C;&#x7B26;&#x5408;&#x5F00;&#x95ED;&#x539F;&#x5219;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x611F;&#x77E5;&#x5230;&#x5177;&#x4F53;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5C06;&#x5224;&#x65AD;&#x903B;&#x8F91;&#x7531;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#x632A;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A2A;&#x5411;&#x6269;&#x5C55;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x5047;&#x5982;&#x8BE5;&#x5DE5;&#x5382;&#x53C8;&#x6709;&#x65B0;&#x7684;&#x4EA7;&#x54C1;&#x8981;&#x751F;&#x4EA7;&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#x548C;&#x4EA7;&#x54C1;&#x7C7B;&#x53BB;&#x5B9E;&#x73B0;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x63A5;&#x53E3;&#x548C;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x63A5;&#x53E3;&#x5373;&#x53EF;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x53BB;&#x4FEE;&#x6539;&#x539F;&#x6709;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x4EE3;&#x7801;&#x3002;<br><strong>&#x6982;&#x8981;&#xFF1A;</strong></p>
+<pre><code>1. &#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x7C7B;
+2. &#x591A;&#x4E2A;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x7C7B;
+3. &#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5DE5;&#x5382;
+4. &#x591A;&#x4E2A;&#x5177;&#x4F53;&#x5DE5;&#x5382; - &#x6BCF;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x5DE5;&#x5382;
+</code></pre><p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong><br>&#x964D;&#x4F4E;&#x4E86;&#x4EE3;&#x7801;&#x8026;&#x5408;&#x5EA6;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x751F;&#x6210;&#x4EA4;&#x7ED9;&#x5B50;&#x7C7B;&#x53BB;&#x5B8C;&#x6210;<br>&#x5B9E;&#x73B0;&#x4E86;&#x5F00;&#x653E;&#x5C01;&#x95ED;&#x539F;&#x5219; - &#x6BCF;&#x6B21;&#x6DFB;&#x52A0;&#x5B50;&#x4EA7;&#x54C1; &#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x539F;&#x6709;&#x4EE3;&#x7801;<br><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong><br>&#x589E;&#x52A0;&#x4E86;&#x4EE3;&#x7801;&#x91CF;&#xFF0C;&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x5DE5;&#x5382;<br>&#x5F53;&#x589E;&#x52A0;&#x62BD;&#x8C61;&#x4EA7;&#x54C1; &#x4E5F;&#x5C31;&#x662F;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x4EA7;&#x54C1;&#x65CF; &#x9700;&#x8981;&#x4FEE;&#x6539;&#x5DE5;&#x5382; &#x8FDD;&#x80CC;OCP<br><strong>2.3&#x3001;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#xFF1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x5173;&#x6216;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x6307;&#x5B9A;&#x5B83;&#x4EEC;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x3002;<br>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x548C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x57FA;&#x672C;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x7406;&#x89E3;&#xFF1A;&#x5F53;&#x5DE5;&#x5382;&#x53EA;&#x751F;&#x4EA7;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5373;&#x4E3A;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x800C;&#x5DE5;&#x5382;&#x5982;&#x679C;&#x751F;&#x4EA7;&#x4E24;&#x4E2A;&#x6216;&#x4EE5;&#x4E0A;&#x7684;&#x5546;&#x54C1;&#x5373;&#x53D8;&#x4E3A;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x3002;<br><strong>&#x6982;&#x8981;&#xFF1A;</strong></p>
+<pre><code>1. &#x591A;&#x4E2A;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x7C7B;
+2. &#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x7C7B;
+3. &#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x7C7B; - &#x58F0;&#x660E;(&#x4E00;&#x7EC4;)&#x8FD4;&#x56DE;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x7684;&#x65B9;&#x6CD5;
+4. &#x5177;&#x4F53;&#x5DE5;&#x5382;&#x7C7B; - &#x751F;&#x6210;(&#x4E00;&#x7EC4;)&#x5177;&#x4F53;&#x4EA7;&#x54C1;
+</code></pre><p><strong>&#x4F18;&#x70B9;&#xFF1A;</strong><br>&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x4EA7;&#x54C1;&#x65CF;(&#x76F8;&#x5173;&#x8054;&#x4EA7;&#x54C1;&#x7EC4;&#x6210;&#x7684;&#x5BB6;&#x65CF;)&#xFF0C;&#x800C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x7684;&#x5355;&#x4E2A;&#x4EA7;&#x54C1;,&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x66F4;&#x591A;&#x7684;&#x751F;&#x4EA7;&#x9700;&#x6C42;&#x5F88;&#x597D;&#x7684;&#x6EE1;&#x8DB3;OCP&#x5F00;&#x653E;&#x5C01;&#x95ED;&#x539F;&#x5219;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x4E5F;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x7C7B; &#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x7684;&#x751F;&#x4EA7;&#x76F8;&#x5F53;&#x7075;&#x6D3B;&#x6613;&#x6269;&#x5C55;<br><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong><br>&#x6269;&#x5C55;&#x4EA7;&#x54C1;&#x65CF;&#x76F8;&#x5F53;&#x9EBB;&#x70E6;&#xFF0C;&#x800C;&#x4E14;&#x6269;&#x5C55;&#x4EA7;&#x54C1;&#x65CF;&#x4F1A;&#x8FDD;&#x53CD;OCP,&#x56E0;&#x4E3A;&#x8981;&#x4FEE;&#x6539;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x5382;<br>&#x7531;&#x4E8E;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x662F;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x7684;&#x6269;&#x5C55; &#x603B;&#x4F53;&#x7684;&#x6765;&#x8BF4; &#x5F88;&#x7B28;&#x91CD;</p>
+<p><strong>&#x4E8C;&#x3001;&#x7C7B;&#x56FE;&#x8BBE;&#x8BA1;</strong><br>&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x6A21;&#x62DF;&#x5973;&#x5A32;&#xFF08;Nvwa&#xFF09;&#x9020;&#x4EBA;&#xFF08;Person&#xFF09;<br><img src="https://img-blog.csdnimg.cn/20190517203017990.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x6D77;&#x5C14;&#x5DE5;&#x5382;(Haier)&#x751F;&#x4EA7;&#x6D77;&#x5C14;&#x7A7A;&#x8C03;(HaierAirCondition)&#xFF0C;&#x7F8E;&#x7684;&#x5DE5;&#x5382;(Midea)&#x751F;&#x4EA7;&#x7F8E;&#x7684;&#x7A7A;&#x8C03;(MideaAirCondition) &#x3002;<img src="https://img-blog.csdnimg.cn/2019051720303454.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p>&#x7535;&#x8111;&#x914D;&#x4EF6;&#x751F;&#x4EA7;&#x5DE5;&#x5382;&#x751F;&#x4EA7;&#x5185;&#x5B58;&#x3001;CPU&#x7B49;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5B58;&#x3001;CPU&#x7684;&#x54C1;&#x724C;&#x3001;&#x578B;&#x53F7;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x76F8;&#x540C;&#xFF0C;&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x5B9E;&#x73B0;&#x7535;&#x8111;&#x914D;&#x4EF6;&#x751F;&#x4EA7;&#x8FC7;&#x7A0B;&#x5E76;&#x7ED8;&#x5236;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x56FE;<br><img src="https://img-blog.csdnimg.cn/20190517203055125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></p>
+<p><strong>&#x4E09;&#x3001;&#x7A0B;&#x5E8F;&#x5B9E;&#x73B0;</strong><br><strong>&#x53CD;&#x5C04;&#x673A;&#x5236;&#x5B9E;&#x73B0;</strong><br><img src="https://img-blog.csdnimg.cn/2019051720310776.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;CPU&#x63A5;&#x53E3;&#xFF0C;&#x7EE7;&#x627F;&#x5B83;&#x7684;&#x5B50;&#x7C7B;&#x7528;&#x4E8E;&#x751F;&#x4EA7;CPU&#xFF0C;Mac&#x751F;&#x4EA7;&#x7684;CPU&#x5EFA;&#x7ACB;MacCpu&#x7EE7;&#x627F;&#x5B83;&#xFF0C;Pc&#x4E0A;&#x4EA7;&#x7684;CPU&#x5EFA;&#x7ACB;PcCpu&#x7EE7;&#x627F;&#x5B83;&#x3002;&#x540C;&#x7406;&#x4E00;&#x4E2A;RAM&#x63A5;&#x53E3;&#xFF0C;&#x5206;&#x522B;&#x7531;Mac&#x548C;Pc&#x7684;&#x5382;&#x5BB6;&#x7684;MacRam&#x548C;PcRam&#x7EE7;&#x627F;&#xFF0C;&#x5373;&#x53EF;&#x751F;&#x4EA7;RAM&#xFF0C;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;IFactory&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x751F;&#x4EA7;&#x4EA7;&#x54C1;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x751F;&#x4EA7;CPU&#x548C;&#x751F;&#x4EA7;RAM&#x65B9;&#x6CD5;&#xFF0C;&#x7EE7;&#x627F;&#x7EE7;&#x627F;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x90FD;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x5382;&#x5BB6;&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x5373;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;MacFactory&#x4E3A;Mac&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x751F;&#x4EA7;&#x4ED6;&#x4EEC;&#x5382;&#x7684;CPU&#x548C;RAM&#xFF0C;PcFactory&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;<br>&#x6700;&#x91CD;&#x8981;&#x7684;&#x7C7B;&#x83AB;&#x8FC7;&#x4E8E;Factory&#x7C7B;&#xFF0C;Client&#x7C7B;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;getInstance&#x65B9;&#x6CD5;&#x53C2;&#x6570;classname&#x4E3A;&#x8BE5;&#x7C7B;&#x7684;&#x5168;&#x540D;&#x79F0;&#xFF0C;&#x901A;&#x8FC7;Class.forName(&#x7C7B;&#x540D;)&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x5177;&#x4F53;&#x5DE5;&#x5382;&#x7C7B;&#x7684;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;newInstance&#x65B9;&#x6CD5;&#x5B9E;&#x4F8B;&#x5316;&#x5177;&#x4F53;&#x8BE5;&#x5DE5;&#x5382;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x7528;&#x6237;(Client)&#x5177;&#x4F53;&#x4F1A;&#x60F3;&#x8981;&#x54EA;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x7684;&#x4EA7;&#x54C1;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x4E2D;&#x4F7F;&#x7528;IFactory&#x7528;&#x6765;&#x63A5;&#x6536;&#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5177;&#x4F53;&#x5DE5;&#x5382;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x7528;&#x6237;&#x53EA;&#x9700;&#x8981;&#x5728;&#x4F20;&#x7C7B;&#x540D;&#x7684;&#x65F6;&#x5019;&#x6307;&#x660E;&#x5177;&#x4F53;&#x5DE5;&#x5382;&#x7C7B;&#x5C31;&#x884C;&#x4E86;&#x3002;&#x901A;&#x8FC7;IFactory&#x4E0B;&#x9762;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5177;&#x4F53;&#x5B50;&#x7C7B;&#x5DE5;&#x5382;&#x7684;&#x521B;&#x9020;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x65B9;&#x6CD5;&#x3002;&#x4E3B;&#x8981;&#x7C7B;&#x5982;&#x4E0B;&#x3002;<br><strong>Client&#x7528;&#x6237;&#x7C7B;&#xFF1A;</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyCpu</span><span class="params">(CPU cpu)</span> </span>{</span><br><span class="line">        cpu.printCpu();</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyRam</span><span class="params">(RAM ram)</span> </span>{</span><br><span class="line">        ram.printRam();</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IllegalAccessException, InstantiationException, ClassNotFoundException </span>{</span><br><span class="line">        Client client = <span class="keyword">new</span> Client();</span><br><span class="line">        IFactory macFactory = Factory.getInstance(<span class="string">&quot;www.homework.embarkationfournext.reflect.MacFactory&quot;</span>);</span><br><span class="line">        client.buyCpu(macFactory.createCpu());</span><br><span class="line">        client.buyRam(macFactory.createRam());</span><br><span class="line">       IFactory pcFactory = Factory.getInstance(<span class="string">&quot;www.homework.embarkationfournext.reflect.PcFactory&quot;</span>);</span><br><span class="line">        client.buyCpu(pcFactory.createCpu());</span><br><span class="line">        client.buyRam(pcFactory.createRam());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>Factory&#x7C7B;&#xFF1A;</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Factory</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IFactory <span class="title">getInstance</span><span class="params">(String classname)</span> <span class="keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException </span>{</span><br><span class="line">        IFactory iFactory = (IFactory) Class.forName(classname).newInstance();</span><br><span class="line">        <span class="keyword">return</span> iFactory;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>IFactory&#x63A5;&#x53E3;&#xFF1A;</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IFactory</span> </span>{</span><br><span class="line">    <span class="function">CPU <span class="title">createCpu</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">RAM <span class="title">createRam</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br><span class="line">Mac&#x5DE5;&#x5382;&#x7C7B;&#xFF1A;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MacFactory</span> <span class="keyword">implements</span> <span class="title">IFactory</span> </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CPU <span class="title">createCpu</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MacCpu();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RAM <span class="title">createRam</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MacRam();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>Pc&#x5DE5;&#x5382;&#x7684;&#x5B9E;&#x73B0;&#x540C;Mac&#x5DE5;&#x5382;</p>
+<p><strong>&#x56DB;&#x3001;&#x8C03;&#x8BD5;&#x3001;&#x6D4B;&#x8BD5;&#x53CA;&#x8FD0;&#x884C;&#x7ED3;&#x679C;<br>4.1&#x8C03;&#x8BD5;&#x622A;&#x56FE;<br>4.1.1&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x7C7B;&#x578B;&#x4E3A;M&#x5219;person&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4E3A;Man<br><img src="https://img-blog.csdnimg.cn/20190517203225214.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x7C7B;&#x578B;&#x4E3A;W&#x5219;person&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4E3A;Woman<br><img src="https://img-blog.csdnimg.cn/20190517203233972.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x7C7B;&#x578B;&#x4E3A;R&#x5219;person&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4E3A;Robot<br><img src="https://img-blog.csdnimg.cn/20190517203238916.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>4.1.2&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</strong></p>
+<pre><code>AirConditionFactory haierFactory = new HaierFactory();
+Client client = new Client();
+client.buyAirCondition(haierFactory.createAriCondition());
+AirConditionFactory mideaFactory = new MideaFactory();
+client.buyAirCondition(mideaFactory.createAriCondition());
+</code></pre><p>&#x5B9E;&#x4F8B;&#x5316;&#x6D77;&#x5C14;&#x5DE5;&#x5382;hierFactory&#x3001;&#x7F8E;&#x7684;&#x5DE5;&#x5382;MideaFactory&#xFF0C;&#x5BF9;&#x5E94;&#x6307;&#x5B9A;&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x751F;&#x4EA7;&#x5404;&#x81EA;&#x7684;&#x54C1;&#x724C;&#x7684;&#x7A7A;&#x8C03;<br><img src="https://img-blog.csdnimg.cn/20190517203308491.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>4.1.3&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x5B9E;&#x4F8B;&#x5316;Client&#x5BF9;&#x8C61;client<br>macFactory&#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x4ECE;&#x5DE5;&#x5382;&#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x5316;MacFactory&#x5BF9;&#x8C61;<br>PcFactory&#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x4ECE;&#x5DE5;&#x5382;&#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x5316;PCFactory&#x5BF9;&#x8C61;<br><img src="https://img-blog.csdnimg.cn/20190517203319416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmY25fenlx,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>4.2&#x6D4B;&#x8BD5;&#x622A;&#x56FE;</strong><br><strong>4.2.1&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x8F93;&#x5165;M&#x521B;&#x9020;&#x7537;&#x4EBA;<br><img src="https://img-blog.csdnimg.cn/20190517203324400.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x8F93;&#x5165;W&#x521B;&#x9020;&#x5973;&#x4EBA;<br><img src="https://img-blog.csdnimg.cn/20190517203328115.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x8F93;&#x5165;R&#x521B;&#x9020;&#x673A;&#x5668;&#x4EBA;<br><img src="https://img-blog.csdnimg.cn/20190517203332132.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>4.2.2&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;</strong><br>&#x5B9E;&#x4F8B;&#x4E0D;&#x540C;&#x5DE5;&#x5382;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x7A7A;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x54C1;&#x724C;&#x7A7A;&#x8C03;<br><img src="https://img-blog.csdnimg.cn/20190517203337459.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>4.2.3&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</strong><br>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5DE5;&#x5382;&#x7C7B;MacFactory&#x548C;PCFactory&#x7684;&#x7C7B;&#x540D;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#x4E24;&#x4E2A;&#x5DE5;&#x5382;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x901A;&#x8FC7;createCpu()&#x548C;createRam()&#x751F;&#x4EA7;&#x4E0D;&#x540C;&#x5382;&#x7684;CPU&#x3001;RAM&#x3002;<br><img src="https://img-blog.csdnimg.cn/20190517203341974.png" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br><strong>&#x4E94;&#x3001;&#x7ECF;&#x9A8C;&#x5F52;&#x7EB3;</strong></p>
+<p>&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x6700;&#x5927;&#x7684;&#x4F18;&#x70B9;&#x5C31;&#x662F;&#x5DE5;&#x5382;&#x5185;&#x6709;&#x5177;&#x4F53;&#x7684;&#x903B;&#x8F91;&#x53BB;&#x5224;&#x65AD;&#x751F;&#x6210;&#x4EC0;&#x4E48;&#x4EA7;&#x54C1;&#xFF0C;&#x5C06;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x4EA4;&#x7ED9;&#x4E86;&#x5DE5;&#x5382;&#xFF0C;&#x8FD9;&#x6837;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4EC0;&#x4E48;&#x4EA7;&#x54C1;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5DE5;&#x5382;&#x7684;&#x8C03;&#x7528;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x53BB;&#x4FEE;&#x6539;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5BF9;&#x4E8E;&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x8BF4;&#x964D;&#x4F4E;&#x4E86;&#x4E0E;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x7684;&#x4F9D;&#x8D56;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x662F;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x628A;&#x539F;&#x5148;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x90A3;&#x4E2A;&#x7C7B;&#x7684;&#x903B;&#x8F91;&#x5224;&#x65AD;&#x4EA4;&#x7ED9;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5982;&#x679C;&#x50CF;&#x6DFB;&#x52A0;&#x529F;&#x80FD;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5BA2;&#x6237;&#x548C;&#x6DFB;&#x52A0;&#x5177;&#x4F53;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E0D;&#x7528;&#x53BB;&#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x7684;&#x7C7B;&#x3002;<br>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x8FDB;&#x4E00;&#x6B65;&#x6269;&#x5C55;&#x4E86;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x628A;&#x539F;&#x5148;&#x7684;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6A21;&#x5F0F;&#x4E2D;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x4EA7;&#x54C1;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;&#x4EA7;&#x54C1;&#x65CF;&#x7684;&#x7F3A;&#x70B9;&#x514B;&#x670D;&#x4E86;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x4E0D;&#x4EC5;&#x4EC5;&#x9075;&#x5FAA;&#x4E86;OCP&#x539F;&#x5219;&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x4EA7;&#x54C1;(&#x62BD;&#x8C61;&#x4EA7;&#x54C1;),&#x5177;&#x4F53;&#x5DE5;&#x5382;&#x4E5F;&#x4E0D;&#x4EC5;&#x4EC5;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x5355;&#x4E00;&#x4EA7;&#x54C1;&#xFF0C;&#x800C;&#x662F;&#x751F;&#x6210;&#x4E00;&#x7EC4;&#x4EA7;&#x54C1;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x4E5F;&#x662F;&#x58F0;&#x660E;&#x4E00;&#x7EC4;&#x4EA7;&#x54C1;&#xFF0C;&#x5BF9;&#x5E94;&#x6269;&#x5C55;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x662F;&#x6269;&#x5C55;&#x65CF;&#x7CFB;&#x5C31;&#x4F1A;&#x5F88;&#x7B28;&#x91CD;&#x3002;</p>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/22/Java 简单工厂模式    抽象工厂模式    抽象工厂方法模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-24点游戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -725,436 +1130,6 @@
 
 
   
-    <article id="post-LeetCode239. 滑动窗口最大值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">239. 滑动窗口最大值</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/03/03/LeetCode239. 滑动窗口最大值/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <h5 id="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"><a href="#&#x9898;&#x76EE;&#x63CF;&#x8FF0;" class="headerlink" title="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"></a>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</h5><blockquote>
-<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4; nums&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; k &#x7684;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x4ECE;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x5DE6;&#x4FA7;&#x79FB;&#x52A8;&#x5230;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x53F3;&#x4FA7;&#x3002;&#x4F60;&#x53EA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;&#x6ED1;&#x52A8;&#x7A97;&#x53E3; k &#x5185;&#x7684;&#x6570;&#x5B57;&#x3002;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x6BCF;&#x6B21;&#x53EA;&#x5411;&#x53F3;&#x79FB;&#x52A8;&#x4E00;&#x4F4D;&#x3002;<br>&#x8FD4;&#x56DE;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x6700;&#x5927;&#x503C;&#x3002;</p>
-</blockquote>
-<h6 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;:"></a>&#x793A;&#x4F8B;:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;: nums = [<span class="number">1</span>,<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], &#x548C; k = <span class="number">3</span></span><br><span class="line">&#x8F93;&#x51FA;: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
-<h6 id="&#x89E3;&#x91CA;"><a href="#&#x89E3;&#x91CA;" class="headerlink" title="&#x89E3;&#x91CA;:"></a>&#x89E3;&#x91CA;:</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;                &#x6700;&#x5927;&#x503C;</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>] -<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span> [<span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span> [-<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span> [-<span class="number">3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>  <span class="number">3</span>  -<span class="number">1</span>  -<span class="number">3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h6 id="&#x6CE8;&#x610F;&#xFF1A;"><a href="#&#x6CE8;&#x610F;&#xFF1A;" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h6><p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE; k &#x603B;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;1 &#x2264; k &#x2264; &#x8F93;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E14;&#x8F93;&#x5165;&#x6570;&#x7EC4;&#x4E0D;&#x4E3A;&#x7A7A;&#x3002;</p>
-<p><strong>&#x8FDB;&#x9636;</strong>(==&#x672C;&#x9898;&#x89E3;&#x6CD5;&#x6B63;&#x5F0F;&#x5982;&#x6B64;==)</p>
-<h4 id="&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;"><a href="#&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;" class="headerlink" title="&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;"></a>&#x4F60;&#x80FD;&#x5728;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5185;&#x89E3;&#x51B3;&#x6B64;&#x9898;&#x5417;&#xFF1F;</h4><blockquote>
-<p>&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x5B58;&#x653E;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x7D22;&#x5F15;&#xFF0C;&#x904D;&#x5386;&#x6570;&#x7EC4;&#x7684;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x503C;&#x7684;&#x6BD4;&#x8F83;&#x6309;&#x7167;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x7684;&#x987A;&#x5E8F;&#x4ECE;&#x5934;&#x5230;&#x5C3E;&#x6392;&#x5217;&#x6570;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x4E00;&#x65E6;&#x8981;&#x653E;&#x5165;&#x7684;&#x6570;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x8FD9;&#x4E00;&#x7ED3;&#x6784;&#x5C31;&#x4E00;&#x76F4;&#x4ECE;&#x5C3E;&#x90E8;&#x5F39;&#x51FA;&#x6570;&#xFF0C;&#x76F4;&#x5230;&#x5B83;&#x653E;&#x8FDB;&#x53BB;&#x4ECD;&#x80FD;&#x4FDD;&#x6301;&#x8FD9;&#x79CD;&#x5355;&#x8C03;&#x7684;&#x7ED3;&#x6784;</p>
-</blockquote>
-<h6 id="&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;"><a href="#&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;" class="headerlink" title="&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;"></a>&#x68C0;&#x67E5;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E0B;&#x6807;&#x662F;&#x5426;&#x8FC7;&#x671F;</h6><p>==<strong>&#x4F55;&#x4E3A;&#x8FC7;&#x671F;:</strong>==<br>&#x6570;&#x4E0D;&#x5728;&#x7A97;&#x53E3;&#x5185;&#x5373;&#x4E3A;&#x8FC7;&#x671F;&#xFF0C;&#x5373;&#x7A97;&#x53E3;&#x79FB;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x4ECE;&#x5DE6;&#x7AEF;&#x8D70;&#x51FA;&#x7A97;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;</p>
-<h6 id="&#x60F3;&#x4E00;&#x60F3;"><a href="#&#x60F3;&#x4E00;&#x60F3;" class="headerlink" title="&#x60F3;&#x4E00;&#x60F3;"></a>&#x60F3;&#x4E00;&#x60F3;</h6><p>&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x7684;&#x9996;&#x90E8;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5C31;&#x662F;&#x7A97;&#x53E3;&#x5185;&#x7684;&#x6700;&#x5927;&#x503C;&#x5462;&#xFF1F;</p>
-<p><strong>&#x7B54;&#x6848;&#xFF1A;</strong> &#x6CA1;&#x9519;</p>
-<p><strong>&#x89E3;&#x91CA;&#xFF1A;</strong> &#x961F;&#x5217;&#x4E2D;&#x90FD;&#x662F;&#x672A;&#x8FC7;&#x671F;&#x7684;&#x6570;&#xFF0C;&#x5373;&#x4EE5;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x4E3A;&#x7A97;&#x53E3;&#x7684;&#x5C3E;&#x90E8;&#xFF0C;&#x8FC7;&#x671F;&#x5143;&#x7D20;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E3A;&#x7A97;&#x53E3;&#x9996;&#x90E8;&#x7684;&#x4E2D;&#x95F4;&#x7684;&#x90E8;&#x5206;&#x6570;(&#x4E0D;&#x6EE1;&#x8DB3;&#x5C3E;&#x90E8;&#x63D2;&#x5165;&#x7684;&#x6570;&#x8981;&#x5F39;&#x51FA;)&#xFF0C;&#x53C8;&#x56E0;&#x4E3A;&#x662F;&#x6309;&#x7167;&#x964D;&#x5E8F;&#x6392;&#x5217;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9996;&#x90E8;&#x5143;&#x7D20;&#x4E00;&#x5B9A;&#x662F;&#x7A97;&#x53E3;&#x5185;&#x6700;&#x5927;&#x503C;&#x3002;</p>
-<p>==<strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;</strong>== O(N)</p>
-<blockquote>
-<p>&#x6240;&#x6709;&#x6570;&#x90FD;&#x503C;&#x8FDB;&#x5165;&#x4E00;&#x6B21;&#x961F;&#x5217;&#xFF0C;&#x51FA;&#x4E00;&#x6B21;&#x961F;&#x5217;&#xFF0C;&#x53EA;&#x904D;&#x5386;&#x4E00;&#x904D;&#x6570;&#x7EC4;&#x3002;</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] maxSlidingWindow(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> w) {</span><br><span class="line">		<span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) {</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">		}</span><br><span class="line">		LinkedList&lt;Integer&gt; qmax = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">		<span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length - w + <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) {</span><br><span class="line">			<span class="keyword">while</span> (!qmax.isEmpty() &amp;&amp; arr[qmax.peekLast()] &lt;= arr[i]) {</span><br><span class="line">				qmax.pollLast();</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * &#x65E0;&#x8BBA;&#x5982;&#x4F55;i&#x90FD;&#x4F1A;&#x52A0;&#x5165;qmax&#x53CC;&#x7AEF;&#x961F;&#x5217;&#x7684;&#x5C3E;&#x90E8;</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * qmax&#x961F;&#x5217;&#x6700;&#x5C11;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;</span></span><br><span class="line"><span class="comment">			 * 1.&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x7531;&#x4E0E;arr[i]&#x6BD4;&#x4E4B;&#x524D;&#x7684;qmax&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x90FD;&#x5927;</span></span><br><span class="line"><span class="comment">			 * 2.&#x4EA6;&#x6216;&#x662F;qmax&#x7B2C;&#x4E00;&#x6B21;&#x6DFB;&#x52A0;&#x5143;&#x7D20;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			qmax.addLast(i);</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * w = 3,i = 4&#x65F6;</span></span><br><span class="line"><span class="comment">			 * &#x4F4D;&#x7F6E;&#x4E3A; 1 &#x7684;&#x5C31;&#x662F;&#x8FC7;&#x671F;&#x4F4D;&#x7F6E;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (qmax.peekFirst() == i - w) {</span><br><span class="line">				qmax.pollFirst();</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">/*</span></span><br><span class="line"><span class="comment">			 * &#x5F53; i &gt; 2 &#x7684;&#x65F6;&#x5019;&#x624D;&#x6709;&#x7A97;&#x53E3;&#x53EF;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x6709;&#x7A97;&#x53E3;&#x5185;&#x6700;&#x5927;&#x503C;&#x53EF;&#x8A00;</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line">			<span class="keyword">if</span> (i &gt;= w - <span class="number">1</span>) {</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * &#x6700;&#x5927;&#x503C;&#x4E0D;&#x66F4;&#x65B0;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x5C31;&#x4E00;&#x76F4;&#x662F;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x503C;&#x6240;&#x4EE5;&#x662F;peekFirst</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				res[index++] = arr[qmax.peekFirst()];</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h4 id="&#x5751;"><a href="#&#x5751;" class="headerlink" title="&#x5751;"></a>&#x5751;</h4><h5 id="&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;"><a href="#&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;" class="headerlink" title="&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;"></a>&#x867D;&#x7136;&#x9898;&#x76EE;&#x8BF4;</h5><h6 id="&#x6CE8;&#x610F;&#xFF1A;-1"><a href="#&#x6CE8;&#x610F;&#xFF1A;-1" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h6><p>&#x4F60;&#x53EF;&#x4EE5;&#x5047;&#x8BBE; k &#x603B;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;1 &#x2264; k &#x2264; &#x8F93;&#x5165;&#x6570;&#x7EC4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4E14;&#x8F93;&#x5165;&#x6570;&#x7EC4;&#x4E0D;&#x4E3A;&#x7A7A;&#x3002;</p>
-<h5 id="&#x4F46;&#x662F;"><a href="#&#x4F46;&#x662F;" class="headerlink" title="&#x4F46;&#x662F;"></a>&#x4F46;&#x662F;</h5><p>&#x7ED9;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4E2D;&#x5374;&#x6709;&#x8FD9;</p>
-<h6 id="&#x8F93;&#x5165;"><a href="#&#x8F93;&#x5165;" class="headerlink" title="&#x8F93;&#x5165;"></a>&#x8F93;&#x5165;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h6 id="&#x9884;&#x671F;&#x503C;"><a href="#&#x9884;&#x671F;&#x503C;" class="headerlink" title="&#x9884;&#x671F;&#x503C;"></a>&#x9884;&#x671F;&#x503C;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-<h6 id="&#x8FD4;&#x56DE;&#x503C;&#x4E3A;-&#x64CD;&#x4F5C;"><a href="#&#x8FD4;&#x56DE;&#x503C;&#x4E3A;-&#x64CD;&#x4F5C;" class="headerlink" title="&#x8FD4;&#x56DE;&#x503C;&#x4E3A;[]&#x64CD;&#x4F5C;"></a>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;[]&#x64CD;&#x4F5C;</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr == <span class="keyword">null</span> || w &lt; <span class="number">1</span> || arr.length &lt; w) {</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	}</span><br></pre></td></tr></table></figure>
-<p>==&#x5982;&#x679C;&#x4F60;&#x5199;&#x7684;&#x662F;return null&#x90A3;&#x5C31;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;(&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;&#x7528;&#x4F8B;)&#x7528;&#x4F8B;&#x8FC7;&#x4E0D;&#x4E86;&#x5440;==</p>
-<h5 id="&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;"><a href="#&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;" class="headerlink" title="&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;"></a>&#x5BF9;&#x4E8E;&#x7A7A;&#x6570;&#x7EC4;&#x7684;&#x7406;&#x89E3;</h5><p>Java &#x4E2D;&#x957F;&#x5EA6;&#x4E3A; 0 &#x7684;&#x6570;&#x7EC4;&#x4E0E; null &#x7684;&#x533A;&#x522B;<br>&#x73B0;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x5B9A;&#x4E49;&#xFF1A;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] zeroArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">int</span>[] nullArray = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;"><a href="#&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;" class="headerlink" title="&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;"></a>&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;</h6><p>zeroArray &#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 0 &#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A; <strong>&#x7A7A;&#x6570;&#x7EC4;</strong>&#x3002;</p>
-<ul>
-<li>&#x7A7A;&#x6570;&#x7EC4;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x662F;&#x5305;&#x542B;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4E3A; 0&#x3002; </li>
-<li>nullArray &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#x7684;&#x7A7A;&#x5F15;&#x7528;&#x3002; <blockquote>
-<p>&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x8FD4;&#x56DE; null&#xFF0C;&#x5219;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8FD4;&#x56DE; null&#xFF0C;&#x624D;&#x80FD;&#x5BF9;&#x653E;&#x56DE;&#x6570;&#x7EC4;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;&#x800C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x65E0;&#x987B; null &#x5F15;&#x7528;&#x68C0;&#x67E5;&#x3002;<br>&#x9274;&#x4E8E;&#x6B64;&#xFF0C;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x6CA1;&#x6709;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x8FD4;&#x56DE;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x662F; null&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8005;&#x7684;&#x5904;&#x7406;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x3002; </p>
-</blockquote>
-</li>
-</ul>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/LeetCode239. 滑动窗口最大值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Lock体系相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/Lock体系相关/">Lock体系相关</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/03/03/Lock体系相关/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <h6 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h6><p>&#x53D6;&#x5F97;Callable&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x503C;<br>get():V&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6709;&#x8FD4;&#x56DE;&#x503C;</p>
-<h6 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h6><p>&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x4E0B;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EFB;&#x52A1;(&#x4F20;&#x5165;&#x7684;Callable&#x6216;Runnable)&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;</p>
-<p>[18:50]</p>
-<h6 id="&#x7EBF;&#x7A0B;&#x4E2D;&#x63D0;&#x4EA4;&#x65B9;&#x6CD5;"><a href="#&#x7EBF;&#x7A0B;&#x4E2D;&#x63D0;&#x4EA4;&#x65B9;&#x6CD5;" class="headerlink" title="&#x7EBF;&#x7A0B;&#x4E2D;&#x63D0;&#x4EA4;&#x65B9;&#x6CD5;"></a>&#x7EBF;&#x7A0B;&#x4E2D;&#x63D0;&#x4EA4;&#x65B9;&#x6CD5;</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void execute(Runnable r);</span><br><span class="line">V submit(Runnable )</span><br></pre></td></tr></table></figure>
-<h6 id="CompletableFuture&#x63A5;&#x53E3;-&#x81EA;&#x5B66;"><a href="#CompletableFuture&#x63A5;&#x53E3;-&#x81EA;&#x5B66;" class="headerlink" title="CompletableFuture&#x63A5;&#x53E3;(&#x81EA;&#x5B66;)"></a>CompletableFuture&#x63A5;&#x53E3;(&#x81EA;&#x5B66;)</h6><p>jdk1.8&#x65B0;&#x589E;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x63A5;&#x53E3;</p>
-<h6 id="&#x591A;&#x7EBF;&#x7A0B;&#x4E09;&#x5927;&#x6838;&#x5FC3;"><a href="#&#x591A;&#x7EBF;&#x7A0B;&#x4E09;&#x5927;&#x6838;&#x5FC3;" class="headerlink" title="&#x591A;&#x7EBF;&#x7A0B;&#x4E09;&#x5927;&#x6838;&#x5FC3;"></a>&#x591A;&#x7EBF;&#x7A0B;&#x4E09;&#x5927;&#x6838;&#x5FC3;</h6><p><strong>&#x5206;&#x5DE5;:</strong><br>&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x4EFB;&#x52A1;<br>jdk1.7Fork/Join &#x5355;&#x673A;&#x7248;&#x4EBA;&#x7684;Map/Reduce</p>
-<p><strong>&#x4E92;&#x65A5;</strong><br>&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5728;&#x64CD;&#x4F5C;&#x4E34;&#x754C;&#x533A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">synchronized</span><br><span class="line">Lock(&#x4E3A;&#x89E3;&#x51B3;&#x6B7B;&#x9501;&#x800C;&#x751F;)</span><br></pre></td></tr></table></figure>
-<p><strong>&#x540C;&#x6B65;</strong><br>&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wait&#x3001;notify</span><br><span class="line">Comdition</span><br></pre></td></tr></table></figure>
-<h4 id="Lock&#x4F53;&#x7CFB;"><a href="#Lock&#x4F53;&#x7CFB;" class="headerlink" title="Lock&#x4F53;&#x7CFB;"></a>Lock&#x4F53;&#x7CFB;</h4><h6 id="&#x6B7B;&#x9501;&#x4EA7;&#x751F;&#x7684;&#x56DB;&#x4E2A;&#x5FC5;&#x8981;&#x6761;&#x4EF6;"><a href="#&#x6B7B;&#x9501;&#x4EA7;&#x751F;&#x7684;&#x56DB;&#x4E2A;&#x5FC5;&#x8981;&#x6761;&#x4EF6;" class="headerlink" title="&#x6B7B;&#x9501;&#x4EA7;&#x751F;&#x7684;&#x56DB;&#x4E2A;&#x5FC5;&#x8981;&#x6761;&#x4EF6;"></a>&#x6B7B;&#x9501;&#x4EA7;&#x751F;&#x7684;&#x56DB;&#x4E2A;&#x5FC5;&#x8981;&#x6761;&#x4EF6;</h6><p>&#x53EA;&#x6709;&#x5F53;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x6761;&#x4EF6;&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#x65F6;,&#x7A0B;&#x5E8F;&#x624D;&#x4F1A;&#x6B7B;&#x9501;</p>
-<ol>
-<li><strong>&#x4E92;&#x65A5;:</strong> &#x5171;&#x4EAB;&#x8D44;&#x6E90;X&#x4E0E;Y&#x53EA;&#x80FD;&#x88AB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5360;&#x7528;</li>
-<li><strong>&#x5360;&#x6709;&#x4E14;&#x7B49;&#x5F85;:</strong> &#x7EBF;&#x7A0B;T1&#x5DF2;&#x7ECF;&#x62E5;&#x6709;&#x5171;&#x4EAB;&#x8D44;&#x6E90;X,&#x5728;&#x7B49;&#x5F85;&#x5171;&#x4EAB;&#x8D44;&#x6E90;Y&#x7684;&#x65F6;&#x5019;,&#x4E0D;&#x91CA;&#x653E;X</li>
-<li><strong>&#x4E0D;&#x53EF;&#x62A2;&#x5360;:</strong> &#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E0D;&#x80FD;&#x5F3A;&#x884C;T1&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x7684;&#x8D44;&#x6E90;X</li>
-<li><strong>&#x5FAA;&#x73AF;&#x7B49;&#x5F85;</strong><h6 id="Lock&#x63A5;&#x53E3;&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#Lock&#x63A5;&#x53E3;&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="Lock&#x63A5;&#x53E3;&#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>Lock&#x63A5;&#x53E3;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h6></li>
-</ol>
-<ul>
-<li><p><strong>void lock()</strong> &#x963B;&#x585E;&#x5F0F;&#x83B7;&#x53D6;&#x9501;</p>
-</li>
-<li><p><strong>boolean tryLock()</strong> &#x975E;&#x963B;&#x585E;&#x83B7;&#x53D6;&#x9501;,&#x83B7;&#x53D6;&#x6210;&#x529F;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x8FD4;&#x56DE;true&#x5426;&#x5219;&#x8FD4;&#x56DE;false&#x7EBF;&#x7A0B;&#x76F4;&#x63A5;&#x9000;&#x51FA;</p>
-</li>
-<li><p><strong>void lockInterruptibly() throws InterruptedException</strong> &#x83B7;&#x53D6;&#x9501;&#x65F6;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;</p>
-</li>
-<li><p><strong>boolean tryLock(long time, TimeUnit unit)<br>throws InterruptedException</strong> &#x83B7;&#x53D6;&#x9501;&#x65F6;&#x652F;&#x6301;&#x8D85;&#x65F6;,&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x672A;&#x83B7;&#x53D6;&#x5230;&#x9501;,&#x7EBF;&#x7A0B;&#x76F4;&#x63A5;&#x9000;&#x51FA;<br><strong>Condition</strong> newCondition();&#x83B7;&#x53D6;&#x7ED1;&#x5B9A;&#x5230;&#x8BE5;lock&#x5BF9;&#x8C61;&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;,&#x6BCF;&#x5F53;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x5C31;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try {</span><br><span class="line">	lock.lock();</span><br><span class="line">}finally {</span><br><span class="line">	lock.unlock();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h6 id="sychronized&#x4E0E;Lock&#x7684;&#x5173;&#x7CFB;&#x4E0E;&#x533A;&#x522B;"><a href="#sychronized&#x4E0E;Lock&#x7684;&#x5173;&#x7CFB;&#x4E0E;&#x533A;&#x522B;" class="headerlink" title="==sychronized&#x4E0E;Lock&#x7684;&#x5173;&#x7CFB;&#x4E0E;&#x533A;&#x522B;=="></a>==sychronized&#x4E0E;Lock&#x7684;&#x5173;&#x7CFB;&#x4E0E;&#x533A;&#x522B;==</h6><ol>
-<li>sychronized&#x662F;JVM&#x7EA7;&#x522B;&#x7684;&#x9501;&#xFF0C;&#x5C5E;&#x4E8E;Java&#x4E2D;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x4F7F;&#x7528;sychronized&#xFF0C;&#x52A0;&#x9501;&#x4E0E;&#x89E3;&#x9501;&#x90FD;&#x662F;&#x9690;&#x5F0F;&#x7684;;Lock&#x662F;Java&#x5C42;&#x9762;&#x7684;&#x9501;&#xFF0C;&#x52A0;&#x9501;&#x4E0E;&#x89E3;&#x9501;&#x90FD;&#x9700;&#x8981;&#x663E;&#x793A;&#x4F7F;&#x7528;&#x3002;</li>
-<li>lock&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;synchronized&#x4E0D;&#x5177;&#x5907;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x54CD;&#x5E94;&#x4E2D;&#x65AD;&#x3001;&#x8D85;&#x65F6;&#x83B7;&#x53D6;&#x3001;&#x975E;&#x963B;&#x585E;&#x5F0F;&#x83B7;&#x53D6;&#x3001;&#x516C;&#x5E73;&#x9501;&#x3001;&#x5171;&#x4EAB;&#x9501;&#x5982;&#x8BFB;&#x5199;&#x9501;</li>
-<li>sychronized&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x800C;&#x540C;&#x4E00;&#x4E2A;Lock&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x591A;&#x4E2A;&#x7B49;&#x5F85;&#x961F;&#x5217;(&#x591A;&#x4E2A;Condition&#x5BF9;&#x8C61;)</li>
-</ol>
-<p><strong>AQS:&#x540C;&#x6B65;&#x5305;&#x88C5;&#x5668;</strong></p>
-<p>&#x57FA;&#x4E8E;&#x94FE;&#x8868;&#x7684;&#x4E00;&#x4E2A;&#x961F;&#x5217;,&#x6B64;&#x961F;&#x5217;&#x5305;&#x88C5;&#x7C7B;&#x7EBF;&#x7A0B;&#x8282;&#x70B9;,&#x6240;&#x6709;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x7684;&#x6B21;&#x4E09;&#x6210;&#x90FD;&#x88AB;&#x5305;&#x88C5;&#x4E3A;&#x961F;&#x5217;&#x8282;&#x70B9;&#x8FDB;&#x5165;AQS&#x4E2D;&#x6392;&#x961F;&#x83B7;&#x53D6;&#x9501;&#x3002;</p>
-<h6 id="lock&#x4E0E;AQS&#x7684;&#x5173;&#x7CFB;"><a href="#lock&#x4E0E;AQS&#x7684;&#x5173;&#x7CFB;" class="headerlink" title="lock&#x4E0E;AQS&#x7684;&#x5173;&#x7CFB;"></a>lock&#x4E0E;AQS&#x7684;&#x5173;&#x7CFB;</h6><p>lock&#x63D0;&#x4F9B;&#x9501;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x4E0E;&#x5426;&#x7684;&#x72B6;&#x6001;&#x7ED9;AQS&#xFF0C;AQS&#x6839;&#x636E;&#x6B64;&#x72B6;&#x6001;&#x6765;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5C06;&#x7EBF;&#x7A0B;&#x7F6E;&#x5165;AQS&#x4E2D;&#x3002;</p>
-<h6 id="&#x516C;&#x5E73;&#x9501;&#x4E0E;&#x975E;&#x516C;&#x5E73;&#x9501;"><a href="#&#x516C;&#x5E73;&#x9501;&#x4E0E;&#x975E;&#x516C;&#x5E73;&#x9501;" class="headerlink" title="&#x516C;&#x5E73;&#x9501;&#x4E0E;&#x975E;&#x516C;&#x5E73;&#x9501;:"></a>&#x516C;&#x5E73;&#x9501;&#x4E0E;&#x975E;&#x516C;&#x5E73;&#x9501;:</h6><p><strong>&#x516C;&#x5E73;&#x9501;:</strong> &#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x6700;&#x957F;&#x7684;&#x7EBF;&#x7A0B;&#x4F18;&#x5148;&#x83B7;&#x53D6;&#x5230;&#x9501;,&#x53EA;&#x6709;lock&#x6709;,lock&#x9ED8;&#x8BA4;&#x91C7;&#x7528;&#x975E;&#x516C;&#x5E73;&#x9501;</p>
-<p><strong>&#x8BFB;&#x5199;&#x9501;:</strong><br>Lock&#x4E2D;&#x7684;ReentrantReadWriteLock&#x5B9E;&#x73B0;&#x8BFB;&#x5199;&#x9501;</p>
-<p><strong>&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;:</strong> Condition &#x642D;&#x914D; Lock<br>await()<br>signal()/signalAll()</p>
-<p>==kafka:&#x5206;&#x5E03;&#x5F0F;&#x6D88;&#x606F;&#x961F;&#x5217;==</p>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/Lock体系相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode 876. 链表的中间结点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/LeetCode 876. 链表的中间结点/">876. 链表的中间结点</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/03/03/LeetCode 876. 链表的中间结点/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <a id="more"></a>
-<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88090162" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88090162</a><br>  <strong>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x5934;&#x7ED3;&#x70B9; head &#x7684;&#x975E;&#x7A7A;&#x5355;&#x94FE;&#x8868;&#xFF0C;&#x8FD4;&#x56DE;&#x94FE;&#x8868;&#x7684;&#x4E2D;&#x95F4;&#x7ED3;&#x70B9;&#x3002;</span><br><span class="line">&#x5982;&#x679C;&#x6709;&#x4E24;&#x4E2A;&#x4E2D;&#x95F4;&#x7ED3;&#x70B9;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E2D;&#x95F4;&#x7ED3;&#x70B9;&#x3002;</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x793A;&#x4F8B; 1&#xFF1A;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;&#xFF1A;[1,2,3,4,5]</span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;&#x6B64;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x7ED3;&#x70B9; 3 (&#x5E8F;&#x5217;&#x5316;&#x5F62;&#x5F0F;&#xFF1A;[3,4,5])</span><br><span class="line">&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x70B9;&#x503C;&#x4E3A; 3 &#x3002; (&#x6D4B;&#x8BC4;&#x7CFB;&#x7EDF;&#x5BF9;&#x8BE5;&#x7ED3;&#x70B9;&#x5E8F;&#x5217;&#x5316;&#x8868;&#x8FF0;&#x662F; [3,4,5])&#x3002;</span><br><span class="line">&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A; ListNode &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61; ans&#xFF0C;&#x8FD9;&#x6837;&#xFF1A;</span><br><span class="line">ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, &#x4EE5;&#x53CA; ans.next.next.next = NULL.</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x793A;&#x4F8B; 2&#xFF1A;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;&#xFF1A;[1,2,3,4,5,6]</span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;&#x6B64;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x7ED3;&#x70B9; 4 (&#x5E8F;&#x5217;&#x5316;&#x5F62;&#x5F0F;&#xFF1A;[4,5,6])</span><br><span class="line">&#x7531;&#x4E8E;&#x8BE5;&#x5217;&#x8868;&#x6709;&#x4E24;&#x4E2A;&#x4E2D;&#x95F4;&#x7ED3;&#x70B9;&#xFF0C;&#x503C;&#x5206;&#x522B;&#x4E3A; 3 &#x548C; 4&#xFF0C;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x7B2C;&#x4E8C;&#x4E2A;&#x7ED3;&#x70B9;&#x3002;</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x601D;&#x8DEF;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x8BBE;&#x7F6E;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x4E00;&#x6B21;&#x8D70;&#x4E00;&#x6B65;&#xFF0C;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x4E00;&#x6B21;&#x8D70;2&#x6B65;</span><br><span class="line">&#x5F53;&#x94FE;&#x8868;&#x5927;&#x5C0F;&#x4E3A;&#x5947;&#x6570;</span><br><span class="line">-&#x8D70;&#x4E24;&#x6B65;&#x7684;&#x8282;&#x70B9;&#x5230;&#x5C3E;&#x90E8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8D70;&#x4E00;&#x6B65;&#x7684;&#x5230;&#x4E2D;&#x95F4;&#x4F4D;&#x7F6E;</span><br><span class="line">&#x5F53;&#x94FE;&#x8868;&#x5927;&#x5C0F;&#x4E3A;&#x5076;&#x6570;</span><br><span class="line">-&#x8D70;&#x4E24;&#x6B65;&#x7684;&#x8282;&#x70B9;&#x5230;&#x5C3E;&#x90E8;&#x8D70;&#x4E00;&#x6B65;&#x7684;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;&#x4E2D;&#x95F4;&#x8282;&#x70B9;</span><br><span class="line">&#x5F53;&#x94FE;&#x8868;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x65F6;</span><br><span class="line">-&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8BE5;&#x8282;&#x70B9;</span><br><span class="line">&#x5F53;&#x94FE;&#x8868;&#x6709;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x65F6;</span><br><span class="line">-&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x89E3;&#x6CD5;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) {</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		}</span><br><span class="line">		ListNode n1 = head;</span><br><span class="line">		ListNode n2 = head;</span><br><span class="line">		<span class="comment">//&#x5947;&#x6570;&#x7684;&#x65F6;&#x5019;&#x6765;&#x5230;&#x4E2D;&#x70B9;&#xFF0C;&#x5076;&#x6570;&#x7684;&#x65F6;&#x5019;&#x6765;&#x5230;&#x4E2D;&#x70B9;&#x524D;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x7684;&#x4F4D;&#x7F6E;</span></span><br><span class="line">		<span class="keyword">while</span> (n2.next != <span class="keyword">null</span> &amp;&amp; n2.next.next != <span class="keyword">null</span>) { </span><br><span class="line">			n1 = n1.next; <span class="comment">// n1 -&gt; mid</span></span><br><span class="line">			n2 = n2.next.next; <span class="comment">// n2 -&gt; end</span></span><br><span class="line">		}</span><br><span class="line">        <span class="keyword">if</span> (n2.next != <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">return</span> n1.next;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">return</span> n1; </span><br><span class="line">        }</span><br><span class="line">      </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x5C0F;&#x7ED3;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x603B;&#x7ED3;&#x4E0D;&#x6613;&#xFF0C;&#x5207;&#x52FF;&#x6284;&#x88AD;&#xFF0C;&#x5E2E;&#x52A9;&#x4F60;&#x7406;&#x89E3;&#x662F;&#x6700;&#x7EC8;&#x76EE;&#x7684;</span><br></pre></td></tr></table></figure>
-<p> &#x6B22;&#x8FCE;&#x52A0;&#x6211;QQ&#xFF1A;1939765238 &#x4E00;&#x8D77;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;</p>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/LeetCode 876. 链表的中间结点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-输入一个链表，输出该链表中倒数第k个结点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/">输出该链表中倒数第k个结点</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/" class="archive-article-date">
-  	<time datetime="2019-03-03T08:32:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <a id="more"></a>
-<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/88089768" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/88089768</a><br>  <strong>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#xFF0C;&#x8F93;&#x51FA;&#x8BE5;&#x94FE;&#x8868;&#x4E2D;&#x5012;&#x6570;&#x7B2C;k&#x4E2A;&#x7ED3;&#x70B9;&#x3002;</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x8981;&#x6C42;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x65F6;&#x95F4;&#x9650;&#x5236;&#xFF1A;<span class="number">1</span>&#x79D2; &#x7A7A;&#x95F4;&#x9650;&#x5236;&#xFF1A;<span class="number">32768</span>K &#x70ED;&#x5EA6;&#x6307;&#x6570;&#xFF1A;<span class="number">552571</span></span><br><span class="line">&#x672C;&#x9898;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A; &#x94FE;&#x8868;</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x601D;&#x8DEF;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x5C06;&#x94FE;&#x8868;&#x904D;&#x5386;&#x4E00;&#x904D;&#xFF0C;&#x653E;&#x5165;&#x6808;&#x4E2D;&#xFF0C;&#x5728;&#x51FA;&#x6808;&#x7684;&#x65F6;&#x5019;&#xFF0C;k&#x7684;&#x503C;&#x51CF;&#x4E00;</span><br><span class="line">&#x5F53;k&#x5728;&#x51CF;&#x4E3A;<span class="number">0</span>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5373;&#x4E3A;&#x8981;&#x6C42;&#x7684;&#x7B2C;k&#x4E2A;&#x8282;&#x70B9;</span><br><span class="line">&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E0B;&#x51E0;&#x79CD;&#x60C5;&#x51B5;</span><br><span class="line"><span class="number">1</span>.k&#x5927;&#x4E8E;&#x94FE;&#x8868;&#x957F;&#x5EA6;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;<span class="keyword">null</span></span><br><span class="line"><span class="number">2</span>.&#x5934;&#x7ED3;&#x70B9;head&#x4E3A;&#x7A7A;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
-<p> <strong>&#x89E3;&#x6CD5;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class ListNode {</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    ListNode next = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    ListNode(int val) {</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    }</span></span><br><span class="line"><span class="comment">}*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        Stack&lt;ListNode&gt; stack = <span class="keyword">new</span> Stack&lt;ListNode&gt;();</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) {</span><br><span class="line">            stack.push(cur);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        }</span><br><span class="line">       <span class="keyword">if</span>(k == <span class="number">1</span>) {</span><br><span class="line">           <span class="keyword">return</span> stack.pop();</span><br><span class="line">       }</span><br><span class="line">        <span class="keyword">while</span> (k-- &gt; <span class="number">1</span>) {</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) {</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            }</span><br><span class="line">            stack.pop();</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (k &gt;= <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (stack.size() == <span class="number">0</span>) {</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span> stack.pop();</span><br><span class="line">        }<span class="keyword">else</span> {</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        }</span><br><span class="line">       </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">牛客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/03/输入一个链表，输出该链表中倒数第k个结点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -1316,11 +1291,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,10 +1311,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
@@ -1348,11 +1319,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,7 +1335,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1369,10 +1348,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,10 +1367,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计蒜客</a>
               </li>
              
@@ -1404,15 +1375,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">面经</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">practice</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
