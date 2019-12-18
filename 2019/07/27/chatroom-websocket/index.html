@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x8BB2;&amp;#x89E3;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;websocket&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x804A;&amp;#x5929;&amp;#x5BA4;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-07T03:52:16.231Z">
+<meta property="og:updated_time" content="2019-10-22T10:48:25.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chatroom_websocket">
 <meta name="twitter:description" content="&amp;#x9879;&amp;#x76EE;&amp;#x8BB2;&amp;#x89E3;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;websocket&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x804A;&amp;#x5929;&amp;#x5BA4;">
@@ -284,7 +284,7 @@
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">&quot;select * from user where username = &apos; &quot;</span> + username + <span class="string">&quot; &apos; and&quot;</span> + <span class="string">&quot;password = &apos;&quot;</span> + password <span class="string">&quot;&apos;&quot;</span>;</span><br><span class="line">statement = connection.createStatement();</span><br><span class="line">resultSet = statement.executeQuery(sql);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>&#x901A;&#x8FC7;PreparedStatement&#x7528;&#x901A;&#x914D;&#x7B26;&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">&quot;select * from user where username = ? and&quot;</span> + <span class="string">&quot;password = ?&quot;</span>;</span><br><span class="line">statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, userName);</span><br><span class="line">statement.setString(<span class="number">2</span>, DigestUtils.md5Hex(password));</span><br><span class="line">resultSet = statement.executeQuery();</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">connection = getConnection();</span><br><span class="line">String sql = <span class="string">&quot;select * from user where username = ? and&quot;</span> + <span class="string">&quot;password = ?&quot;</span>;</span><br><span class="line">statement = connection.prepareStatement(sql);</span><br><span class="line">statement.setString(<span class="number">1</span>, username);</span><br><span class="line">statement.setString(<span class="number">2</span>, DigestUtils.md5Hex(password));</span><br><span class="line">resultSet = statement.executeQuery();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h4><h5 id="&#x5355;&#x8FB9;&#x901A;&#x4FE1;-http&#x534F;&#x8BAE;"><a href="#&#x5355;&#x8FB9;&#x901A;&#x4FE1;-http&#x534F;&#x8BAE;" class="headerlink" title="&#x5355;&#x8FB9;&#x901A;&#x4FE1; - http&#x534F;&#x8BAE;"></a>&#x5355;&#x8FB9;&#x901A;&#x4FE1; - http&#x534F;&#x8BAE;</h5><ul>
@@ -665,11 +665,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,10 +682,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,11 +721,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
               </li>
              
               <li class="article-tag-list-item">

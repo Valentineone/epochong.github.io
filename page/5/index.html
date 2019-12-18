@@ -160,6 +160,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-继承关系下的getter-setter调用关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/继承关系下的getter-setter调用关系/">继承关系下的getter,setter调用关系.md</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/05/28/继承关系下的getter-setter调用关系/" class="archive-article-date">
+  	<time datetime="2019-05-28T08:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>&#x5148;&#x770B;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x5224;&#x65AD;&#x8F93;&#x51FA;</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/28 16:22</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        System.out.print(<span class="keyword">new</span> B().getValue());</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> v)</span> </span>{</span><br><span class="line">            setValue(v);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>{</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>{</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                value++;</span><br><span class="line">                <span class="keyword">return</span> value;</span><br><span class="line">            } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">                System.out.println(e.toString());</span><br><span class="line">            } <span class="keyword">finally</span> {</span><br><span class="line">                <span class="keyword">this</span>.setValue(value);</span><br><span class="line">                System.out.print(value + <span class="string">&quot; &quot;</span>);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>{</span><br><span class="line">            <span class="keyword">super</span>(<span class="number">5</span>);</span><br><span class="line">            setValue(getValue() - <span class="number">3</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>{</span><br><span class="line">            <span class="keyword">super</span>.setValue(value * <span class="number">2</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h6 id="&#x8F93;&#x51FA;"><a href="#&#x8F93;&#x51FA;" class="headerlink" title="&#x8F93;&#x51FA;"></a>&#x8F93;&#x51FA;</h6><blockquote>
+<p>22 34 17</p>
+</blockquote>
+<h6 id="&#x8C03;&#x7528;&#x5173;&#x7CFB;"><a href="#&#x8C03;&#x7528;&#x5173;&#x7CFB;" class="headerlink" title="&#x8C03;&#x7528;&#x5173;&#x7CFB;"></a>&#x8C03;&#x7528;&#x5173;&#x7CFB;</h6><p>&#x53EA;&#x8981;&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;</p>
+<ol>
+<li>&#x7236;&#x7C7B;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x4E2D;&#x88AB;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x65F6;,&#x9996;&#x5148;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x540E;&#x7684;&#x65B9;&#x6CD5;,&#x7136;&#x540E;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x8BE5;&#x65B9;&#x6CD5;</li>
+<li>try-catch-finally&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;try&#x4E2D;&#x542B;&#x6709;return&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x6267;&#x884C;return&#x8BED;&#x53E5;&#x524D;&#xFF08;return value&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x6CA1;&#x6267;&#x884C;finally&#x4E4B;&#x524D;&#x7684;&#x503C;&#xFF09;&#x5982;&#x679C;&#x6CA1;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x5148;&#x6267;&#x884C;finally&#xFF0C;&#x7136;&#x540E;&#x76F4;&#x63A5;&#x6267;&#x884C;return&#x8BED;&#x53E5;&#xFF0C;&#x4E0D;&#x6267;&#x884C;finally&#x4E4B;&#x540E;&#x7684;return&#x8BED;&#x53E5;&#x3002;&#x6709;&#x5F02;&#x5E38;&#xFF0C;&#x5148;&#x6267;&#x884C;catch&#x5757;&#xFF0C;&#x518D;&#x6267;&#x884C;finally&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;finally&#x4E4B;&#x540E;&#x7684;return&#x8BED;&#x53E5;&#x3002;</li>
+</ol>
+<h5 id="&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;"><a href="#&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;" class="headerlink" title="&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;"></a>&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;</h5>
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/28/继承关系下的getter-setter调用关系/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1650,108 +1740,9 @@
 
 
   
-    <article id="post-计蒜客 栈 网页跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/计蒜客 栈 网页跳转/">网页跳转</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/05/03/计蒜客 栈 网页跳转/" class="archive-article-date">
-  	<time datetime="2019-05-03T09:00:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <a id="more"></a>
-<p> &#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;wangchong <a href="https://blog.csdn.net/wfcn_zyq/article/details/89789223" target="_blank" rel="noopener">https://blog.csdn.net/wfcn_zyq/article/details/89789223</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x65F6;&#x95F4;&#x9650;&#x5236;1000ms   &#x7A7A;&#x95F4;&#x9650;&#x5236;131072K</span><br></pre></td></tr></table></figure></p>
-<p> &#x849C;&#x5934;&#x541B;&#x6BCF;&#x5929;&#x90FD;&#x5728;&#x7528;&#x4E00;&#x6B3E;&#x540D;&#x4E3A; &#x201C;&#x849C;&#x5382;&#x6D4F;&#x89C8;&#x5668;&#x201D; &#x7684;&#x8F6F;&#x4EF6;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#xFF0C;&#x4E00;&#x5171;&#x4E09;&#x79CD;&#x64CD;&#x4F5C;&#xFF1A;&#x6253;&#x5F00;&#x9875;&#x9762;&#x3001;&#x56DE;&#x9000;&#x548C;&#x524D;&#x8FDB;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x529F;&#x80FD;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p> &#x6253;&#x5F00;&#x9875;&#x9762;&#xFF1A;&#x5728;&#x5730;&#x5740;&#x680F;&#x4E2D;&#x8F93;&#x5165;&#x7F51;&#x5740;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x7F51;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x9875;&#x9762;&#xFF1B;<br> &#x56DE;&#x9000;&#xFF1A;&#x8FD4;&#x56DE;&#x5230;&#x4E0A;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x7684;&#x9875;&#x9762;&#xFF1B;<br> &#x524D;&#x8FDB;&#xFF1A;&#x8FD4;&#x56DE;&#x5230;&#x4E0A;&#x6B21;&#x56DE;&#x9000;&#x524D;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#x662F;&#x6253;&#x5F00;&#x9875;&#x9762;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x65E0;&#x6CD5;&#x524D;&#x8FDB;&#x3002;<br> &#x73B0;&#x5728;&#xFF0C;&#x849C;&#x5934;&#x541B;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8F93;&#x51FA;&#x4ED6;&#x6BCF;&#x6B21;&#x64CD;&#x4F5C;&#x540E;&#x6240;&#x5728;&#x9875;&#x9762;&#x7684;&#x7F51;&#x5740;&#x3002;</p>
-<p> <strong>&#x8F93;&#x5165;&#x683C;&#x5F0F;</strong><br> &#x7B2C;&#x4E00;&#x884C;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6574;&#x6570; n(0 &lt; n \le 100000)n(0&lt;n&#x2264;100000)&#xFF0C;&#x8868;&#x793A;&#x849C;&#x5934;&#x541B;&#x7684;&#x64CD;&#x4F5C;&#x6B21;&#x6570;&#x3002;</p>
-<p> &#x63A5;&#x4E0B;&#x6765;&#x4E00;&#x5171; nn &#x884C;&#xFF0C;&#x6BCF;&#x884C;&#x9996;&#x5148;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;&#x662F; VISIT&#xFF0C;&#x540E;&#x9762;&#x63A5;&#x7740;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x4E0D;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x548C;&#x6362;&#x884C;&#x7684;&#x7F51;&#x5740;&#xFF08;&#x7F51;&#x5740;&#x957F;&#x5EA6;&#x5C0F;&#x4E8E; 100100&#xFF09;&#xFF0C;&#x8868;&#x793A;&#x849C;&#x5934;&#x541B;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x4E2D;&#x8F93;&#x5165;&#x7684;&#x7F51;&#x5740;&#xFF1B;&#x5982;&#x679C;&#x662F; BACK&#xFF0C;&#x8868;&#x793A;&#x849C;&#x5934;&#x541B;&#x70B9;&#x51FB;&#x4E86;&#x56DE;&#x9000;&#x6309;&#x94AE;&#xFF1B;&#x5982;&#x679C;&#x662F; FORWARD&#xFF0C;&#x8868;&#x793A;&#x849C;&#x5934;&#x541B;&#x70B9;&#x51FB;&#x4E86;&#x524D;&#x8FDB;&#x6309;&#x94AE;&#x3002;</p>
-<p> <strong>&#x8F93;&#x51FA;&#x683C;&#x5F0F;</strong><br> &#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x849C;&#x5934;&#x541B;&#x80FD;&#x64CD;&#x4F5C;&#x6210;&#x529F;&#xFF0C;&#x8F93;&#x51FA;&#x849C;&#x5934;&#x541B;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x7684;&#x7F51;&#x5740;&#xFF0C;&#x5426;&#x5219;&#x8F93;&#x51FA; Ignore&#x3002;&#x5047;&#x8BBE;&#x849C;&#x5934;&#x541B;&#x8F93;&#x5165;&#x7684;&#x6240;&#x6709;&#x7F51;&#x5740;&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x3002;</p>
-<p> <strong>&#x6837;&#x4F8B;&#x8F93;&#x5165;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">VISIT https://www.jisuanke.com/course/476</span><br><span class="line">VISIT https://www.taobao.com/</span><br><span class="line">BACK</span><br><span class="line">BACK</span><br><span class="line">FORWARD</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br><span class="line">VISIT https://www.jisuanke.com/course/429</span><br><span class="line">FORWARD</span><br><span class="line">BACK</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x6837;&#x4F8B;&#x8F93;&#x51FA;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">Ignore</span><br><span class="line">https://www.taobao.com/</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br><span class="line">https://www.jisuanke.com/course/429</span><br><span class="line">Ignore</span><br><span class="line">https://www.jisuanke.com/course/476</span><br></pre></td></tr></table></figure>
-<p> <strong>&#x5B9E;&#x73B0;</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">package www.jisuanke.ds;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author wangchong</span><br><span class="line"> * @date 2019/5/3 16:23</span><br><span class="line"> * @email 876459397@qq.com</span><br><span class="line"> * @CSDN https://blog.csdn.net/wfcn_zyq</span><br><span class="line"> * @describe</span><br><span class="line"> */</span><br><span class="line">public class Code_08_WebStack {</span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        int n = input.nextInt();</span><br><span class="line">        Stack&lt;String&gt; stack = new Stack&lt;&gt;();</span><br><span class="line">        Stack&lt;String&gt; back = new Stack&lt;&gt;();</span><br><span class="line">        ArrayList&lt;String&gt; arrayList = new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i = 0; i &lt; n; i++) {</span><br><span class="line">            String str = input.next();</span><br><span class="line">            if (str.equals(&quot;VISIT&quot;)) {</span><br><span class="line">                String url = input.next();</span><br><span class="line">                stack.push(url);</span><br><span class="line">                arrayList.add(url);</span><br><span class="line">                back.removeAllElements();</span><br><span class="line">            } else if (str.equals(&quot;BACK&quot;)) {</span><br><span class="line">                if (stack.size() &lt;= 1) {</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                } else {</span><br><span class="line">                    back.push(stack.pop());</span><br><span class="line">                    arrayList.add(stack.peek());</span><br><span class="line">                }</span><br><span class="line">            } else if (str.equals(&quot;FORWARD&quot;)) {</span><br><span class="line">                if (back.isEmpty()) {</span><br><span class="line">                    arrayList.add(&quot;Ignore&quot;);</span><br><span class="line">                } else {</span><br><span class="line">                    String backUrl = back.pop();</span><br><span class="line">                    stack.push(backUrl);</span><br><span class="line">                    arrayList.add(backUrl);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        for (String s : arrayList</span><br><span class="line">             ) {</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">计蒜客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/03/计蒜客 栈 网页跳转/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -1922,11 +1913,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1935,10 +1930,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1978,11 +1969,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
               </li>
              
               <li class="article-tag-list-item">

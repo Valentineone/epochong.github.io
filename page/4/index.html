@@ -160,6 +160,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Integer类对象池以、Integer-int比较问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/08/Integer类对象池以、Integer-int比较问题/">Integer类对象池以、Integer-int比较问题</a>
+    </h1>
+  
+
+        
+        <!--添加不蒜子内容-开始-->
+
+<!--不蒜子内容结束-->
+
+<a href="/2019/06/08/Integer类对象池以、Integer-int比较问题/" class="archive-article-date">
+  	<time datetime="2019-06-08T14:04:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+      
+        <h5 id="&#x95EE;&#x9898;&#x4EA7;&#x751F;"><a href="#&#x95EE;&#x9898;&#x4EA7;&#x751F;" class="headerlink" title="&#x95EE;&#x9898;&#x4EA7;&#x751F;"></a>&#x95EE;&#x9898;&#x4EA7;&#x751F;</h5><ul>
+<li>&#x89C2;&#x5BDF;&#x4E0B;&#x9762;&#x7A0B;&#x5E8F;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Integer a = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);</span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);</span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p align="left"><font face="&#x6977;&#x4F53;" color="#FF8247" size="5">&#x4E3A;&#x4F55;&#x4ED6;&#x4EEC;&#x7684;&#x503C;&#x5982;&#x4E0A;&#x8FF0;&#x6240;&#x793A;&#x5462;&#xFF1F;</font></p>
+
+<h5 id="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;"><a href="#&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;" class="headerlink" title="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;"></a>&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;java&#x4E2D;Integer&#x7684;&#x5BF9;&#x8C61;&#x6C60;&#x5C31;&#x4F1A;&#x604D;&#x7136;&#x5927;&#x609F;</h5><ul>
+<li>java &#x5728;&#x7F16;&#x8BD1;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x628A; <code>integer a = 1</code>&#x3001; <code>integer d = new integer (1)</code>&#x7FFB;&#x8BD1;&#x6210; <code>integer x = integer.valueof (1)</code>&#x6240;&#x4EE5;&#x5173;&#x952E;&#x5728;&#x4E8E; <code>valueof ()</code> &#x51FD;&#x6570;</li>
+</ul>
+<ol>
+<li><code>valueof()</code>&#x6E90;&#x7801;</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>IntegerCache</code>(&#x7F13;&#x5B58;&#x6C60;&#x6570;&#x7EC4;)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> {</span><br><span class="line">        <span class="comment">// high value may be configured by property</span></span><br><span class="line">        <span class="keyword">int</span> h = <span class="number">127</span>;</span><br><span class="line">        String integerCacheHighPropValue =</span><br><span class="line">            sun.misc.VM.getSavedProperty(<span class="string">&quot;java.lang.Integer.IntegerCache.high&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) {</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</span><br><span class="line">                i = Math.max(i, <span class="number">127</span>);</span><br><span class="line">                <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></span><br><span class="line">                h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</span><br><span class="line">            } <span class="keyword">catch</span>( NumberFormatException nfe) {</span><br><span class="line">                <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        high = h;</span><br><span class="line"></span><br><span class="line">        cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> j = low;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</span><br><span class="line">            cache[k] = <span class="keyword">new</span> Integer(j++);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></span><br><span class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>{}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x5BF9;&#x8C61;&#x6C60;&#x539F;&#x7406;</li>
+</ul>
+<p aling="left"><font face="&#x6977;&#x4F53;" color="#0000CD" size="4">&#x770B;&#x5230;&#x4E0A;&#x65B9;cache&#x7F13;&#x5B58;&#x6570;&#x7EC4;&#xFF0C;&#x5728;static&#x9759;&#x6001;&#x5757;&#x4E2D;&#xFF0C;&#x800C;Integer&#x7C7B;&#x53C8;&#x5728;java.lang&#x5305;&#xFF08;jdk&#x76EE;&#x5F55;&#x4E2D;&#xFF09;&#x4E0B;&#xFF0C;&#x5728;java&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x52A0;&#x8F7D;&#x4E86;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x9759;&#x6001;&#x5757;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x5728;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#xFF0C;&#x4ECE;&#x547D;&#x540D;&#x53EF;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x662F;&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#x6570;&#x7EC4;&#xFF0C;&#x4FDD;&#x5B58;&#x7740;&#x4ECE;[-128,127]&#x7684;Integer&#x5BF9;&#x8C61;&#x3002;</font></p>
+
+<ul>
+<li>&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x8FC7;&#x7A0B;</li>
+</ul>
+<p aling="left"><font face="&#x6977;&#x4F53;" color="red" size="4">&#x53EA;&#x8981; Integer &#x5BF9;&#x8C61;&#x7684;&#x503C;&#x5728; [-128,127] &#x8303;&#x56F4;&#x5185;&#xFF0C;&#x90FD;&#x662F;&#x4ECE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x53D6;(&#x540C;&#x4E00;&#x5BF9;&#x8C61;)&#x3002;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x662F;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#x7684; Integer &#x5BF9;&#x8C61;&#xFF0C;&#x53EA;&#x8981;&#x503C;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x90A3;&#x4E48; == &#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5C31;&#x662F; true&#x3002;&#x8D85;&#x8FC7;&#x4E86;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#xFF0C;&#x5219;&#x4F1A; new &#x65B0;&#x7684; Integer &#x5BF9;&#x8C61;&#xFF0C;&#x5C3D;&#x7BA1;&#x503C;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x5DF2;&#x7ECF;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x4E86;&#x3002;</font></p>
+
+<ul>
+<li><strong>&#x8FD9;&#x4E0B;&#x5728;&#x6765;&#x770B;&#x6700;&#x5F00;&#x59CB;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x4E86;</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerAndInt</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Integer a = <span class="number">1</span>;<span class="comment">//&#x5728;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x83B7;&#x53D6;</span></span><br><span class="line">        <span class="keyword">int</span> b = <span class="number">1</span>;<span class="comment">//&#x5B9A;&#x4E49;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;</span></span><br><span class="line">        Integer c = Integer.valueOf(<span class="number">1</span>);<span class="comment">//&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x83B7;&#x53D6;</span></span><br><span class="line">        Integer d = <span class="keyword">new</span> Integer(<span class="number">1</span>);<span class="comment">//&#x65B0;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">        System.out.println(a == b);<span class="comment">//true</span></span><br><span class="line">        System.out.println(a == c);<span class="comment">//true</span></span><br><span class="line">        System.out.println(c == d);<span class="comment">//false</span></span><br><span class="line">        System.out.println(b == d);<span class="comment">//true</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>a==b</code>&#xFF0C;<code>b==d</code>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;<code>true</code>&#xFF0C;&#x56E0;&#x4E3A; <code>Integer</code> &#x548C; <code>int</code> &#x6BD4;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x62C6;&#x7BB1;&#xFF08;jdk1.5 &#x4EE5;&#x4E0A;&#xFF09; </li>
+<li><code>a==c</code>&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>true</code>,&#x56E0;&#x4E3A;a,c&#x4E3A;&#x5BF9;&#x8C61;&#x6C60;&#x4E2D;&#x7684;&#x76F8;&#x540C;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;a,c&#x4E0D;&#x5728;[-128,127]&#x4E2D;&#xFF0C;&#x7ED3;&#x679C;&#x5219;&#x4E3A;false&#xFF0C;&#x56E0;&#x4E3A;&#x4ECE;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4F1A;&#x65B0;<code>new</code>&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;  </li>
+<li><code>c==d</code> &#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>false</code>&#xFF0C;&#x548C; <code>String</code> &#x4E00;&#x6837;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A; <code>false</code>.</li>
+</ol>
+
+      
+
+      
+    </div>      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/08/Integer类对象池以、Integer-int比较问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-懒汉、饿汉单例模式-完整的懒汉单例模式实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1128,99 +1242,9 @@
 
 
   
-    <article id="post-继承关系下的getter-setter调用关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/28/继承关系下的getter-setter调用关系/">继承关系下的getter,setter调用关系.md</a>
-    </h1>
-  
-
-        
-        <!--添加不蒜子内容-开始-->
-
-<!--不蒜子内容结束-->
-
-<a href="/2019/05/28/继承关系下的getter-setter调用关系/" class="archive-article-date">
-  	<time datetime="2019-05-28T08:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-      
-        <blockquote>
-<p>&#x5148;&#x770B;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x5224;&#x65AD;&#x8F93;&#x51FA;</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangchong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/5/28 16:22</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 876459397@qq.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CSDN</span> https://blog.csdn.net/wfcn_zyq</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@describe</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        System.out.print(<span class="keyword">new</span> B().getValue());</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>{</span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> v)</span> </span>{</span><br><span class="line">            setValue(v);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>{</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>{</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                value++;</span><br><span class="line">                <span class="keyword">return</span> value;</span><br><span class="line">            } <span class="keyword">catch</span> (Exception e) {</span><br><span class="line">                System.out.println(e.toString());</span><br><span class="line">            } <span class="keyword">finally</span> {</span><br><span class="line">                <span class="keyword">this</span>.setValue(value);</span><br><span class="line">                System.out.print(value + <span class="string">&quot; &quot;</span>);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">()</span> </span>{</span><br><span class="line">            <span class="keyword">super</span>(<span class="number">5</span>);</span><br><span class="line">            setValue(getValue() - <span class="number">3</span>);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>{</span><br><span class="line">            <span class="keyword">super</span>.setValue(value * <span class="number">2</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h6 id="&#x8F93;&#x51FA;"><a href="#&#x8F93;&#x51FA;" class="headerlink" title="&#x8F93;&#x51FA;"></a>&#x8F93;&#x51FA;</h6><blockquote>
-<p>22 34 17</p>
-</blockquote>
-<h6 id="&#x8C03;&#x7528;&#x5173;&#x7CFB;"><a href="#&#x8C03;&#x7528;&#x5173;&#x7CFB;" class="headerlink" title="&#x8C03;&#x7528;&#x5173;&#x7CFB;"></a>&#x8C03;&#x7528;&#x5173;&#x7CFB;</h6><p>&#x53EA;&#x8981;&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;</p>
-<ol>
-<li>&#x7236;&#x7C7B;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x4E2D;&#x88AB;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x65F6;,&#x9996;&#x5148;&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x540E;&#x7684;&#x65B9;&#x6CD5;,&#x7136;&#x540E;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x8BE5;&#x65B9;&#x6CD5;</li>
-<li>try-catch-finally&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;try&#x4E2D;&#x542B;&#x6709;return&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x6267;&#x884C;return&#x8BED;&#x53E5;&#x524D;&#xFF08;return value&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x6CA1;&#x6267;&#x884C;finally&#x4E4B;&#x524D;&#x7684;&#x503C;&#xFF09;&#x5982;&#x679C;&#x6CA1;&#x4EA7;&#x751F;&#x5F02;&#x5E38;&#xFF0C;&#x5148;&#x6267;&#x884C;finally&#xFF0C;&#x7136;&#x540E;&#x76F4;&#x63A5;&#x6267;&#x884C;return&#x8BED;&#x53E5;&#xFF0C;&#x4E0D;&#x6267;&#x884C;finally&#x4E4B;&#x540E;&#x7684;return&#x8BED;&#x53E5;&#x3002;&#x6709;&#x5F02;&#x5E38;&#xFF0C;&#x5148;&#x6267;&#x884C;catch&#x5757;&#xFF0C;&#x518D;&#x6267;&#x884C;finally&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;finally&#x4E4B;&#x540E;&#x7684;return&#x8BED;&#x53E5;&#x3002;</li>
-</ol>
-<h5 id="&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;"><a href="#&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;" class="headerlink" title="&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;"></a>&#x5373;&#x53EF;&#x5F97;&#x51FA;&#x7B54;&#x6848;</h5>
-      
-
-      
-    </div>      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/28/继承关系下的getter-setter调用关系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -1391,11 +1415,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1404,10 +1432,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1447,11 +1471,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
               </li>
              
               <li class="article-tag-list-item">

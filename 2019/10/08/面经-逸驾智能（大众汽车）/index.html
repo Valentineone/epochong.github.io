@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="epochong">
 <meta property="og:description" content="1. C/C++/Java&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x7279;&amp;#x70B9;&amp;#x548C;&amp;#x533A;&amp;#x522B;&amp;#xFF1F; C++ &amp;#x548C; C &amp;#x7684;&amp;#x533A;&amp;#x522B; C &amp;#x662F;&amp;#x9762;&amp;#x5411;&amp;#x8FC7;&amp;#x7A0B;&amp;#x7684;&amp;#x8BED;&amp;#x8A00;&amp;#xFF0C;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-14T15:48:57.280Z">
+<meta property="og:updated_time" content="2019-10-22T10:26:13.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面经-逸驾智能（大众汽车）">
 <meta name="twitter:description" content="1. C/C++/Java&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x7279;&amp;#x70B9;&amp;#x548C;&amp;#x533A;&amp;#x522B;&amp;#xFF1F; C++ &amp;#x548C; C &amp;#x7684;&amp;#x533A;&amp;#x522B; C &amp;#x662F;&amp;#x9762;&amp;#x5411;&amp;#x8FC7;&amp;#x7A0B;&amp;#x7684;&amp;#x8BED;&amp;#x8A00;&amp;#xFF0C;">
@@ -227,12 +227,13 @@
 <h4 id="3-Hashtable&#x548C;ConcurrentHashMap&#x533A;&#x522B;"><a href="#3-Hashtable&#x548C;ConcurrentHashMap&#x533A;&#x522B;" class="headerlink" title="3. Hashtable&#x548C;ConcurrentHashMap&#x533A;&#x522B;"></a>3. Hashtable&#x548C;ConcurrentHashMap&#x533A;&#x522B;</h4><ul>
 <li><p>ConcurrentHashMap</p>
 <ul>
-<li>&#x5E95;&#x5C42;&#x91C7;&#x7528;&#x5206;&#x6BB5;&#x7684;&#x6570;&#x7EC4; + &#x94FE;&#x8868;&#x5B9E;&#x73B0;&#xFF0C;&#x628A;&#x6574;&#x4E2A; Map &#x5206;&#x4E3A; N &#x4E2A; Segment&#xFF0C;&#x7ED9;&#x6BCF;&#x4E00;&#x6BB5;&#x6570;&#x636E;&#x914D;&#x4E00;&#x628A;&#x9501;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5360;&#x7528;&#x9501;&#x8BBF;&#x95EE;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6BB5;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x4ED6;&#x6BB5;&#x7684;&#x6570;&#x636E;&#x4E5F;&#x80FD;&#x88AB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x65B9;&#x8BBF;&#x95EE;&#xFF0C;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</li>
+<li>&#x5E95;&#x5C42;&#x91C7;&#x7528;&#x5206;&#x6BB5;&#x7684;&#x6570;&#x7EC4; + &#x94FE;&#x8868;&#x5B9E;&#x73B0;&#xFF0C;&#x628A;&#x6574;&#x4E2A; Map &#x5206;&#x4E3A; N &#x4E2A; Segment&#xFF0C;&#x7ED9;&#x6BCF;&#x4E00;&#x6BB5;&#x6570;&#x636E;&#x914D;&#x4E00;&#x628A;&#x9501;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5360;&#x7528;&#x9501;&#x8BBF;&#x95EE;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6BB5;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x4ED6;&#x6BB5;&#x7684;&#x6570;&#x636E;&#x4E5F;&#x80FD;&#x88AB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#xFF0C;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</li>
 <li>&#x8BFB;&#x64CD;&#x4F5C;&#x53EA;&#x9700;&#x8981;&#x8BFB;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x52A0;&#x9501;&#xFF0C;HashEntry &#x7684; value &#x548C; count &#x53D8;&#x91CF;&#x662F; volatile &#x7684;&#xFF0C;&#x4E5F;&#x80FD;&#x4FDD;&#x8BC1;&#x8BFB;&#x53D6;&#x5230;&#x6700;&#x65B0;&#x7684;&#x503C;&#xFF08;happen before&#x539F;&#x5219;&#xFF1A;&#x5BF9;volatile&#x5B57;&#x6BB5;&#x7684;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x5148;&#x4E8E;&#x8BFB;&#x64CD;&#x4F5C;&#xFF0C;&#x5373;&#x4F7F;&#x8FDE;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x4FEE;&#x6539;&#x548C;&#x83B7;&#x53D6;volatile&#x53D8;&#x91CF;&#xFF0C;get&#x64CD;&#x4F5C;&#x4E5F;&#x80FD;&#x62FF;&#x5230;&#x6700;&#x65B0;&#x7684;&#x503C; - volatile&#x66FF;&#x6362;&#x9501;&#x7684;&#x7ECF;&#x5178;&#x573A;&#x666F;&#xFF09;&#x3002;</li>
+<li>&#x521D;&#x59CB;&#x5316;&#x957F;&#x5EA6;&#x4E3A;16&#x4E2A;&#x6BB5;&#xFF0C;&#x6BCF;&#x4E2A;&#x6BB5;&#x7684;HashEntry&#x5927;&#x5C0F;&#x662F;1</li>
 </ul>
 </li>
 <li>HashTable<ul>
-<li>&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;</li>
+<li>&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#xFF0C;&#x9ED8;&#x8BA4;&#x521D;&#x59CB;&#x5316;&#x957F;&#x5EA6;&#x4E3A;11</li>
 <li>&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x9488;&#x5BF9;&#x6574;&#x4E2A;Hash &#x8868;&#x7684;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;&#x9501;&#x4F4F;&#x6574;&#x5F20;&#x8868;&#x8BA9;&#x7EBF;&#x7A0B;&#x72EC;&#x5360;&#xFF0C;&#x8BFB;&#x5199;&#x90FD;&#x4E92;&#x65A5;&#xFF0C;&#x6548;&#x7387;&#x4F4E;&#x3002;</li>
 </ul>
 </li>
@@ -658,11 +659,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,10 +676,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +715,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
               </li>
              
               <li class="article-tag-list-item">
